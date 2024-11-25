@@ -16,5 +16,10 @@ namespace Đồ_án_cuối_kì_Desktop
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = "GGGG";
+        }
     }
 }
