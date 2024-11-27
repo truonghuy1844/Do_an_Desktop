@@ -16,5 +16,10 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
+
+        private void QLNV_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
