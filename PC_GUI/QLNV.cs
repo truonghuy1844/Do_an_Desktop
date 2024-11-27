@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PC_GUI
 {
-    public partial class Form1 : Form
+    public partial class QLNV : Form
     {
-        public Form1()
+        public QLNV()
         {
             InitializeComponent();
         }
