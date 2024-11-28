@@ -10,22 +10,11 @@ using System.Windows.Forms;
 
 namespace PC_GUI
 {
-    public partial class QLNV : Form
+    public partial class AddKho : Form
     {
-        public QLNV()
+        public AddKho()
         {
             InitializeComponent();
-        }
-
-        private void QLNV_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnThemNV_Click(object sender, EventArgs e)
-        {
-            AddNV addNV = new AddNV();
-            addNV.Show();
         }
     }
 }
