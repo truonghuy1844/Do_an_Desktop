@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnThemNV = new System.Windows.Forms.Button();
+            this.btnThemKho = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -51,17 +51,18 @@
             this.dataGridView1.Size = new System.Drawing.Size(706, 365);
             this.dataGridView1.TabIndex = 30;
             // 
-            // btnThemNV
+            // btnThemKho
             // 
-            this.btnThemNV.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnThemNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemNV.ForeColor = System.Drawing.Color.White;
-            this.btnThemNV.Location = new System.Drawing.Point(65, 187);
-            this.btnThemNV.Name = "btnThemNV";
-            this.btnThemNV.Size = new System.Drawing.Size(706, 42);
-            this.btnThemNV.TabIndex = 29;
-            this.btnThemNV.Text = "+ Thêm kho hàng mới";
-            this.btnThemNV.UseVisualStyleBackColor = false;
+            this.btnThemKho.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnThemKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemKho.ForeColor = System.Drawing.Color.White;
+            this.btnThemKho.Location = new System.Drawing.Point(65, 187);
+            this.btnThemKho.Name = "btnThemKho";
+            this.btnThemKho.Size = new System.Drawing.Size(706, 42);
+            this.btnThemKho.TabIndex = 29;
+            this.btnThemKho.Text = "+ Thêm kho hàng mới";
+            this.btnThemKho.UseVisualStyleBackColor = false;
+            this.btnThemKho.Click += new System.EventHandler(this.btnThemKho_Click);
             // 
             // groupBox1
             // 
@@ -88,25 +89,25 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(141, 64);
+            this.comboBox1.Location = new System.Drawing.Point(157, 64);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(386, 24);
+            this.comboBox1.Size = new System.Drawing.Size(370, 24);
             this.comboBox1.TabIndex = 23;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(547, 18);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 40);
+            this.button1.Size = new System.Drawing.Size(153, 41);
             this.button1.TabIndex = 22;
             this.button1.Text = "Tra cứu theo mã kho";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 24);
+            this.textBox1.Location = new System.Drawing.Point(157, 24);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(386, 22);
+            this.textBox1.Size = new System.Drawing.Size(370, 22);
             this.textBox1.TabIndex = 21;
             // 
             // label2
@@ -134,7 +135,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(837, 616);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnThemNV);
+            this.Controls.Add(this.btnThemKho);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "QLKho";
@@ -150,7 +151,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnThemNV;
+        private System.Windows.Forms.Button btnThemKho;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;

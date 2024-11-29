@@ -16,5 +16,12 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
+
+        private void btnThemKho_Click(object sender, EventArgs e)
+        {
+            AddKho addKho = new AddKho();
+            addKho.Show();
+            
+        }
     }
 }
