@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +81,18 @@
     <Compile Include="QLNV.Designer.cs">
       <DependentUpon>QLNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="SuaKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuaKho.Designer.cs">
+      <DependentUpon>SuaKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuaNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuaNV.Designer.cs">
+      <DependentUpon>SuaNV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddKho.resx">
       <DependentUpon>AddKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +114,13 @@
     <EmbeddedResource Include="QLNV.resx">
       <DependentUpon>QLNV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SuaKho.resx">
+      <DependentUpon>SuaKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuaNV.resx">
+      <DependentUpon>SuaNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,10 +139,17 @@
       <Project>{2d765e26-b02b-4910-97c6-7cebadf60441}</Project>
       <Name>PC_BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PC_DAL\PC_DAL.csproj">
+      <Project>{E30D283E-E4D5-4BA8-AB7B-4BCDA0E00497}</Project>
+      <Name>PC_DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PC_DTO\PC_DTO.csproj">
       <Project>{a1aee8a6-7605-43b0-be8b-27dcf33b7d75}</Project>
       <Name>PC_DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

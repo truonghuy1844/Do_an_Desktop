@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PC_DTO;
+using PC_BLL;
 
 namespace PC_GUI
 {
@@ -17,9 +19,10 @@ namespace PC_GUI
             InitializeComponent();
         }
 
+        BLLNV bLLNV = new BLLNV();
         private void QLNV_Load(object sender, EventArgs e)
         {
-
+            dataGridViewDSNV.DataSource = bLLNV.LoadNVBlL();
         }
 
         private void btnThemNV_Click(object sender, EventArgs e)
