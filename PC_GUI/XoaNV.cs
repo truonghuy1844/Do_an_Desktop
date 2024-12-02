@@ -1,5 +1,4 @@
-﻿using PC_BLL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PC_DTO;
-using PC_DAL;
+using PC_BLL;
 
 namespace PC_GUI
 {
-    public partial class SuaNV : Form
+    public partial class XoaNV : Form
     {
-        public SuaNV()
+        public XoaNV()
         {
             InitializeComponent();
         }
 
-        private void SuaNV_Load(object sender, EventArgs e)
+        private void XoaNV_Load(object sender, EventArgs e)
         {
             LoadComboBox();
             txtMaNV.Enabled = false;
@@ -31,7 +30,7 @@ namespace PC_GUI
             radioButtonNu.Enabled = false;
             comboBoxChucVu.Enabled = false;
             comboBoxPhongBan.Enabled = false;
-            btnLuu.Enabled = false; 
+            btnXoa.Enabled = false;
         }
         BLLNV bLLNV = new BLLNV();
         private void LoadComboBox()
@@ -46,7 +45,6 @@ namespace PC_GUI
             comboBoxPhongBan.ValueMember = "PhongBan";
             comboBoxPhongBan.SelectedIndex = -1;
         }
-        
 
         private void btnTim_Click(object sender, EventArgs e)
         {
@@ -56,7 +54,7 @@ namespace PC_GUI
             if (txtMaNV.Text == string.Empty)
             {
                 MessageBox.Show("Vui lòng nhập mã nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }    
+            }
             else if (listNV != null && listNV.Count > 0)
             {
                 var nv = listNV.First();
@@ -76,14 +74,7 @@ namespace PC_GUI
                 }
                 comboBoxChucVu.SelectedValue = nv.ChucVu;
                 comboBoxPhongBan.SelectedValue = nv.PhongBan;
-                txtTenNV.Enabled = true;
-                txtDiaChi.Enabled = true;
-                txtSDT.Enabled = true;
-                radioButtonNam.Enabled = true;
-                radioButtonNu.Enabled = true;
-                comboBoxChucVu.Enabled = true;
-                comboBoxPhongBan.Enabled = true;
-                btnLuu.Enabled = true;
+                btnXoa.Enabled = true;
             }
             else
             {
@@ -106,46 +97,20 @@ namespace PC_GUI
             }
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void btnXoa_Click(object sender, EventArgs e)
         {
-            try
+            DTONV xoaNV = new DTONV
             {
-                bool okChange = true;
-                if (txtTenNV.Text.Length == 0)
-                {
-                    okChange = false;
-                    MessageBox.Show("Tên nhân viên không được để trống!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                    txtTenNV.Focus();
-                }
-                if (txtSDT.Text.Length == 0)
-                {
-                    okChange = false;
-                    MessageBox.Show("Số điện thoại của nhân viên không được để trống!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                    txtSDT.Focus();
-                }
-                if (okChange)
-                {
-                    DTONV suaNV = new DTONV
-                    {
-                        MaNV = txtMaNV.Text,
-                        TenNV = txtTenNV.Text,
-                        SDT = txtSDT.Text,
-                        DiaChi = txtDiaChi.Text,
-                        GioiTinh = radioButtonNam.Checked ? true : false,
-                        ChucVu = comboBoxChucVu.SelectedValue.ToString(),
-                        PhongBan = comboBoxPhongBan.SelectedValue.ToString()
-                    };
-                    bLLNV.SuaNV(suaNV);
-
-                    MessageBox.Show("Sửa thông tin của nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Có lỗi trong lúc sửa thông tin nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                MaNV = txtMaNV.Text,
+                TenNV = txtTenNV.Text,
+                SDT = txtSDT.Text,
+                DiaChi = txtDiaChi.Text,
+                GioiTinh = radioButtonNam.Checked ? true : false,
+                ChucVu = comboBoxChucVu.SelectedValue.ToString(),
+                PhongBan = comboBoxPhongBan.SelectedValue.ToString()
+            };
+            bLLNV.XoaNV(xoaNV);
+            MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
         }
     }
 }
-

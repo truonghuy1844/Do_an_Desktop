@@ -93,6 +93,18 @@
     <Compile Include="SuaNV.Designer.cs">
       <DependentUpon>SuaNV.cs</DependentUpon>
     </Compile>
+    <Compile Include="XoaKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaKho.Designer.cs">
+      <DependentUpon>XoaKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XoaNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaNV.Designer.cs">
+      <DependentUpon>XoaNV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddKho.resx">
       <DependentUpon>AddKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SuaNV.resx">
       <DependentUpon>SuaNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XoaKho.resx">
+      <DependentUpon>XoaKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XoaNV.resx">
+      <DependentUpon>XoaNV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
