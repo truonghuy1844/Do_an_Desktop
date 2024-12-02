@@ -51,7 +51,7 @@ namespace PC_GUI
             string maNV = txtTim.Text;
             var listNV = bLLNV.TimNV(maNV);
 
-            if (txtMaNV.Text == string.Empty)
+            if (txtTim.Text == string.Empty)
             {
                 MessageBox.Show("Vui lòng nhập mã nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
