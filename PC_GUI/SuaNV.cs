@@ -123,6 +123,13 @@ namespace PC_GUI
                     MessageBox.Show("Số điện thoại của nhân viên không được để trống!", "Chưa đủ thông tin", MessageBoxButtons.OK);
                     txtSDT.Focus();
                 }
+                if (txtSDT.Text.Length <10 )
+                {
+                    okChange = false;
+                    MessageBox.Show("Số điện thoại của nhân viên phải đủ 10 số!", "Chưa đủ thông tin", MessageBoxButtons.OK);
+                    txtSDT.Focus();
+                }
+
                 if (okChange)
                 {
                     DTONV suaNV = new DTONV
@@ -144,6 +151,19 @@ namespace PC_GUI
             catch (Exception ex)
             {
                 MessageBox.Show("Có lỗi trong lúc sửa thông tin nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text.Length >= 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

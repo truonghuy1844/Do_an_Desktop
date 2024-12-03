@@ -64,6 +64,12 @@ namespace PC_GUI
                 MessageBox.Show("Vui lòng nhập mã nhân viên!", "Chưa đủ thông tin", MessageBoxButtons.OK);
                 txtMaNV.Focus();
             }
+            if (txtMaNV.Text.Length < 5)
+            {
+                okInsert = false;
+                MessageBox.Show("Mã của nhân viên phải đủ 5 số!", "Chưa đủ thông tin", MessageBoxButtons.OK);
+                txtSDT.Focus();
+            }
             if (txtTenNV.Text.Length == 0)
             {
                 okInsert = false;
@@ -80,6 +86,12 @@ namespace PC_GUI
             {
                 okInsert = false;
                 MessageBox.Show("Vui lòng nhập số điện thoại!", "Chưa đủ thông tin", MessageBoxButtons.OK);
+                txtSDT.Focus();
+            }
+            if (txtSDT.Text.Length < 10)
+            {
+                okInsert = false;
+                MessageBox.Show("Số điện thoại của nhân viên phải đủ 10 số!", "Chưa đủ thông tin", MessageBoxButtons.OK);
                 txtSDT.Focus();
             }
             if (comboBoxChucVu.SelectedIndex == -1)
@@ -118,6 +130,28 @@ namespace PC_GUI
                 }
             }    
 
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text.Length >= 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtMaNV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null && textBox.Text.Length >= 5 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
