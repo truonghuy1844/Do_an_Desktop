@@ -23,6 +23,7 @@ namespace PC_DAL
         public Nullable<int> DiemGiaCa { get; set; }
         public string MucDoDanhGia { get; set; }
     
+        public virtual NHACUNGCAP NHACUNGCAP { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

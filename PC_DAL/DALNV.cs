@@ -21,7 +21,7 @@ namespace PC_DAL
                              MaNV = nv.MaNV,
                              TenNV = nv.TenNV,
                              DiaChi = nv.DiaChi,
-                             GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                             GioiTinh = nv.GioiTinh,
                              SDT = nv.DienThoai,
                              ChucVu = nv.ChucVu,
                              PhongBan = nv.PhongBan
@@ -87,7 +87,7 @@ namespace PC_DAL
                              MaNV = nv.MaNV,
                              TenNV = nv.TenNV,
                              DiaChi = nv.DiaChi,
-                             GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                             GioiTinh = nv.GioiTinh,
                              SDT = nv.DienThoai,
                              ChucVu = nv.ChucVu,
                              PhongBan = nv.PhongBan
@@ -137,7 +137,7 @@ namespace PC_DAL
                             MaNV = nv.MaNV,
                             TenNV = nv.TenNV,
                             DiaChi = nv.DiaChi,
-                            GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                            GioiTinh = nv.GioiTinh,
                             SDT = nv.DienThoai,
                             ChucVu = nv.ChucVu,
                             PhongBan = nv.PhongBan
@@ -153,7 +153,7 @@ namespace PC_DAL
                             MaNV = nv.MaNV,
                             TenNV = nv.TenNV,
                             DiaChi = nv.DiaChi,
-                            GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                            GioiTinh = nv.GioiTinh,
                             SDT = nv.DienThoai,
                             ChucVu = nv.ChucVu,
                             PhongBan = nv.PhongBan
@@ -169,7 +169,7 @@ namespace PC_DAL
                                 MaNV = nv.MaNV,
                                 TenNV = nv.TenNV,
                                 DiaChi = nv.DiaChi,
-                                GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                                GioiTinh = nv.GioiTinh,
                                 SDT = nv.DienThoai,
                                 ChucVu = nv.ChucVu,
                                 PhongBan = nv.PhongBan
@@ -185,7 +185,7 @@ namespace PC_DAL
                                 MaNV = nv.MaNV,
                                 TenNV = nv.TenNV,
                                 DiaChi = nv.DiaChi,
-                                GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                                GioiTinh = nv.GioiTinh,
                                 SDT = nv.DienThoai,
                                 ChucVu = nv.ChucVu,
                                 PhongBan = nv.PhongBan
@@ -201,7 +201,7 @@ namespace PC_DAL
                             MaNV = nv.MaNV,
                             TenNV = nv.TenNV,
                             DiaChi = nv.DiaChi,
-                            GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                            GioiTinh = nv.GioiTinh,
                             SDT = nv.DienThoai,
                             ChucVu = nv.ChucVu,
                             PhongBan = nv.PhongBan
@@ -217,7 +217,7 @@ namespace PC_DAL
                             MaNV = nv.MaNV,
                             TenNV = nv.TenNV,
                             DiaChi = nv.DiaChi,
-                            GioiTinh = nv.GioiTinh.HasValue ? nv.GioiTinh.Value : false,
+                            GioiTinh = nv.GioiTinh,
                             SDT = nv.DienThoai,
                             ChucVu = nv.ChucVu,
                             PhongBan = nv.PhongBan

@@ -17,9 +17,6 @@ namespace PC_DAL
         public string MaYC { get; set; }
         public string MaSP { get; set; }
         public Nullable<int> SoLuong { get; set; }
-        public Nullable<decimal> GiaDuKien { get; set; }
-        public Nullable<System.DateTime> NgayNhap { get; set; }
-        public Nullable<System.DateTime> NgayXuat { get; set; }
     
         public virtual SANPHAM SANPHAM { get; set; }
         public virtual YEUCAU_MUAHANG YEUCAU_MUAHANG { get; set; }

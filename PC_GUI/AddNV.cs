@@ -115,7 +115,7 @@ namespace PC_GUI
                         MaNV = txtMaNV.Text,
                         TenNV = txtTenNV.Text,
                         DiaChi = txtDiaChi.Text,
-                        GioiTinh = radioButtonNam.Checked ? true : false,
+                        GioiTinh = radioButtonNam.Checked ? "Nam": "Nữ",
                         SDT = txtSDT.Text,
                         ChucVu = comboBoxChucVu.SelectedValue.ToString(),
                         PhongBan = comboBoxPhongBan.SelectedValue.ToString()
@@ -144,7 +144,6 @@ namespace PC_GUI
                 e.Handled = true;
             }
         }
-
         private void txtMaNV_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox textBox = sender as TextBox;

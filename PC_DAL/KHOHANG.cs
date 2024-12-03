@@ -14,19 +14,10 @@ namespace PC_DAL
     
     public partial class KHOHANG
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KHOHANG()
-        {
-            this.CT_KHOHANG = new HashSet<CT_KHOHANG>();
-        }
-    
         public string MaKho { get; set; }
         public string TenKho { get; set; }
         public string LoaiKho { get; set; }
         public string DiaChi { get; set; }
         public string Suc_Chua { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_KHOHANG> CT_KHOHANG { get; set; }
     }
 }

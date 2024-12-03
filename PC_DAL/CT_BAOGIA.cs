@@ -16,10 +16,8 @@ namespace PC_DAL
     {
         public string MaBG { get; set; }
         public string MaSP { get; set; }
-        public Nullable<int> SoLuong { get; set; }
         public Nullable<decimal> DonGia { get; set; }
-        public Nullable<System.DateTime> NgayNhap { get; set; }
-        public Nullable<System.DateTime> NgayXuat { get; set; }
+        public string MoTa { get; set; }
     
         public virtual BAOGIA BAOGIA { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }

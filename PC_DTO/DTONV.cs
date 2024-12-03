@@ -12,14 +12,14 @@ namespace PC_DTO
         private string maNV;
         private string tenNV;
         private string diaChi;
-        private bool gioiTinh;
+        private string gioiTinh;
         private string sdt;
         private string chucVu;
         private string phongBan;
         public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string DiaChi { get; set; }
-        public bool GioiTinh { get; set; }
+        public string GioiTinh { get; set; }
         public string SDT { get; set; }
         public string ChucVu { get; set; }
         public string PhongBan { get; set; }

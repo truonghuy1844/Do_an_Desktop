@@ -43,8 +43,8 @@ namespace PC_BLL
         {
             if (string.IsNullOrEmpty(dTONV.TenNV))
                 throw new ArgumentException("Tên nhân viên không được để trống.");
-            if (string.IsNullOrEmpty(dTONV.DiaChi))
-                throw new ArgumentException("Địa chỉ của nhân viên không được để trống.");
+            if (string.IsNullOrEmpty(dTONV.GioiTinh))
+                throw new ArgumentException("Giới tính của nhân viên không được để trống.");
             if (string.IsNullOrEmpty(dTONV.SDT))
                 throw new ArgumentException("Số điện thoại của nhân viên không được để trống.");
             if (string.IsNullOrEmpty(dTONV.ChucVu))

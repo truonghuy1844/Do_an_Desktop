@@ -14,16 +14,22 @@ namespace PC_DAL
     
     public partial class HOPDONGMH
     {
-        public string MaHD { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOPDONGMH()
+        {
+            this.DONMUAHANGs = new HashSet<DONMUAHANG>();
+        }
+    
+        public string MaHDMH { get; set; }
         public string MaNV { get; set; }
-        public string MaNCC { get; set; }
         public System.DateTime NgayBatDau { get; set; }
         public System.DateTime NgayKetThuc { get; set; }
         public string DieuKhoan { get; set; }
         public string GhiChu { get; set; }
         public string TrangThai { get; set; }
     
-        public virtual NHACUNGCAP NHACUNGCAP { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DONMUAHANG> DONMUAHANGs { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

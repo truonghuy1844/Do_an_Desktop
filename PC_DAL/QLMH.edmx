@@ -20,33 +20,19 @@
           </Key>
           <Property Name="MaBG" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="SoLuong" Type="int" />
           <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="NgayNhap" Type="datetime" />
-          <Property Name="NgayXuat" Type="datetime" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CT_DONMUAHANG">
           <Key>
             <PropertyRef Name="MaDMH" />
             <PropertyRef Name="MaSP" />
+            <PropertyRef Name="MaBG" />
           </Key>
           <Property Name="MaDMH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaBG" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
-          <Property Name="DonGia" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="NgayNhap" Type="datetime" />
-          <Property Name="NgayXuat" Type="datetime" />
-        </EntityType>
-        <EntityType Name="CT_KHOHANG">
-          <Key>
-            <PropertyRef Name="MaKho" />
-            <PropertyRef Name="MaSP" />
-          </Key>
-          <Property Name="MaKho" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="SoLuong" Type="int" />
-          <Property Name="LoHang" Type="nvarchar" MaxLength="50" />
-          <Property Name="HanDung" Type="date" />
         </EntityType>
         <EntityType Name="CT_YEUCAU">
           <Key>
@@ -56,9 +42,6 @@
           <Property Name="MaYC" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SoLuong" Type="int" />
-          <Property Name="GiaDuKien" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="NgayNhap" Type="datetime" />
-          <Property Name="NgayXuat" Type="datetime" />
         </EntityType>
         <EntityType Name="DANHGIA_NCC">
           <Key>
@@ -73,24 +56,18 @@
           <Property Name="DiemGiaCa" Type="int" />
           <Property Name="MucDoDanhGia" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="DANHGIA_SANPHAM">
+        <EntityType Name="DANHGIASP_TRONGDON">
           <Key>
             <PropertyRef Name="MaDGSP" />
           </Key>
           <Property Name="MaDGSP" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="KetQua" Type="nvarchar" MaxLength="50" />
           <Property Name="NgayDG" Type="date" />
-        </EntityType>
-        <EntityType Name="DIACHI">
-          <Key>
-            <PropertyRef Name="MaDC" />
-          </Key>
-          <Property Name="MaDC" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenDC" Type="nvarchar" MaxLength="100" />
-          <Property Name="TinhTP" Type="nvarchar" MaxLength="50" />
-          <Property Name="QuanHuyen" Type="nvarchar" MaxLength="50" />
-          <Property Name="PhuongXa" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaDMH" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MoTaDG" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiemDG" Type="int" />
+          <Property Name="MucdoDG" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="DONMUAHANG">
           <Key>
@@ -98,9 +75,10 @@
           </Key>
           <Property Name="MaDMH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="NgayLap" Type="date" Nullable="false" />
+          <Property Name="MaHDMH" Type="varchar" MaxLength="10" />
           <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaNCC" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TongTien" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Chietkhau" Type="decimal" Precision="5" Scale="2" />
           <Property Name="TThai" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MoTa" Type="nvarchar" MaxLength="100" />
         </EntityType>
@@ -124,11 +102,10 @@
         </EntityType>
         <EntityType Name="HOPDONGMH">
           <Key>
-            <PropertyRef Name="MaHD" />
+            <PropertyRef Name="MaHDMH" />
           </Key>
-          <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaHDMH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaNCC" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="NgayBatDau" Type="date" Nullable="false" />
           <Property Name="NgayKetThuc" Type="date" Nullable="false" />
           <Property Name="DieuKhoan" Type="nvarchar" MaxLength="200" />
@@ -162,7 +139,7 @@
           <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenNV" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
-          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
           <Property Name="DienThoai" Type="varchar" MaxLength="15" />
           <Property Name="ChucVu" Type="nvarchar" MaxLength="50" />
           <Property Name="PhongBan" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -185,8 +162,17 @@
           <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenSP" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="LoaiSP" Type="nvarchar" MaxLength="50" />
-          <Property Name="Gia" Type="decimal" Precision="18" Scale="2" />
           <Property Name="DVT" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="SANPHAM_XUATKHO">
+          <Key>
+            <PropertyRef Name="MaSP" />
+            <PropertyRef Name="MaKho" />
+          </Key>
+          <Property Name="MaSP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaKho" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SoLuongXuat" Type="int" />
+          <Property Name="NgayXuat" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -197,15 +183,6 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="TAILIEU">
-          <Key>
-            <PropertyRef Name="MaTL" />
-          </Key>
-          <Property Name="MaTL" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="LoaiTL" Type="nvarchar" MaxLength="50" />
-          <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="NgayGui" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="THANHTOAN">
           <Key>
@@ -223,9 +200,11 @@
           <Property Name="MaYC" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="NgayYC" Type="date" Nullable="false" />
+          <Property Name="NgayDuyet" Type="date" />
+          <Property Name="PhongBanYC" Type="nvarchar" MaxLength="50" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__BAOGIA__MaNCC__18EBB532">
+        <Association Name="FK__BAOGIA__MaNCC__02084FDA">
           <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
           <End Role="BAOGIA" Type="Self.BAOGIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -237,7 +216,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_BAOGIA__MaBG__1BC821DD">
+        <Association Name="FK__CT_BAOGIA__MaBG__04E4BC85">
           <End Role="BAOGIA" Type="Self.BAOGIA" Multiplicity="1" />
           <End Role="CT_BAOGIA" Type="Self.CT_BAOGIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -249,7 +228,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_BAOGIA__MaSP__1CBC4616">
+        <Association Name="FK__CT_BAOGIA__MaSP__05D8E0BE">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="CT_BAOGIA" Type="Self.CT_BAOGIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -261,7 +240,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_DONMUA__MaDMH__07C12930">
+        <Association Name="FK__CT_DONMUA__MaDMH__114A936A">
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="1" />
           <End Role="CT_DONMUAHANG" Type="Self.CT_DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -273,7 +252,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_DONMUAH__MaSP__08B54D69">
+        <Association Name="FK__CT_DONMUAH__MaBG__1332DBDC">
+          <End Role="BAOGIA" Type="Self.BAOGIA" Multiplicity="1" />
+          <End Role="CT_DONMUAHANG" Type="Self.CT_DONMUAHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAOGIA">
+              <PropertyRef Name="MaBG" />
+            </Principal>
+            <Dependent Role="CT_DONMUAHANG">
+              <PropertyRef Name="MaBG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_DONMUAH__MaSP__123EB7A3">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="CT_DONMUAHANG" Type="Self.CT_DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -285,31 +276,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_KHOHAN__MaKho__7E37BEF6">
-          <End Role="KHOHANG" Type="Self.KHOHANG" Multiplicity="1" />
-          <End Role="CT_KHOHANG" Type="Self.CT_KHOHANG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KHOHANG">
-              <PropertyRef Name="MaKho" />
-            </Principal>
-            <Dependent Role="CT_KHOHANG">
-              <PropertyRef Name="MaKho" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CT_KHOHANG__MaSP__7F2BE32F">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="CT_KHOHANG" Type="Self.CT_KHOHANG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="CT_KHOHANG">
-              <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CT_YEUCAU__MaSP__151B244E">
+        <Association Name="FK__CT_YEUCAU__MaSP__2180FB33">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="CT_YEUCAU" Type="Self.CT_YEUCAU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -321,7 +288,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_YEUCAU__MaYC__14270015">
+        <Association Name="FK__CT_YEUCAU__MaYC__208CD6FA">
           <End Role="YEUCAU_MUAHANG" Type="Self.YEUCAU_MUAHANG" Multiplicity="1" />
           <End Role="CT_YEUCAU" Type="Self.CT_YEUCAU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -333,7 +300,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DANHGIA_NC__MaNV__778AC167">
+        <Association Name="FK__DANHGIA_N__MaNCC__7A672E12">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
+          <End Role="DANHGIA_NCC" Type="Self.DANHGIA_NCC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="MaNCC" />
+            </Principal>
+            <Dependent Role="DANHGIA_NCC">
+              <PropertyRef Name="MaNCC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_NC__MaNV__797309D9">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="DANHGIA_NCC" Type="Self.DANHGIA_NCC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -345,19 +324,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DANHGIA_SA__MaSP__245D67DE">
+        <Association Name="FK__DANHGIASP___MaSP__2645B050">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="DANHGIA_SANPHAM" Type="Self.DANHGIA_SANPHAM" Multiplicity="*" />
+          <End Role="DANHGIASP_TRONGDON" Type="Self.DANHGIASP_TRONGDON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MaSP" />
             </Principal>
-            <Dependent Role="DANHGIA_SANPHAM">
+            <Dependent Role="DANHGIASP_TRONGDON">
               <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DONMUAHAN__MaNCC__04E4BC85">
+        <Association Name="FK__DANHGIASP__MaDMH__2739D489">
+          <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="1" />
+          <End Role="DANHGIASP_TRONGDON" Type="Self.DANHGIASP_TRONGDON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONMUAHANG">
+              <PropertyRef Name="MaDMH" />
+            </Principal>
+            <Dependent Role="DANHGIASP_TRONGDON">
+              <PropertyRef Name="MaDMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONMUAHAN__MaHDM__0E6E26BF">
+          <End Role="HOPDONGMH" Type="Self.HOPDONGMH" Multiplicity="0..1" />
+          <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOPDONGMH">
+              <PropertyRef Name="MaHDMH" />
+            </Principal>
+            <Dependent Role="DONMUAHANG">
+              <PropertyRef Name="MaHDMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONMUAHAN__MaNCC__0D7A0286">
           <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -369,7 +372,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DONMUAHANG__MaNV__03F0984C">
+        <Association Name="FK__DONMUAHANG__MaNV__0C85DE4D">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -381,7 +384,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HANGHOA_VA__MaSP__2BFE89A6">
+        <Association Name="FK__HANGHOA_VA__MaSP__2A164134">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="HANGHOA_VANCHUYEN" Type="Self.HANGHOA_VANCHUYEN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -393,7 +396,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HOADON__MaDMH__0B91BA14">
+        <Association Name="FK__HOADON__MaDMH__160F4887">
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -405,7 +408,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHANCONG_C__MaNV__71D1E811">
+        <Association Name="FK__PHANCONG_C__MaNV__73BA3083">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="PHANCONG_CONGVIEC" Type="Self.PHANCONG_CONGVIEC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -417,19 +420,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TAILIEU__MaNV__29221CFB">
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
-          <End Role="TAILIEU" Type="Self.TAILIEU" Multiplicity="*" />
+        <Association Name="FK__SANPHAM_XU__MaSP__2CF2ADDF">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="SANPHAM_XUATKHO" Type="Self.SANPHAM_XUATKHO" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="NHANVIEN">
-              <PropertyRef Name="MaNV" />
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
             </Principal>
-            <Dependent Role="TAILIEU">
-              <PropertyRef Name="MaNV" />
+            <Dependent Role="SANPHAM_XUATKHO">
+              <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__THANHTOAN__MaHD__0E6E26BF">
+        <Association Name="FK__THANHTOAN__MaHD__18EBB532">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
           <End Role="THANHTOAN" Type="Self.THANHTOAN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -441,7 +444,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__YEUCAU_MUA__MaNV__114A936A">
+        <Association Name="FK__YEUCAU_MUA__MaNV__1DB06A4F">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="YEUCAU_MUAHANG" Type="Self.YEUCAU_MUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -450,18 +453,6 @@
             </Principal>
             <Dependent Role="YEUCAU_MUAHANG">
               <PropertyRef Name="MaNV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_HOPDONG_NCC">
-          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
-          <End Role="HOPDONGMH" Type="Self.HOPDONGMH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NHACUNGCAP">
-              <PropertyRef Name="MaNCC" />
-            </Principal>
-            <Dependent Role="HOPDONGMH">
-              <PropertyRef Name="MaNCC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -512,11 +503,9 @@
           <EntitySet Name="BAOGIA" EntityType="Self.BAOGIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CT_BAOGIA" EntityType="Self.CT_BAOGIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CT_DONMUAHANG" EntityType="Self.CT_DONMUAHANG" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CT_KHOHANG" EntityType="Self.CT_KHOHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CT_YEUCAU" EntityType="Self.CT_YEUCAU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANHGIA_NCC" EntityType="Self.DANHGIA_NCC" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DANHGIA_SANPHAM" EntityType="Self.DANHGIA_SANPHAM" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DIACHI" EntityType="Self.DIACHI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANHGIASP_TRONGDON" EntityType="Self.DANHGIASP_TRONGDON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONMUAHANG" EntityType="Self.DONMUAHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HANGHOA_VANCHUYEN" EntityType="Self.HANGHOA_VANCHUYEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
@@ -526,89 +515,93 @@
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHANCONG_CONGVIEC" EntityType="Self.PHANCONG_CONGVIEC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANPHAM_XUATKHO" EntityType="Self.SANPHAM_XUATKHO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TAILIEU" EntityType="Self.TAILIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="THANHTOAN" EntityType="Self.THANHTOAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YEUCAU_MUAHANG" EntityType="Self.YEUCAU_MUAHANG" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BAOGIA__MaNCC__18EBB532" Association="Self.FK__BAOGIA__MaNCC__18EBB532">
+          <AssociationSet Name="FK__BAOGIA__MaNCC__02084FDA" Association="Self.FK__BAOGIA__MaNCC__02084FDA">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
             <End Role="BAOGIA" EntitySet="BAOGIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_BAOGIA__MaBG__1BC821DD" Association="Self.FK__CT_BAOGIA__MaBG__1BC821DD">
+          <AssociationSet Name="FK__CT_BAOGIA__MaBG__04E4BC85" Association="Self.FK__CT_BAOGIA__MaBG__04E4BC85">
             <End Role="BAOGIA" EntitySet="BAOGIA" />
             <End Role="CT_BAOGIA" EntitySet="CT_BAOGIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_BAOGIA__MaSP__1CBC4616" Association="Self.FK__CT_BAOGIA__MaSP__1CBC4616">
+          <AssociationSet Name="FK__CT_BAOGIA__MaSP__05D8E0BE" Association="Self.FK__CT_BAOGIA__MaSP__05D8E0BE">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CT_BAOGIA" EntitySet="CT_BAOGIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_DONMUA__MaDMH__07C12930" Association="Self.FK__CT_DONMUA__MaDMH__07C12930">
+          <AssociationSet Name="FK__CT_DONMUA__MaDMH__114A936A" Association="Self.FK__CT_DONMUA__MaDMH__114A936A">
             <End Role="DONMUAHANG" EntitySet="DONMUAHANG" />
             <End Role="CT_DONMUAHANG" EntitySet="CT_DONMUAHANG" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_DONMUAH__MaSP__08B54D69" Association="Self.FK__CT_DONMUAH__MaSP__08B54D69">
+          <AssociationSet Name="FK__CT_DONMUAH__MaBG__1332DBDC" Association="Self.FK__CT_DONMUAH__MaBG__1332DBDC">
+            <End Role="BAOGIA" EntitySet="BAOGIA" />
+            <End Role="CT_DONMUAHANG" EntitySet="CT_DONMUAHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_DONMUAH__MaSP__123EB7A3" Association="Self.FK__CT_DONMUAH__MaSP__123EB7A3">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CT_DONMUAHANG" EntitySet="CT_DONMUAHANG" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_KHOHAN__MaKho__7E37BEF6" Association="Self.FK__CT_KHOHAN__MaKho__7E37BEF6">
-            <End Role="KHOHANG" EntitySet="KHOHANG" />
-            <End Role="CT_KHOHANG" EntitySet="CT_KHOHANG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CT_KHOHANG__MaSP__7F2BE32F" Association="Self.FK__CT_KHOHANG__MaSP__7F2BE32F">
-            <End Role="SANPHAM" EntitySet="SANPHAM" />
-            <End Role="CT_KHOHANG" EntitySet="CT_KHOHANG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CT_YEUCAU__MaSP__151B244E" Association="Self.FK__CT_YEUCAU__MaSP__151B244E">
+          <AssociationSet Name="FK__CT_YEUCAU__MaSP__2180FB33" Association="Self.FK__CT_YEUCAU__MaSP__2180FB33">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CT_YEUCAU" EntitySet="CT_YEUCAU" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_YEUCAU__MaYC__14270015" Association="Self.FK__CT_YEUCAU__MaYC__14270015">
+          <AssociationSet Name="FK__CT_YEUCAU__MaYC__208CD6FA" Association="Self.FK__CT_YEUCAU__MaYC__208CD6FA">
             <End Role="YEUCAU_MUAHANG" EntitySet="YEUCAU_MUAHANG" />
             <End Role="CT_YEUCAU" EntitySet="CT_YEUCAU" />
           </AssociationSet>
-          <AssociationSet Name="FK__DANHGIA_NC__MaNV__778AC167" Association="Self.FK__DANHGIA_NC__MaNV__778AC167">
+          <AssociationSet Name="FK__DANHGIA_N__MaNCC__7A672E12" Association="Self.FK__DANHGIA_N__MaNCC__7A672E12">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
+            <End Role="DANHGIA_NCC" EntitySet="DANHGIA_NCC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_NC__MaNV__797309D9" Association="Self.FK__DANHGIA_NC__MaNV__797309D9">
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
             <End Role="DANHGIA_NCC" EntitySet="DANHGIA_NCC" />
           </AssociationSet>
-          <AssociationSet Name="FK__DANHGIA_SA__MaSP__245D67DE" Association="Self.FK__DANHGIA_SA__MaSP__245D67DE">
+          <AssociationSet Name="FK__DANHGIASP___MaSP__2645B050" Association="Self.FK__DANHGIASP___MaSP__2645B050">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
-            <End Role="DANHGIA_SANPHAM" EntitySet="DANHGIA_SANPHAM" />
+            <End Role="DANHGIASP_TRONGDON" EntitySet="DANHGIASP_TRONGDON" />
           </AssociationSet>
-          <AssociationSet Name="FK__DONMUAHAN__MaNCC__04E4BC85" Association="Self.FK__DONMUAHAN__MaNCC__04E4BC85">
+          <AssociationSet Name="FK__DANHGIASP__MaDMH__2739D489" Association="Self.FK__DANHGIASP__MaDMH__2739D489">
+            <End Role="DONMUAHANG" EntitySet="DONMUAHANG" />
+            <End Role="DANHGIASP_TRONGDON" EntitySet="DANHGIASP_TRONGDON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONMUAHAN__MaHDM__0E6E26BF" Association="Self.FK__DONMUAHAN__MaHDM__0E6E26BF">
+            <End Role="HOPDONGMH" EntitySet="HOPDONGMH" />
+            <End Role="DONMUAHANG" EntitySet="DONMUAHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONMUAHAN__MaNCC__0D7A0286" Association="Self.FK__DONMUAHAN__MaNCC__0D7A0286">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
             <End Role="DONMUAHANG" EntitySet="DONMUAHANG" />
           </AssociationSet>
-          <AssociationSet Name="FK__DONMUAHANG__MaNV__03F0984C" Association="Self.FK__DONMUAHANG__MaNV__03F0984C">
+          <AssociationSet Name="FK__DONMUAHANG__MaNV__0C85DE4D" Association="Self.FK__DONMUAHANG__MaNV__0C85DE4D">
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
             <End Role="DONMUAHANG" EntitySet="DONMUAHANG" />
           </AssociationSet>
-          <AssociationSet Name="FK__HANGHOA_VA__MaSP__2BFE89A6" Association="Self.FK__HANGHOA_VA__MaSP__2BFE89A6">
+          <AssociationSet Name="FK__HANGHOA_VA__MaSP__2A164134" Association="Self.FK__HANGHOA_VA__MaSP__2A164134">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="HANGHOA_VANCHUYEN" EntitySet="HANGHOA_VANCHUYEN" />
           </AssociationSet>
-          <AssociationSet Name="FK__HOADON__MaDMH__0B91BA14" Association="Self.FK__HOADON__MaDMH__0B91BA14">
+          <AssociationSet Name="FK__HOADON__MaDMH__160F4887" Association="Self.FK__HOADON__MaDMH__160F4887">
             <End Role="DONMUAHANG" EntitySet="DONMUAHANG" />
             <End Role="HOADON" EntitySet="HOADON" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHANCONG_C__MaNV__71D1E811" Association="Self.FK__PHANCONG_C__MaNV__71D1E811">
+          <AssociationSet Name="FK__PHANCONG_C__MaNV__73BA3083" Association="Self.FK__PHANCONG_C__MaNV__73BA3083">
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
             <End Role="PHANCONG_CONGVIEC" EntitySet="PHANCONG_CONGVIEC" />
           </AssociationSet>
-          <AssociationSet Name="FK__TAILIEU__MaNV__29221CFB" Association="Self.FK__TAILIEU__MaNV__29221CFB">
-            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
-            <End Role="TAILIEU" EntitySet="TAILIEU" />
+          <AssociationSet Name="FK__SANPHAM_XU__MaSP__2CF2ADDF" Association="Self.FK__SANPHAM_XU__MaSP__2CF2ADDF">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="SANPHAM_XUATKHO" EntitySet="SANPHAM_XUATKHO" />
           </AssociationSet>
-          <AssociationSet Name="FK__THANHTOAN__MaHD__0E6E26BF" Association="Self.FK__THANHTOAN__MaHD__0E6E26BF">
+          <AssociationSet Name="FK__THANHTOAN__MaHD__18EBB532" Association="Self.FK__THANHTOAN__MaHD__18EBB532">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="THANHTOAN" EntitySet="THANHTOAN" />
           </AssociationSet>
-          <AssociationSet Name="FK__YEUCAU_MUA__MaNV__114A936A" Association="Self.FK__YEUCAU_MUA__MaNV__114A936A">
+          <AssociationSet Name="FK__YEUCAU_MUA__MaNV__1DB06A4F" Association="Self.FK__YEUCAU_MUA__MaNV__1DB06A4F">
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
             <End Role="YEUCAU_MUAHANG" EntitySet="YEUCAU_MUAHANG" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HOPDONG_NCC" Association="Self.FK_HOPDONG_NCC">
-            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAP" />
-            <End Role="HOPDONGMH" EntitySet="HOPDONGMH" />
           </AssociationSet>
           <AssociationSet Name="FK_HOPDONG_NV" Association="Self.FK_HOPDONG_NV">
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
@@ -627,8 +620,9 @@
           <Property Name="MaBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayBG" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__BAOGIA__MaNCC__18EBB532" FromRole="BAOGIA" ToRole="NHACUNGCAP" />
-          <NavigationProperty Name="CT_BAOGIA" Relationship="Self.FK__CT_BAOGIA__MaBG__1BC821DD" FromRole="BAOGIA" ToRole="CT_BAOGIA" />
+          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__BAOGIA__MaNCC__02084FDA" FromRole="BAOGIA" ToRole="NHACUNGCAP" />
+          <NavigationProperty Name="CT_BAOGIA" Relationship="Self.FK__CT_BAOGIA__MaBG__04E4BC85" FromRole="BAOGIA" ToRole="CT_BAOGIA" />
+          <NavigationProperty Name="CT_DONMUAHANG" Relationship="Self.FK__CT_DONMUAH__MaBG__1332DBDC" FromRole="BAOGIA" ToRole="CT_DONMUAHANG" />
         </EntityType>
         <EntityType Name="CT_BAOGIA">
           <Key>
@@ -637,39 +631,24 @@
           </Key>
           <Property Name="MaBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SoLuong" Type="Int32" />
           <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="NgayNhap" Type="DateTime" Precision="3" />
-          <Property Name="NgayXuat" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="BAOGIA" Relationship="Self.FK__CT_BAOGIA__MaBG__1BC821DD" FromRole="CT_BAOGIA" ToRole="BAOGIA" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CT_BAOGIA__MaSP__1CBC4616" FromRole="CT_BAOGIA" ToRole="SANPHAM" />
+          <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BAOGIA" Relationship="Self.FK__CT_BAOGIA__MaBG__04E4BC85" FromRole="CT_BAOGIA" ToRole="BAOGIA" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CT_BAOGIA__MaSP__05D8E0BE" FromRole="CT_BAOGIA" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CT_DONMUAHANG">
           <Key>
             <PropertyRef Name="MaDMH" />
             <PropertyRef Name="MaSP" />
+            <PropertyRef Name="MaBG" />
           </Key>
           <Property Name="MaDMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaBG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
-          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="NgayNhap" Type="DateTime" Precision="3" />
-          <Property Name="NgayXuat" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="DONMUAHANG" Relationship="Self.FK__CT_DONMUA__MaDMH__07C12930" FromRole="CT_DONMUAHANG" ToRole="DONMUAHANG" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CT_DONMUAH__MaSP__08B54D69" FromRole="CT_DONMUAHANG" ToRole="SANPHAM" />
-        </EntityType>
-        <EntityType Name="CT_KHOHANG">
-          <Key>
-            <PropertyRef Name="MaKho" />
-            <PropertyRef Name="MaSP" />
-          </Key>
-          <Property Name="MaKho" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SoLuong" Type="Int32" />
-          <Property Name="LoHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="HanDung" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="KHOHANG" Relationship="Self.FK__CT_KHOHAN__MaKho__7E37BEF6" FromRole="CT_KHOHANG" ToRole="KHOHANG" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CT_KHOHANG__MaSP__7F2BE32F" FromRole="CT_KHOHANG" ToRole="SANPHAM" />
+          <NavigationProperty Name="BAOGIA" Relationship="Self.FK__CT_DONMUAH__MaBG__1332DBDC" FromRole="CT_DONMUAHANG" ToRole="BAOGIA" />
+          <NavigationProperty Name="DONMUAHANG" Relationship="Self.FK__CT_DONMUA__MaDMH__114A936A" FromRole="CT_DONMUAHANG" ToRole="DONMUAHANG" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CT_DONMUAH__MaSP__123EB7A3" FromRole="CT_DONMUAHANG" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="CT_YEUCAU">
           <Key>
@@ -679,11 +658,8 @@
           <Property Name="MaYC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
-          <Property Name="GiaDuKien" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="NgayNhap" Type="DateTime" Precision="3" />
-          <Property Name="NgayXuat" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CT_YEUCAU__MaSP__151B244E" FromRole="CT_YEUCAU" ToRole="SANPHAM" />
-          <NavigationProperty Name="YEUCAU_MUAHANG" Relationship="Self.FK__CT_YEUCAU__MaYC__14270015" FromRole="CT_YEUCAU" ToRole="YEUCAU_MUAHANG" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__CT_YEUCAU__MaSP__2180FB33" FromRole="CT_YEUCAU" ToRole="SANPHAM" />
+          <NavigationProperty Name="YEUCAU_MUAHANG" Relationship="Self.FK__CT_YEUCAU__MaYC__208CD6FA" FromRole="CT_YEUCAU" ToRole="YEUCAU_MUAHANG" />
         </EntityType>
         <EntityType Name="DANHGIA_NCC">
           <Key>
@@ -697,27 +673,23 @@
           <Property Name="DiemHieuQua" Type="Int32" />
           <Property Name="DiemGiaCa" Type="Int32" />
           <Property Name="MucDoDanhGia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__DANHGIA_NC__MaNV__778AC167" FromRole="DANHGIA_NCC" ToRole="NHANVIEN" />
+          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__DANHGIA_N__MaNCC__7A672E12" FromRole="DANHGIA_NCC" ToRole="NHACUNGCAP" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__DANHGIA_NC__MaNV__797309D9" FromRole="DANHGIA_NCC" ToRole="NHANVIEN" />
         </EntityType>
-        <EntityType Name="DANHGIA_SANPHAM">
+        <EntityType Name="DANHGIASP_TRONGDON">
           <Key>
             <PropertyRef Name="MaDGSP" />
           </Key>
           <Property Name="MaDGSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="KetQua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgayDG" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__DANHGIA_SA__MaSP__245D67DE" FromRole="DANHGIA_SANPHAM" ToRole="SANPHAM" />
-        </EntityType>
-        <EntityType Name="DIACHI">
-          <Key>
-            <PropertyRef Name="MaDC" />
-          </Key>
-          <Property Name="MaDC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenDC" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="TinhTP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QuanHuyen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PhuongXa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaDMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MoTaDG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiemDG" Type="Int32" />
+          <Property Name="MucdoDG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__DANHGIASP___MaSP__2645B050" FromRole="DANHGIASP_TRONGDON" ToRole="SANPHAM" />
+          <NavigationProperty Name="DONMUAHANG" Relationship="Self.FK__DANHGIASP__MaDMH__2739D489" FromRole="DANHGIASP_TRONGDON" ToRole="DONMUAHANG" />
         </EntityType>
         <EntityType Name="DONMUAHANG">
           <Key>
@@ -725,15 +697,18 @@
           </Key>
           <Property Name="MaDMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MaHDMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Chietkhau" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="TThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CT_DONMUAHANG" Relationship="Self.FK__CT_DONMUA__MaDMH__07C12930" FromRole="DONMUAHANG" ToRole="CT_DONMUAHANG" />
-          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__DONMUAHAN__MaNCC__04E4BC85" FromRole="DONMUAHANG" ToRole="NHACUNGCAP" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__DONMUAHANG__MaNV__03F0984C" FromRole="DONMUAHANG" ToRole="NHANVIEN" />
-          <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MaDMH__0B91BA14" FromRole="DONMUAHANG" ToRole="HOADON" />
+          <NavigationProperty Name="CT_DONMUAHANG" Relationship="Self.FK__CT_DONMUA__MaDMH__114A936A" FromRole="DONMUAHANG" ToRole="CT_DONMUAHANG" />
+          <NavigationProperty Name="DANHGIASP_TRONGDON" Relationship="Self.FK__DANHGIASP__MaDMH__2739D489" FromRole="DONMUAHANG" ToRole="DANHGIASP_TRONGDON" />
+          <NavigationProperty Name="HOPDONGMH" Relationship="Self.FK__DONMUAHAN__MaHDM__0E6E26BF" FromRole="DONMUAHANG" ToRole="HOPDONGMH" />
+          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK__DONMUAHAN__MaNCC__0D7A0286" FromRole="DONMUAHANG" ToRole="NHACUNGCAP" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__DONMUAHANG__MaNV__0C85DE4D" FromRole="DONMUAHANG" ToRole="NHANVIEN" />
+          <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MaDMH__160F4887" FromRole="DONMUAHANG" ToRole="HOADON" />
         </EntityType>
         <EntityType Name="HANGHOA_VANCHUYEN">
           <Key>
@@ -743,7 +718,7 @@
           <Property Name="MaVC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__HANGHOA_VA__MaSP__2BFE89A6" FromRole="HANGHOA_VANCHUYEN" ToRole="SANPHAM" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__HANGHOA_VA__MaSP__2A164134" FromRole="HANGHOA_VANCHUYEN" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -753,22 +728,21 @@
           <Property Name="MaDMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DONMUAHANG" Relationship="Self.FK__HOADON__MaDMH__0B91BA14" FromRole="HOADON" ToRole="DONMUAHANG" />
-          <NavigationProperty Name="THANHTOANs" Relationship="Self.FK__THANHTOAN__MaHD__0E6E26BF" FromRole="HOADON" ToRole="THANHTOAN" />
+          <NavigationProperty Name="DONMUAHANG" Relationship="Self.FK__HOADON__MaDMH__160F4887" FromRole="HOADON" ToRole="DONMUAHANG" />
+          <NavigationProperty Name="THANHTOANs" Relationship="Self.FK__THANHTOAN__MaHD__18EBB532" FromRole="HOADON" ToRole="THANHTOAN" />
         </EntityType>
         <EntityType Name="HOPDONGMH">
           <Key>
-            <PropertyRef Name="MaHD" />
+            <PropertyRef Name="MaHDMH" />
           </Key>
-          <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaHDMH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaNCC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayBatDau" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NgayKetThuc" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DieuKhoan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="GhiChu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK_HOPDONG_NCC" FromRole="HOPDONGMH" ToRole="NHACUNGCAP" />
+          <NavigationProperty Name="DONMUAHANGs" Relationship="Self.FK__DONMUAHAN__MaHDM__0E6E26BF" FromRole="HOPDONGMH" ToRole="DONMUAHANG" />
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK_HOPDONG_NV" FromRole="HOPDONGMH" ToRole="NHANVIEN" />
         </EntityType>
         <EntityType Name="KHOHANG">
@@ -780,7 +754,6 @@
           <Property Name="LoaiKho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Suc_Chua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CT_KHOHANG" Relationship="Self.FK__CT_KHOHAN__MaKho__7E37BEF6" FromRole="KHOHANG" ToRole="CT_KHOHANG" />
         </EntityType>
         <EntityType Name="NHACUNGCAP">
           <Key>
@@ -791,9 +764,9 @@
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BAOGIAs" Relationship="Self.FK__BAOGIA__MaNCC__18EBB532" FromRole="NHACUNGCAP" ToRole="BAOGIA" />
-          <NavigationProperty Name="DONMUAHANGs" Relationship="Self.FK__DONMUAHAN__MaNCC__04E4BC85" FromRole="NHACUNGCAP" ToRole="DONMUAHANG" />
-          <NavigationProperty Name="HOPDONGMHs" Relationship="Self.FK_HOPDONG_NCC" FromRole="NHACUNGCAP" ToRole="HOPDONGMH" />
+          <NavigationProperty Name="BAOGIAs" Relationship="Self.FK__BAOGIA__MaNCC__02084FDA" FromRole="NHACUNGCAP" ToRole="BAOGIA" />
+          <NavigationProperty Name="DANHGIA_NCC" Relationship="Self.FK__DANHGIA_N__MaNCC__7A672E12" FromRole="NHACUNGCAP" ToRole="DANHGIA_NCC" />
+          <NavigationProperty Name="DONMUAHANGs" Relationship="Self.FK__DONMUAHAN__MaNCC__0D7A0286" FromRole="NHACUNGCAP" ToRole="DONMUAHANG" />
         </EntityType>
         <EntityType Name="NHANVIEN">
           <Key>
@@ -802,16 +775,15 @@
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ChucVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PhongBan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DANHGIA_NCC" Relationship="Self.FK__DANHGIA_NC__MaNV__778AC167" FromRole="NHANVIEN" ToRole="DANHGIA_NCC" />
-          <NavigationProperty Name="DONMUAHANGs" Relationship="Self.FK__DONMUAHANG__MaNV__03F0984C" FromRole="NHANVIEN" ToRole="DONMUAHANG" />
+          <NavigationProperty Name="DANHGIA_NCC" Relationship="Self.FK__DANHGIA_NC__MaNV__797309D9" FromRole="NHANVIEN" ToRole="DANHGIA_NCC" />
+          <NavigationProperty Name="DONMUAHANGs" Relationship="Self.FK__DONMUAHANG__MaNV__0C85DE4D" FromRole="NHANVIEN" ToRole="DONMUAHANG" />
           <NavigationProperty Name="HOPDONGMHs" Relationship="Self.FK_HOPDONG_NV" FromRole="NHANVIEN" ToRole="HOPDONGMH" />
-          <NavigationProperty Name="PHANCONG_CONGVIEC" Relationship="Self.FK__PHANCONG_C__MaNV__71D1E811" FromRole="NHANVIEN" ToRole="PHANCONG_CONGVIEC" />
-          <NavigationProperty Name="TAILIEUx" Relationship="Self.FK__TAILIEU__MaNV__29221CFB" FromRole="NHANVIEN" ToRole="TAILIEU" />
-          <NavigationProperty Name="YEUCAU_MUAHANG" Relationship="Self.FK__YEUCAU_MUA__MaNV__114A936A" FromRole="NHANVIEN" ToRole="YEUCAU_MUAHANG" />
+          <NavigationProperty Name="PHANCONG_CONGVIEC" Relationship="Self.FK__PHANCONG_C__MaNV__73BA3083" FromRole="NHANVIEN" ToRole="PHANCONG_CONGVIEC" />
+          <NavigationProperty Name="YEUCAU_MUAHANG" Relationship="Self.FK__YEUCAU_MUA__MaNV__1DB06A4F" FromRole="NHANVIEN" ToRole="YEUCAU_MUAHANG" />
         </EntityType>
         <EntityType Name="PHANCONG_CONGVIEC">
           <Key>
@@ -823,7 +795,7 @@
           <Property Name="NgayHT" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="KLuong" Type="Int32" />
           <Property Name="TThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__PHANCONG_C__MaNV__71D1E811" FromRole="PHANCONG_CONGVIEC" ToRole="NHANVIEN" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__PHANCONG_C__MaNV__73BA3083" FromRole="PHANCONG_CONGVIEC" ToRole="NHANVIEN" />
         </EntityType>
         <EntityType Name="SANPHAM">
           <Key>
@@ -832,14 +804,24 @@
           <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenSP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LoaiSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Gia" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="DVT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CT_BAOGIA" Relationship="Self.FK__CT_BAOGIA__MaSP__1CBC4616" FromRole="SANPHAM" ToRole="CT_BAOGIA" />
-          <NavigationProperty Name="CT_DONMUAHANG" Relationship="Self.FK__CT_DONMUAH__MaSP__08B54D69" FromRole="SANPHAM" ToRole="CT_DONMUAHANG" />
-          <NavigationProperty Name="CT_KHOHANG" Relationship="Self.FK__CT_KHOHANG__MaSP__7F2BE32F" FromRole="SANPHAM" ToRole="CT_KHOHANG" />
-          <NavigationProperty Name="CT_YEUCAU" Relationship="Self.FK__CT_YEUCAU__MaSP__151B244E" FromRole="SANPHAM" ToRole="CT_YEUCAU" />
-          <NavigationProperty Name="DANHGIA_SANPHAM" Relationship="Self.FK__DANHGIA_SA__MaSP__245D67DE" FromRole="SANPHAM" ToRole="DANHGIA_SANPHAM" />
-          <NavigationProperty Name="HANGHOA_VANCHUYEN" Relationship="Self.FK__HANGHOA_VA__MaSP__2BFE89A6" FromRole="SANPHAM" ToRole="HANGHOA_VANCHUYEN" />
+          <NavigationProperty Name="CT_BAOGIA" Relationship="Self.FK__CT_BAOGIA__MaSP__05D8E0BE" FromRole="SANPHAM" ToRole="CT_BAOGIA" />
+          <NavigationProperty Name="CT_DONMUAHANG" Relationship="Self.FK__CT_DONMUAH__MaSP__123EB7A3" FromRole="SANPHAM" ToRole="CT_DONMUAHANG" />
+          <NavigationProperty Name="CT_YEUCAU" Relationship="Self.FK__CT_YEUCAU__MaSP__2180FB33" FromRole="SANPHAM" ToRole="CT_YEUCAU" />
+          <NavigationProperty Name="DANHGIASP_TRONGDON" Relationship="Self.FK__DANHGIASP___MaSP__2645B050" FromRole="SANPHAM" ToRole="DANHGIASP_TRONGDON" />
+          <NavigationProperty Name="HANGHOA_VANCHUYEN" Relationship="Self.FK__HANGHOA_VA__MaSP__2A164134" FromRole="SANPHAM" ToRole="HANGHOA_VANCHUYEN" />
+          <NavigationProperty Name="SANPHAM_XUATKHO" Relationship="Self.FK__SANPHAM_XU__MaSP__2CF2ADDF" FromRole="SANPHAM" ToRole="SANPHAM_XUATKHO" />
+        </EntityType>
+        <EntityType Name="SANPHAM_XUATKHO">
+          <Key>
+            <PropertyRef Name="MaSP" />
+            <PropertyRef Name="MaKho" />
+          </Key>
+          <Property Name="MaSP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaKho" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoLuongXuat" Type="Int32" />
+          <Property Name="NgayXuat" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__SANPHAM_XU__MaSP__2CF2ADDF" FromRole="SANPHAM_XUATKHO" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -851,16 +833,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="TAILIEU">
-          <Key>
-            <PropertyRef Name="MaTL" />
-          </Key>
-          <Property Name="MaTL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="LoaiTL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NgayGui" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__TAILIEU__MaNV__29221CFB" FromRole="TAILIEU" ToRole="NHANVIEN" />
-        </EntityType>
         <EntityType Name="THANHTOAN">
           <Key>
             <PropertyRef Name="MaTT" />
@@ -869,7 +841,7 @@
           <Property Name="MaHD" Type="Int32" Nullable="false" />
           <Property Name="NgayTT" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="SoTien" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="HOADON" Relationship="Self.FK__THANHTOAN__MaHD__0E6E26BF" FromRole="THANHTOAN" ToRole="HOADON" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK__THANHTOAN__MaHD__18EBB532" FromRole="THANHTOAN" ToRole="HOADON" />
         </EntityType>
         <EntityType Name="YEUCAU_MUAHANG">
           <Key>
@@ -878,11 +850,13 @@
           <Property Name="MaYC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayYC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NgayDuyet" Type="DateTime" Precision="0" />
+          <Property Name="PhongBanYC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CT_YEUCAU" Relationship="Self.FK__CT_YEUCAU__MaYC__14270015" FromRole="YEUCAU_MUAHANG" ToRole="CT_YEUCAU" />
-          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__YEUCAU_MUA__MaNV__114A936A" FromRole="YEUCAU_MUAHANG" ToRole="NHANVIEN" />
+          <NavigationProperty Name="CT_YEUCAU" Relationship="Self.FK__CT_YEUCAU__MaYC__208CD6FA" FromRole="YEUCAU_MUAHANG" ToRole="CT_YEUCAU" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__YEUCAU_MUA__MaNV__1DB06A4F" FromRole="YEUCAU_MUAHANG" ToRole="NHANVIEN" />
         </EntityType>
-        <Association Name="FK__BAOGIA__MaNCC__18EBB532">
+        <Association Name="FK__BAOGIA__MaNCC__02084FDA">
           <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
           <End Role="BAOGIA" Type="Self.BAOGIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -894,7 +868,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_BAOGIA__MaBG__1BC821DD">
+        <Association Name="FK__CT_BAOGIA__MaBG__04E4BC85">
           <End Role="BAOGIA" Type="Self.BAOGIA" Multiplicity="1" />
           <End Role="CT_BAOGIA" Type="Self.CT_BAOGIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -906,7 +880,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_BAOGIA__MaSP__1CBC4616">
+        <Association Name="FK__CT_DONMUAH__MaBG__1332DBDC">
+          <End Role="BAOGIA" Type="Self.BAOGIA" Multiplicity="1" />
+          <End Role="CT_DONMUAHANG" Type="Self.CT_DONMUAHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAOGIA">
+              <PropertyRef Name="MaBG" />
+            </Principal>
+            <Dependent Role="CT_DONMUAHANG">
+              <PropertyRef Name="MaBG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CT_BAOGIA__MaSP__05D8E0BE">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="CT_BAOGIA" Type="Self.CT_BAOGIA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -918,7 +904,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_DONMUA__MaDMH__07C12930">
+        <Association Name="FK__CT_DONMUA__MaDMH__114A936A">
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="1" />
           <End Role="CT_DONMUAHANG" Type="Self.CT_DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -930,7 +916,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_DONMUAH__MaSP__08B54D69">
+        <Association Name="FK__CT_DONMUAH__MaSP__123EB7A3">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="CT_DONMUAHANG" Type="Self.CT_DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -942,31 +928,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_KHOHAN__MaKho__7E37BEF6">
-          <End Role="KHOHANG" Type="Self.KHOHANG" Multiplicity="1" />
-          <End Role="CT_KHOHANG" Type="Self.CT_KHOHANG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KHOHANG">
-              <PropertyRef Name="MaKho" />
-            </Principal>
-            <Dependent Role="CT_KHOHANG">
-              <PropertyRef Name="MaKho" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CT_KHOHANG__MaSP__7F2BE32F">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="CT_KHOHANG" Type="Self.CT_KHOHANG" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MaSP" />
-            </Principal>
-            <Dependent Role="CT_KHOHANG">
-              <PropertyRef Name="MaSP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CT_YEUCAU__MaSP__151B244E">
+        <Association Name="FK__CT_YEUCAU__MaSP__2180FB33">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="CT_YEUCAU" Type="Self.CT_YEUCAU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -978,7 +940,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CT_YEUCAU__MaYC__14270015">
+        <Association Name="FK__CT_YEUCAU__MaYC__208CD6FA">
           <End Role="YEUCAU_MUAHANG" Type="Self.YEUCAU_MUAHANG" Multiplicity="1" />
           <End Role="CT_YEUCAU" Type="Self.CT_YEUCAU" Multiplicity="*" />
           <ReferentialConstraint>
@@ -990,7 +952,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DANHGIA_NC__MaNV__778AC167">
+        <Association Name="FK__DANHGIA_N__MaNCC__7A672E12">
+          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
+          <End Role="DANHGIA_NCC" Type="Self.DANHGIA_NCC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHACUNGCAP">
+              <PropertyRef Name="MaNCC" />
+            </Principal>
+            <Dependent Role="DANHGIA_NCC">
+              <PropertyRef Name="MaNCC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_NC__MaNV__797309D9">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="DANHGIA_NCC" Type="Self.DANHGIA_NCC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1002,19 +976,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DANHGIA_SA__MaSP__245D67DE">
+        <Association Name="FK__DANHGIASP___MaSP__2645B050">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="DANHGIA_SANPHAM" Type="Self.DANHGIA_SANPHAM" Multiplicity="*" />
+          <End Role="DANHGIASP_TRONGDON" Type="Self.DANHGIASP_TRONGDON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SANPHAM">
               <PropertyRef Name="MaSP" />
             </Principal>
-            <Dependent Role="DANHGIA_SANPHAM">
+            <Dependent Role="DANHGIASP_TRONGDON">
               <PropertyRef Name="MaSP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DONMUAHAN__MaNCC__04E4BC85">
+        <Association Name="FK__DANHGIASP__MaDMH__2739D489">
+          <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="1" />
+          <End Role="DANHGIASP_TRONGDON" Type="Self.DANHGIASP_TRONGDON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONMUAHANG">
+              <PropertyRef Name="MaDMH" />
+            </Principal>
+            <Dependent Role="DANHGIASP_TRONGDON">
+              <PropertyRef Name="MaDMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONMUAHAN__MaHDM__0E6E26BF">
+          <End Role="HOPDONGMH" Type="Self.HOPDONGMH" Multiplicity="0..1" />
+          <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOPDONGMH">
+              <PropertyRef Name="MaHDMH" />
+            </Principal>
+            <Dependent Role="DONMUAHANG">
+              <PropertyRef Name="MaHDMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONMUAHAN__MaNCC__0D7A0286">
           <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1026,7 +1024,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DONMUAHANG__MaNV__03F0984C">
+        <Association Name="FK__DONMUAHANG__MaNV__0C85DE4D">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1038,7 +1036,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HOADON__MaDMH__0B91BA14">
+        <Association Name="FK__HOADON__MaDMH__160F4887">
           <End Role="DONMUAHANG" Type="Self.DONMUAHANG" Multiplicity="1" />
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1050,7 +1048,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__HANGHOA_VA__MaSP__2BFE89A6">
+        <Association Name="FK__HANGHOA_VA__MaSP__2A164134">
           <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
           <End Role="HANGHOA_VANCHUYEN" Type="Self.HANGHOA_VANCHUYEN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1062,7 +1060,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__THANHTOAN__MaHD__0E6E26BF">
+        <Association Name="FK__THANHTOAN__MaHD__18EBB532">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
           <End Role="THANHTOAN" Type="Self.THANHTOAN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1071,18 +1069,6 @@
             </Principal>
             <Dependent Role="THANHTOAN">
               <PropertyRef Name="MaHD" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_HOPDONG_NCC">
-          <End Role="NHACUNGCAP" Type="Self.NHACUNGCAP" Multiplicity="1" />
-          <End Role="HOPDONGMH" Type="Self.HOPDONGMH" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NHACUNGCAP">
-              <PropertyRef Name="MaNCC" />
-            </Principal>
-            <Dependent Role="HOPDONGMH">
-              <PropertyRef Name="MaNCC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1098,7 +1084,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PHANCONG_C__MaNV__71D1E811">
+        <Association Name="FK__PHANCONG_C__MaNV__73BA3083">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="PHANCONG_CONGVIEC" Type="Self.PHANCONG_CONGVIEC" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1110,19 +1096,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TAILIEU__MaNV__29221CFB">
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
-          <End Role="TAILIEU" Type="Self.TAILIEU" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NHANVIEN">
-              <PropertyRef Name="MaNV" />
-            </Principal>
-            <Dependent Role="TAILIEU">
-              <PropertyRef Name="MaNV" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__YEUCAU_MUA__MaNV__114A936A">
+        <Association Name="FK__YEUCAU_MUA__MaNV__1DB06A4F">
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
           <End Role="YEUCAU_MUAHANG" Type="Self.YEUCAU_MUAHANG" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1134,15 +1108,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__SANPHAM_XU__MaSP__2CF2ADDF">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="SANPHAM_XUATKHO" Type="Self.SANPHAM_XUATKHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MaSP" />
+            </Principal>
+            <Dependent Role="SANPHAM_XUATKHO">
+              <PropertyRef Name="MaSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QLMHEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAOGIAs" EntityType="Self.BAOGIA" />
           <EntitySet Name="CT_BAOGIA" EntityType="Self.CT_BAOGIA" />
           <EntitySet Name="CT_DONMUAHANG" EntityType="Self.CT_DONMUAHANG" />
-          <EntitySet Name="CT_KHOHANG" EntityType="Self.CT_KHOHANG" />
           <EntitySet Name="CT_YEUCAU" EntityType="Self.CT_YEUCAU" />
           <EntitySet Name="DANHGIA_NCC" EntityType="Self.DANHGIA_NCC" />
-          <EntitySet Name="DANHGIA_SANPHAM" EntityType="Self.DANHGIA_SANPHAM" />
-          <EntitySet Name="DIACHIs" EntityType="Self.DIACHI" />
+          <EntitySet Name="DANHGIASP_TRONGDON" EntityType="Self.DANHGIASP_TRONGDON" />
           <EntitySet Name="DONMUAHANGs" EntityType="Self.DONMUAHANG" />
           <EntitySet Name="HANGHOA_VANCHUYEN" EntityType="Self.HANGHOA_VANCHUYEN" />
           <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
@@ -1152,93 +1136,97 @@
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="PHANCONG_CONGVIEC" EntityType="Self.PHANCONG_CONGVIEC" />
           <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+          <EntitySet Name="SANPHAM_XUATKHO" EntityType="Self.SANPHAM_XUATKHO" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="TAILIEUx" EntityType="Self.TAILIEU" />
           <EntitySet Name="THANHTOANs" EntityType="Self.THANHTOAN" />
           <EntitySet Name="YEUCAU_MUAHANG" EntityType="Self.YEUCAU_MUAHANG" />
-          <AssociationSet Name="FK__BAOGIA__MaNCC__18EBB532" Association="Self.FK__BAOGIA__MaNCC__18EBB532">
+          <AssociationSet Name="FK__BAOGIA__MaNCC__02084FDA" Association="Self.FK__BAOGIA__MaNCC__02084FDA">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
             <End Role="BAOGIA" EntitySet="BAOGIAs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_BAOGIA__MaBG__1BC821DD" Association="Self.FK__CT_BAOGIA__MaBG__1BC821DD">
+          <AssociationSet Name="FK__CT_BAOGIA__MaBG__04E4BC85" Association="Self.FK__CT_BAOGIA__MaBG__04E4BC85">
             <End Role="BAOGIA" EntitySet="BAOGIAs" />
             <End Role="CT_BAOGIA" EntitySet="CT_BAOGIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_BAOGIA__MaSP__1CBC4616" Association="Self.FK__CT_BAOGIA__MaSP__1CBC4616">
+          <AssociationSet Name="FK__CT_DONMUAH__MaBG__1332DBDC" Association="Self.FK__CT_DONMUAH__MaBG__1332DBDC">
+            <End Role="BAOGIA" EntitySet="BAOGIAs" />
+            <End Role="CT_DONMUAHANG" EntitySet="CT_DONMUAHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CT_BAOGIA__MaSP__05D8E0BE" Association="Self.FK__CT_BAOGIA__MaSP__05D8E0BE">
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="CT_BAOGIA" EntitySet="CT_BAOGIA" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_DONMUA__MaDMH__07C12930" Association="Self.FK__CT_DONMUA__MaDMH__07C12930">
+          <AssociationSet Name="FK__CT_DONMUA__MaDMH__114A936A" Association="Self.FK__CT_DONMUA__MaDMH__114A936A">
             <End Role="DONMUAHANG" EntitySet="DONMUAHANGs" />
             <End Role="CT_DONMUAHANG" EntitySet="CT_DONMUAHANG" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_DONMUAH__MaSP__08B54D69" Association="Self.FK__CT_DONMUAH__MaSP__08B54D69">
+          <AssociationSet Name="FK__CT_DONMUAH__MaSP__123EB7A3" Association="Self.FK__CT_DONMUAH__MaSP__123EB7A3">
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="CT_DONMUAHANG" EntitySet="CT_DONMUAHANG" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_KHOHAN__MaKho__7E37BEF6" Association="Self.FK__CT_KHOHAN__MaKho__7E37BEF6">
-            <End Role="KHOHANG" EntitySet="KHOHANGs" />
-            <End Role="CT_KHOHANG" EntitySet="CT_KHOHANG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CT_KHOHANG__MaSP__7F2BE32F" Association="Self.FK__CT_KHOHANG__MaSP__7F2BE32F">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="CT_KHOHANG" EntitySet="CT_KHOHANG" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CT_YEUCAU__MaSP__151B244E" Association="Self.FK__CT_YEUCAU__MaSP__151B244E">
+          <AssociationSet Name="FK__CT_YEUCAU__MaSP__2180FB33" Association="Self.FK__CT_YEUCAU__MaSP__2180FB33">
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="CT_YEUCAU" EntitySet="CT_YEUCAU" />
           </AssociationSet>
-          <AssociationSet Name="FK__CT_YEUCAU__MaYC__14270015" Association="Self.FK__CT_YEUCAU__MaYC__14270015">
+          <AssociationSet Name="FK__CT_YEUCAU__MaYC__208CD6FA" Association="Self.FK__CT_YEUCAU__MaYC__208CD6FA">
             <End Role="YEUCAU_MUAHANG" EntitySet="YEUCAU_MUAHANG" />
             <End Role="CT_YEUCAU" EntitySet="CT_YEUCAU" />
           </AssociationSet>
-          <AssociationSet Name="FK__DANHGIA_NC__MaNV__778AC167" Association="Self.FK__DANHGIA_NC__MaNV__778AC167">
+          <AssociationSet Name="FK__DANHGIA_N__MaNCC__7A672E12" Association="Self.FK__DANHGIA_N__MaNCC__7A672E12">
+            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
+            <End Role="DANHGIA_NCC" EntitySet="DANHGIA_NCC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_NC__MaNV__797309D9" Association="Self.FK__DANHGIA_NC__MaNV__797309D9">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="DANHGIA_NCC" EntitySet="DANHGIA_NCC" />
           </AssociationSet>
-          <AssociationSet Name="FK__DANHGIA_SA__MaSP__245D67DE" Association="Self.FK__DANHGIA_SA__MaSP__245D67DE">
+          <AssociationSet Name="FK__DANHGIASP___MaSP__2645B050" Association="Self.FK__DANHGIASP___MaSP__2645B050">
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="DANHGIA_SANPHAM" EntitySet="DANHGIA_SANPHAM" />
+            <End Role="DANHGIASP_TRONGDON" EntitySet="DANHGIASP_TRONGDON" />
           </AssociationSet>
-          <AssociationSet Name="FK__DONMUAHAN__MaNCC__04E4BC85" Association="Self.FK__DONMUAHAN__MaNCC__04E4BC85">
+          <AssociationSet Name="FK__DANHGIASP__MaDMH__2739D489" Association="Self.FK__DANHGIASP__MaDMH__2739D489">
+            <End Role="DONMUAHANG" EntitySet="DONMUAHANGs" />
+            <End Role="DANHGIASP_TRONGDON" EntitySet="DANHGIASP_TRONGDON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONMUAHAN__MaHDM__0E6E26BF" Association="Self.FK__DONMUAHAN__MaHDM__0E6E26BF">
+            <End Role="HOPDONGMH" EntitySet="HOPDONGMHs" />
+            <End Role="DONMUAHANG" EntitySet="DONMUAHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONMUAHAN__MaNCC__0D7A0286" Association="Self.FK__DONMUAHAN__MaNCC__0D7A0286">
             <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
             <End Role="DONMUAHANG" EntitySet="DONMUAHANGs" />
           </AssociationSet>
-          <AssociationSet Name="FK__DONMUAHANG__MaNV__03F0984C" Association="Self.FK__DONMUAHANG__MaNV__03F0984C">
+          <AssociationSet Name="FK__DONMUAHANG__MaNV__0C85DE4D" Association="Self.FK__DONMUAHANG__MaNV__0C85DE4D">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="DONMUAHANG" EntitySet="DONMUAHANGs" />
           </AssociationSet>
-          <AssociationSet Name="FK__HOADON__MaDMH__0B91BA14" Association="Self.FK__HOADON__MaDMH__0B91BA14">
+          <AssociationSet Name="FK__HOADON__MaDMH__160F4887" Association="Self.FK__HOADON__MaDMH__160F4887">
             <End Role="DONMUAHANG" EntitySet="DONMUAHANGs" />
             <End Role="HOADON" EntitySet="HOADONs" />
           </AssociationSet>
-          <AssociationSet Name="FK__HANGHOA_VA__MaSP__2BFE89A6" Association="Self.FK__HANGHOA_VA__MaSP__2BFE89A6">
+          <AssociationSet Name="FK__HANGHOA_VA__MaSP__2A164134" Association="Self.FK__HANGHOA_VA__MaSP__2A164134">
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="HANGHOA_VANCHUYEN" EntitySet="HANGHOA_VANCHUYEN" />
           </AssociationSet>
-          <AssociationSet Name="FK__THANHTOAN__MaHD__0E6E26BF" Association="Self.FK__THANHTOAN__MaHD__0E6E26BF">
+          <AssociationSet Name="FK__THANHTOAN__MaHD__18EBB532" Association="Self.FK__THANHTOAN__MaHD__18EBB532">
             <End Role="HOADON" EntitySet="HOADONs" />
             <End Role="THANHTOAN" EntitySet="THANHTOANs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HOPDONG_NCC" Association="Self.FK_HOPDONG_NCC">
-            <End Role="NHACUNGCAP" EntitySet="NHACUNGCAPs" />
-            <End Role="HOPDONGMH" EntitySet="HOPDONGMHs" />
           </AssociationSet>
           <AssociationSet Name="FK_HOPDONG_NV" Association="Self.FK_HOPDONG_NV">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="HOPDONGMH" EntitySet="HOPDONGMHs" />
           </AssociationSet>
-          <AssociationSet Name="FK__PHANCONG_C__MaNV__71D1E811" Association="Self.FK__PHANCONG_C__MaNV__71D1E811">
+          <AssociationSet Name="FK__PHANCONG_C__MaNV__73BA3083" Association="Self.FK__PHANCONG_C__MaNV__73BA3083">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="PHANCONG_CONGVIEC" EntitySet="PHANCONG_CONGVIEC" />
           </AssociationSet>
-          <AssociationSet Name="FK__TAILIEU__MaNV__29221CFB" Association="Self.FK__TAILIEU__MaNV__29221CFB">
-            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
-            <End Role="TAILIEU" EntitySet="TAILIEUx" />
-          </AssociationSet>
-          <AssociationSet Name="FK__YEUCAU_MUA__MaNV__114A936A" Association="Self.FK__YEUCAU_MUA__MaNV__114A936A">
+          <AssociationSet Name="FK__YEUCAU_MUA__MaNV__1DB06A4F" Association="Self.FK__YEUCAU_MUA__MaNV__1DB06A4F">
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="YEUCAU_MUAHANG" EntitySet="YEUCAU_MUAHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM_XU__MaSP__2CF2ADDF" Association="Self.FK__SANPHAM_XU__MaSP__2CF2ADDF">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="SANPHAM_XUATKHO" EntitySet="SANPHAM_XUATKHO" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1302,10 +1290,8 @@
               <MappingFragment StoreEntitySet="CT_BAOGIA">
                 <ScalarProperty Name="MaBG" ColumnName="MaBG" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
-                <ScalarProperty Name="NgayXuat" ColumnName="NgayXuat" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1314,21 +1300,8 @@
               <MappingFragment StoreEntitySet="CT_DONMUAHANG">
                 <ScalarProperty Name="MaDMH" ColumnName="MaDMH" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="MaBG" ColumnName="MaBG" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
-                <ScalarProperty Name="NgayXuat" ColumnName="NgayXuat" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CT_KHOHANG">
-            <EntityTypeMapping TypeName="QLMHModel.CT_KHOHANG">
-              <MappingFragment StoreEntitySet="CT_KHOHANG">
-                <ScalarProperty Name="MaKho" ColumnName="MaKho" />
-                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-                <ScalarProperty Name="LoHang" ColumnName="LoHang" />
-                <ScalarProperty Name="HanDung" ColumnName="HanDung" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1338,9 +1311,6 @@
                 <ScalarProperty Name="MaYC" ColumnName="MaYC" />
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-                <ScalarProperty Name="GiaDuKien" ColumnName="GiaDuKien" />
-                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
-                <ScalarProperty Name="NgayXuat" ColumnName="NgayXuat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1358,24 +1328,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DANHGIA_SANPHAM">
-            <EntityTypeMapping TypeName="QLMHModel.DANHGIA_SANPHAM">
-              <MappingFragment StoreEntitySet="DANHGIA_SANPHAM">
+          <EntitySetMapping Name="DANHGIASP_TRONGDON">
+            <EntityTypeMapping TypeName="QLMHModel.DANHGIASP_TRONGDON">
+              <MappingFragment StoreEntitySet="DANHGIASP_TRONGDON">
                 <ScalarProperty Name="MaDGSP" ColumnName="MaDGSP" />
-                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
-                <ScalarProperty Name="KetQua" ColumnName="KetQua" />
                 <ScalarProperty Name="NgayDG" ColumnName="NgayDG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DIACHIs">
-            <EntityTypeMapping TypeName="QLMHModel.DIACHI">
-              <MappingFragment StoreEntitySet="DIACHI">
-                <ScalarProperty Name="MaDC" ColumnName="MaDC" />
-                <ScalarProperty Name="TenDC" ColumnName="TenDC" />
-                <ScalarProperty Name="TinhTP" ColumnName="TinhTP" />
-                <ScalarProperty Name="QuanHuyen" ColumnName="QuanHuyen" />
-                <ScalarProperty Name="PhuongXa" ColumnName="PhuongXa" />
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="MaDMH" ColumnName="MaDMH" />
+                <ScalarProperty Name="MoTaDG" ColumnName="MoTaDG" />
+                <ScalarProperty Name="DiemDG" ColumnName="DiemDG" />
+                <ScalarProperty Name="MucdoDG" ColumnName="MucdoDG" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1384,9 +1347,10 @@
               <MappingFragment StoreEntitySet="DONMUAHANG">
                 <ScalarProperty Name="MaDMH" ColumnName="MaDMH" />
                 <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+                <ScalarProperty Name="MaHDMH" ColumnName="MaHDMH" />
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
-                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+                <ScalarProperty Name="Chietkhau" ColumnName="Chietkhau" />
                 <ScalarProperty Name="TThai" ColumnName="TThai" />
                 <ScalarProperty Name="MoTa" ColumnName="MoTa" />
               </MappingFragment>
@@ -1414,9 +1378,8 @@
           <EntitySetMapping Name="HOPDONGMHs">
             <EntityTypeMapping TypeName="QLMHModel.HOPDONGMH">
               <MappingFragment StoreEntitySet="HOPDONGMH">
-                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+                <ScalarProperty Name="MaHDMH" ColumnName="MaHDMH" />
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
-                <ScalarProperty Name="MaNCC" ColumnName="MaNCC" />
                 <ScalarProperty Name="NgayBatDau" ColumnName="NgayBatDau" />
                 <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
                 <ScalarProperty Name="DieuKhoan" ColumnName="DieuKhoan" />
@@ -1478,8 +1441,17 @@
                 <ScalarProperty Name="MaSP" ColumnName="MaSP" />
                 <ScalarProperty Name="TenSP" ColumnName="TenSP" />
                 <ScalarProperty Name="LoaiSP" ColumnName="LoaiSP" />
-                <ScalarProperty Name="Gia" ColumnName="Gia" />
                 <ScalarProperty Name="DVT" ColumnName="DVT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANPHAM_XUATKHO">
+            <EntityTypeMapping TypeName="QLMHModel.SANPHAM_XUATKHO">
+              <MappingFragment StoreEntitySet="SANPHAM_XUATKHO">
+                <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+                <ScalarProperty Name="MaKho" ColumnName="MaKho" />
+                <ScalarProperty Name="SoLuongXuat" ColumnName="SoLuongXuat" />
+                <ScalarProperty Name="NgayXuat" ColumnName="NgayXuat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1491,16 +1463,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TAILIEUx">
-            <EntityTypeMapping TypeName="QLMHModel.TAILIEU">
-              <MappingFragment StoreEntitySet="TAILIEU">
-                <ScalarProperty Name="MaTL" ColumnName="MaTL" />
-                <ScalarProperty Name="LoaiTL" ColumnName="LoaiTL" />
-                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
-                <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1520,6 +1482,8 @@
                 <ScalarProperty Name="MaYC" ColumnName="MaYC" />
                 <ScalarProperty Name="MaNV" ColumnName="MaNV" />
                 <ScalarProperty Name="NgayYC" ColumnName="NgayYC" />
+                <ScalarProperty Name="NgayDuyet" ColumnName="NgayDuyet" />
+                <ScalarProperty Name="PhongBanYC" ColumnName="PhongBanYC" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -59,20 +59,14 @@
     <Compile Include="CT_DONMUAHANG.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
-    <Compile Include="CT_KHOHANG.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
     <Compile Include="CT_YEUCAU.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="DALNV.cs" />
+    <Compile Include="DANHGIASP_TRONGDON.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
     <Compile Include="DANHGIA_NCC.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DANHGIA_SANPHAM.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DIACHI.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="DONMUAHANG.cs">
@@ -118,6 +112,9 @@
     <Compile Include="SANPHAM.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
+    <Compile Include="SANPHAM_XUATKHO.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
@@ -125,9 +122,6 @@
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TAILIEU.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="THANHTOAN.cs">

@@ -23,6 +23,8 @@ namespace PC_DAL
         public string MaYC { get; set; }
         public string MaNV { get; set; }
         public System.DateTime NgayYC { get; set; }
+        public Nullable<System.DateTime> NgayDuyet { get; set; }
+        public string PhongBanYC { get; set; }
         public string TinhTrang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -19,16 +19,15 @@ namespace PC_DAL
         {
             this.CT_BAOGIA = new HashSet<CT_BAOGIA>();
             this.CT_DONMUAHANG = new HashSet<CT_DONMUAHANG>();
-            this.CT_KHOHANG = new HashSet<CT_KHOHANG>();
             this.CT_YEUCAU = new HashSet<CT_YEUCAU>();
-            this.DANHGIA_SANPHAM = new HashSet<DANHGIA_SANPHAM>();
+            this.DANHGIASP_TRONGDON = new HashSet<DANHGIASP_TRONGDON>();
             this.HANGHOA_VANCHUYEN = new HashSet<HANGHOA_VANCHUYEN>();
+            this.SANPHAM_XUATKHO = new HashSet<SANPHAM_XUATKHO>();
         }
     
         public string MaSP { get; set; }
         public string TenSP { get; set; }
         public string LoaiSP { get; set; }
-        public Nullable<decimal> Gia { get; set; }
         public string DVT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -36,12 +35,12 @@ namespace PC_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_DONMUAHANG> CT_DONMUAHANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_KHOHANG> CT_KHOHANG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_YEUCAU> CT_YEUCAU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANHGIA_SANPHAM> DANHGIA_SANPHAM { get; set; }
+        public virtual ICollection<DANHGIASP_TRONGDON> DANHGIASP_TRONGDON { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HANGHOA_VANCHUYEN> HANGHOA_VANCHUYEN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SANPHAM_XUATKHO> SANPHAM_XUATKHO { get; set; }
     }
 }

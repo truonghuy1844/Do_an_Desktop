@@ -18,19 +18,24 @@ namespace PC_DAL
         public DONMUAHANG()
         {
             this.CT_DONMUAHANG = new HashSet<CT_DONMUAHANG>();
+            this.DANHGIASP_TRONGDON = new HashSet<DANHGIASP_TRONGDON>();
             this.HOADONs = new HashSet<HOADON>();
         }
     
         public string MaDMH { get; set; }
         public System.DateTime NgayLap { get; set; }
+        public string MaHDMH { get; set; }
         public string MaNV { get; set; }
         public string MaNCC { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
+        public Nullable<decimal> Chietkhau { get; set; }
         public string TThai { get; set; }
         public string MoTa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_DONMUAHANG> CT_DONMUAHANG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DANHGIASP_TRONGDON> DANHGIASP_TRONGDON { get; set; }
+        public virtual HOPDONGMH HOPDONGMH { get; set; }
         public virtual NHACUNGCAP NHACUNGCAP { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

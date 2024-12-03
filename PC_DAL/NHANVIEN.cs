@@ -21,14 +21,13 @@ namespace PC_DAL
             this.DONMUAHANGs = new HashSet<DONMUAHANG>();
             this.HOPDONGMHs = new HashSet<HOPDONGMH>();
             this.PHANCONG_CONGVIEC = new HashSet<PHANCONG_CONGVIEC>();
-            this.TAILIEUx = new HashSet<TAILIEU>();
             this.YEUCAU_MUAHANG = new HashSet<YEUCAU_MUAHANG>();
         }
     
         public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string DiaChi { get; set; }
-        public Nullable<bool> GioiTinh { get; set; }
+        public string GioiTinh { get; set; }
         public string DienThoai { get; set; }
         public string ChucVu { get; set; }
         public string PhongBan { get; set; }
@@ -41,8 +40,6 @@ namespace PC_DAL
         public virtual ICollection<HOPDONGMH> HOPDONGMHs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHANCONG_CONGVIEC> PHANCONG_CONGVIEC { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAILIEU> TAILIEUx { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YEUCAU_MUAHANG> YEUCAU_MUAHANG { get; set; }
     }

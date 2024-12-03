@@ -12,12 +12,13 @@ namespace PC_DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class DIACHI
+    public partial class SANPHAM_XUATKHO
     {
-        public string MaDC { get; set; }
-        public string TenDC { get; set; }
-        public string TinhTP { get; set; }
-        public string QuanHuyen { get; set; }
-        public string PhuongXa { get; set; }
+        public string MaSP { get; set; }
+        public string MaKho { get; set; }
+        public Nullable<int> SoLuongXuat { get; set; }
+        public System.DateTime NgayXuat { get; set; }
+    
+        public virtual SANPHAM SANPHAM { get; set; }
     }
 }

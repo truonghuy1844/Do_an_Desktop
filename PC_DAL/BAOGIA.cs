@@ -18,6 +18,7 @@ namespace PC_DAL
         public BAOGIA()
         {
             this.CT_BAOGIA = new HashSet<CT_BAOGIA>();
+            this.CT_DONMUAHANG = new HashSet<CT_DONMUAHANG>();
         }
     
         public string MaBG { get; set; }
@@ -27,5 +28,7 @@ namespace PC_DAL
         public virtual NHACUNGCAP NHACUNGCAP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_BAOGIA> CT_BAOGIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CT_DONMUAHANG> CT_DONMUAHANG { get; set; }
     }
 }

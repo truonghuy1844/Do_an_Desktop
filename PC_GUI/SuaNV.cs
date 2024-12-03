@@ -64,7 +64,7 @@ namespace PC_GUI
                 txtTenNV.Text = nv.TenNV;
                 txtDiaChi.Text = nv.DiaChi;
                 txtSDT.Text = nv.SDT;
-                if (nv.GioiTinh)
+                if (nv.GioiTinh == "Nam")
                 {
                     radioButtonNam.Checked = true;
                     radioButtonNu.Checked = false;
@@ -138,7 +138,7 @@ namespace PC_GUI
                         TenNV = txtTenNV.Text,
                         SDT = txtSDT.Text,
                         DiaChi = txtDiaChi.Text,
-                        GioiTinh = radioButtonNam.Checked ? true : false,
+                        GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ",
                         ChucVu = comboBoxChucVu.SelectedValue.ToString(),
                         PhongBan = comboBoxPhongBan.SelectedValue.ToString()
                     };
