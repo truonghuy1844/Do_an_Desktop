@@ -54,6 +54,33 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI_NhapSua_BaoGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_NhapSua_BaoGia.Designer.cs">
+      <DependentUpon>UI_NhapSua_BaoGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_NhapSua_YeuCauMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_NhapSua_YeuCauMH.Designer.cs">
+      <DependentUpon>UI_NhapSua_YeuCauMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_View_BaoGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_View_BaoGia.Designer.cs">
+      <DependentUpon>UI_View_BaoGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_YeuCauMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_YeuCauMH.Designer.cs">
+      <DependentUpon>UI_YeuCauMH.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +90,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI_NhapSua_BaoGia.resx">
+      <DependentUpon>UI_NhapSua_BaoGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_NhapSua_YeuCauMH.resx">
+      <DependentUpon>UI_NhapSua_YeuCauMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_View_BaoGia.resx">
+      <DependentUpon>UI_View_BaoGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_YeuCauMH.resx">
+      <DependentUpon>UI_YeuCauMH.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

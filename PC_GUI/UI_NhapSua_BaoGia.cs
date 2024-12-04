@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace PC_GUI
 {
-    public partial class Form1 : Form
+    public partial class UI_NhapSua_BaoGia : Form
     {
-        public Form1()
+        public UI_NhapSua_BaoGia()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            UI_View_BaoGia ui = new UI_View_BaoGia();
-            ui.Show();
         }
     }
 }
