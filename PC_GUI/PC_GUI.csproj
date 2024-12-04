@@ -55,61 +55,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddKho.cs">
+    <Compile Include="AddNCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddKho.Designer.cs">
-      <DependentUpon>AddKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddNV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddNV.Designer.cs">
-      <DependentUpon>AddNV.cs</DependentUpon>
+    <Compile Include="AddNCC.Designer.cs">
+      <DependentUpon>AddNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLKho.cs">
+    <Compile Include="QLDGNCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLKho.Designer.cs">
-      <DependentUpon>QLKho.cs</DependentUpon>
+    <Compile Include="QLDGNCC.Designer.cs">
+      <DependentUpon>QLDGNCC.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLNV.cs">
+    <Compile Include="QLNCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLNV.Designer.cs">
-      <DependentUpon>QLNV.cs</DependentUpon>
+    <Compile Include="QLNCC.Designer.cs">
+      <DependentUpon>QLNCC.cs</DependentUpon>
     </Compile>
-    <Compile Include="SuaKho.cs">
+    <Compile Include="SuaNCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SuaKho.Designer.cs">
-      <DependentUpon>SuaKho.cs</DependentUpon>
+    <Compile Include="SuaNCC.Designer.cs">
+      <DependentUpon>SuaNCC.cs</DependentUpon>
     </Compile>
-    <Compile Include="SuaNV.cs">
+    <Compile Include="XoaNCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SuaNV.Designer.cs">
-      <DependentUpon>SuaNV.cs</DependentUpon>
+    <Compile Include="XoaNCC.Designer.cs">
+      <DependentUpon>XoaNCC.cs</DependentUpon>
     </Compile>
-    <Compile Include="XoaKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XoaKho.Designer.cs">
-      <DependentUpon>XoaKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XoaNV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XoaNV.Designer.cs">
-      <DependentUpon>XoaNV.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddKho.resx">
-      <DependentUpon>AddKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddNV.resx">
-      <DependentUpon>AddNV.cs</DependentUpon>
+    <EmbeddedResource Include="AddNCC.resx">
+      <DependentUpon>AddNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,23 +99,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QLKho.resx">
-      <DependentUpon>QLKho.cs</DependentUpon>
+    <EmbeddedResource Include="QLDGNCC.resx">
+      <DependentUpon>QLDGNCC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLNV.resx">
-      <DependentUpon>QLNV.cs</DependentUpon>
+    <EmbeddedResource Include="QLNCC.resx">
+      <DependentUpon>QLNCC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SuaKho.resx">
-      <DependentUpon>SuaKho.cs</DependentUpon>
+    <EmbeddedResource Include="SuaNCC.resx">
+      <DependentUpon>SuaNCC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SuaNV.resx">
-      <DependentUpon>SuaNV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XoaKho.resx">
-      <DependentUpon>XoaKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XoaNV.resx">
-      <DependentUpon>XoaNV.cs</DependentUpon>
+    <EmbeddedResource Include="XoaNCC.resx">
+      <DependentUpon>XoaNCC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

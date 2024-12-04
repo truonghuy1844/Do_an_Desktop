@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PC_GUI
 {
-    public partial class AddKho : Form
+    public partial class QLDGNCC : Form
     {
-        public AddKho()
+        public QLDGNCC()
         {
             InitializeComponent();
         }
