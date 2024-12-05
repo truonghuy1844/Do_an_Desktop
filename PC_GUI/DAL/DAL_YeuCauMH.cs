@@ -26,7 +26,7 @@ namespace PC_GUI.DAL
                                    NgayDuyet = yc.NgayDuyet,
                                    PhongBanYC = yc.PhongBanYC,
                                    TinhTrang = yc.TinhTrang
-                               }).ToList();
+                               }).Distinct().ToList();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("MaYC", typeof(string));
                 dt.Columns.Add("PhongBanYC", typeof(string));
@@ -46,6 +46,7 @@ namespace PC_GUI.DAL
                     dr["NgayDuyet"] = item.NgayDuyet;
                     dt.Rows.Add(dr);
                 }
+                dt.DefaultView.Sort = "NgayYC DESC";
                 return dt;
             }
             catch (Exception ex)
@@ -149,7 +150,7 @@ namespace PC_GUI.DAL
                                    MaSP = yc.MaSP,
                                    TenSP = sp.TenSP,
                                    SoLuong = yc.SoLuong
-                               }).ToList();
+                               }).Distinct().ToList();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("MaYC", typeof(string));
                 dt.Columns.Add("MaSP", typeof(string));

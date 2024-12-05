@@ -24,7 +24,7 @@ namespace PC_GUI.BLL
         ///
         public bool Them_YCMH(DTO_YeuCauMH yc)
         {
-            if (yc != null) 
+            if (yc.MaYC != "") 
             {
                 DAL_YeuCauMH dal = new DAL_YeuCauMH();
                 return dal.Them_YeuCauMH(yc);
@@ -34,7 +34,7 @@ namespace PC_GUI.BLL
         //Sua Yêu cầu mua hàng
         public bool Sua_YCMH(DTO_YeuCauMH yc)
         {
-            if (yc != null)
+            if (yc.MaYC != "")
             {
                 DAL_YeuCauMH dal = new DAL_YeuCauMH();
                 return dal.Them_YeuCauMH(yc) ;
@@ -44,7 +44,7 @@ namespace PC_GUI.BLL
         ///Xoa Yêu cầu mua hàng
         public bool Xoa_YCMH(DTO_YeuCauMH yc) 
         { 
-            if(yc != null)
+            if(yc.MaYC != "")
             {
                 DAL_YeuCauMH dal = new DAL_YeuCauMH() ;
                 return dal.Xoa_YC_MH(yc);
@@ -69,7 +69,7 @@ namespace PC_GUI.BLL
         ///
         public bool Them_CT_YCMH(DTO_CT_YeuCauMH ct)
         {
-            if (ct != null)
+            if (ct.MaYC != "" && ct.MaSP != "")
             {
                 DAL_CT_YeuCau dal = new DAL_CT_YeuCau();
                 return dal.Them_CT_YeuCauMH(ct);
@@ -79,7 +79,7 @@ namespace PC_GUI.BLL
         //Sua CT_Yêu cầu mua hàng
         public bool Sua_CT_YCMH(DTO_CT_YeuCauMH ct)
         {
-            if (ct != null)
+            if (ct.MaYC != "" && ct.MaSP != "")
             {
                 DAL_CT_YeuCau dal = new DAL_CT_YeuCau();
                 return dal.Sua_CT_YC_MH(ct);
@@ -89,7 +89,7 @@ namespace PC_GUI.BLL
         ///Xoa Toàn bộ CT_Yêu cầu mua hàng
         public bool Xoa_ALL_CT_YCMH(DTO_CT_YeuCauMH ct)
         {
-            if (ct != null)
+            if (ct.MaYC != "")
             {
                 DAL_CT_YeuCau dal = new DAL_CT_YeuCau();
                 return dal.Xoa_ALL_CT_YC_MH(ct);
@@ -98,7 +98,7 @@ namespace PC_GUI.BLL
         }
         public bool Xoa_SP_CT_YCMH(DTO_CT_YeuCauMH ct) 
         {
-            if (ct != null)
+            if (ct.MaYC != "" && ct.MaSP != "")
             {
                 DAL_CT_YeuCau dal = new DAL_CT_YeuCau();
                 return dal.Xoa_SP_CT_YC(ct);

@@ -3,7 +3,9 @@ using PC_GUI.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,10 +55,11 @@ namespace PC_GUI.BLL
     /// </summary>
     public class BLL_CT_BaoGia
     {
-        public DataTable Load_CT_BG()
+        public DataTable Load_CT_BG(DTO_CT_BaoGia ct_bg)
         {
             DAL_CT_BaoGia dal = new DAL_CT_BaoGia();
-            return dal.Load_CT_BaoGia();
+            DTO_CT_BaoGia ct = ct_bg;
+            return dal.Load_CT_BaoGia(ct);
         }
         public bool Them_CT_BG(DTO_CT_BaoGia cT_BaoGia)
         {
@@ -91,5 +94,21 @@ namespace PC_GUI.BLL
             return dal.Xoa_CT_BG(cT_BaoGia);
         }
 
+    }
+    ///Lọc báo giá
+    ///
+    public class Loc_Bao_Gia
+    {
+        public DataTable Loc_BG(DTO_BaoGia bgia, DTO_CT_BaoGia ctiet, DateTime start, DateTime end)
+        {
+            DAL_Loc_BaoGia dal = new DAL_Loc_BaoGia();
+            if (bgia.MaNCC == "0" && ctiet.MaSP == "0")
+            {
+                return dal.Load_Loc_NT(start, end);
+            }
+            if (bgia.MaNCC == "0" && ctiet.MaSP != "0") return dal.Load_Loc_SP(ctiet,start,end);
+            return dal.Load_Loc_NCC(bgia, start,end);
+
+        }
     }
 }

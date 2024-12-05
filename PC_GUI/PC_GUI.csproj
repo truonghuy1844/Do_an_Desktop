@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="BLL\BLL_BaoGia.cs" />
     <Compile Include="BLL\BLL_YeuCauMH.cs" />
+    <Compile Include="BLL\LoadCB.cs" />
     <Compile Include="CT_BAOGIA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -71,6 +72,7 @@
     </Compile>
     <Compile Include="DAL\DAL_BaoGia.cs" />
     <Compile Include="DAL\DAL_YeuCauMH.cs" />
+    <Compile Include="DAL\LoadComboBox.cs" />
     <Compile Include="DANHGIASP_TRONGDON.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
