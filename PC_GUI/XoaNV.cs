@@ -111,6 +111,15 @@ namespace PC_GUI
             };
             bLLNV.XoaNV(xoaNV);
             MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
+            txtTim.Text = string.Empty;
+            txtMaNV.Text = string.Empty;
+            txtTenNV.Text = string.Empty;
+            txtSDT.Text = string.Empty;
+            txtDiaChi.Text = string.Empty;
+            radioButtonNam.Checked = false;
+            radioButtonNu.Checked = false;
+            comboBoxChucVu.SelectedIndex = -1;
+            comboBoxPhongBan.SelectedIndex = -1;
         }
     }
 }

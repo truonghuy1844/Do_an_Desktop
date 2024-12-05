@@ -60,22 +60,28 @@ namespace PC_DAL
             {
                 NHANVIEN nv = new NHANVIEN()
                 {
-                    MaNV = dTONV.MaNV,             
-                    TenNV = dTONV.TenNV,           
-                    DiaChi = dTONV.DiaChi,         
-                    GioiTinh = dTONV.GioiTinh,     
-                    DienThoai = dTONV.SDT,         
-                    ChucVu = dTONV.ChucVu,         
+                    MaNV = dTONV.MaNV,
+                    TenNV = dTONV.TenNV,
+                    DiaChi = dTONV.DiaChi,
+                    GioiTinh = dTONV.GioiTinh,
+                    DienThoai = dTONV.SDT,
+                    ChucVu = dTONV.ChucVu,
                     PhongBan = dTONV.PhongBan
                 };
                 using (var db = new QLMHEntities())
                 {
-                    db.NHANVIENs.Add(nv);  
-                    db.SaveChanges();  
+                    var existingNV = db.NHANVIENs.Find(dTONV.MaNV);
+                    if (existingNV != null)
+                    {
+                        throw new Exception("Mã nhân viên đã tồn tại.");
+                    }
+                    db.NHANVIENs.Add(nv);
+                    db.SaveChanges();
                 }
             }
-            catch (Exception ex) {
-                throw new Exception("Có lỗi trong lúc thêm nhân viên mới: " + ex.Message);
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thêm nhân viên mới: {ex.Message}");
             }
         }
         public List<DTONV> TimNhanVien(string maNV)
@@ -103,30 +109,13 @@ namespace PC_DAL
             nv.DienThoai = dTONV.SDT;
             nv.ChucVu = dTONV.ChucVu;
             nv.PhongBan = dTONV.PhongBan;
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Lỗi cập nhật thông tin: {ex.Message}");
-            }
+            db.SaveChanges();
         }
         public void XoaNV(DTONV dTONV)
         {
             var nv = db.NHANVIENs.Find(dTONV.MaNV);
-            if (nv != null)
-            {
-                try
-                {
-                    db.NHANVIENs.Remove(nv);
-                    db.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception($"Lỗi xóa nhân viên: {ex.Message}");
-                }
-            }
+            db.NHANVIENs.Remove(nv);
+            db.SaveChanges();
         }
         public List<DTONV> TimNhanVienChucVu(string maNV, string chucVu)
         {

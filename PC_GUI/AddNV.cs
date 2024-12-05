@@ -57,79 +57,58 @@ namespace PC_GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            bool okInsert = true;
-            if (txtMaNV.Text.Length == 0)
+            try
             {
-                okInsert = false;
-                MessageBox.Show("Vui lòng nhập mã nhân viên!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                txtMaNV.Focus();
-            }
-            if (txtMaNV.Text.Length < 5)
-            {
-                okInsert = false;
-                MessageBox.Show("Mã của nhân viên phải đủ 5 số!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                txtSDT.Focus();
-            }
-            if (txtTenNV.Text.Length == 0)
-            {
-                okInsert = false;
-                MessageBox.Show("Vui lòng nhập tên nhân viên!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                txtTenNV.Focus();
-            }
-            if (!radioButtonNam.Checked && !radioButtonNu.Checked)
-            {
-                okInsert = false;
-                MessageBox.Show("Vui lòng chọn giới tính!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                lbGioiTinh.Focus();
-            }
-            if (txtSDT.Text.Length == 0)
-            {
-                okInsert = false;
-                MessageBox.Show("Vui lòng nhập số điện thoại!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                txtSDT.Focus();
-            }
-            if (txtSDT.Text.Length < 10)
-            {
-                okInsert = false;
-                MessageBox.Show("Số điện thoại của nhân viên phải đủ 10 số!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                txtSDT.Focus();
-            }
-            if (comboBoxChucVu.SelectedIndex == -1)
-            {
-                okInsert = false;
-                MessageBox.Show("Vui lòng chọn chức vụ!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                comboBoxChucVu.Focus();
-            }
-            if (comboBoxChucVu.SelectedIndex == -1)
-            {
-                okInsert = false;
-                MessageBox.Show("Vui lòng chọn phòng ban!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                comboBoxPhongBan.Focus();
-            }
-            if(okInsert)
-            {
-                try
+                string maNV = txtMaNV.Text.Trim();
+                if (!string.IsNullOrWhiteSpace(maNV) &&
+                    string.IsNullOrWhiteSpace(txtTenNV.Text) &&
+                    string.IsNullOrWhiteSpace(txtDiaChi.Text) &&
+                    string.IsNullOrWhiteSpace(txtSDT.Text) &&
+                    comboBoxChucVu.SelectedValue == null &&
+                    comboBoxPhongBan.SelectedValue == null)
                 {
-                    DTONV dTONV = new DTONV()
+                    List<DTONV> exists = bLLNV.TimNV(maNV);
+
+                    if (exists != null && exists.Any())
                     {
-                        MaNV = txtMaNV.Text,
-                        TenNV = txtTenNV.Text,
-                        DiaChi = txtDiaChi.Text,
-                        GioiTinh = radioButtonNam.Checked ? "Nam": "Nữ",
-                        SDT = txtSDT.Text,
-                        ChucVu = comboBoxChucVu.SelectedValue.ToString(),
-                        PhongBan = comboBoxPhongBan.SelectedValue.ToString()
-                    };
-                    bLLNV.AddNhanVien(dTONV);
-
-                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Mã nhân viên đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng nhập thêm thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    return;
                 }
-                catch (Exception ex)
+                DTONV addNV = new DTONV()
                 {
-                    MessageBox.Show("Có lỗi trong lúc thêm nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }    
+                    MaNV = txtMaNV.Text.Trim(),
+                    TenNV = txtTenNV.Text.Trim(),
+                    DiaChi = txtDiaChi.Text.Trim(),
+                    GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ",
+                    SDT = txtSDT.Text.Trim(),
+                    ChucVu = comboBoxChucVu.SelectedValue?.ToString(),
+                    PhongBan = comboBoxPhongBan.SelectedValue?.ToString()
+                };
+                bLLNV.AddNhanVien(addNV);
 
+                MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
+                txtMaNV.Text = string.Empty;
+                txtTenNV.Text = string.Empty;
+                txtSDT.Text = string.Empty;
+                txtDiaChi.Text = string.Empty;
+                radioButtonNam.Checked = false;
+                radioButtonNu.Checked = false;
+                comboBoxChucVu.SelectedIndex = -1;
+                comboBoxPhongBan.SelectedIndex = -1;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)

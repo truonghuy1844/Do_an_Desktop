@@ -110,47 +110,31 @@ namespace PC_GUI
         {
             try
             {
-                bool okChange = true;
-                if (txtTenNV.Text.Length == 0)
+                DTONV suaNV = new DTONV
                 {
-                    okChange = false;
-                    MessageBox.Show("Tên nhân viên không được để trống!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                    txtTenNV.Focus();
-                }
-                if (txtSDT.Text.Length == 0)
-                {
-                    okChange = false;
-                    MessageBox.Show("Số điện thoại của nhân viên không được để trống!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                    txtSDT.Focus();
-                }
-                if (txtSDT.Text.Length <10 )
-                {
-                    okChange = false;
-                    MessageBox.Show("Số điện thoại của nhân viên phải đủ 10 số!", "Chưa đủ thông tin", MessageBoxButtons.OK);
-                    txtSDT.Focus();
-                }
-
-                if (okChange)
-                {
-                    DTONV suaNV = new DTONV
-                    {
-                        MaNV = txtMaNV.Text,
-                        TenNV = txtTenNV.Text,
-                        SDT = txtSDT.Text,
-                        DiaChi = txtDiaChi.Text,
-                        GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ",
-                        ChucVu = comboBoxChucVu.SelectedValue.ToString(),
-                        PhongBan = comboBoxPhongBan.SelectedValue.ToString()
-                    };
-                    bLLNV.SuaNV(suaNV);
-
-                    MessageBox.Show("Sửa thông tin của nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
-                }
+                    MaNV = txtMaNV.Text,
+                    TenNV = txtTenNV.Text,
+                    SDT = txtSDT.Text,
+                    DiaChi = txtDiaChi.Text,
+                    GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ",
+                    ChucVu = comboBoxChucVu.SelectedValue?.ToString(),
+                    PhongBan = comboBoxPhongBan.SelectedValue?.ToString()
+                };
+                bLLNV.SuaNV(suaNV);
+                MessageBox.Show("Cập nhật thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK);
+                txtTim.Text = string.Empty;
+                txtMaNV.Text = string.Empty;
+                txtTenNV.Text = string.Empty;
+                txtSDT.Text = string.Empty;
+                txtDiaChi.Text = string.Empty;
+                radioButtonNam.Checked = false;
+                radioButtonNu.Checked = false;
+                comboBoxChucVu.SelectedIndex = -1;
+                comboBoxPhongBan.SelectedIndex = -1;
             }
-
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                MessageBox.Show("Có lỗi trong lúc sửa thông tin nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

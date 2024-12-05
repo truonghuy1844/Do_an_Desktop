@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PC_DTO;
 using PC_DAL;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace PC_BLL
 {
@@ -26,14 +27,23 @@ namespace PC_BLL
         }
         public void AddNhanVien(DTONV dTONV)
         {
-            try
-            {
-                dALNV.AddNV(dTONV);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Có lỗi trong lúc xử lý nghiệp vụ: " + ex.Message);
-            }
+            if (string.IsNullOrEmpty(dTONV.MaNV))
+                throw new ArgumentException("Mã nhân viên không được để trống.");
+            if (dTONV.MaNV.Length != 5)
+                throw new ArgumentException("Mã nhân viên phải gồm đúng 5 ký tự.");
+            if (string.IsNullOrEmpty(dTONV.TenNV))
+                throw new ArgumentException("Tên nhân viên không được để trống.");
+            if (string.IsNullOrEmpty(dTONV.SDT))
+                throw new ArgumentException("Số điện thoại của nhân viên không được để trống.");
+            if (!Regex.IsMatch(dTONV.SDT, @"^\d{10}$"))
+                throw new ArgumentException("Số điện thoại phải là chuỗi số gồm đúng 10 chữ số.");
+            if (string.IsNullOrEmpty(dTONV.GioiTinh))
+                throw new ArgumentException("Giới tính của nhân viên không được để trống.");
+            if (string.IsNullOrEmpty(dTONV.ChucVu))
+                throw new ArgumentException("Chức vụ của nhân viên không được để trống.");
+            if (string.IsNullOrEmpty(dTONV.PhongBan))
+                throw new ArgumentException("Phòng ban của nhân viên không được để trống.");
+            dALNV.AddNV(dTONV);
         }
         public List<DTONV> TimNV(string maNV)
         {
@@ -43,10 +53,12 @@ namespace PC_BLL
         {
             if (string.IsNullOrEmpty(dTONV.TenNV))
                 throw new ArgumentException("Tên nhân viên không được để trống.");
-            if (string.IsNullOrEmpty(dTONV.GioiTinh))
-                throw new ArgumentException("Giới tính của nhân viên không được để trống.");
             if (string.IsNullOrEmpty(dTONV.SDT))
                 throw new ArgumentException("Số điện thoại của nhân viên không được để trống.");
+            if (!Regex.IsMatch(dTONV.SDT, @"^\d{10}$"))
+                throw new ArgumentException("Số điện thoại phải là chuỗi số gồm đúng 10 chữ số.");
+            if (string.IsNullOrEmpty(dTONV.GioiTinh))
+                throw new ArgumentException("Giới tính của nhân viên không được để trống.");
             if (string.IsNullOrEmpty(dTONV.ChucVu))
                 throw new ArgumentException("Chức vụ của nhân viên không được để trống.");
             if (string.IsNullOrEmpty(dTONV.PhongBan))

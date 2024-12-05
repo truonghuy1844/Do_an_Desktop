@@ -55,12 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddKho.Designer.cs">
-      <DependentUpon>AddKho.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,23 +63,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QLKho.Designer.cs">
-      <DependentUpon>QLKho.cs</DependentUpon>
-    </Compile>
     <Compile Include="QLNV.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="QLNV.Designer.cs">
       <DependentUpon>QLNV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SuaKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SuaKho.Designer.cs">
-      <DependentUpon>SuaKho.cs</DependentUpon>
     </Compile>
     <Compile Include="SuaNV.cs">
       <SubType>Form</SubType>
@@ -93,21 +75,12 @@
     <Compile Include="SuaNV.Designer.cs">
       <DependentUpon>SuaNV.cs</DependentUpon>
     </Compile>
-    <Compile Include="XoaKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XoaKho.Designer.cs">
-      <DependentUpon>XoaKho.cs</DependentUpon>
-    </Compile>
     <Compile Include="XoaNV.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XoaNV.Designer.cs">
       <DependentUpon>XoaNV.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddKho.resx">
-      <DependentUpon>AddKho.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddNV.resx">
       <DependentUpon>AddNV.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,20 +93,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="QLKho.resx">
-      <DependentUpon>QLKho.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="QLNV.resx">
       <DependentUpon>QLNV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SuaKho.resx">
-      <DependentUpon>SuaKho.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SuaNV.resx">
       <DependentUpon>SuaNV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XoaKho.resx">
-      <DependentUpon>XoaKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XoaNV.resx">
       <DependentUpon>XoaNV.cs</DependentUpon>
