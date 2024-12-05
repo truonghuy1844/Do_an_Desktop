@@ -96,6 +96,12 @@ namespace PC_GUI
                 };
                 bLLNCC.SuaNCC(suaNCC);
                 MessageBox.Show("Cập nhật thông tin nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK);
+                txtTim.Text = string.Empty;
+                txtMaNCC.Text = string.Empty;
+                txtTenNCC.Text = string.Empty;
+                txtSDT.Text = string.Empty;
+                txtDiaChi.Text = string.Empty;
+                txtEmail.Text = string.Empty;
             }
             catch (ArgumentException ex)
             {
