@@ -268,6 +268,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(101, 434);
             this.dataGridView1.Name = "dataGridView1";
@@ -325,6 +327,7 @@
             this.Controls.Add(this.lbMaYC);
             this.Name = "UI_YeuCauMH";
             this.Text = "UI_YeuCauMH";
+            this.Load += new System.EventHandler(this.UI_YeuCauMH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

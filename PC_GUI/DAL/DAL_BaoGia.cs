@@ -6,27 +6,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PC_DAL
+namespace PC_GUI.DAL
 {
     public class DAL_BaoGia
     {
-        //Load dữ liệu báo giá
         public DataTable Load_BaoGia()
         {
 
-            QLMHEntities cnn = new QLMHEntities();
+            QLMHEntities1 cnn = new QLMHEntities1();
             try
             {
                 var list_BG = (from bg in cnn.BAOGIAs
+                               join ncc in cnn.NHACUNGCAPs 
+                               on bg.MaNCC equals ncc.MaNCC
                                select new
                                {
                                    MaBG = bg.MaBG,
                                    MaNCC = bg.MaNCC,
+                                   TenNCC = ncc.TenNCC,
                                    NgayBG = bg.NgayBG
                                }).ToList();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("MaBG", typeof(string));
                 dt.Columns.Add("MaNCC", typeof(string));
+                dt.Columns.Add("TenNCC", typeof(string));
                 dt.Columns.Add("NgayBG", typeof(DateTime));
                 //Thêm vào bảng
                 foreach (var bg in list_BG)
@@ -34,6 +37,7 @@ namespace PC_DAL
                     DataRow dr = dt.NewRow();
                     dr["MaBG"] = bg.MaBG;
                     dr["MaNCC"] = bg.MaNCC;
+                    dr["TenNCC"] = bg.TenNCC;
                     dr["NgayBG"] = bg.NgayBG;
                     dt.Rows.Add(dr);
                 }
@@ -55,7 +59,7 @@ namespace PC_DAL
         //Thêm báo giá
         public bool Them_BG(DTO_BaoGia dto_BaoGia)
         {
-            QLMHEntities conn = new QLMHEntities();
+            QLMHEntities1 conn = new QLMHEntities1();
             try
             {
                 BAOGIA baoGia = new BAOGIA();
@@ -74,7 +78,7 @@ namespace PC_DAL
         //Xóa báo giá
         public bool Xoa_BG(DTO_BaoGia dto_BG)
         {
-            QLMHEntities conn = new QLMHEntities();
+            QLMHEntities1 conn = new QLMHEntities1();
             BAOGIA baoGia = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
             if (baoGia != null)
             {
@@ -96,7 +100,7 @@ namespace PC_DAL
         //Sửa báo giá
         public bool Sua_BG(DTO_BaoGia dto_BG)
         {
-            QLMHEntities conn = new QLMHEntities();
+            QLMHEntities1 conn = new QLMHEntities1();
             BAOGIA baoGia = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
 
             if (baoGia != null)
@@ -119,7 +123,9 @@ namespace PC_DAL
     }
 
 
-    //Chi tiết báo giá
+    /// <summary>
+    /// Chi tiết báo giá
+    /// </summary>
     public class DAL_CT_BaoGia
     {
         //Load dữ liệu chi tiết báo giá
@@ -127,22 +133,26 @@ namespace PC_DAL
         {
             try
             {
-                QLMHEntities cnn = new QLMHEntities();
+                QLMHEntities1 cnn = new QLMHEntities1();
                 var list_BG = (from ct_bg in cnn.CT_BAOGIA
                                join bg in cnn.BAOGIAs
                                on ct_bg.MaBG equals bg.MaBG
+                               join sp in cnn.SANPHAMs
+                               on ct_bg.MaSP equals sp.MaSP
+                               join ncc in cnn.NHACUNGCAPs
+                               on bg.MaNCC equals ncc.MaNCC
                                select new
                                {
                                    MaBG = ct_bg.MaBG,
-                                   MaSP = ct_bg.MaSP,
-                                   MaNCC = bg.MaNCC,
+                                   TenSP = sp.TenSP,
+                                   TenNCC = ncc.TenNCC,
                                    DonGia = ct_bg.DonGia,
                                    MoTa = ct_bg.MoTa
                                }).ToList();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("MaBG", typeof(string));
-                dt.Columns.Add("MaSP", typeof(string));
-                dt.Columns.Add("MaNCC", typeof(string));
+                dt.Columns.Add("TenSP", typeof(string));
+                dt.Columns.Add("TenNCC", typeof(string));
                 dt.Columns.Add("DonGia", typeof(int));
                 dt.Columns.Add("MoTa", typeof(string));
                 //Thêm vào bảng
@@ -150,8 +160,8 @@ namespace PC_DAL
                 {
                     DataRow dr = dt.NewRow();
                     dr["MaBG"] = ct.MaBG;
-                    dr["MaSP"] = ct.MaSP;
-                    dr["MaNCC"] = ct.MaSP;
+                    dr["TenSP"] = ct.TenSP;
+                    dr["TenNCC"] = ct.TenNCC;
                     dr["DonGia"] = ct.DonGia;
                     dr["MoTa"] = ct.MoTa;
                     dt.Rows.Add(dr);
@@ -174,7 +184,7 @@ namespace PC_DAL
         //Thêm chi tiết báo giá
         public bool Them_CT_BaoGia(DTO_CT_BaoGia dto_CT_BG)
         {
-            QLMHEntities conn = new QLMHEntities();
+            QLMHEntities1 conn = new QLMHEntities1();
             try
             {
                 CT_BAOGIA ct = new CT_BAOGIA();
@@ -196,7 +206,7 @@ namespace PC_DAL
         //Sửa chi tiết báo giá
         public bool Sua_CT_BG(DTO_CT_BaoGia dto_CT_BG)
         {
-            QLMHEntities conn = new QLMHEntities();
+            QLMHEntities1 conn = new QLMHEntities1();
             CT_BAOGIA ctbg = conn.CT_BAOGIA.SingleOrDefault(item => item.MaBG == dto_CT_BG.MaBG && item.MaSP == dto_CT_BG.MaSP);
 
             if (ctbg != null)
@@ -219,7 +229,7 @@ namespace PC_DAL
         //Xóa 1 chi tiết báo giá trong 1 mã báo giá
         public bool Xoa_SP_CT_BG(DTO_CT_BaoGia cT_BaoGia)
         {
-            QLMHEntities conn = new QLMHEntities();
+            QLMHEntities1 conn = new QLMHEntities1();
             CT_BAOGIA ct = conn.CT_BAOGIA.SingleOrDefault(item => item.MaBG == cT_BaoGia.MaBG && item.MaSP == cT_BaoGia.MaSP);
             if (ct != null)
             {
@@ -240,7 +250,7 @@ namespace PC_DAL
         //Xóa toàn bộ sản phẩm có mã BG
         public bool Xoa_CT_BG(DTO_CT_BaoGia baoGia)
         {
-            QLMHEntities conn = new QLMHEntities();
+            QLMHEntities1 conn = new QLMHEntities1();
             var ct = conn.CT_BAOGIA.Where(item => item.MaBG == baoGia.MaBG).ToList();
             if (ct != null)
             {

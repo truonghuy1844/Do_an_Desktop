@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_DAL
+namespace PC_GUI
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLMHEntities : DbContext
+    public partial class QLMHEntities1 : DbContext
     {
-        public QLMHEntities()
-            : base("name=QLMHEntities")
+        public QLMHEntities1()
+            : base("name=QLMHEntities1")
         {
         }
     

@@ -7,26 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_DAL
+namespace PC_GUI
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class HOADON
+    public partial class YEUCAU_MUAHANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public HOADON()
+        public YEUCAU_MUAHANG()
         {
-            this.THANHTOANs = new HashSet<THANHTOAN>();
+            this.CT_YEUCAU = new HashSet<CT_YEUCAU>();
         }
     
-        public int MaHD { get; set; }
-        public string MaDMH { get; set; }
-        public System.DateTime NgayLap { get; set; }
-        public string GhiChu { get; set; }
+        public string MaYC { get; set; }
+        public string MaNV { get; set; }
+        public System.DateTime NgayYC { get; set; }
+        public Nullable<System.DateTime> NgayDuyet { get; set; }
+        public string PhongBanYC { get; set; }
+        public string TinhTrang { get; set; }
     
-        public virtual DONMUAHANG DONMUAHANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THANHTOAN> THANHTOANs { get; set; }
+        public virtual ICollection<CT_YEUCAU> CT_YEUCAU { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

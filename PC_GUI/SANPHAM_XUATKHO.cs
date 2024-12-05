@@ -7,16 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_DAL
+namespace PC_GUI
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class HANGHOA_VANCHUYEN
+    public partial class SANPHAM_XUATKHO
     {
-        public string MaVC { get; set; }
         public string MaSP { get; set; }
-        public Nullable<int> SoLuong { get; set; }
+        public string MaKho { get; set; }
+        public Nullable<int> SoLuongXuat { get; set; }
+        public System.DateTime NgayXuat { get; set; }
     
         public virtual SANPHAM SANPHAM { get; set; }
     }

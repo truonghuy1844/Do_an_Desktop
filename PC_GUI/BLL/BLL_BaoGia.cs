@@ -1,5 +1,5 @@
-﻿using PC_DAL;
-using PC_DTO;
+﻿using PC_DTO;
+using PC_GUI.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PC_BLL
+namespace PC_GUI.BLL
 {
     public class BLL_BaoGia
     {
@@ -45,7 +45,12 @@ namespace PC_BLL
             return dAL.Sua_BG(baoGia);
         }
     }
-    //Chi tiết báo giá
+
+
+
+    /// <summary>
+    /// /Chi tiết báo giá
+    /// </summary>
     public class BLL_CT_BaoGia
     {
         public DataTable Load_CT_BG()

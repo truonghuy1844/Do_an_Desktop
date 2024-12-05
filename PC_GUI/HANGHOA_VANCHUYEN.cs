@@ -7,20 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_DAL
+namespace PC_GUI
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CT_DONMUAHANG
+    public partial class HANGHOA_VANCHUYEN
     {
-        public string MaDMH { get; set; }
+        public string MaVC { get; set; }
         public string MaSP { get; set; }
-        public string MaBG { get; set; }
         public Nullable<int> SoLuong { get; set; }
     
-        public virtual BAOGIA BAOGIA { get; set; }
-        public virtual DONMUAHANG DONMUAHANG { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
     }
 }

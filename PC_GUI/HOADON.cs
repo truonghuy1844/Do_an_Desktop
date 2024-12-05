@@ -7,23 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_DAL
+namespace PC_GUI
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DANHGIASP_TRONGDON
+    public partial class HOADON
     {
-        public string MaDGSP { get; set; }
-        public Nullable<System.DateTime> NgayDG { get; set; }
-        public string MaSP { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HOADON()
+        {
+            this.THANHTOANs = new HashSet<THANHTOAN>();
+        }
+    
+        public int MaHD { get; set; }
         public string MaDMH { get; set; }
-        public string MoTaDG { get; set; }
-        public Nullable<int> DiemDG { get; set; }
-        public string MucdoDG { get; set; }
+        public System.DateTime NgayLap { get; set; }
         public string GhiChu { get; set; }
     
-        public virtual SANPHAM SANPHAM { get; set; }
         public virtual DONMUAHANG DONMUAHANG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THANHTOAN> THANHTOANs { get; set; }
     }
 }

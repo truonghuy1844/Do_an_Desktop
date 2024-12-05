@@ -1,4 +1,5 @@
 ﻿using PC_BLL;
+using PC_GUI.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,7 @@ namespace PC_GUI
             datetimepickerEnd.Format = DateTimePickerFormat.Custom;
             datetimepickerEnd.CustomFormat = "dd/MM/yyyy";
             ChuyenTrangThai();
+
         }
    
         bool trangthaiHienThi = false;

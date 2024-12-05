@@ -7,18 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_DAL
+namespace PC_GUI
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class SANPHAM_XUATKHO
+    public partial class CT_BAOGIA
     {
+        public string MaBG { get; set; }
         public string MaSP { get; set; }
-        public string MaKho { get; set; }
-        public Nullable<int> SoLuongXuat { get; set; }
-        public System.DateTime NgayXuat { get; set; }
+        public Nullable<decimal> DonGia { get; set; }
+        public string MoTa { get; set; }
     
+        public virtual BAOGIA BAOGIA { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
     }
 }

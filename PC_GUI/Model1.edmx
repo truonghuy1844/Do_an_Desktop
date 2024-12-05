@@ -1068,7 +1068,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QLMHEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QLMHEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAOGIAs" EntityType="Self.BAOGIA" />
           <EntitySet Name="CT_BAOGIA" EntityType="Self.CT_BAOGIA" />
           <EntitySet Name="CT_DONMUAHANG" EntityType="Self.CT_DONMUAHANG" />
@@ -1181,7 +1181,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLMHModelStoreContainer" CdmEntityContainer="QLMHEntities">
+        <EntityContainerMapping StorageEntityContainer="QLMHModelStoreContainer" CdmEntityContainer="QLMHEntities1">
           <EntitySetMapping Name="BAOGIAs">
             <EntityTypeMapping TypeName="QLMHModel.BAOGIA">
               <MappingFragment StoreEntitySet="BAOGIA">
