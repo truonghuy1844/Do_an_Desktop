@@ -23,6 +23,30 @@ namespace PC_GUI
         private void QLKho_Load(object sender, EventArgs e)
         {
             dataGridViewDSKho.DataSource = bLLKho.LoadKho();
+            LoadComboBox();
+
+        }
+        private void LoadComboBox()
+        {
+            comboBoxLoaiKho.DataSource = bLLKho.LoadLoaiKho();
+            comboBoxLoaiKho.DisplayMember = "LoaiKho";
+            comboBoxLoaiKho.ValueMember = "LoaiKho";
+            comboBoxLoaiKho.SelectedIndex = -1;
+
+            comboBoxSucChua.Items.Add("< 80 tấn");
+            comboBoxSucChua.Items.Add("80 - 150 tấn");
+            comboBoxSucChua.Items.Add("> 150 tấn");
+            comboBoxSucChua.SelectedIndex = -1;
+        }
+        private void ApplyFilters()
+        {
+            string loaiKho = comboBoxLoaiKho.SelectedIndex >= 0 ? comboBoxLoaiKho.SelectedValue.ToString() : null;
+            int? sucChuaFilter = comboBoxSucChua.SelectedIndex >= 0 ? comboBoxSucChua.SelectedIndex : (int?)null;
+            string keyword = !string.IsNullOrEmpty(txtTim.Text) ? txtTim.Text.Trim() : null;
+
+            var ketQua = bLLKho.LocKho(loaiKho, keyword, sucChuaFilter);
+
+            dataGridViewDSKho.DataSource = ketQua;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -47,5 +71,37 @@ namespace PC_GUI
         {
             dataGridViewDSKho.DataSource = bLLKho.LoadKho();
         }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTim.Text;
+            
+
+            if (string.IsNullOrEmpty(tuKhoa) && comboBoxLoaiKho.SelectedIndex == -1 && comboBoxSucChua.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa hoặc lọc theo loại kho hoặc sức chứa để tìm kiếm.","Lời nhắc", MessageBoxButtons.OK);
+                return;
+            }
+            try
+            {
+                ApplyFilters();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtTim.Text = string.Empty;
+            comboBoxLoaiKho.SelectedIndex = -1;
+            comboBoxSucChua.SelectedIndex = -1;
+
+            dataGridViewDSKho.DataSource = bLLKho.LoadKho();
+        }
+
+        
     }
 }

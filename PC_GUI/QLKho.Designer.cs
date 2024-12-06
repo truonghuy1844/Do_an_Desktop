@@ -30,6 +30,11 @@
         {
             this.dataGridViewDSKho = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxSucChua = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxLoaiKho = new System.Windows.Forms.ComboBox();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -37,11 +42,7 @@
             this.btnTim = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBoxLoaiKho = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxSucChua = new System.Windows.Forms.ComboBox();
+            this.btnResetFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSKho)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnResetFilter);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.comboBoxSucChua);
             this.groupBox1.Controls.Add(this.label2);
@@ -76,12 +78,55 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(392, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "Sức chứa:";
+            // 
+            // comboBoxSucChua
+            // 
+            this.comboBoxSucChua.FormattingEnabled = true;
+            this.comboBoxSucChua.Location = new System.Drawing.Point(395, 102);
+            this.comboBoxSucChua.Name = "comboBoxSucChua";
+            this.comboBoxSucChua.Size = new System.Drawing.Size(184, 24);
+            this.comboBoxSucChua.TabIndex = 31;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(126, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Loại kho";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Hiển thị:";
+            // 
+            // comboBoxLoaiKho
+            // 
+            this.comboBoxLoaiKho.FormattingEnabled = true;
+            this.comboBoxLoaiKho.Location = new System.Drawing.Point(129, 102);
+            this.comboBoxLoaiKho.Name = "comboBoxLoaiKho";
+            this.comboBoxLoaiKho.Size = new System.Drawing.Size(184, 24);
+            this.comboBoxLoaiKho.TabIndex = 28;
+            // 
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.Color.ForestGreen;
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(568, 151);
+            this.btnLoad.Location = new System.Drawing.Point(578, 151);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(152, 42);
             this.btnLoad.TabIndex = 27;
@@ -136,6 +181,7 @@
             this.btnTim.TabIndex = 20;
             this.btnTim.Text = "Tìm kiếm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtTim
             // 
@@ -153,48 +199,15 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Nhập từ khóa để tìm kiếm";
             // 
-            // comboBoxLoaiKho
+            // btnResetFilter
             // 
-            this.comboBoxLoaiKho.FormattingEnabled = true;
-            this.comboBoxLoaiKho.Location = new System.Drawing.Point(129, 102);
-            this.comboBoxLoaiKho.Name = "comboBoxLoaiKho";
-            this.comboBoxLoaiKho.Size = new System.Drawing.Size(184, 24);
-            this.comboBoxLoaiKho.TabIndex = 28;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Hiển thị:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(126, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 16);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Loại kho";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(426, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "Sức chứa:";
-            // 
-            // comboBoxSucChua
-            // 
-            this.comboBoxSucChua.FormattingEnabled = true;
-            this.comboBoxSucChua.Location = new System.Drawing.Point(429, 102);
-            this.comboBoxSucChua.Name = "comboBoxSucChua";
-            this.comboBoxSucChua.Size = new System.Drawing.Size(184, 24);
-            this.comboBoxSucChua.TabIndex = 31;
+            this.btnResetFilter.Location = new System.Drawing.Point(603, 92);
+            this.btnResetFilter.Name = "btnResetFilter";
+            this.btnResetFilter.Size = new System.Drawing.Size(130, 42);
+            this.btnResetFilter.TabIndex = 33;
+            this.btnResetFilter.Text = "Reset bộ lọc";
+            this.btnResetFilter.UseVisualStyleBackColor = true;
+            this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
             // 
             // QLKho
             // 
@@ -229,5 +242,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxLoaiKho;
+        private System.Windows.Forms.Button btnResetFilter;
     }
 }

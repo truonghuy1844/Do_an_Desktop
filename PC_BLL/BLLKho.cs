@@ -60,5 +60,43 @@ namespace PC_BLL
         {
             dALKho.XoaKho(dTOKho);
         }
+        public List<DTOKho> TimTuKhoaKho(string tuKhoa)
+        {
+            return dALKho.TimTuKhoaKho(tuKhoa);
+        }
+        
+        public List<DTOKho> LocKho(string loaiKho, string keyword, int? sucChuaFilter)
+        {
+            var danhSach = dALKho.LoadKho();
+
+            if (!string.IsNullOrEmpty(loaiKho))
+            {
+                danhSach = dALKho.TimLoaiKho(loaiKho);
+            }
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                danhSach = dALKho.TimTuKhoaKho(keyword);
+            }
+
+            if (sucChuaFilter.HasValue)
+            {
+                switch (sucChuaFilter.Value)
+                {
+                    case 0: // Bé hơn 80 tấn
+                        danhSach = danhSach.Where(kho => kho.SucChuaKg < 80000).ToList();
+                        break;
+                    case 1: // Từ 80 đến 150 tấn
+                        danhSach = danhSach.Where(kho => kho.SucChuaKg >= 80000 && kho.SucChuaKg <= 150000).ToList();
+                        break;
+                    case 2: // Lớn hơn 150 tấn
+                        danhSach = danhSach.Where(kho => kho.SucChuaKg > 150000).ToList();
+                        break;
+                }
+            }
+
+            return danhSach;
+        }
+
     }
 }

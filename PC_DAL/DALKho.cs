@@ -63,6 +63,8 @@ namespace PC_DAL
 
             return listLoai;
         }
+
+
         public List<DTOKho> TimKho(string maKho)
         {
             var khoTim = from kh in db.KHOHANGs
@@ -93,6 +95,48 @@ namespace PC_DAL
             db.KHOHANGs.Remove(kh);
             db.SaveChanges();
         }
+        public List<DTOKho> TimTuKhoaKho(string tuKhoa)
+        {
+            try
+            {
+                var khoTim = from kh in db.KHOHANGs
+                             where kh.MaKho.Contains(tuKhoa) || kh.TenKho.Contains(tuKhoa) || kh.DiaChi.Contains(tuKhoa) || kh.Suc_Chua.Contains(tuKhoa) || kh.LoaiKho.Contains(tuKhoa)
+                             select new DTOKho
+                             {
+                                 MaKho = kh.MaKho,
+                                 TenKho = kh.TenKho,
+                                 DiaChi = kh.DiaChi,
+                                 SucChua = kh.Suc_Chua,
+                                 LoaiKho = kh.LoaiKho
+                             };
+                var result = khoTim.ToList();
+                if (!result.Any())
+                    throw new Exception("Không tìm thấy kho nào phù hợp.");
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public List<DTOKho> TimLoaiKho(string loaiKho)
+        {
+            var loaiTim = from l in db.KHOHANGs
+                          where loaiKho == l.LoaiKho
+                          select new DTOKho
+                          {
+                              MaKho = l.MaKho,
+                              TenKho = l.TenKho,
+                              LoaiKho = l.LoaiKho,
+                              DiaChi = l.DiaChi,
+                              SucChua = l.Suc_Chua,
+                        };
+            return loaiTim.ToList();
+        }
+        
+        
+
+
     }
 
 }

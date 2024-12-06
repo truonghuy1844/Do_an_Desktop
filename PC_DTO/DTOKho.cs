@@ -45,4 +45,27 @@ namespace PC_DTO
         private string loaiKho;
         public string LoaiKho { get; set; }
     }
+    public class DTOSucChua
+    {
+        private string sucChua;
+        public string SucChua { get; set; }
+
+        [Browsable(false)]
+        public double SucChuaKg
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(SucChua))
+                {
+                    string cleanValue = SucChua.Replace("tấn", "").Trim();
+                    if (double.TryParse(cleanValue, out double tons))
+                    {
+                        return (double)(tons * 1000);
+                    }
+                }
+                return 0;
+            }
+        }
+    }
+
 }
