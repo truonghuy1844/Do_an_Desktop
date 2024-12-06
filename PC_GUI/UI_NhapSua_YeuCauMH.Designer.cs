@@ -33,13 +33,10 @@
             this.dtgCT_YC = new System.Windows.Forms.DataGridView();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnTimKiem = new System.Windows.Forms.Button();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnThemSP = new System.Windows.Forms.Button();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSanPham = new System.Windows.Forms.TextBox();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.btnYeuCauDuyet = new System.Windows.Forms.Button();
             this.cbBoPhanYC = new System.Windows.Forms.ComboBox();
@@ -49,6 +46,7 @@
             this.lb = new System.Windows.Forms.Label();
             this.lbMaNV = new System.Windows.Forms.Label();
             this.lbMaYC = new System.Windows.Forms.Label();
+            this.cbSanPham = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCT_YC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.SuspendLayout();
@@ -56,19 +54,20 @@
             // btnSuaSP
             // 
             this.btnSuaSP.AutoSize = true;
-            this.btnSuaSP.Location = new System.Drawing.Point(1001, 241);
+            this.btnSuaSP.Location = new System.Drawing.Point(1001, 278);
             this.btnSuaSP.Name = "btnSuaSP";
-            this.btnSuaSP.Size = new System.Drawing.Size(161, 35);
+            this.btnSuaSP.Size = new System.Drawing.Size(176, 44);
             this.btnSuaSP.TabIndex = 109;
             this.btnSuaSP.Text = "Sửa sản phẩm";
             this.btnSuaSP.UseVisualStyleBackColor = true;
+            this.btnSuaSP.Click += new System.EventHandler(this.btnSuaSP_Click);
             // 
             // btnXoaSP
             // 
             this.btnXoaSP.AutoSize = true;
-            this.btnXoaSP.Location = new System.Drawing.Point(1001, 191);
+            this.btnXoaSP.Location = new System.Drawing.Point(1001, 225);
             this.btnXoaSP.Name = "btnXoaSP";
-            this.btnXoaSP.Size = new System.Drawing.Size(161, 35);
+            this.btnXoaSP.Size = new System.Drawing.Size(176, 47);
             this.btnXoaSP.TabIndex = 108;
             this.btnXoaSP.Text = "Xóa sản phẩm";
             this.btnXoaSP.UseVisualStyleBackColor = true;
@@ -99,45 +98,27 @@
             this.label3.TabIndex = 105;
             this.label3.Text = "Ghi chú";
             // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.AutoSize = true;
-            this.btnTimKiem.Location = new System.Drawing.Point(1001, 287);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(176, 35);
-            this.btnTimKiem.TabIndex = 104;
-            this.btnTimKiem.Text = "Tìm kiếm";
-            this.btnTimKiem.UseVisualStyleBackColor = true;
-            // 
-            // txtTimKiem
-            // 
-            this.txtTimKiem.Location = new System.Drawing.Point(357, 291);
-            this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(605, 31);
-            this.txtTimKiem.TabIndex = 103;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(152, 297);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 25);
+            this.label2.Size = new System.Drawing.Size(0, 25);
             this.label2.TabIndex = 102;
-            this.label2.Text = "Tìm kiếm sản phẩm";
             // 
             // btnThemSP
             // 
             this.btnThemSP.AutoSize = true;
-            this.btnThemSP.Location = new System.Drawing.Point(1001, 145);
+            this.btnThemSP.Location = new System.Drawing.Point(1001, 179);
             this.btnThemSP.Name = "btnThemSP";
-            this.btnThemSP.Size = new System.Drawing.Size(176, 35);
+            this.btnThemSP.Size = new System.Drawing.Size(176, 40);
             this.btnThemSP.TabIndex = 101;
             this.btnThemSP.Text = "Thêm sản phẩm";
             this.btnThemSP.UseVisualStyleBackColor = true;
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(765, 248);
+            this.txtSoLuong.Location = new System.Drawing.Point(765, 254);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(197, 31);
             this.txtSoLuong.TabIndex = 100;
@@ -145,18 +126,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(617, 251);
+            this.label1.Location = new System.Drawing.Point(662, 257);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 25);
             this.label1.TabIndex = 99;
             this.label1.Text = "Số lượng";
-            // 
-            // txtSanPham
-            // 
-            this.txtSanPham.Location = new System.Drawing.Point(332, 245);
-            this.txtSanPham.Name = "txtSanPham";
-            this.txtSanPham.Size = new System.Drawing.Size(279, 31);
-            this.txtSanPham.TabIndex = 98;
             // 
             // dgvSanPham
             // 
@@ -171,9 +145,9 @@
             // btnYeuCauDuyet
             // 
             this.btnYeuCauDuyet.AutoSize = true;
-            this.btnYeuCauDuyet.Location = new System.Drawing.Point(1001, 88);
+            this.btnYeuCauDuyet.Location = new System.Drawing.Point(1001, 81);
             this.btnYeuCauDuyet.Name = "btnYeuCauDuyet";
-            this.btnYeuCauDuyet.Size = new System.Drawing.Size(161, 35);
+            this.btnYeuCauDuyet.Size = new System.Drawing.Size(176, 39);
             this.btnYeuCauDuyet.TabIndex = 96;
             this.btnYeuCauDuyet.Text = "Yêu cầu duyệt";
             this.btnYeuCauDuyet.UseVisualStyleBackColor = true;
@@ -188,7 +162,7 @@
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(765, 88);
+            this.txtMaNV.Location = new System.Drawing.Point(765, 85);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(197, 31);
             this.txtMaNV.TabIndex = 94;
@@ -221,7 +195,7 @@
             // lbMaNV
             // 
             this.lbMaNV.AutoSize = true;
-            this.lbMaNV.Location = new System.Drawing.Point(617, 91);
+            this.lbMaNV.Location = new System.Drawing.Point(617, 88);
             this.lbMaNV.Name = "lbMaNV";
             this.lbMaNV.Size = new System.Drawing.Size(142, 25);
             this.lbMaNV.TabIndex = 90;
@@ -236,23 +210,29 @@
             this.lbMaYC.TabIndex = 89;
             this.lbMaYC.Text = "Mã yêu cầu";
             // 
+            // cbSanPham
+            // 
+            this.cbSanPham.FormattingEnabled = true;
+            this.cbSanPham.Location = new System.Drawing.Point(332, 251);
+            this.cbSanPham.Name = "cbSanPham";
+            this.cbSanPham.Size = new System.Drawing.Size(279, 33);
+            this.cbSanPham.TabIndex = 110;
+            // 
             // UI_NhapSua_YeuCauMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1318, 836);
+            this.Controls.Add(this.cbSanPham);
             this.Controls.Add(this.btnSuaSP);
             this.Controls.Add(this.btnXoaSP);
             this.Controls.Add(this.dtgCT_YC);
             this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnTimKiem);
-            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnThemSP);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSanPham);
             this.Controls.Add(this.dgvSanPham);
             this.Controls.Add(this.btnYeuCauDuyet);
             this.Controls.Add(this.cbBoPhanYC);
@@ -264,6 +244,7 @@
             this.Controls.Add(this.lbMaYC);
             this.Name = "UI_NhapSua_YeuCauMH";
             this.Text = "UI_NhapSua_YeuCauMH";
+            this.Load += new System.EventHandler(this.UI_NhapSua_YeuCauMH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgCT_YC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.ResumeLayout(false);
@@ -278,13 +259,10 @@
         private System.Windows.Forms.DataGridView dtgCT_YC;
         private System.Windows.Forms.TextBox txtGhiChu;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnThemSP;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSanPham;
         private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.Button btnYeuCauDuyet;
         private System.Windows.Forms.ComboBox cbBoPhanYC;
@@ -294,5 +272,6 @@
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label lbMaNV;
         private System.Windows.Forms.Label lbMaYC;
+        private System.Windows.Forms.ComboBox cbSanPham;
     }
 }

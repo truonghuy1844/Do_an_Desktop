@@ -38,10 +38,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -295,11 +297,11 @@ namespace PC_GUI.DAL
     }
     //// Lọc báo giá
     ///
-    
+
     public class DAL_Loc_BaoGia
     {
         ///Lọc theo sản phẩm có trong báo giá
-        public DataTable Load_Loc_SP ( DTO_CT_BaoGia ctiet, DateTime start, DateTime end)
+        public DataTable Load_Loc_SP(DTO_CT_BaoGia ctiet, DateTime start, DateTime end)
         {
             QLMHEntities2 cnn = new QLMHEntities2();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
@@ -330,10 +332,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -362,7 +366,7 @@ namespace PC_GUI.DAL
             {
                 var list_BG = (from bg in cnn.BAOGIAs
                                join ncc in cnn.NHACUNGCAPs
-                               on bg.MaNCC equals ncc.MaNCC                               
+                               on bg.MaNCC equals ncc.MaNCC
                                where bg.MaNCC == dto.MaNCC && bg.NgayBG <= end && bg.NgayBG >= start
                                select new
                                {
@@ -382,10 +386,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -435,10 +441,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -486,10 +494,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -542,10 +552,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -565,7 +577,7 @@ namespace PC_GUI.DAL
         }
         /// Lọc theo cả SP và NCC
         /// 
-        public DataTable Load_Loc_SP_NCC(DTO_CT_BaoGia ctiet,DTO_BaoGia bgia, DateTime start, DateTime end)
+        public DataTable Load_Loc_SP_NCC(DTO_CT_BaoGia ctiet, DTO_BaoGia bgia, DateTime start, DateTime end)
         {
             QLMHEntities2 cnn = new QLMHEntities2();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
@@ -579,7 +591,7 @@ namespace PC_GUI.DAL
                                on bg.MaNCC equals ncc.MaNCC
                                join ct in cnn.CT_BAOGIA
                                on bg.MaBG equals ct.MaBG
-                               where ct.MaSP == cT_BaoGia.MaSP && bg.NgayBG <= end 
+                               where ct.MaSP == cT_BaoGia.MaSP && bg.NgayBG <= end
                                && bg.NgayBG >= start && bg.MaNCC == dto.MaNCC
                                select new
                                {
@@ -599,10 +611,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -624,7 +638,7 @@ namespace PC_GUI.DAL
         public DataTable Load_Loc_NT(DateTime start, DateTime end)
         {
             QLMHEntities2 cnn = new QLMHEntities2();
-            
+
             try
             {
                 var list_BG = (from bg in cnn.BAOGIAs
@@ -632,7 +646,7 @@ namespace PC_GUI.DAL
                                on bg.MaNCC equals ncc.MaNCC
                                join ct in cnn.CT_BAOGIA
                                on bg.MaBG equals ct.MaBG
-                               where  bg.NgayBG <= end
+                               where bg.NgayBG <= end
                                && bg.NgayBG >= start
                                select new
                                {
@@ -652,10 +666,12 @@ namespace PC_GUI.DAL
                 foreach (var bg in list_BG)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG;
-                    dr["MaNCC"] = bg.MaNCC;
-                    dr["TenNCC"] = bg.TenNCC;
-                    dr["NgayBG"] = bg.NgayBG;
+                    dr["MaBG"] = bg.MaBG ?? string.Empty;
+                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
+                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+
+                    // Handle null values for DateTime column
+                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayBG DESC";
@@ -673,5 +689,64 @@ namespace PC_GUI.DAL
                 return dt;
             }
         }
+        public DataTable Load_CTBG_TheoSP(DTO_CT_BaoGia ctietBG)
+        {
+            DTO_CT_BaoGia dTO = new DTO_CT_BaoGia();
+            dTO.MaSP = ctietBG.MaSP;
+            try
+            {
+                QLMHEntities2 cnn = new QLMHEntities2();
+                var list_BG = (from ct_bg in cnn.CT_BAOGIA
+                               join bg in cnn.BAOGIAs
+                               on ct_bg.MaBG equals bg.MaBG
+                               join sp in cnn.SANPHAMs
+                               on ct_bg.MaSP equals sp.MaSP
+                               join ncc in cnn.NHACUNGCAPs
+                               on bg.MaNCC equals ncc.MaNCC
+                               where dTO.MaSP == sp.MaSP
+                               select new
+                               {
+                                   MaBG = ct_bg.MaBG,
+                                   MaSP = ct_bg.MaSP,
+                                   TenSP = sp.TenSP,
+                                   TenNCC = ncc.TenNCC,
+                                   DonGia = ct_bg.DonGia,
+                                   MoTa = ct_bg.MoTa
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaBG", typeof(string));
+                dt.Columns.Add("MaSP", typeof(string));
+                dt.Columns.Add("TenSP", typeof(string));
+                dt.Columns.Add("TenNCC", typeof(string));
+                dt.Columns.Add("DonGia", typeof(int));
+                dt.Columns.Add("MoTa", typeof(string));
+                //Thêm vào bảng
+                foreach (var ct in list_BG)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["MaBG"] = ct.MaBG;
+                    dr["MaSP"] = ct.MaSP;
+                    dr["TenSP"] = ct.TenSP;
+                    dr["TenNCC"] = ct.TenNCC;
+                    dr["DonGia"] = ct.DonGia;
+                    dr["MoTa"] = ct.MoTa;
+                    dt.Rows.Add(dr);
+                }
+
+                return dt;
+            }
+            catch (Exception ex) 
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
         }
+    }
 }
+
