@@ -45,8 +45,9 @@
             this.datetimepickerStart = new System.Windows.Forms.DateTimePicker();
             this.btnHienThi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtNCC = new System.Windows.Forms.TextBox();
             this.btnLocKoTG = new System.Windows.Forms.Button();
+            this.txtNCC = new System.Windows.Forms.TextBox();
+            this.btnTuyChinhBG = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -226,13 +227,6 @@
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             // 
-            // txtNCC
-            // 
-            this.txtNCC.Location = new System.Drawing.Point(360, 166);
-            this.txtNCC.Name = "txtNCC";
-            this.txtNCC.Size = new System.Drawing.Size(573, 31);
-            this.txtNCC.TabIndex = 80;
-            // 
             // btnLocKoTG
             // 
             this.btnLocKoTG.AutoSize = true;
@@ -244,11 +238,29 @@
             this.btnLocKoTG.UseVisualStyleBackColor = true;
             this.btnLocKoTG.Click += new System.EventHandler(this.btnLocKoTG_Click);
             // 
+            // txtNCC
+            // 
+            this.txtNCC.Location = new System.Drawing.Point(360, 166);
+            this.txtNCC.Name = "txtNCC";
+            this.txtNCC.Size = new System.Drawing.Size(573, 31);
+            this.txtNCC.TabIndex = 80;
+            // 
+            // btnTuyChinhBG
+            // 
+            this.btnTuyChinhBG.Location = new System.Drawing.Point(979, 166);
+            this.btnTuyChinhBG.Name = "btnTuyChinhBG";
+            this.btnTuyChinhBG.Size = new System.Drawing.Size(250, 40);
+            this.btnTuyChinhBG.TabIndex = 81;
+            this.btnTuyChinhBG.Text = "Tùy chỉnh báo giá";
+            this.btnTuyChinhBG.UseVisualStyleBackColor = true;
+            this.btnTuyChinhBG.Click += new System.EventHandler(this.btnTuyChinhBG_Click);
+            // 
             // UI_View_BaoGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1358, 896);
+            this.Controls.Add(this.btnTuyChinhBG);
             this.Controls.Add(this.txtNCC);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -290,5 +302,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtNCC;
         private System.Windows.Forms.Button btnLocKoTG;
+        private System.Windows.Forms.Button btnTuyChinhBG;
     }
 }

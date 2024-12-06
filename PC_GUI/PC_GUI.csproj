@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangCT_BG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BangCT_BG.Designer.cs">
+      <DependentUpon>BangCT_BG.cs</DependentUpon>
+    </Compile>
     <Compile Include="BLL\BLL_BaoGia.cs" />
     <Compile Include="BLL\BLL_YeuCauMH.cs" />
     <Compile Include="BLL\LoadCB.cs" />
@@ -162,6 +168,9 @@
     <Compile Include="UI_YeuCauMH.Designer.cs">
       <DependentUpon>UI_YeuCauMH.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BangCT_BG.resx">
+      <DependentUpon>BangCT_BG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

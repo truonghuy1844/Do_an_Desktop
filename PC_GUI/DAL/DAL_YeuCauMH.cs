@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PC_GUI.DAL
 {
@@ -37,13 +38,17 @@ namespace PC_GUI.DAL
                 //Thêm vào bảng
                 foreach (var item in list_YC)
                 {
+
                     DataRow dr = dt.NewRow();
-                    dr["MaYC"] = item.MaYC;
-                    dr["PhongBanYC"] = item.PhongBanYC;
-                    dr["TenNV"] = item.TenNV;
-                    dr["NgayYC"] = item.NgayYC;
-                    dr["TinhTrang"] = item.TinhTrang;
-                    dr["NgayDuyet"] = item.NgayDuyet;
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
                     dt.Rows.Add(dr);
                 }
                 dt.DefaultView.Sort = "NgayYC DESC";
@@ -95,7 +100,7 @@ namespace PC_GUI.DAL
                 yc.NgayDuyet = ycMH.NgayDuyet;
                 yc.PhongBanYC = ycMH.PhongBanYC.Trim();
                 yc.TinhTrang = ycMH.TinhTrang.Trim();
-                yc.MaYC = ycMH.MaYC;
+
 
                 try
                 {
@@ -130,6 +135,31 @@ namespace PC_GUI.DAL
             }
             return false;
         }
+        //đồng ý duyệt
+        public bool Duyet_YC_MH(DTO_YeuCauMH ycMH)
+        {
+            QLMHEntities2 conn = new QLMHEntities2();
+            YEUCAU_MUAHANG yc = conn.YEUCAU_MUAHANG.Find(ycMH.MaYC.Trim());
+
+            if (yc != null)
+            {
+
+                yc.NgayDuyet = ycMH.NgayDuyet;
+                yc.TinhTrang = ycMH.TinhTrang.Trim();
+
+
+                try
+                {
+                    conn.SaveChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
     }
     /// <summary>
     /// Chi tiết yêu cầu mua hàng
@@ -137,20 +167,23 @@ namespace PC_GUI.DAL
     public class DAL_CT_YeuCau
     {
         //Load dữ liệu
-        public DataTable Load_CT_YC_MuaHang()
+        public DataTable Load_CT_YC_MuaHang(DTO_CT_YeuCauMH dto)
         {
             QLMHEntities2 cnn = new QLMHEntities2();
+            CT_YEUCAU ct_yc = new CT_YEUCAU();
+            ct_yc.MaYC = dto.MaYC;
             try
             {
                 var list_CT_YC = (from yc in cnn.CT_YEUCAU
                                   join sp in cnn.SANPHAMs on yc.MaSP equals sp.MaSP
-                               select new
-                               {
-                                   MaYC = yc.MaYC,
-                                   MaSP = yc.MaSP,
-                                   TenSP = sp.TenSP,
-                                   SoLuong = yc.SoLuong
-                               }).Distinct().ToList();
+                                  where yc.MaYC == ct_yc.MaYC
+                                  select new
+                                  {
+                                      MaYC = yc.MaYC,
+                                      MaSP = yc.MaSP,
+                                      TenSP = sp.TenSP,
+                                      SoLuong = yc.SoLuong
+                                  }).Distinct().ToList();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("MaYC", typeof(string));
                 dt.Columns.Add("MaSP", typeof(string));
@@ -160,10 +193,12 @@ namespace PC_GUI.DAL
                 foreach (var item in list_CT_YC)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["MaYC"] = item.MaYC;
-                    dr["MaSP"] = item.MaSP;
-                    dr["TenSP"] = item.MaSP;
-                    dr["SoLuong"] = item.SoLuong;
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["MaSP"] = item.MaSP ?? string.Empty;
+                    dr["TenSP"] = item.TenSP ?? string.Empty;
+
+                    // Handle null values for integer column
+                    dr["SoLuong"] = item.SoLuong ?? 0;
                     dt.Rows.Add(dr);
                 }
                 return dt;
@@ -206,12 +241,12 @@ namespace PC_GUI.DAL
         public bool Sua_CT_YC_MH(DTO_CT_YeuCauMH ct_ycMH)
         {
             QLMHEntities2 conn = new QLMHEntities2();
-            CT_YEUCAU ct = conn.CT_YEUCAU.SingleOrDefault( t => t.MaYC == ct_ycMH.MaYC && t.MaSP == ct_ycMH.MaSP);
+            CT_YEUCAU ct = conn.CT_YEUCAU.SingleOrDefault(t => t.MaYC == ct_ycMH.MaYC && t.MaSP == ct_ycMH.MaSP);
 
             if (ct != null)
             {
                 ct.SoLuong = ct_ycMH.SoLuong;
-                
+
                 try
                 {
                     conn.SaveChanges();
@@ -264,6 +299,476 @@ namespace PC_GUI.DAL
                 }
             }
             return false;
+        }
+    }
+
+    //Lọc
+    public class DAL_Loc_YC
+    {
+       // Locj chỉ thời gian
+        public DataTable Loc_YC_TG(DateTime start, DateTime end)
+        {
+            DateTime s = start;
+            DateTime e = end;
+            QLMHEntities2 cnn = new QLMHEntities2();
+            try
+            {
+                var list_YC = (from yc in cnn.YEUCAU_MUAHANG
+                               join nv in cnn.NHANVIENs on yc.MaNV equals nv.MaNV
+                               where yc.NgayYC >= s && yc.NgayYC <= e
+                               select new
+                               {
+                                   MaYC = yc.MaYC,
+                                   TenNV = nv.TenNV,
+                                   NgayYC = yc.NgayYC,
+                                   NgayDuyet = yc.NgayDuyet,
+                                   PhongBanYC = yc.PhongBanYC,
+                                   TinhTrang = yc.TinhTrang
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaYC", typeof(string));
+                dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("TenNV", typeof(string));
+                dt.Columns.Add("NgayYC", typeof(DateTime));
+                dt.Columns.Add("TinhTrang", typeof(string));
+                dt.Columns.Add("NgayDuyet", typeof(DateTime));
+                //Thêm vào bảng
+                foreach (var item in list_YC)
+                {
+
+                    DataRow dr = dt.NewRow();
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayYC DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+        //Locj theo tình trạng duyệt, TG
+        public DataTable Loc_YC_TG_TT(DateTime start, DateTime end, DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            DateTime s = start;
+            DateTime e = end;
+            YEUCAU_MUAHANG ycmh = new YEUCAU_MUAHANG();
+            ycmh.TinhTrang = dto.TinhTrang;
+            ycmh.PhongBanYC = dto.PhongBanYC;
+            try
+            {
+                var list_YC = (from yc in cnn.YEUCAU_MUAHANG
+                               join nv in cnn.NHANVIENs on yc.MaNV equals nv.MaNV
+                               where yc.NgayYC >= s && yc.NgayYC <= e && yc.TinhTrang == ycmh.TinhTrang.Trim()
+                               select new
+                               {
+                                   MaYC = yc.MaYC,
+                                   TenNV = nv.TenNV,
+                                   NgayYC = yc.NgayYC,
+                                   NgayDuyet = yc.NgayDuyet,
+                                   PhongBanYC = yc.PhongBanYC,
+                                   TinhTrang = yc.TinhTrang
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaYC", typeof(string));
+                dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("TenNV", typeof(string));
+                dt.Columns.Add("NgayYC", typeof(DateTime));
+                dt.Columns.Add("TinhTrang", typeof(string));
+                dt.Columns.Add("NgayDuyet", typeof(DateTime));
+                //Thêm vào bảng
+                foreach (var item in list_YC)
+                {
+
+                    DataRow dr = dt.NewRow();
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayYC DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+
+        //Lọc theo TG, Phòng ban yêu cầu
+        public DataTable Loc_YC_TG_PB(DateTime start, DateTime end, DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            DateTime s = start;
+            DateTime e = end;
+            YEUCAU_MUAHANG ycmh = new YEUCAU_MUAHANG();
+            ycmh.TinhTrang = dto.TinhTrang;
+            ycmh.PhongBanYC = dto.PhongBanYC;
+            try
+            {
+                var list_YC = (from yc in cnn.YEUCAU_MUAHANG
+                               join nv in cnn.NHANVIENs on yc.MaNV equals nv.MaNV
+                               where yc.NgayYC >= s && yc.NgayYC <= e && yc.PhongBanYC == ycmh.PhongBanYC
+                               select new
+                               {
+                                   MaYC = yc.MaYC,
+                                   TenNV = nv.TenNV,
+                                   NgayYC = yc.NgayYC,
+                                   NgayDuyet = yc.NgayDuyet,
+                                   PhongBanYC = yc.PhongBanYC,
+                                   TinhTrang = yc.TinhTrang
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaYC", typeof(string));
+                dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("TenNV", typeof(string));
+                dt.Columns.Add("NgayYC", typeof(DateTime));
+                dt.Columns.Add("TinhTrang", typeof(string));
+                dt.Columns.Add("NgayDuyet", typeof(DateTime));
+                //Thêm vào bảng
+                foreach (var item in list_YC)
+                {
+
+                    DataRow dr = dt.NewRow();
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayYC DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+        // Lọc theo TG,PB,TT
+        public DataTable Loc_YC_TG_PB_TT(DateTime start, DateTime end, DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+           
+            DateTime s = start;
+            DateTime e = end;
+            YEUCAU_MUAHANG ycmh = new YEUCAU_MUAHANG();
+            ycmh.TinhTrang = dto.TinhTrang;
+            ycmh.PhongBanYC = dto.PhongBanYC;
+            try
+            {
+                var list_YC = (from yc in cnn.YEUCAU_MUAHANG
+                               join nv in cnn.NHANVIENs on yc.MaNV equals nv.MaNV
+                               where yc.NgayYC >= s && yc.NgayYC <= e && yc.PhongBanYC == ycmh.PhongBanYC && yc.TinhTrang == ycmh.TinhTrang
+                               select new
+                               {
+                                   MaYC = yc.MaYC,
+                                   TenNV = nv.TenNV,
+                                   NgayYC = yc.NgayYC,
+                                   NgayDuyet = yc.NgayDuyet,
+                                   PhongBanYC = yc.PhongBanYC,
+                                   TinhTrang = yc.TinhTrang
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaYC", typeof(string));
+                dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("TenNV", typeof(string));
+                dt.Columns.Add("NgayYC", typeof(DateTime));
+                dt.Columns.Add("TinhTrang", typeof(string));
+                dt.Columns.Add("NgayDuyet", typeof(DateTime));
+                //Thêm vào bảng
+                foreach (var item in list_YC)
+                {
+
+                    DataRow dr = dt.NewRow();
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayYC DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+
+        //Lọc theo TÍnh tragnj
+        public DataTable Loc_YC_TT( DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            YEUCAU_MUAHANG ycmh = new YEUCAU_MUAHANG();
+            ycmh.TinhTrang = dto.TinhTrang;
+            ycmh.PhongBanYC = dto.PhongBanYC;
+            try
+            {
+                var list_YC = (from yc in cnn.YEUCAU_MUAHANG
+                               join nv in cnn.NHANVIENs on yc.MaNV equals nv.MaNV
+                               where  yc.PhongBanYC == ycmh.PhongBanYC.Trim()
+                               select new
+                               {
+                                   MaYC = yc.MaYC,
+                                   TenNV = nv.TenNV,
+                                   NgayYC = yc.NgayYC,
+                                   NgayDuyet = yc.NgayDuyet,
+                                   PhongBanYC = yc.PhongBanYC,
+                                   TinhTrang = yc.TinhTrang
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaYC", typeof(string));
+                dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("TenNV", typeof(string));
+                dt.Columns.Add("NgayYC", typeof(DateTime));
+                dt.Columns.Add("TinhTrang", typeof(string));
+                dt.Columns.Add("NgayDuyet", typeof(DateTime));
+                //Thêm vào bảng
+                foreach (var item in list_YC)
+                {
+
+                    DataRow dr = dt.NewRow();
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayYC DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+        //Lọc theo Phòng ban yêu cầu
+        public DataTable Loc_YC_PB( DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            YEUCAU_MUAHANG ycmh = new YEUCAU_MUAHANG();
+            ycmh.TinhTrang = dto.TinhTrang;
+            ycmh.PhongBanYC = dto.PhongBanYC;
+            try
+            {
+                var list_YC = (from yc in cnn.YEUCAU_MUAHANG
+                               join nv in cnn.NHANVIENs on yc.MaNV equals nv.MaNV
+                               where  yc.PhongBanYC == ycmh.PhongBanYC
+                               select new
+                               {
+                                   MaYC = yc.MaYC,
+                                   TenNV = nv.TenNV,
+                                   NgayYC = yc.NgayYC,
+                                   NgayDuyet = yc.NgayDuyet,
+                                   PhongBanYC = yc.PhongBanYC,
+                                   TinhTrang = yc.TinhTrang
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaYC", typeof(string));
+                dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("TenNV", typeof(string));
+                dt.Columns.Add("NgayYC", typeof(DateTime));
+                dt.Columns.Add("TinhTrang", typeof(string));
+                dt.Columns.Add("NgayDuyet", typeof(DateTime));
+                //Thêm vào bảng
+                foreach (var item in list_YC)
+                {
+
+                    DataRow dr = dt.NewRow();
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayYC DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+        //Lọc theo Phòng ban và tình trạng
+        public DataTable Loc_YC_TT_PB( DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            YEUCAU_MUAHANG ycmh = new YEUCAU_MUAHANG();
+            ycmh.TinhTrang = dto.TinhTrang;
+            ycmh.PhongBanYC = dto.PhongBanYC;
+            try
+            {
+                var list_YC = (from yc in cnn.YEUCAU_MUAHANG
+                               join nv in cnn.NHANVIENs on yc.MaNV equals nv.MaNV
+                               where yc.TinhTrang == ycmh.TinhTrang && yc.PhongBanYC == ycmh.PhongBanYC
+                               select new
+                               {
+                                   MaYC = yc.MaYC,
+                                   TenNV = nv.TenNV,
+                                   NgayYC = yc.NgayYC,
+                                   NgayDuyet = yc.NgayDuyet,
+                                   PhongBanYC = yc.PhongBanYC,
+                                   TinhTrang = yc.TinhTrang
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaYC", typeof(string));
+                dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("TenNV", typeof(string));
+                dt.Columns.Add("NgayYC", typeof(DateTime));
+                dt.Columns.Add("TinhTrang", typeof(string));
+                dt.Columns.Add("NgayDuyet", typeof(DateTime));
+                //Thêm vào bảng
+                foreach (var item in list_YC)
+                {
+
+                    DataRow dr = dt.NewRow();
+                    dr["MaYC"] = item.MaYC ?? string.Empty;
+                    dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["TenNV"] = item.TenNV ?? string.Empty;
+                    dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
+                    dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
+
+                    //Xử lý giá trị null
+
+                    dr["NgayDuyet"] = item.NgayDuyet ?? DateTime.MinValue;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayYC DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+
+        // Đếm số sản phẩm yêu cầu
+
+        public int Count_CT_YC(DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            
+            try
+            {
+                int count = cnn.CT_YEUCAU.Count(a => a.MaYC == dto.MaYC);
+                return count;
+            }
+            catch (Exception) { return 0; }
+        }
+
+        //Lấy giá thấp nhất từ báo giá
+        public double Lay_DonGia_SP(DTO_YeuCauMH dto)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            YEUCAU_MUAHANG ycmh = new YEUCAU_MUAHANG();
+            ycmh.MaYC = dto.MaYC;
+            double sum = 0;
+                var query = (from ct in cnn.CT_YEUCAU
+                            join ct_bg in cnn.CT_BAOGIA on ct.MaSP equals ct_bg.MaSP
+                            join bg in cnn.BAOGIAs on ct_bg.MaBG equals bg.MaBG
+                            where ct.MaYC == ycmh.MaYC && bg.NgayBG > DateTime.Now.AddYears(-1)
+                            group new { ct_bg.DonGia, ct.SoLuong } by ct.MaSP into g
+                            select new
+                            {
+                                MaSP = g.Key,
+                                DonGia = g.Min(x => x.DonGia),
+                                SoLuong = g.FirstOrDefault().SoLuong
+                            });
+
+
+            foreach (var item in query) 
+            {
+                sum += (double)((item.DonGia ?? 0) * (item.SoLuong ?? 0));
+            }
+
+
+                return sum;
+          
         }
     }
 }

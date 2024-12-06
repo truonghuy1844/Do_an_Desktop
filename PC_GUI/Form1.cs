@@ -28,5 +28,17 @@ namespace PC_GUI
             UI_NhapSua_BaoGia ui = new UI_NhapSua_BaoGia();
             ui.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            UI_YeuCauMH ui = new UI_YeuCauMH();
+            ui.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH();
+            ui.Show();
+        }
     }
 }

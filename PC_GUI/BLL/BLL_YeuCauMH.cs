@@ -51,6 +51,15 @@ namespace PC_GUI.BLL
             }
             return false;
         }
+        public bool Duyet_YCMH(DTO_YeuCauMH yc)
+        {
+            if (yc.MaYC != "")
+            {
+                DAL_YeuCauMH dal = new DAL_YeuCauMH();
+                return dal.Duyet_YC_MH(yc);
+            }
+            return false;
+        }
     }
     
     ///
@@ -60,10 +69,10 @@ namespace PC_GUI.BLL
     {
 
         //Load dữ liệu
-        public DataTable Load_CT_YC_MH()
+        public DataTable Load_CT_YC_MH(DTO_CT_YeuCauMH dto)
         {
             DAL_CT_YeuCau dal = new DAL_CT_YeuCau();
-            return dal.Load_CT_YC_MuaHang();
+            return dal.Load_CT_YC_MuaHang(dto);
         }
         ///Thêm mới CT_Yêu cầu mua hàng
         ///
@@ -104,6 +113,57 @@ namespace PC_GUI.BLL
                 return dal.Xoa_SP_CT_YC(ct);
             }
             return false;
+        }
+    }
+    public class Loc_YCMH
+    {
+        public DataTable Loc_YC_TG(DateTime start, DateTime end)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Loc_YC_TG(start, end);
+        }
+        public DataTable Loc_YC_TG_TT(DateTime start, DateTime end, DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Loc_YC_TG_TT(start, end, dto);
+        }
+        public DataTable Loc_YC_TG_PB(DateTime start, DateTime end, DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Loc_YC_TG_PB(start, end, dto);
+        }
+        public DataTable Loc_YC_TG_TT_PB(DateTime start, DateTime end, DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Loc_YC_TG_PB_TT(start, end, dto);
+        }
+        public DataTable Loc_YC_TT( DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Loc_YC_TT( dto);
+        }
+        public DataTable Loc_YC_PB(DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Loc_YC_PB(dto);
+        }
+        public DataTable Loc_YC_TT_PB(DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Loc_YC_TT_PB(dto);
+        }
+
+        //Lấy số lượng ct sp trong yêu cầu
+        public int Count_CT_YC(DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Count_CT_YC(dto);
+        }
+
+        public double Gia_Uoc_Tinh (DTO_YeuCauMH dto)
+        {
+            DAL_Loc_YC dal = new DAL_Loc_YC();
+            return dal.Lay_DonGia_SP(dto);
         }
     }
 

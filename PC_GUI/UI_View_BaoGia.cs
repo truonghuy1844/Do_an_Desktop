@@ -23,21 +23,21 @@ namespace PC_GUI
         private void UI_View_BaoGia_Load(object sender, EventArgs e)
         {
             // Kiểu hiển thị lọc
-            datetimepickerStart.Format = DateTimePickerFormat.Custom;
-            datetimepickerStart.CustomFormat = "dd/MM/yyyy";
+            
             //HIển thị ngày bắt đầu
             DateTime dateTime = datetimepickerEnd.Value;
             DateTime datetimeStart = dateTime.AddYears(-1);
             datetimepickerStart.Value = datetimeStart;
-            datetimepickerEnd.Format = DateTimePickerFormat.Custom;
-            datetimepickerEnd.CustomFormat = "dd/MM/yyyy";
+            
             txtNgayBG.ReadOnly = true;
             txtMaBG.ReadOnly = true;
             txtNCC.ReadOnly = true;
             btnHienThi.Enabled = false;
             Load_CB_SP();
             Load_CB_NCC();
-            
+            datetimepickerStart.MaxDate = datetimepickerEnd.Value;
+            datetimepickerEnd.MinDate = datetimepickerStart.Value;
+
             //Load dữ liệu
             ChuyenTrangThai();
             dataGridView1.ReadOnly = true;
@@ -72,7 +72,7 @@ namespace PC_GUI
                 trangthaiHienThi = true;
                 dataGridView1.DataSource = bll_bg.Load_BaoGia();
                 //Format cho Datagridview
-                dataGridView1.Columns["NgayBG"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                
             }
         }
         
@@ -184,6 +184,12 @@ namespace PC_GUI
 
             Loc_Bao_Gia bll = new Loc_Bao_Gia();
             dataGridView1.DataSource = bll.Loc_BoTG_BG(bg,ct);
+        }
+
+        private void btnTuyChinhBG_Click(object sender, EventArgs e)
+        {
+            UI_NhapSua_BaoGia ui = new UI_NhapSua_BaoGia();
+            ui.ShowDialog();
         }
     }
 }

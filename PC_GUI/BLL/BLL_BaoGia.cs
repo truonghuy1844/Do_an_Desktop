@@ -135,6 +135,12 @@ namespace PC_GUI.BLL
             return dal.Loc_BoTG_BG(ctiet,bgia);
 
         }
+        //Load theo SP
+        public DataTable Loc_CTBG_TheoSP(DTO_CT_BaoGia dTO_CT_BaoGia)
+        {
+            DAL_Loc_BaoGia dal = new DAL_Loc_BaoGia();
+            return dal.Load_CTBG_TheoSP(dTO_CT_BaoGia);
+        }
     }
     
 }
