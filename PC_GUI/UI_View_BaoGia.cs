@@ -40,6 +40,8 @@ namespace PC_GUI
             
             //Load dữ liệu
             ChuyenTrangThai();
+            dataGridView1.ReadOnly = true;
+            
             
 
         }
@@ -61,7 +63,8 @@ namespace PC_GUI
                 trangthaiHienThi = false;
 
                 dataGridView1.DataSource = bll_ct_bg.Load_CT_BG(dto);
-                
+                dataGridView1.Columns["MaSP"].Visible = false;
+
             }
             else
             {
@@ -90,12 +93,17 @@ namespace PC_GUI
             {
                 return;
             }
-            DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-            txtMaBG.Text = row.Cells["MaBG"].Value.ToString();
-            txtNCC.Text = row.Cells["TenNCC"].Value.ToString();
-            txtNgayBG.Text = row.Cells["NgayBG"].Value.ToString();
+            try
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                txtMaBG.Text = row.Cells["MaBG"].Value.ToString();
+                txtNCC.Text = row.Cells["TenNCC"].Value.ToString();
+                txtNgayBG.Text = row.Cells["NgayBG"].FormattedValue.ToString();
 
-            btnHienThi.Enabled = true;
+                btnHienThi.Enabled = true;
+            }
+            catch { return;  }
+            
             
         }
         private void Load_CB_SP()
@@ -158,6 +166,24 @@ namespace PC_GUI
         private void datetimepickerEnd_ValueChanged(object sender, EventArgs e)
         {
             datetimepickerStart.MaxDate = datetimepickerEnd.Value;
+        }
+
+        private void btnLocKoTG_Click(object sender, EventArgs e)
+        {
+            DateTime date_Selected_Start = new DateTime();
+            DateTime date_Selected_End = new DateTime();
+            date_Selected_Start = datetimepickerStart.Value;
+            date_Selected_End = datetimepickerEnd.Value;
+            string maSP, maNCC;
+            maSP = cbbLocSP.SelectedValue.ToString();
+            maNCC = cbLoc_NCC.SelectedValue.ToString();
+            DTO_BaoGia bg = new DTO_BaoGia();
+            DTO_CT_BaoGia ct = new DTO_CT_BaoGia();
+            bg.MaNCC = maNCC;
+            ct.MaSP = maSP;
+
+            Loc_Bao_Gia bll = new Loc_Bao_Gia();
+            dataGridView1.DataSource = bll.Loc_BoTG_BG(bg,ct);
         }
     }
 }

@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_GUI
+namespace PC_GUI.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CT_DONMUAHANG
+    public partial class PHANCONG_CONGVIEC
     {
-        public string MaDMH { get; set; }
-        public string MaSP { get; set; }
-        public string MaBG { get; set; }
-        public Nullable<int> SoLuong { get; set; }
+        public string MaPC { get; set; }
+        public string MaNV { get; set; }
+        public System.DateTime NgayGiao { get; set; }
+        public System.DateTime NgayHT { get; set; }
+        public Nullable<int> KLuong { get; set; }
+        public string TThai { get; set; }
     
-        public virtual BAOGIA BAOGIA { get; set; }
-        public virtual DONMUAHANG DONMUAHANG { get; set; }
-        public virtual SANPHAM SANPHAM { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

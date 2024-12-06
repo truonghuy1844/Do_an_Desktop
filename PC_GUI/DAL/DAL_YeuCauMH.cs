@@ -13,7 +13,7 @@ namespace PC_GUI.DAL
         //Load dữ liệu
         public DataTable Load_YC_MuaHang()
         {
-            QLMHEntities1 cnn = new QLMHEntities1();
+            QLMHEntities2 cnn = new QLMHEntities2();
             try
             {
                 var list_YC = (from yc in cnn.YEUCAU_MUAHANG
@@ -64,7 +64,7 @@ namespace PC_GUI.DAL
         //thêm yêu cầu mua hàng
         public bool Them_YeuCauMH(DTO_YeuCauMH ycMH)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             try
             {
                 YEUCAU_MUAHANG ycau = new YEUCAU_MUAHANG();
@@ -86,7 +86,7 @@ namespace PC_GUI.DAL
         //Sửa Yêu cầu mua hàng
         public bool Sua_YC_MH(DTO_YeuCauMH ycMH)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             YEUCAU_MUAHANG yc = conn.YEUCAU_MUAHANG.Find(ycMH.MaYC.Trim());
 
             if (yc != null)
@@ -112,7 +112,7 @@ namespace PC_GUI.DAL
         //Xóa yêu cầu mua hàng
         public bool Xoa_YC_MH(DTO_YeuCauMH ycMH)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             YEUCAU_MUAHANG yc = conn.YEUCAU_MUAHANG.Find(ycMH.MaYC.Trim());
             if (yc != null)
             {
@@ -139,7 +139,7 @@ namespace PC_GUI.DAL
         //Load dữ liệu
         public DataTable Load_CT_YC_MuaHang()
         {
-            QLMHEntities1 cnn = new QLMHEntities1();
+            QLMHEntities2 cnn = new QLMHEntities2();
             try
             {
                 var list_CT_YC = (from yc in cnn.CT_YEUCAU
@@ -183,7 +183,7 @@ namespace PC_GUI.DAL
         //thêm CT_yêu cầu mua hàng
         public bool Them_CT_YeuCauMH(DTO_CT_YeuCauMH ct_ycMH)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             try
             {
                 CT_YEUCAU ct = new CT_YEUCAU();
@@ -205,7 +205,7 @@ namespace PC_GUI.DAL
         //Sửa CT_Yêu cầu mua hàng
         public bool Sua_CT_YC_MH(DTO_CT_YeuCauMH ct_ycMH)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             CT_YEUCAU ct = conn.CT_YEUCAU.SingleOrDefault( t => t.MaYC == ct_ycMH.MaYC && t.MaSP == ct_ycMH.MaSP);
 
             if (ct != null)
@@ -227,7 +227,7 @@ namespace PC_GUI.DAL
         //Xóa toàn bộ CT_yêu cầu mua hàng
         public bool Xoa_ALL_CT_YC_MH(DTO_CT_YeuCauMH ct_ycMH)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             var ct = conn.CT_YEUCAU.Where(item => item.MaYC == ct_ycMH.MaYC).ToList();
             if (ct != null)
             {
@@ -247,7 +247,7 @@ namespace PC_GUI.DAL
         }
         public bool Xoa_SP_CT_YC(DTO_CT_YeuCauMH ct_ycMH)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             CT_YEUCAU ct = conn.CT_YEUCAU.SingleOrDefault(t => t.MaYC == ct_ycMH.MaYC && t.MaSP == ct_ycMH.MaSP);
 
             if (ct != null)

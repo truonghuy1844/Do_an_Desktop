@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_GUI
+namespace PC_GUI.DAL
 {
     using System;
     using System.Collections.Generic;

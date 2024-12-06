@@ -189,7 +189,7 @@
           </Key>
           <Property Name="MaYC" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="NgayYC" Type="date" Nullable="false" />
+          <Property Name="NgayYC" Type="date" />
           <Property Name="NgayDuyet" Type="date" />
           <Property Name="PhongBanYC" Type="nvarchar" MaxLength="50" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
@@ -797,7 +797,7 @@
           </Key>
           <Property Name="MaYC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NgayYC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NgayYC" Type="DateTime" Precision="0" />
           <Property Name="NgayDuyet" Type="DateTime" Precision="0" />
           <Property Name="PhongBanYC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1068,7 +1068,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QLMHEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="QLMHEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BAOGIAs" EntityType="Self.BAOGIA" />
           <EntitySet Name="CT_BAOGIA" EntityType="Self.CT_BAOGIA" />
           <EntitySet Name="CT_DONMUAHANG" EntityType="Self.CT_DONMUAHANG" />
@@ -1181,7 +1181,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QLMHModelStoreContainer" CdmEntityContainer="QLMHEntities1">
+        <EntityContainerMapping StorageEntityContainer="QLMHModelStoreContainer" CdmEntityContainer="QLMHEntities2">
           <EntitySetMapping Name="BAOGIAs">
             <EntityTypeMapping TypeName="QLMHModel.BAOGIA">
               <MappingFragment StoreEntitySet="BAOGIA">

@@ -7,32 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_GUI
+namespace PC_GUI.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class NHACUNGCAP
+    public partial class DONMUAHANG
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NHACUNGCAP()
+        public DONMUAHANG()
         {
-            this.BAOGIAs = new HashSet<BAOGIA>();
-            this.DANHGIA_NCC = new HashSet<DANHGIA_NCC>();
-            this.DONMUAHANGs = new HashSet<DONMUAHANG>();
+            this.CT_DONMUAHANG = new HashSet<CT_DONMUAHANG>();
+            this.DANHGIASP_TRONGDON = new HashSet<DANHGIASP_TRONGDON>();
+            this.HOADONs = new HashSet<HOADON>();
         }
     
+        public string MaDMH { get; set; }
+        public System.DateTime NgayLap { get; set; }
+        public string MaHDMH { get; set; }
+        public string MaNV { get; set; }
         public string MaNCC { get; set; }
-        public string TenNCC { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string Email { get; set; }
+        public Nullable<decimal> Chietkhau { get; set; }
+        public string TThai { get; set; }
+        public string MoTa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BAOGIA> BAOGIAs { get; set; }
+        public virtual ICollection<CT_DONMUAHANG> CT_DONMUAHANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANHGIA_NCC> DANHGIA_NCC { get; set; }
+        public virtual ICollection<DANHGIASP_TRONGDON> DANHGIASP_TRONGDON { get; set; }
+        public virtual HOPDONGMH HOPDONGMH { get; set; }
+        public virtual NHACUNGCAP NHACUNGCAP { get; set; }
+        public virtual NHANVIEN NHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DONMUAHANG> DONMUAHANGs { get; set; }
+        public virtual ICollection<HOADON> HOADONs { get; set; }
     }
 }

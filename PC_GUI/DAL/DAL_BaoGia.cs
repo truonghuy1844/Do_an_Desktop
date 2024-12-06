@@ -14,7 +14,7 @@ namespace PC_GUI.DAL
         public DataTable Load_BaoGia()
         {
 
-            QLMHEntities1 cnn = new QLMHEntities1();
+            QLMHEntities2 cnn = new QLMHEntities2();
             try
             {
                 var list_BG = (from bg in cnn.BAOGIAs
@@ -63,12 +63,14 @@ namespace PC_GUI.DAL
         //Thêm báo giá
         public bool Them_BG(DTO_BaoGia dto_BaoGia)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             try
             {
                 BAOGIA baoGia = new BAOGIA();
                 baoGia.MaBG = dto_BaoGia.MaBG;
                 baoGia.MaNCC = dto_BaoGia.MaNCC;
+                baoGia.NgayBG = dto_BaoGia.NgayBG;
+
                 conn.BAOGIAs.Add(baoGia);
                 conn.SaveChanges();
                 return true;
@@ -82,7 +84,7 @@ namespace PC_GUI.DAL
         //Xóa báo giá
         public bool Xoa_BG(DTO_BaoGia dto_BG)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             BAOGIA baoGia = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
             if (baoGia != null)
             {
@@ -104,7 +106,7 @@ namespace PC_GUI.DAL
         //Sửa báo giá
         public bool Sua_BG(DTO_BaoGia dto_BG)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             BAOGIA baoGia = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
 
             if (baoGia != null)
@@ -121,6 +123,15 @@ namespace PC_GUI.DAL
                 }
             }
             return false;
+        }
+        ///KIểm tra mã báo giá
+        ///
+        public bool KiemTraMaBG(DTO_BaoGia dto_BG)
+        {
+            QLMHEntities2 conn = new QLMHEntities2();
+            BAOGIA bg = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
+            if (bg != null) return false;
+            return true;
         }
 
 
@@ -139,7 +150,7 @@ namespace PC_GUI.DAL
             dTO.MaBG = bgia.MaBG;
             try
             {
-                QLMHEntities1 cnn = new QLMHEntities1();
+                QLMHEntities2 cnn = new QLMHEntities2();
                 var list_BG = (from ct_bg in cnn.CT_BAOGIA
                                join bg in cnn.BAOGIAs
                                on ct_bg.MaBG equals bg.MaBG
@@ -151,6 +162,7 @@ namespace PC_GUI.DAL
                                select new
                                {
                                    MaBG = ct_bg.MaBG,
+                                   MaSP = ct_bg.MaSP,
                                    TenSP = sp.TenSP,
                                    TenNCC = ncc.TenNCC,
                                    DonGia = ct_bg.DonGia,
@@ -158,6 +170,7 @@ namespace PC_GUI.DAL
                                }).Distinct().ToList();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("MaBG", typeof(string));
+                dt.Columns.Add("MaSP", typeof(string));
                 dt.Columns.Add("TenSP", typeof(string));
                 dt.Columns.Add("TenNCC", typeof(string));
                 dt.Columns.Add("DonGia", typeof(int));
@@ -167,6 +180,7 @@ namespace PC_GUI.DAL
                 {
                     DataRow dr = dt.NewRow();
                     dr["MaBG"] = ct.MaBG;
+                    dr["MaSP"] = ct.MaSP;
                     dr["TenSP"] = ct.TenSP;
                     dr["TenNCC"] = ct.TenNCC;
                     dr["DonGia"] = ct.DonGia;
@@ -192,7 +206,7 @@ namespace PC_GUI.DAL
         //Thêm chi tiết báo giá
         public bool Them_CT_BaoGia(DTO_CT_BaoGia dto_CT_BG)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             try
             {
                 CT_BAOGIA ct = new CT_BAOGIA();
@@ -214,7 +228,7 @@ namespace PC_GUI.DAL
         //Sửa chi tiết báo giá
         public bool Sua_CT_BG(DTO_CT_BaoGia dto_CT_BG)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             CT_BAOGIA ctbg = conn.CT_BAOGIA.SingleOrDefault(item => item.MaBG == dto_CT_BG.MaBG && item.MaSP == dto_CT_BG.MaSP);
 
             if (ctbg != null)
@@ -237,7 +251,7 @@ namespace PC_GUI.DAL
         //Xóa 1 chi tiết báo giá trong 1 mã báo giá
         public bool Xoa_SP_CT_BG(DTO_CT_BaoGia cT_BaoGia)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             CT_BAOGIA ct = conn.CT_BAOGIA.SingleOrDefault(item => item.MaBG == cT_BaoGia.MaBG && item.MaSP == cT_BaoGia.MaSP);
             if (ct != null)
             {
@@ -258,7 +272,7 @@ namespace PC_GUI.DAL
         //Xóa toàn bộ sản phẩm có mã BG
         public bool Xoa_CT_BG(DTO_CT_BaoGia baoGia)
         {
-            QLMHEntities1 conn = new QLMHEntities1();
+            QLMHEntities2 conn = new QLMHEntities2();
             var ct = conn.CT_BAOGIA.Where(item => item.MaBG == baoGia.MaBG).ToList();
             if (ct != null)
             {
@@ -281,12 +295,13 @@ namespace PC_GUI.DAL
     }
     //// Lọc báo giá
     ///
-    ///Lọc theo sản phẩm có trong báo giá
+    
     public class DAL_Loc_BaoGia
     {
+        ///Lọc theo sản phẩm có trong báo giá
         public DataTable Load_Loc_SP ( DTO_CT_BaoGia ctiet, DateTime start, DateTime end)
         {
-            QLMHEntities1 cnn = new QLMHEntities1();
+            QLMHEntities2 cnn = new QLMHEntities2();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
             cT_BaoGia.MaSP = ctiet.MaSP;
             try
@@ -340,7 +355,7 @@ namespace PC_GUI.DAL
         //Lọc theo NCC
         public DataTable Load_Loc_NCC(DTO_BaoGia bgia, DateTime start, DateTime end)
         {
-            QLMHEntities1 cnn = new QLMHEntities1();
+            QLMHEntities2 cnn = new QLMHEntities2();
             DTO_BaoGia dto = new DTO_BaoGia();
             dto.MaNCC = bgia.MaNCC;
             try
@@ -388,11 +403,171 @@ namespace PC_GUI.DAL
                 return dt;
             }
         }
+        //Lọc bỏ thời gian, theo SP
+        public DataTable Load_BoTG_SP_BG(DTO_CT_BaoGia ctiet)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
+            cT_BaoGia.MaSP = ctiet.MaSP;
+            try
+            {
+                var list_BG = (from bg in cnn.BAOGIAs
+                               join ncc in cnn.NHACUNGCAPs
+                               on bg.MaNCC equals ncc.MaNCC
+                               join ct in cnn.CT_BAOGIA
+                               on bg.MaBG equals ct.MaBG
+                               where ct.MaSP == cT_BaoGia.MaSP
+                               select new
+                               {
+                                   MaBG = bg.MaBG,
+                                   MaNCC = bg.MaNCC,
+                                   TenNCC = ncc.TenNCC,
+                                   NgayBG = bg.NgayBG
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaBG", typeof(string));
+                dt.Columns.Add("MaNCC", typeof(string));
+                dt.Columns.Add("TenNCC", typeof(string));
+                dt.Columns.Add("NgayBG", typeof(DateTime));
+
+
+                //Thêm vào bảng
+                foreach (var bg in list_BG)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["MaBG"] = bg.MaBG;
+                    dr["MaNCC"] = bg.MaNCC;
+                    dr["TenNCC"] = bg.TenNCC;
+                    dr["NgayBG"] = bg.NgayBG;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayBG DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+        //Lọc bỏ thời gian theo NCC
+        public DataTable Load_Loc_BoTG_NCC_BG(DTO_BaoGia bgia)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            DTO_BaoGia dto = new DTO_BaoGia();
+            dto.MaNCC = bgia.MaNCC;
+            try
+            {
+                var list_BG = (from bg in cnn.BAOGIAs
+                               join ncc in cnn.NHACUNGCAPs
+                               on bg.MaNCC equals ncc.MaNCC
+                               where bg.MaNCC == dto.MaNCC
+                               select new
+                               {
+                                   MaBG = bg.MaBG,
+                                   MaNCC = bg.MaNCC,
+                                   TenNCC = ncc.TenNCC,
+                                   NgayBG = bg.NgayBG
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaBG", typeof(string));
+                dt.Columns.Add("MaNCC", typeof(string));
+                dt.Columns.Add("TenNCC", typeof(string));
+                dt.Columns.Add("NgayBG", typeof(DateTime));
+
+
+                //Thêm vào bảng
+                foreach (var bg in list_BG)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["MaBG"] = bg.MaBG;
+                    dr["MaNCC"] = bg.MaNCC;
+                    dr["TenNCC"] = bg.TenNCC;
+                    dr["NgayBG"] = bg.NgayBG;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayBG DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+        // Lọc bỏ thời gian có đủ NCC,SP
+
+        public DataTable Loc_BoTG_BG(DTO_CT_BaoGia ctiet, DTO_BaoGia bgia)
+        {
+            QLMHEntities2 cnn = new QLMHEntities2();
+            DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
+            DTO_BaoGia dto = new DTO_BaoGia();
+            dto.MaNCC = bgia.MaNCC;
+            cT_BaoGia.MaSP = ctiet.MaSP;
+            try
+            {
+                var list_BG = (from bg in cnn.BAOGIAs
+                               join ncc in cnn.NHACUNGCAPs
+                               on bg.MaNCC equals ncc.MaNCC
+                               join ct in cnn.CT_BAOGIA
+                               on bg.MaBG equals ct.MaBG
+                               where ct.MaSP == cT_BaoGia.MaSP && bg.MaNCC == dto.MaNCC
+                               select new
+                               {
+                                   MaBG = bg.MaBG,
+                                   MaNCC = bg.MaNCC,
+                                   TenNCC = ncc.TenNCC,
+                                   NgayBG = bg.NgayBG
+                               }).Distinct().ToList();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaBG", typeof(string));
+                dt.Columns.Add("MaNCC", typeof(string));
+                dt.Columns.Add("TenNCC", typeof(string));
+                dt.Columns.Add("NgayBG", typeof(DateTime));
+
+
+                //Thêm vào bảng
+                foreach (var bg in list_BG)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["MaBG"] = bg.MaBG;
+                    dr["MaNCC"] = bg.MaNCC;
+                    dr["TenNCC"] = bg.TenNCC;
+                    dr["NgayBG"] = bg.NgayBG;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "NgayBG DESC";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
         /// Lọc theo cả SP và NCC
         /// 
         public DataTable Load_Loc_SP_NCC(DTO_CT_BaoGia ctiet,DTO_BaoGia bgia, DateTime start, DateTime end)
         {
-            QLMHEntities1 cnn = new QLMHEntities1();
+            QLMHEntities2 cnn = new QLMHEntities2();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
             DTO_BaoGia dto = new DTO_BaoGia();
             dto.MaNCC = bgia.MaNCC;
@@ -448,7 +623,7 @@ namespace PC_GUI.DAL
         //Lọc theo ngày tháng
         public DataTable Load_Loc_NT(DateTime start, DateTime end)
         {
-            QLMHEntities1 cnn = new QLMHEntities1();
+            QLMHEntities2 cnn = new QLMHEntities2();
             
             try
             {

@@ -8,11 +8,19 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace PC_GUI.BLL
 {
     public class BLL_BaoGia
     {
+        //Kiểm trả mã báo giá
+        public bool KiemTraMaBG(DTO_BaoGia bg)
+        {
+            DAL_BaoGia dal = new DAL_BaoGia();
+            return dal.KiemTraMaBG( bg);
+        }
+
         //Load dữ liệu
         public DataTable Load_BaoGia()
         {
@@ -46,6 +54,8 @@ namespace PC_GUI.BLL
             DAL_BaoGia dAL = new DAL_BaoGia();
             return dAL.Sua_BG(baoGia);
         }
+       
+        
     }
 
 
@@ -107,8 +117,24 @@ namespace PC_GUI.BLL
                 return dal.Load_Loc_NT(start, end);
             }
             if (bgia.MaNCC == "0" && ctiet.MaSP != "0") return dal.Load_Loc_SP(ctiet,start,end);
-            return dal.Load_Loc_NCC(bgia, start,end);
+            if (bgia.MaNCC != "0" && ctiet.MaSP == "0") return dal.Load_Loc_NCC(bgia, start,end);
+            return dal.Load_Loc_SP_NCC(ctiet,bgia,start,end);
+
+        }
+        //Lọc bỏ thời gian
+        public DataTable Loc_BoTG_BG(DTO_BaoGia bgia, DTO_CT_BaoGia ctiet)
+        { 
+            DAL_Loc_BaoGia dal = new DAL_Loc_BaoGia();
+            if (bgia.MaNCC == "0" && ctiet.MaSP == "0")
+            {
+                DAL_BaoGia dAL_BaoGia = new DAL_BaoGia();
+                return dAL_BaoGia.Load_BaoGia();
+            }
+            if (bgia.MaNCC == "0" && ctiet.MaSP != "0") return dal.Load_BoTG_SP_BG(ctiet);
+            if (bgia.MaNCC != "0" && ctiet.MaSP == "0") return dal.Load_Loc_BoTG_NCC_BG(bgia);
+            return dal.Loc_BoTG_BG(ctiet,bgia);
 
         }
     }
+    
 }

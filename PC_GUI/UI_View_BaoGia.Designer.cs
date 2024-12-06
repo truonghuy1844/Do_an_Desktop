@@ -46,6 +46,7 @@
             this.btnHienThi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNCC = new System.Windows.Forms.TextBox();
+            this.btnLocKoTG = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +64,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(1334, 470);
             this.dataGridView1.TabIndex = 72;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -119,9 +121,9 @@
             // btnLoc
             // 
             this.btnLoc.AutoSize = true;
-            this.btnLoc.Location = new System.Drawing.Point(1030, 37);
+            this.btnLoc.Location = new System.Drawing.Point(1030, 36);
             this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(168, 35);
+            this.btnLoc.Size = new System.Drawing.Size(175, 35);
             this.btnLoc.TabIndex = 21;
             this.btnLoc.Text = "Lọc";
             this.btnLoc.UseVisualStyleBackColor = true;
@@ -208,6 +210,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLocKoTG);
             this.groupBox1.Controls.Add(this.cbbLocSP);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnLoc);
@@ -219,7 +222,7 @@
             this.groupBox1.Controls.Add(this.datetimepickerStart);
             this.groupBox1.Location = new System.Drawing.Point(82, 266);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1204, 129);
+            this.groupBox1.Size = new System.Drawing.Size(1233, 129);
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             // 
@@ -229,6 +232,17 @@
             this.txtNCC.Name = "txtNCC";
             this.txtNCC.Size = new System.Drawing.Size(573, 31);
             this.txtNCC.TabIndex = 80;
+            // 
+            // btnLocKoTG
+            // 
+            this.btnLocKoTG.AutoSize = true;
+            this.btnLocKoTG.Location = new System.Drawing.Point(1030, 80);
+            this.btnLocKoTG.Name = "btnLocKoTG";
+            this.btnLocKoTG.Size = new System.Drawing.Size(175, 35);
+            this.btnLocKoTG.TabIndex = 24;
+            this.btnLocKoTG.Text = "Lọc bỏ thời gian";
+            this.btnLocKoTG.UseVisualStyleBackColor = true;
+            this.btnLocKoTG.Click += new System.EventHandler(this.btnLocKoTG_Click);
             // 
             // UI_View_BaoGia
             // 
@@ -275,5 +289,6 @@
         private System.Windows.Forms.Button btnHienThi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtNCC;
+        private System.Windows.Forms.Button btnLocKoTG;
     }
 }

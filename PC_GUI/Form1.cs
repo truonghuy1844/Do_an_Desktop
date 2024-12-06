@@ -22,5 +22,11 @@ namespace PC_GUI
             UI_View_BaoGia ui = new UI_View_BaoGia();
             ui.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UI_NhapSua_BaoGia ui = new UI_NhapSua_BaoGia();
+            ui.Show();
+        }
     }
 }

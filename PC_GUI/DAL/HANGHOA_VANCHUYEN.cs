@@ -7,18 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PC_GUI
+namespace PC_GUI.DAL
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CT_YEUCAU
+    public partial class HANGHOA_VANCHUYEN
     {
-        public string MaYC { get; set; }
+        public string MaVC { get; set; }
         public string MaSP { get; set; }
         public Nullable<int> SoLuong { get; set; }
     
         public virtual SANPHAM SANPHAM { get; set; }
-        public virtual YEUCAU_MUAHANG YEUCAU_MUAHANG { get; set; }
     }
 }
