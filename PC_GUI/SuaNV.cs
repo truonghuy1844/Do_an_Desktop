@@ -131,6 +131,15 @@ namespace PC_GUI
                 radioButtonNu.Checked = false;
                 comboBoxChucVu.SelectedIndex = -1;
                 comboBoxPhongBan.SelectedIndex = -1;
+
+                txtTenNV.Enabled = false;
+                txtDiaChi.Enabled = false;
+                txtSDT.Enabled = false;
+                radioButtonNam.Enabled = false;
+                radioButtonNu.Enabled = false;
+                comboBoxChucVu.Enabled = false;
+                comboBoxPhongBan.Enabled = false;
+                btnLuu.Enabled = false;
             }
             catch (ArgumentException ex)
             {

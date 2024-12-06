@@ -62,6 +62,7 @@
     <Compile Include="CT_YEUCAU.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
+    <Compile Include="DALKho.cs" />
     <Compile Include="DALNV.cs" />
     <Compile Include="DANHGIASP_TRONGDON.cs">
       <DependentUpon>QLMH.tt</DependentUpon>

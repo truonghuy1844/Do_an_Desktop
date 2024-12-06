@@ -74,6 +74,7 @@ namespace PC_GUI
                 }
                 comboBoxChucVu.SelectedValue = nv.ChucVu;
                 comboBoxPhongBan.SelectedValue = nv.PhongBan;
+
                 btnXoa.Enabled = true;
             }
             else
@@ -120,6 +121,7 @@ namespace PC_GUI
             radioButtonNu.Checked = false;
             comboBoxChucVu.SelectedIndex = -1;
             comboBoxPhongBan.SelectedIndex = -1;
+            btnXoa.Enabled = false;
         }
     }
 }
