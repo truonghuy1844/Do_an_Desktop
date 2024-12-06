@@ -102,6 +102,12 @@ namespace PC_GUI
                 txtSDT.Text = string.Empty;
                 txtDiaChi.Text = string.Empty;
                 txtEmail.Text = string.Empty;
+
+                txtTenNCC.Enabled = false;
+                txtDiaChi.Enabled = false;
+                txtSDT.Enabled = false;
+                txtEmail.Enabled = false;
+                btnLuu.Enabled = false;
             }
             catch (ArgumentException ex)
             {

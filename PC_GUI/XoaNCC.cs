@@ -108,6 +108,8 @@ namespace PC_GUI
                 txtEmail.Text = string.Empty;
                 txtDiaChi.Text = string.Empty;
                 txtSDT.Text = string.Empty;
+
+                btnXoa.Enabled = false;
             }
         }
     }
