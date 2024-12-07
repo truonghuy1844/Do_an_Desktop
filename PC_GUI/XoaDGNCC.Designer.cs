@@ -65,10 +65,11 @@
             // 
             // txtTim
             // 
-            this.txtTim.Location = new System.Drawing.Point(297, 28);
+            this.txtTim.Location = new System.Drawing.Point(311, 28);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(291, 22);
+            this.txtTim.Size = new System.Drawing.Size(277, 22);
             this.txtTim.TabIndex = 55;
+            this.txtTim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTim_KeyPress);
             // 
             // btnTim
             // 
@@ -78,6 +79,7 @@
             this.btnTim.TabIndex = 56;
             this.btnTim.Text = "Nhập";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // label9
             // 
@@ -86,7 +88,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(253, 16);
             this.label9.TabIndex = 54;
-            this.label9.Text = "Nhập mã đánh giá nhà cung cấp cần sửa:";
+            this.label9.Text = "Nhập mã đánh giá nhà cung cấp cần xóa:";
             // 
             // comboBoxMucDo
             // 
@@ -152,24 +154,26 @@
             this.btnHuy.BackColor = System.Drawing.Color.Tomato;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(479, 355);
+            this.btnHuy.Location = new System.Drawing.Point(470, 351);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(132, 48);
             this.btnHuy.TabIndex = 101;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.ForestGreen;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(298, 355);
+            this.btnXoa.Location = new System.Drawing.Point(289, 351);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(132, 48);
             this.btnXoa.TabIndex = 100;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // label1
             // 

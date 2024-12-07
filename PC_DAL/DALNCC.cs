@@ -327,6 +327,33 @@ namespace PC_DAL
             db.DANHGIA_NCC.Remove(dg);
             db.SaveChanges();
         }
+        public List<DTODGNCC> TimTuKhoaDGNCC(string tuKhoa)
+        {
+            try
+            {
+                var dgTim = from dg in db.DANHGIA_NCC
+                             where dg.MaDGNCC.Contains(tuKhoa) || dg.MaNV.Contains(tuKhoa) || dg.MaNCC.Contains(tuKhoa)
+                             select new DTODGNCC
+                             {
+                                 MaDGNCC = dg.MaDGNCC,
+                                 MaNV = dg.MaNV,
+                                 MaNCC = dg.MaNCC,
+                                 NgayDanhGia = dg.NgayDanhGia,
+                                 DiemChatLuong = dg.DiemChatLuong,
+                                 DiemHieuQua = dg.DiemHieuQua,
+                                 DiemGiaCa = dg.DiemGiaCa,
+                                 MucDoDanhGia = dg.MucDoDanhGia
+                             };
+                var result = dgTim.ToList();
+                if (!result.Any())
+                    throw new Exception("Không tìm thấy đánh giá phù hợp.");
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
 
 

@@ -32,12 +32,12 @@
             this.dataGridViewDGNCC = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxChatLuong = new System.Windows.Forms.ComboBox();
+            this.comboBoxHieuQua = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxGiaCa = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -45,14 +45,17 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
+            this.comboBoxMucDo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridViewNCC = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridViewNVDG = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDGNCC)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNCC)).BeginInit();
@@ -98,21 +101,21 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Điểm chất lượng:";
             // 
-            // comboBox1
+            // comboBoxChatLuong
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 319);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(91, 24);
-            this.comboBox1.TabIndex = 6;
+            this.comboBoxChatLuong.FormattingEnabled = true;
+            this.comboBoxChatLuong.Location = new System.Drawing.Point(133, 319);
+            this.comboBoxChatLuong.Name = "comboBoxChatLuong";
+            this.comboBoxChatLuong.Size = new System.Drawing.Size(91, 24);
+            this.comboBoxChatLuong.TabIndex = 6;
             // 
-            // comboBox2
+            // comboBoxHieuQua
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(258, 319);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(91, 24);
-            this.comboBox2.TabIndex = 8;
+            this.comboBoxHieuQua.FormattingEnabled = true;
+            this.comboBoxHieuQua.Location = new System.Drawing.Point(258, 319);
+            this.comboBoxHieuQua.Name = "comboBoxHieuQua";
+            this.comboBoxHieuQua.Size = new System.Drawing.Size(91, 24);
+            this.comboBoxHieuQua.TabIndex = 8;
             // 
             // label3
             // 
@@ -123,13 +126,13 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Điểm hiệu quả:";
             // 
-            // comboBox3
+            // comboBoxGiaCa
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(376, 319);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(91, 24);
-            this.comboBox3.TabIndex = 10;
+            this.comboBoxGiaCa.FormattingEnabled = true;
+            this.comboBoxGiaCa.Location = new System.Drawing.Point(376, 319);
+            this.comboBoxGiaCa.Name = "comboBoxGiaCa";
+            this.comboBoxGiaCa.Size = new System.Drawing.Size(91, 24);
+            this.comboBoxGiaCa.TabIndex = 10;
             // 
             // label4
             // 
@@ -140,21 +143,21 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Điểm giá cả:";
             // 
-            // dateTimePicker1
+            // dateTimePickerFrom
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(611, 319);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(225, 22);
-            this.dateTimePicker1.TabIndex = 11;
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(611, 319);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(225, 22);
+            this.dateTimePickerFrom.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(608, 298);
+            this.label5.Location = new System.Drawing.Point(613, 299);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 16);
+            this.label5.Size = new System.Drawing.Size(26, 16);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Ngày:";
+            this.label5.Text = "Từ:";
             // 
             // groupBox1
             // 
@@ -162,7 +165,7 @@
             this.groupBox1.Controls.Add(this.btnXoa);
             this.groupBox1.Controls.Add(this.btnThem);
             this.groupBox1.Controls.Add(this.btnSua);
-            this.groupBox1.Location = new System.Drawing.Point(24, 418);
+            this.groupBox1.Location = new System.Drawing.Point(25, 442);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(787, 106);
             this.groupBox1.TabIndex = 13;
@@ -223,27 +226,28 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(665, 389);
+            this.btnTim.Location = new System.Drawing.Point(642, 411);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(118, 23);
             this.btnTim.TabIndex = 33;
             this.btnTim.Text = "Tìm kiếm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
-            // txtSearch
+            // txtTim
             // 
-            this.txtSearch.Location = new System.Drawing.Point(72, 390);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(554, 22);
-            this.txtSearch.TabIndex = 32;
+            this.txtTim.Location = new System.Drawing.Point(73, 412);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(554, 22);
+            this.txtTim.TabIndex = 32;
             // 
-            // comboBox4
+            // comboBoxMucDo
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(483, 319);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(106, 24);
-            this.comboBox4.TabIndex = 35;
+            this.comboBoxMucDo.FormattingEnabled = true;
+            this.comboBoxMucDo.Location = new System.Drawing.Point(483, 319);
+            this.comboBoxMucDo.Name = "comboBoxMucDo";
+            this.comboBoxMucDo.Size = new System.Drawing.Size(106, 24);
+            this.comboBoxMucDo.TabIndex = 35;
             // 
             // label6
             // 
@@ -257,7 +261,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(72, 368);
+            this.label7.Location = new System.Drawing.Point(73, 392);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(409, 16);
             this.label7.TabIndex = 36;
@@ -303,28 +307,57 @@
             this.dataGridViewNVDG.Size = new System.Drawing.Size(358, 90);
             this.dataGridViewNVDG.TabIndex = 39;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(613, 350);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 16);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Đến:";
+            // 
+            // dateTimePickerTo
+            // 
+            this.dateTimePickerTo.Location = new System.Drawing.Point(611, 370);
+            this.dateTimePickerTo.Name = "dateTimePickerTo";
+            this.dateTimePickerTo.Size = new System.Drawing.Size(225, 22);
+            this.dateTimePickerTo.TabIndex = 41;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(22, 319);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(80, 56);
+            this.btnReset.TabIndex = 43;
+            this.btnReset.Text = "Reset bộ lọc";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // QLDGNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 564);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridViewNVDG);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dataGridViewNCC);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBoxMucDo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.dateTimePickerFrom);
+            this.Controls.Add(this.comboBoxGiaCa);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxHieuQua);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxChatLuong);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTT);
@@ -347,12 +380,12 @@
         private System.Windows.Forms.DataGridView dataGridViewDGNCC;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxChatLuong;
+        private System.Windows.Forms.ComboBox comboBoxHieuQua;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBoxGiaCa;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLoad;
@@ -360,13 +393,16 @@
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox txtTim;
+        private System.Windows.Forms.ComboBox comboBoxMucDo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridViewNCC;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dataGridViewNVDG;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTo;
+        private System.Windows.Forms.Button btnReset;
     }
 }

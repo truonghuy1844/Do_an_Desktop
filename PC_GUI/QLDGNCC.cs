@@ -23,6 +23,7 @@ namespace PC_GUI
         private void QLDGNCC_Load(object sender, EventArgs e)
         {
             dataGridViewDGNCC.DataSource = bLLNCC.LoadDGNCC();
+            LoadCombobox();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -62,6 +63,60 @@ namespace PC_GUI
         {
             XoaDGNCC xoaDGNCC = new XoaDGNCC();
             xoaDGNCC.Show();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTim.Text;
+
+            if (string.IsNullOrEmpty(tuKhoa))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa để tìm kiếm.");
+                return;
+            }
+            try
+            {
+                var ketQua = bLLNCC.TimTuKhoaDGNCC(tuKhoa);
+                dataGridViewDGNCC.DataSource = ketQua;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void LoadCombobox()
+        {
+            comboBoxChatLuong.DataSource = bLLNCC.LoadDiemChatLuong();
+            comboBoxChatLuong.DisplayMember = "DiemChatLuong";
+            comboBoxChatLuong.ValueMember = "DiemChatLuong";
+            comboBoxChatLuong.SelectedIndex = -1;
+
+            comboBoxHieuQua.DataSource = bLLNCC.LoadDiemHieuQua();
+            comboBoxHieuQua.DisplayMember = "DiemHieuQua";
+            comboBoxHieuQua.ValueMember = "DiemHieuQua";
+            comboBoxHieuQua.SelectedIndex = -1;
+
+            comboBoxGiaCa.DataSource = bLLNCC.LoadDiemGiaCa();
+            comboBoxGiaCa.DisplayMember = "DiemGiaCa";
+            comboBoxGiaCa.ValueMember = "DiemGiaCa";
+            comboBoxGiaCa.SelectedIndex = -1;
+
+            comboBoxMucDo.DataSource = bLLNCC.LoadMucDoDG();
+            comboBoxMucDo.DisplayMember = "MucDoDanhGia";
+            comboBoxMucDo.ValueMember = "MucDoDanhGia";
+            comboBoxMucDo.SelectedIndex = -1;
+
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            comboBoxChatLuong.SelectedIndex = -1;
+            comboBoxHieuQua.SelectedIndex = -1;
+            comboBoxGiaCa.SelectedIndex = -1;
+            comboBoxMucDo.SelectedIndex = -1;
+
+            dateTimePickerFrom.Value = DateTime.Now;
+            dateTimePickerTo.Value = DateTime.Now;
         }
     }
 }
