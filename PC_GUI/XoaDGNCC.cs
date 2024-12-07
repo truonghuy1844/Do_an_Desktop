@@ -16,5 +16,10 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
+
+        private void XoaDGNCC_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

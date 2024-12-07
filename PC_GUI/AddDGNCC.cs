@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,29 @@ namespace PC_GUI
 
         private void AddDGNCC_Load(object sender, EventArgs e)
         {
+            LoadCombobox();
+        }
+        private void LoadCombobox()
+        {
+            comboBoxChatLuong.DataSource = bLLNCC.LoadDiemChatLuong();
+            comboBoxChatLuong.DisplayMember = "DiemChatLuong";
+            comboBoxChatLuong.ValueMember = "DiemChatLuong";
+            comboBoxChatLuong.SelectedIndex = -1;
+
+            comboBoxHieuQua.DataSource = bLLNCC.LoadDiemHieuQua();
+            comboBoxHieuQua.DisplayMember = "DiemHieuQua";
+            comboBoxHieuQua.ValueMember = "DiemHieuQua";
+            comboBoxHieuQua.SelectedIndex = -1;
+
+            comboBoxGiaCa.DataSource = bLLNCC.LoadDiemGiaCa();
+            comboBoxGiaCa.DisplayMember = "DiemGiaCa";
+            comboBoxGiaCa.ValueMember = "DiemGiaCa";
+            comboBoxGiaCa.SelectedIndex = -1;
+
+            comboBoxMucDo.DataSource = bLLNCC.LoadMucDoDG();
+            comboBoxMucDo.DisplayMember = "MucDoDanhGia";
+            comboBoxMucDo.ValueMember = "MucDoDanhGia";
+            comboBoxMucDo.SelectedIndex = -1;
 
         }
 
@@ -85,24 +109,37 @@ namespace PC_GUI
             {
                 DTODGNCC addDGNCC = new DTODGNCC()
                 {
-                    MaDGNCC = txtMaDGNCC.Text,
-                    MaNV = txtMaNV.Text,
-                    MaNCC = txtMaNCC.Text,
-                    DiemChatLuong = comboBoxChatLuong.SelectedValue?.ToString();
+                    MaDGNCC = txtMaDGNCC.Text.Trim(),
+                    MaNV = txtMaNV.Text.Trim(),
+                    MaNCC = txtMaNCC.Text.Trim(),
+                    DiemChatLuong = comboBoxChatLuong.SelectedValue != null ? (int?)int.Parse(comboBoxChatLuong.SelectedValue.ToString()) : null,
+                    DiemHieuQua = comboBoxHieuQua.SelectedValue != null ? (int?)int.Parse(comboBoxHieuQua.SelectedValue.ToString()) : null,
+                    DiemGiaCa = comboBoxGiaCa.SelectedValue != null ? (int?)int.Parse(comboBoxGiaCa.SelectedValue.ToString()) : null,
+                    MucDoDanhGia = comboBoxMucDo.SelectedIndex != -1 ? comboBoxMucDo.SelectedValue.ToString() : null
                 };
-                bLLNCC.AddNCC(addNCC);
+                bLLNCC.AddDGNCC(addDGNCC);
 
-                MessageBox.Show("Thêm nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK);
-                txtMaNCC.Text = string.Empty;
-                txtTenNCC.Text = string.Empty;
-                txtSDT.Text = string.Empty;
-                txtDiaChi.Text = string.Empty;
-                txtEmail.Text = string.Empty;
+                MessageBox.Show("Thêm đánh giá mới thành công!", "Thông báo", MessageBoxButtons.OK);
+                ResetField();
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Chưa đủ thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ResetField()
+        {
+            txtMaDGNCC.Text = string.Empty;
+            txtMaNV.Text = string.Empty;
+            txtMaNCC.Text = string.Empty;
+            comboBoxChatLuong.SelectedIndex = -1;
+            comboBoxHieuQua.SelectedIndex = -1;
+            comboBoxGiaCa.SelectedIndex = -1;
+            comboBoxMucDo.SelectedIndex = -1;
         }
     }
 }

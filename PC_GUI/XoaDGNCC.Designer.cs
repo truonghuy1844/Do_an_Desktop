@@ -32,10 +32,10 @@
             this.txtTim = new System.Windows.Forms.TextBox();
             this.btnTim = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxMucDo = new System.Windows.Forms.ComboBox();
+            this.comboBoxGiaCa = new System.Windows.Forms.ComboBox();
+            this.comboBoxHieuQua = new System.Windows.Forms.ComboBox();
+            this.comboBoxChatLuong = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,11 +43,11 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTenNCC = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtMaNCC = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMaDGNCC = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -88,37 +88,37 @@
             this.label9.TabIndex = 54;
             this.label9.Text = "Nhập mã đánh giá nhà cung cấp cần sửa:";
             // 
-            // comboBox4
+            // comboBoxMucDo
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(632, 299);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(146, 24);
-            this.comboBox4.TabIndex = 108;
+            this.comboBoxMucDo.FormattingEnabled = true;
+            this.comboBoxMucDo.Location = new System.Drawing.Point(632, 299);
+            this.comboBoxMucDo.Name = "comboBoxMucDo";
+            this.comboBoxMucDo.Size = new System.Drawing.Size(146, 24);
+            this.comboBoxMucDo.TabIndex = 108;
             // 
-            // comboBox3
+            // comboBoxGiaCa
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(632, 257);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(146, 24);
-            this.comboBox3.TabIndex = 107;
+            this.comboBoxGiaCa.FormattingEnabled = true;
+            this.comboBoxGiaCa.Location = new System.Drawing.Point(632, 257);
+            this.comboBoxGiaCa.Name = "comboBoxGiaCa";
+            this.comboBoxGiaCa.Size = new System.Drawing.Size(146, 24);
+            this.comboBoxGiaCa.TabIndex = 107;
             // 
-            // comboBox2
+            // comboBoxHieuQua
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(632, 214);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(146, 24);
-            this.comboBox2.TabIndex = 106;
+            this.comboBoxHieuQua.FormattingEnabled = true;
+            this.comboBoxHieuQua.Location = new System.Drawing.Point(632, 214);
+            this.comboBoxHieuQua.Name = "comboBoxHieuQua";
+            this.comboBoxHieuQua.Size = new System.Drawing.Size(146, 24);
+            this.comboBoxHieuQua.TabIndex = 106;
             // 
-            // comboBox1
+            // comboBoxChatLuong
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(632, 171);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(146, 24);
-            this.comboBox1.TabIndex = 105;
+            this.comboBoxChatLuong.FormattingEnabled = true;
+            this.comboBoxChatLuong.Location = new System.Drawing.Point(632, 171);
+            this.comboBoxChatLuong.Name = "comboBoxChatLuong";
+            this.comboBoxChatLuong.Size = new System.Drawing.Size(146, 24);
+            this.comboBoxChatLuong.TabIndex = 105;
             // 
             // label7
             // 
@@ -190,12 +190,12 @@
             this.label8.TabIndex = 98;
             this.label8.Text = "Điểm chất lượng:";
             // 
-            // txtDiaChi
+            // txtMaNCC
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(264, 273);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(204, 22);
-            this.txtDiaChi.TabIndex = 97;
+            this.txtMaNCC.Location = new System.Drawing.Point(264, 273);
+            this.txtMaNCC.Name = "txtMaNCC";
+            this.txtMaNCC.Size = new System.Drawing.Size(204, 22);
+            this.txtMaNCC.TabIndex = 97;
             // 
             // label4
             // 
@@ -206,12 +206,12 @@
             this.label4.TabIndex = 96;
             this.label4.Text = "Mã nhà cung cấp*:";
             // 
-            // txtTenNCC
+            // txtMaNV
             // 
-            this.txtTenNCC.Location = new System.Drawing.Point(264, 230);
-            this.txtTenNCC.Name = "txtTenNCC";
-            this.txtTenNCC.Size = new System.Drawing.Size(204, 22);
-            this.txtTenNCC.TabIndex = 95;
+            this.txtMaNV.Location = new System.Drawing.Point(264, 230);
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.Size = new System.Drawing.Size(204, 22);
+            this.txtMaNV.TabIndex = 95;
             // 
             // label3
             // 
@@ -222,12 +222,12 @@
             this.label3.TabIndex = 94;
             this.label3.Text = "Mã nhân viên đánh giá*:";
             // 
-            // txtMaNCC
+            // txtMaDGNCC
             // 
-            this.txtMaNCC.Location = new System.Drawing.Point(264, 189);
-            this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Size = new System.Drawing.Size(204, 22);
-            this.txtMaNCC.TabIndex = 93;
+            this.txtMaDGNCC.Location = new System.Drawing.Point(264, 189);
+            this.txtMaDGNCC.Name = "txtMaDGNCC";
+            this.txtMaDGNCC.Size = new System.Drawing.Size(204, 22);
+            this.txtMaDGNCC.TabIndex = 93;
             // 
             // label2
             // 
@@ -244,10 +244,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 427);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxMucDo);
+            this.Controls.Add(this.comboBoxGiaCa);
+            this.Controls.Add(this.comboBoxHieuQua);
+            this.Controls.Add(this.comboBoxChatLuong);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -255,14 +255,15 @@
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtDiaChi);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtTenNCC);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMaNCC);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtMaNV);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtMaDGNCC);
             this.Controls.Add(this.label2);
             this.Name = "XoaDGNCC";
             this.Text = "XoaDGNCC";
+            this.Load += new System.EventHandler(this.XoaDGNCC_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -276,10 +277,10 @@
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxMucDo;
+        private System.Windows.Forms.ComboBox comboBoxGiaCa;
+        private System.Windows.Forms.ComboBox comboBoxHieuQua;
+        private System.Windows.Forms.ComboBox comboBoxChatLuong;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -287,11 +288,11 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtDiaChi;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTenNCC;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtMaNCC;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtMaNV;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtMaDGNCC;
         private System.Windows.Forms.Label label2;
     }
 }

@@ -84,11 +84,11 @@ namespace PC_BLL
         {
             if (string.IsNullOrEmpty(dTODGNCC.MaDGNCC))
                 throw new ArgumentException("Mã đánh giá nhà cung cấp không được để trống.");
-            if (dTODGNCC.MaNCC.Length != 5)
+            if (dTODGNCC.MaDGNCC.Length != 5)
                 throw new ArgumentException("Mã đánh giá nhà cung cấp phải gồm đúng 5 ký tự.");
             if (string.IsNullOrEmpty(dTODGNCC.MaNV))
                 throw new ArgumentException("Mã nhân viên đánh giá không được để trống.");
-            if (dTODGNCC.MaNCC.Length != 5)
+            if (dTODGNCC.MaNV.Length != 5)
                 throw new ArgumentException("Mã nhân viên đánh giá phải gồm đúng 5 ký tự.");
             if (string.IsNullOrEmpty(dTODGNCC.MaNCC))
                 throw new ArgumentException("Mã nhà cung cấp không được để trống.");
@@ -96,6 +96,55 @@ namespace PC_BLL
                 throw new ArgumentException("Mã nhà cung cấp phải gồm đúng 6 ký tự.");
             dALNCC.AddDGNCC(dTODGNCC);
         }
+        public List<DTOChatLuong> LoadDiemChatLuong()
+        {
+            return dALNCC.LoadDiemChatLuong();
+        }
+        public List<DTOHieuQua> LoadDiemHieuQua()
+        {
+            return dALNCC.LoadDiemHieuQua();
+        }
+        public List<DTOGiaCa> LoadDiemGiaCa()
+        {
+            return dALNCC.LoadDiemGiaCa();
+        }
+        public List<DTOMucDo> LoadMucDoDG()
+        {
+            return dALNCC.LoadMucDoDG();
+        }
+        public List<DTODGNCC> TimDGNCC(string maTim)
+        {
+            if (string.IsNullOrEmpty(maTim))
+                throw new ArgumentException("Vui lòng nhập mã nhà đánh giá để tìm kiếm.");
+
+            if (maTim.Length != 5)
+                throw new ArgumentException("Mã đánh giá phải gồm đúng 5 ký tự.");
+            try
+            {
+                return dALNCC.TimDGNCC(maTim);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi tìm đánh giá: " + ex.Message);
+            }
+        }
+        public void SuaDGNCC(DTODGNCC dTODGNCC)
+        {
+            if (string.IsNullOrEmpty(dTODGNCC.MaNV))
+                throw new ArgumentException("Mã nhân viên đánh giá không được để trống.");
+            if (dTODGNCC.MaNV.Length != 5)
+                throw new ArgumentException("Mã nhân viên đánh giá phải gồm đúng 5 ký tự.");
+            if (string.IsNullOrEmpty(dTODGNCC.MaNCC))
+                throw new ArgumentException("Mã nhà cung cấp không được để trống.");
+            if (dTODGNCC.MaNCC.Length != 6)
+                throw new ArgumentException("Mã nhà cung cấp phải gồm đúng 6 ký tự.");
+            dALNCC.SuaDGNCC(dTODGNCC);
+        }
+        public void XoaDGNCC(DTODGNCC dTODGNCC)
+        {
+            dALNCC.XoaDGNCC(dTODGNCC);
+        }
+
 
     }
 }

@@ -24,7 +24,7 @@ namespace PC_DTO
         private string maDGNCC;
         private string maNCC;
         private string maNV;
-        private System.DateTime ngayDanhGia;
+        private DateTime? ngayDanhGia;
         private Nullable<int> diemChatLuong;
         private Nullable<int> diemHieuQua;
         private Nullable<int> diemGiaCa;
@@ -33,10 +33,31 @@ namespace PC_DTO
         public string MaDGNCC { get; set; }
         public string MaNV { get; set; }
         public string MaNCC { get; set; }
-        public System.DateTime NgayDanhGia { get; set; }
+        public DateTime? NgayDanhGia { get; set; }
         public Nullable<int> DiemChatLuong { get; set; }
         public Nullable<int> DiemHieuQua { get; set; }
         public Nullable<int> DiemGiaCa { get; set; }
         public string MucDoDanhGia { get; set; }
     }
+    public class DTOChatLuong
+    {
+        private int diemChatLuong;
+        public int DiemChatLuong { get; set; }
+    }
+    public class DTOHieuQua
+    {
+        private int diemHieuQua;
+        public int DiemHieuQua { get; set; }
+    }
+    public class DTOGiaCa
+    {
+        private int diemGiaCa;
+        public int DiemGiaCa { get; set; }
+    }
+    public class DTOMucDo
+    {
+        private string mucDoDanhGia;
+        public string MucDoDanhGia { get; set; }
+    }
+
 }
