@@ -67,17 +67,9 @@ namespace PC_GUI
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            string tuKhoa = txtTim.Text;
-
-            if (string.IsNullOrEmpty(tuKhoa))
-            {
-                MessageBox.Show("Vui lòng nhập từ khóa để tìm kiếm.");
-                return;
-            }
             try
             {
-                var ketQua = bLLNCC.TimTuKhoaDGNCC(tuKhoa);
-                dataGridViewDGNCC.DataSource = ketQua;
+                ApplyFilters();
             }
             catch (Exception ex)
             {
@@ -118,5 +110,20 @@ namespace PC_GUI
             dateTimePickerFrom.Value = DateTime.Now;
             dateTimePickerTo.Value = DateTime.Now;
         }
+        private void ApplyFilters()
+        {
+            string tuKhoa = !string.IsNullOrEmpty(txtTim.Text) ? txtTim.Text.Trim() : null;
+            int? diemChatLuong = comboBoxChatLuong.SelectedIndex >= 0 ? (int?)comboBoxChatLuong.SelectedValue : null;
+            int? diemGiaCa = comboBoxGiaCa.SelectedIndex >= 0 ? (int?)comboBoxGiaCa.SelectedValue : null;
+            int? diemHieuQua = comboBoxHieuQua.SelectedIndex >= 0 ? (int?)comboBoxHieuQua.SelectedValue : null;
+            string mucDo = comboBoxMucDo.SelectedIndex >= 0 ? comboBoxMucDo.SelectedItem.ToString() : null;
+            DateTime fromDate = dateTimePickerFrom.Value;
+            DateTime toDate = dateTimePickerTo.Value;
+
+            var ketQua = bLLNCC.LocDGNCC(tuKhoa,diemChatLuong, diemGiaCa, diemHieuQua, mucDo, fromDate, toDate);
+
+            dataGridViewDGNCC.DataSource = ketQua;
+        }
+
     }
 }

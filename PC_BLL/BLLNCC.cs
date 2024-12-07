@@ -56,13 +56,13 @@ namespace PC_BLL
                 throw new ArgumentException("Số điện thoại phải là chuỗi số gồm đúng 10 chữ số.");
             dALNCC.SuaNCC(dTONCC);
         }
-        public void XoaNCC (DTONCC dTONCC)
+        public void XoaNCC(DTONCC dTONCC)
         {
             dALNCC.XoaNCC(dTONCC);
         }
         public List<DTONCC> TimTuKhoaNCC(string tuKhoa)
         {
-           return dALNCC.TimTuKhoaNCC(tuKhoa);
+            return dALNCC.TimTuKhoaNCC(tuKhoa);
         }
         public List<DTODGNCC> LoadDGNCC()
         {
@@ -144,20 +144,9 @@ namespace PC_BLL
         {
             dALNCC.XoaDGNCC(dTODGNCC);
         }
-        public List<DTODGNCC> TimTuKhoaDGNCC(string maTim)
+        public List<DTODGNCC> LocDGNCC(string tuKhoa, int? diemChatLuong, int? diemGiaCa, int? diemHieuQua, string mucDo, DateTime fromDate, DateTime toDate)
         {
-            if (string.IsNullOrEmpty(maTim))
-                throw new ArgumentException("Vui lòng nhập từ khóa để tìm kiếm.");
-            try
-            {
-                return dALNCC.TimTuKhoaDGNCC(maTim);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi khi tìm đánh giá: " + ex.Message);
-            }
+            return dALNCC.LocDGNCC(tuKhoa, diemChatLuong, diemGiaCa, diemHieuQua, mucDo, fromDate, toDate);
         }
-
-
     }
 }

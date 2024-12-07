@@ -327,36 +327,48 @@ namespace PC_DAL
             db.DANHGIA_NCC.Remove(dg);
             db.SaveChanges();
         }
-        public List<DTODGNCC> TimTuKhoaDGNCC(string tuKhoa)
+        public List<DTODGNCC> LocDGNCC(string tuKhoa, int? diemChatLuong, int? diemGiaCa, int? diemHieuQua, string mucDo, DateTime fromDate, DateTime toDate)
         {
-            try
+            var query = db.DANHGIA_NCC.AsQueryable();
+
+            if (!string.IsNullOrEmpty(tuKhoa))
             {
-                var dgTim = from dg in db.DANHGIA_NCC
-                             where dg.MaDGNCC.Contains(tuKhoa) || dg.MaNV.Contains(tuKhoa) || dg.MaNCC.Contains(tuKhoa)
-                             select new DTODGNCC
-                             {
-                                 MaDGNCC = dg.MaDGNCC,
-                                 MaNV = dg.MaNV,
-                                 MaNCC = dg.MaNCC,
-                                 NgayDanhGia = dg.NgayDanhGia,
-                                 DiemChatLuong = dg.DiemChatLuong,
-                                 DiemHieuQua = dg.DiemHieuQua,
-                                 DiemGiaCa = dg.DiemGiaCa,
-                                 MucDoDanhGia = dg.MucDoDanhGia
-                             };
-                var result = dgTim.ToList();
-                if (!result.Any())
-                    throw new Exception("Không tìm thấy đánh giá phù hợp.");
-                return result;
+                query = query.Where(dg => dg.MaDGNCC.Contains(tuKhoa) || dg.MaNV.Contains(tuKhoa) || dg.MaNCC.Contains(tuKhoa));
             }
-            catch (Exception ex)
+
+            if (diemChatLuong.HasValue)
             {
-                throw new Exception(ex.Message);
+                query = query.Where(dg => dg.DiemChatLuong == diemChatLuong);
             }
+
+            if (diemGiaCa.HasValue)
+            {
+                query = query.Where(dg => dg.DiemGiaCa == diemGiaCa);
+            }
+
+            if (diemHieuQua.HasValue)
+            {
+                query = query.Where(dg => dg.DiemHieuQua == diemHieuQua);
+            }
+
+            if (!string.IsNullOrEmpty(mucDo))
+            {
+                query = query.Where(dg => dg.MucDoDanhGia == mucDo);
+            }
+
+            query = query.Where(dg => dg.NgayDanhGia >= fromDate && dg.NgayDanhGia <= toDate);
+
+            return query.Select(dg => new DTODGNCC
+            {
+                MaDGNCC = dg.MaDGNCC,
+                MaNV = dg.MaNV,
+                MaNCC = dg.MaNCC,
+                NgayDanhGia = dg.NgayDanhGia,
+                DiemChatLuong = dg.DiemChatLuong,
+                DiemHieuQua = dg.DiemHieuQua,
+                DiemGiaCa = dg.DiemGiaCa,
+                MucDoDanhGia = dg.MucDoDanhGia
+            }).ToList();
         }
-
-
-
-
     }
 }
