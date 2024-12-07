@@ -50,7 +50,8 @@ namespace PC_DAL
                 new DTOPhongBan {PhongBan = "Sản xuất"},
                 new DTOPhongBan {PhongBan = "Kỹ thuật"},
                 new DTOPhongBan {PhongBan = "Marketing"},
-                new DTOPhongBan {PhongBan = "Bán hàng"}
+                new DTOPhongBan {PhongBan = "Bán hàng"},
+                new DTOPhongBan {PhongBan = "Mua hàng"}
             };
             return phongBanList;
         }
