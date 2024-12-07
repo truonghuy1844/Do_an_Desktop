@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PC_DTO;
 
+
 namespace PC_DAL
 {
     public class DALNCC
@@ -112,6 +113,85 @@ namespace PC_DAL
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+        }
+        public List<DTODGNCC> LoadDGNCC()
+        {
+            var listDG = from dg in db.DANHGIA_NCC
+                          select new DTODGNCC
+                          {
+                              MaDGNCC = dg.MaDGNCC,
+                              MaNCC = dg.MaNCC,
+                              MaNV = dg.MaNV,
+                              NgayDanhGia = dg.NgayDanhGia,
+                              DiemChatLuong = dg.DiemChatLuong,
+                              DiemGiaCa = dg.DiemGiaCa,
+                              DiemHieuQua = dg.DiemHieuQua,
+                              MucDoDanhGia = dg.MucDoDanhGia
+                          };
+            return listDG.ToList();
+        }
+        public List<DTONV> LoadNVDGNCC(string maDanhGia)
+        {
+            var listNV = (from dg in db.DANHGIA_NCC
+                          join nv in db.NHANVIENs on dg.MaNV equals nv.MaNV
+                          where dg.MaDGNCC == maDanhGia
+                          select new DTONV
+                          {
+                              MaNV = nv.MaNV,
+                              TenNV = nv.TenNV,
+                              DiaChi = nv.DiaChi,
+                              GioiTinh = nv.GioiTinh,
+                              SDT = nv.DienThoai,
+                              ChucVu = nv.ChucVu,
+                              PhongBan = nv.PhongBan
+                          }).ToList();
+            return listNV;
+        }
+        public List<DTONCC> LoadNCCDG(string maDanhGia)
+        {
+            var listNCC = (from dg in db.DANHGIA_NCC
+                           join ncc in db.NHACUNGCAPs on dg.MaNCC equals ncc.MaNCC
+                           where dg.MaDGNCC == maDanhGia
+                           select new DTONCC
+                           {
+                               MaNCC = ncc.MaNCC,
+                               TenNCC = ncc.TenNCC,
+                               DiaChi = ncc.DiaChi,
+                               SDT = ncc.SDT,
+                               Email = ncc.Email
+                           }).ToList();
+
+            return listNCC;
+        }
+        public void AddDGNCC(DTODGNCC dTODGNCC)
+        {
+            try
+            {
+                DANHGIA_NCC dg = new DANHGIA_NCC()
+                {
+                    MaDGNCC = dTODGNCC.MaDGNCC,
+                    MaNV = dTODGNCC.MaNV,
+                    MaNCC = dTODGNCC.MaNCC,
+                    DiemChatLuong = dTODGNCC .DiemChatLuong,
+                    DiemHieuQua = dTODGNCC.DiemHieuQua,
+                    DiemGiaCa = dTODGNCC.DiemGiaCa,
+                    MucDoDanhGia = dTODGNCC.MucDoDanhGia
+                };
+                using (var db = new QLMHEntities())
+                {
+                    var existingDGNCC = db.DANHGIA_NCC.Find(dTODGNCC.MaDGNCC);
+                    if (existingDGNCC != null)
+                    {
+                        throw new Exception("Mã đánh giá nhà cung cấp đã tồn tại.");
+                    }
+                    db.DANHGIA_NCC.Add(dg);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi thêm đánh giá mới: {ex.Message}");
             }
         }
 

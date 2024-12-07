@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDGNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDGNCC.Designer.cs">
+      <DependentUpon>AddDGNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +81,23 @@
     <Compile Include="QLNCC.Designer.cs">
       <DependentUpon>QLNCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="SuaDGNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuaDGNCC.Designer.cs">
+      <DependentUpon>SuaDGNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="SuaNCC.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SuaNCC.Designer.cs">
       <DependentUpon>SuaNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XoaDGNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaDGNCC.Designer.cs">
+      <DependentUpon>XoaDGNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="XoaNCC.cs">
       <SubType>Form</SubType>
@@ -87,6 +105,9 @@
     <Compile Include="XoaNCC.Designer.cs">
       <DependentUpon>XoaNCC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddDGNCC.resx">
+      <DependentUpon>AddDGNCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNCC.resx">
       <DependentUpon>AddNCC.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,8 +126,14 @@
     <EmbeddedResource Include="QLNCC.resx">
       <DependentUpon>QLNCC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SuaDGNCC.resx">
+      <DependentUpon>SuaDGNCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SuaNCC.resx">
       <DependentUpon>SuaNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XoaDGNCC.resx">
+      <DependentUpon>XoaDGNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XoaNCC.resx">
       <DependentUpon>XoaNCC.cs</DependentUpon>

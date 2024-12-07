@@ -64,5 +64,38 @@ namespace PC_BLL
         {
            return dALNCC.TimTuKhoaNCC(tuKhoa);
         }
+        public List<DTODGNCC> LoadDGNCC()
+        {
+            return dALNCC.LoadDGNCC();
+        }
+        public List<DTONV> LoadNVDGNCC(string maDanhGia)
+        {
+
+            var listNV = dALNCC.LoadNVDGNCC(maDanhGia);
+            return listNV ?? new List<DTONV>();
+        }
+        public List<DTONCC> LoadNCCDG(string maDanhGia)
+        {
+
+            var listNCC = dALNCC.LoadNCCDG(maDanhGia);
+            return listNCC ?? new List<DTONCC>();
+        }
+        public void AddDGNCC(DTODGNCC dTODGNCC)
+        {
+            if (string.IsNullOrEmpty(dTODGNCC.MaDGNCC))
+                throw new ArgumentException("Mã đánh giá nhà cung cấp không được để trống.");
+            if (dTODGNCC.MaNCC.Length != 5)
+                throw new ArgumentException("Mã đánh giá nhà cung cấp phải gồm đúng 5 ký tự.");
+            if (string.IsNullOrEmpty(dTODGNCC.MaNV))
+                throw new ArgumentException("Mã nhân viên đánh giá không được để trống.");
+            if (dTODGNCC.MaNCC.Length != 5)
+                throw new ArgumentException("Mã nhân viên đánh giá phải gồm đúng 5 ký tự.");
+            if (string.IsNullOrEmpty(dTODGNCC.MaNCC))
+                throw new ArgumentException("Mã nhà cung cấp không được để trống.");
+            if (dTODGNCC.MaNCC.Length != 6)
+                throw new ArgumentException("Mã nhà cung cấp phải gồm đúng 6 ký tự.");
+            dALNCC.AddDGNCC(dTODGNCC);
+        }
+
     }
 }
