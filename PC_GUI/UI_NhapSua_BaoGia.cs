@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -36,44 +37,67 @@ namespace PC_GUI
             tooltipMaBG.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
             tooltipMaBG.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây
             tooltipMaBG.IsBalloon = true; // Hiển thị Tooltip dạng bong bóng
-            tooltipMaBG.ToolTipTitle = "Mã báo giá bắt đầu bằng BG";      
+            tooltipMaBG.ToolTipTitle = "Mã báo giá bắt đầu bằng BG";
+            dtgCT_BG.DataSource = null;
+            if (dto.MaBG.Length > 0) 
+            {
+                if (bll.KiemTraMaBG(dto))
+                {
+                    btnSuaBG.Enabled = false;
+                    btnXoaSP.Enabled = false;
+                    btnThemSP.Enabled = false;
+                    btnSuaSP.Enabled = false;
+                    btnXoaBG.Enabled = false;
+                    btnXoaSP.Enabled = false;
+                    txtDonGia.Text = "";
+                    txtMota.Text = "";
+                    cbSanPham.SelectedValue = 0;
+                    cbNCC.SelectedValue = 0;
+                    if (txtMaBG.Text.StartsWith("BG") && !Regex.IsMatch(txtMaBG.Text, @"[^a-zA-Z0-9]"))
+                    {
+                        tooltipMaBG.ToolTipIcon = ToolTipIcon.Info;
+                        tooltipMaBG.SetToolTip(txtMaBG, "Hợp lệ");
+                        btnThemBG.Enabled = true;
+                    }
+                    else
+                    {
+                        cbNCC.SelectedValue = 0;
+                        tooltipMaBG.SetToolTip(txtMaBG, "Không hợp lệ");
+                        tooltipMaBG.ToolTipIcon = ToolTipIcon.Error;
+                        btnThemBG.Enabled = false;
+                    }
 
-            if (bll.KiemTraMaBG(dto))
+                }
+                else
+                {
+                    cbNCC.SelectedValue = 0;
+                    tooltipMaBG.SetToolTip(txtMaBG, "Đã tồn tại");
+                    tooltipMaBG.ToolTipIcon = ToolTipIcon.Error;
+                    btnThemBG.Enabled = false;
+                    btnSuaBG.Enabled = true;
+                    btnXoaBG.Enabled = true;
+                    btnThemSP.Enabled = true;
+                    btnSuaSP.Enabled = true;
+                    btnXoaSP.Enabled = true;
+                    DTO_CT_BaoGia ct = new DTO_CT_BaoGia();
+                    ct.MaBG = txtMaBG.Text.Trim();
+                    Load_CT_BG(ct);
+                }
+            } else
             {
                 btnSuaBG.Enabled = false;
                 btnXoaSP.Enabled = false;
                 btnThemSP.Enabled = false;
                 btnSuaSP.Enabled = false;
                 btnXoaBG.Enabled = false;
-                btnXoaSP.Enabled = false;
-                if (txtMaBG.Text.StartsWith("BG"))
-                {
-                    tooltipMaBG.ToolTipIcon = ToolTipIcon.Info;
-                    tooltipMaBG.SetToolTip(txtMaBG, "Hợp lệ");
-                    
-                    btnThemBG.Enabled = true;
-                    return;
-                }
-                cbNCC.SelectedValue = 0;
-                tooltipMaBG.SetToolTip(txtMaBG, "Không hợp lệ");
-                tooltipMaBG.ToolTipIcon = ToolTipIcon.Error;
+                
                 btnThemBG.Enabled = false;
-            }
-            else
-            {
+                txtDonGia.Text = "";
+                txtMota.Text = "";
+                cbSanPham.SelectedValue = 0;
                 cbNCC.SelectedValue = 0;
-                tooltipMaBG.SetToolTip(txtMaBG, "Đã tồn tại");
-                tooltipMaBG.ToolTipIcon = ToolTipIcon.Error;
-                btnThemBG.Enabled = false;
-                btnSuaBG.Enabled = true;
-                btnXoaBG.Enabled = true;
-                btnThemSP.Enabled = true;
-                btnSuaSP.Enabled = true;
-                btnXoaSP.Enabled = true;
-                DTO_CT_BaoGia ct = new DTO_CT_BaoGia();
-                ct.MaBG = txtMaBG.Text.Trim();
-                Load_CT_BG(ct);
             }
+            
             
         }
         //Load Forrm
@@ -136,7 +160,11 @@ namespace PC_GUI
             baoGia.NgayBG = DateTime.Now;
             DTO_CT_BaoGia ct = new DTO_CT_BaoGia();
             ct.MaBG = txtMaBG.Text.Trim();
-
+            if (txtMaBG.Text.Any(a => char.IsLetterOrDigit(a)))
+            {
+                MessageBox.Show("Mã báo giá chỉ chứa kí tự số và chữ");
+                return;
+            }
             if (bLL_BaoGia.Them_BaoGia(baoGia))
             {
                 btnThemBG.Enabled = false;

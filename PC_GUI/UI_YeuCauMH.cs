@@ -21,6 +21,11 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
+        //Điều chỉnh theo đăng nhập
+        public void CheDoDung()
+        {
+            
+        }
 
         //Load FORM
         private void UI_YeuCauMH_Load(object sender, EventArgs e)
@@ -112,8 +117,9 @@ namespace PC_GUI
                 btnHienThi.Text = "Xem chi tiết yêu cầu";
                 trangthaiHienThi = true;
                 dataGridView1.DataSource = ycau.Load_YC_MH();
+                dataGridView1.Columns["MaNV"].Visible = false;
                 //Format cho Datagridview
-                
+
             }
         }
         private void Load_Yeu_Cau_MH()
@@ -268,9 +274,22 @@ namespace PC_GUI
 
         private void txtMaYC_TextChanged(object sender, EventArgs e)
         {
-            
-            
-            
+            DTO_YeuCauMH dto = new DTO_YeuCauMH();
+            BLL_YeuCauMH ycmh = new BLL_YeuCauMH();
+            dto.MaYC = txtMaYC.Text.Trim();
+            if (!ycmh.KiemTra_TT_Duyet(dto))
+            {
+                btnDuyet.Enabled = false;
+                btnTuChoi.Enabled = false;
+                
+            }
+            else
+            {
+                btnDuyet.Enabled = true;
+                btnTuChoi.Enabled = true;
+            }
+
+
         }
 
         private void txtTinhTrang_TextChanged(object sender, EventArgs e)

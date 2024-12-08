@@ -16,6 +16,19 @@ namespace PC_GUI.BLL
     /// </summary>
     public class BLL_YeuCauMH 
     {
+        public bool KiemTra_TT_Duyet(DTO_YeuCauMH dTO_YeuCauMH)
+        {
+            DAL_YeuCauMH dal = new DAL_YeuCauMH();
+            if (dTO_YeuCauMH.MaYC == "" || dTO_YeuCauMH.MaYC == null) return false;
+            return dal.Kiem_Tra_TT_Duyet(dTO_YeuCauMH);
+        }
+        //Kiểm tra mãYC
+        public bool Kiem_Tra_MaYC(DTO_YeuCauMH dto_YCMH)
+        {
+            DAL_YeuCauMH dal = new DAL_YeuCauMH();
+            if (dto_YCMH.MaYC == "" || dto_YCMH.MaYC == null) return false;
+            return dal.Kiem_Tra_MaYC(dto_YCMH);
+        }
         //Lấy giá ước tính
         public double Gia_Uoc_Tinh(DTO_YeuCauMH dto)
         {
@@ -45,7 +58,7 @@ namespace PC_GUI.BLL
             if (yc.MaYC != "")
             {
                 DAL_YeuCauMH dal = new DAL_YeuCauMH();
-                return dal.Them_YeuCauMH(yc) ;
+                return dal.Sua_YC_MH(yc) ;
             }
             return false;
         }

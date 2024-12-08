@@ -14,6 +14,26 @@ namespace PC_GUI.DAL
     
     public class DAL_YeuCauMH 
     {
+        /// Kiểm tra mã yêu cầu
+        /// 
+        public bool Kiem_Tra_MaYC(DTO_YeuCauMH dTO_YeuCauMH)
+        {
+            QLMHEntities2 conn = new QLMHEntities2();
+
+
+            YEUCAU_MUAHANG bg = conn.YEUCAU_MUAHANG.Find(dTO_YeuCauMH.MaYC.Trim());
+            if (bg != null) return false;
+            return true;
+        }
+        public bool Kiem_Tra_TT_Duyet(DTO_YeuCauMH dTO_YeuCauMH)
+        {
+            QLMHEntities2 conn = new QLMHEntities2();
+
+
+            YEUCAU_MUAHANG bg = conn.YEUCAU_MUAHANG.FirstOrDefault(s => s.MaYC == dTO_YeuCauMH.MaYC && s.TinhTrang != "Chờ duyệt");
+            if (bg != null) return false;
+            return true;
+        }
         //Lấy giá thấp nhất từ báo giá
         public double Lay_DonGia_SP(DTO_YeuCauMH dto)
         {
@@ -55,6 +75,7 @@ namespace PC_GUI.DAL
                                select new
                                {
                                    MaYC = yc.MaYC,
+                                   MaNV = yc.MaNV,
                                    TenNV = nv.TenNV,
                                    NgayYC = yc.NgayYC,
                                    NgayDuyet = yc.NgayDuyet,
@@ -64,6 +85,7 @@ namespace PC_GUI.DAL
                 DataTable dt = new DataTable();
                 dt.Columns.Add("MaYC", typeof(string));
                 dt.Columns.Add("PhongBanYC", typeof(string));
+                dt.Columns.Add("MaNV", typeof(string));
                 dt.Columns.Add("TenNV", typeof(string));
                 dt.Columns.Add("NgayYC", typeof(DateTime));
                 dt.Columns.Add("TinhTrang", typeof(string));
@@ -75,6 +97,7 @@ namespace PC_GUI.DAL
                     DataRow dr = dt.NewRow();
                     dr["MaYC"] = item.MaYC ?? string.Empty;
                     dr["PhongBanYC"] = item.PhongBanYC ?? string.Empty;
+                    dr["MaNV"] = item.MaNV ?? string.Empty;
                     dr["TenNV"] = item.TenNV ?? string.Empty;
                     dr["NgayYC"] = item.NgayYC ?? DateTime.MinValue;
                     dr["TinhTrang"] = item.TinhTrang ?? string.Empty;
@@ -109,6 +132,8 @@ namespace PC_GUI.DAL
                 ycau.MaYC = ycMH.MaYC.Trim();
                 ycau.MaNV = ycMH.MaNV.Trim();
                 ycau.PhongBanYC = ycMH.PhongBanYC.Trim();
+                ycau.NgayYC = ycMH.NgayYC;
+                ycau.TinhTrang = ycMH.TinhTrang;
 
 
                 conn.YEUCAU_MUAHANG.Add(ycau);
@@ -129,12 +154,9 @@ namespace PC_GUI.DAL
 
             if (yc != null)
             {
-                yc.MaNV = ycMH.MaNV.Trim();
-                yc.NgayDuyet = ycMH.NgayDuyet;
+                yc.MaNV = ycMH.MaNV.Trim();              
                 yc.PhongBanYC = ycMH.PhongBanYC.Trim();
-                yc.TinhTrang = ycMH.TinhTrang.Trim();
-
-
+                
                 try
                 {
                     conn.SaveChanges();
@@ -214,7 +236,9 @@ namespace PC_GUI.DAL
                                   {
                                       MaYC = yc.MaYC,
                                       MaSP = yc.MaSP,
+                                      
                                       TenSP = sp.TenSP,
+                                      
                                       SoLuong = yc.SoLuong
                                   }).Distinct().ToList();
                 DataTable dt = new DataTable();
@@ -252,22 +276,41 @@ namespace PC_GUI.DAL
         public bool Them_CT_YeuCauMH(DTO_CT_YeuCauMH ct_ycMH)
         {
             QLMHEntities2 conn = new QLMHEntities2();
-            try
+            CT_YEUCAU spham = conn.CT_YEUCAU.FirstOrDefault(s => s.MaYC == ct_ycMH.MaYC && s.MaSP == ct_ycMH.MaSP);
+            if (spham == null)
             {
-                CT_YEUCAU ct = new CT_YEUCAU();
-                ct.MaYC = ct_ycMH.MaYC.Trim();
-                ct.MaSP = ct_ycMH.MaSP.Trim();
-                ct.SoLuong = ct_ycMH.SoLuong;
+                try
+                {
+                    CT_YEUCAU ct = new CT_YEUCAU();
+                    ct.MaYC = ct_ycMH.MaYC.Trim();
+                    ct.MaSP = ct_ycMH.MaSP.Trim();
+                    ct.SoLuong = ct_ycMH.SoLuong;
 
 
-                conn.CT_YEUCAU.Add(ct);
-                conn.SaveChanges();
-                return true;
+                    conn.CT_YEUCAU.Add(ct);
+                    conn.SaveChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
-            catch (Exception)
+            else
             {
-                return false;
+                try
+                {
+                    spham.SoLuong += ct_ycMH.SoLuong;
+                    conn.SaveChanges();
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+
             }
+            
 
         }
         //Sửa CT_Yêu cầu mua hàng
@@ -333,6 +376,8 @@ namespace PC_GUI.DAL
             }
             return false;
         }
+        
+        
     }
 
     //Lọc
