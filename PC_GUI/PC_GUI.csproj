@@ -33,8 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,20 +56,157 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAOGIA.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chitietdonmua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chitietdonmua.Designer.cs">
+      <DependentUpon>Chitietdonmua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chitietdonmua_NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chitietdonmua_NV.Designer.cs">
+      <DependentUpon>Chitietdonmua_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CT_BAOGIA.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CT_DONMUAHANG.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CT_YEUCAU.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Danhgiadonhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhgiadonhang.Designer.cs">
+      <DependentUpon>Danhgiadonhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhgiadonhang_NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhgiadonhang_NV.Designer.cs">
+      <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DANHGIASP_TRONGDON.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DANHGIA_NCC.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DONMUAHANG.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HANGHOA_VANCHUYEN.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOADON.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOPDONGMH.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KHOHANG.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHACUNGCAP.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHANVIEN.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PCCV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PCCV.Designer.cs">
+      <DependentUpon>PCCV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCCV_NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PCCV_NV.Designer.cs">
+      <DependentUpon>PCCV_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PHANCONG_CONGVIEC.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLMH.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLMH.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QLMH.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QLMH.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLMH.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="QLMH1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLMH.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Quanlydonhang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Quanlydonhang.Designer.cs">
       <DependentUpon>Quanlydonhang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Quanlydonhang_NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quanlydonhang_NV.Designer.cs">
+      <DependentUpon>Quanlydonhang_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SANPHAM.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SANPHAM_XUATKHO.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="THANHTOAN.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YEUCAU_MUAHANG.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Chitietdonmua.resx">
+      <DependentUpon>Chitietdonmua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chitietdonmua_NV.resx">
+      <DependentUpon>Chitietdonmua_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhgiadonhang.resx">
+      <DependentUpon>Danhgiadonhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhgiadonhang_NV.resx">
+      <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCCV.resx">
+      <DependentUpon>PCCV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCCV_NV.resx">
+      <DependentUpon>PCCV_NV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -72,6 +219,10 @@
     <EmbeddedResource Include="Quanlydonhang.resx">
       <DependentUpon>Quanlydonhang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Quanlydonhang_NV.resx">
+      <DependentUpon>Quanlydonhang_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,6 +232,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLMH.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QLMH.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLMH.dbml.layout">
+      <DependentUpon>QLMH.dbml</DependentUpon>
+    </None>
+    <EntityDeploy Include="QLMH.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLMH1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="QLMH.edmx.diagram">
+      <DependentUpon>QLMH.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,6 +260,22 @@
       <Project>{a1aee8a6-7605-43b0-be8b-27dcf33b7d75}</Project>
       <Name>PC_DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QLMH.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLMH.edmx</DependentUpon>
+      <LastGenOutput>QLMH.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QLMH.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLMH.edmx</DependentUpon>
+      <LastGenOutput>QLMH.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,8 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\PC_GUI\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\PC_GUI\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,13 +51,76 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DALDonmuahang.cs" />
+    <Compile Include="DALPhancong.cs" />
+    <Compile Include="Donmuahang.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Donmuahang.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DONMUAHANG.cs">
+      <DependentUpon>Donmuahang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Donmuahang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Donmuahang.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Donmuahang1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Donmuahang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HOPDONGMH.cs">
+      <DependentUpon>Donmuahang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHACUNGCAP.cs">
+      <DependentUpon>Donmuahang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NHANVIEN.cs">
+      <DependentUpon>Donmuahang.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Donmuahang.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PC_DTO\PC_DTO.csproj">
       <Project>{a1aee8a6-7605-43b0-be8b-27dcf33b7d75}</Project>
       <Name>PC_DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Donmuahang.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Donmuahang.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Donmuahang.edmx.diagram">
+      <DependentUpon>Donmuahang.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Donmuahang.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Donmuahang.Context.cs</LastGenOutput>
+      <DependentUpon>Donmuahang.edmx</DependentUpon>
+    </Content>
+    <Content Include="Donmuahang.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Donmuahang.edmx</DependentUpon>
+      <LastGenOutput>Donmuahang1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
