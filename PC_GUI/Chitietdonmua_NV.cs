@@ -138,7 +138,6 @@ namespace PC_GUI
         private void btnTaoctmua_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
-            btnTaoctmua.Enabled = false;
             loadmadhtao();
             cbMaDH.Enabled = true;
             cbMaSP.Enabled = true;
@@ -196,7 +195,6 @@ namespace PC_GUI
                 }
                 finally { db.Connection.Close(); }
                 loadchitietdm();
-                btnTaoctmua.Enabled = true;
                 btnLuu.Enabled = false;
             }
         }

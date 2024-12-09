@@ -175,7 +175,7 @@ namespace PC_GUI
             QLMHDataContext db = new QLMHDataContext();
             db.Connection.Open();
             var listtim = from dm in db.DONMUAHANG_LQs
-                          where dm.MaDMH == txtTimKiem.Text
+                          where dm.MaDMH.Contains(txtTimKiem.Text)
                           select new
                           {
                               dm.MaDMH,
@@ -187,7 +187,16 @@ namespace PC_GUI
                               dm.TThai,
                               dm.MoTa
                           };
-            dataGridView2.DataSource = listtim;
+            if (listtim == null)
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu");
+            }
+            else
+            {
+                MessageBox.Show("Tìm thấy dữ liệu");
+                dataGridView2.DataSource = listtim;
+            }
+            
             db.Connection.Close();
         }
 
@@ -287,11 +296,19 @@ namespace PC_GUI
             }
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau;
-            if (!decimal.TryParse(txtChietkhau.Text, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+            string input = txtChietkhau.Text.Replace(",", ".");
+            if (!string.IsNullOrEmpty(txtChietkhau.Text))
             {
-                okTao = false;
-                MessageBox.Show("Chiết khẩu phải là số thực có dạng a.bc, lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                txtChietkhau.Focus();
+                if (!decimal.TryParse(txtChietkhau.Text, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+                {
+                    okTao = false;
+                    MessageBox.Show("Chiết khẩu phải là số thực lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    txtChietkhau.Focus();
+                }
+            }
+            else
+            {
+                chietkhau = 0;
             }
             if (okTao)
             {
@@ -360,11 +377,18 @@ namespace PC_GUI
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau;
             string input = txtChietkhau.Text.Replace(",",".");
-            if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+            if (String.IsNullOrEmpty(txtChietkhau.Text))
             {
-                okSua = false;
-                MessageBox.Show("Chiết khẩu phải là số thực có dạng a.bc, lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                txtChietkhau.Focus();
+                if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+                {
+                    okSua = false;
+                    MessageBox.Show("Chiết khẩu phải là số thực có dạng a.bc, lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    txtChietkhau.Focus();
+                }
+            }
+            else
+            {
+                chietkhau = 0;
             }
             if (okSua)
             {

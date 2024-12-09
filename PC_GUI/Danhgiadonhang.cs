@@ -71,7 +71,7 @@ namespace PC_GUI
 
         private void Danhgiadonhang_Load(object sender, EventArgs e)
         {
-            //LoadSanPham();
+            LoadChitietdon();
             loaddiemdg();
             txtMaDGSP.Enabled = false; 
             cbDiemdanhgia.SelectedIndex = -1;  
@@ -107,13 +107,12 @@ namespace PC_GUI
             cbTensp.SelectedIndex = -1; 
             txtMaDGSP.Focus();
             btnLuu.Enabled = true;
-            btnTaodg.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             bool kiemtra = true;
-            if ( txtMaDGSP.Text.Length == 0)
+            if (txtMaDGSP.Text.Length == 0)
             {
                 kiemtra = false;
                 MessageBox.Show("Mã đánh giá không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
@@ -137,7 +136,7 @@ namespace PC_GUI
             if (bllDonmmua.Kiemtramadgsp(txtMaDGSP.Text))
             {
                 kiemtra = false;
-                MessageBox.Show("Mã đánh giá đã tồn tại trong hệ thống","Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Mã đánh giá đã tồn tại trong hệ thống", "Thông báo", MessageBoxButtons.OK);
                 txtMaDGSP.Focus();
             }
             //2.Ngày không được lớn hơn ngày hiện tại 
@@ -172,16 +171,14 @@ namespace PC_GUI
 
                 loadlichsudg();
                 btnLuu.Enabled = false;
-                btnTaodg.Enabled = true;
             }
         }
-        //Viết bằng EF 
+       
 
         private void cbDiemdanhgia_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbDiemdanhgia.SelectedItem != null)
             {
-                //int diemdanhgia = Convert.ToInt32(cbDiemdanhgia.SelectedValue);
                 switch (cbDiemdanhgia.SelectedValue)
                 {
                     case 1 :

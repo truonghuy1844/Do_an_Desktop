@@ -121,6 +121,7 @@ namespace PC_GUI
             txtMaNV.Text = string.Empty;
             txtMoTa.Text = string.Empty;
             txtChietkhau.Text = string.Empty;
+            //Khóa tạo, mở lưu
             btnLuu.Enabled = true;
             btnTao.Enabled = false;
         }
@@ -189,32 +190,21 @@ namespace PC_GUI
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau;
             string input = txtChietkhau.Text.Replace(",", ".");
-
-            if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+            if (!string.IsNullOrEmpty(txtChietkhau.Text))
             {
-                okTao = false;
-                MessageBox.Show("Chiết khẩu phải là số thực có dạng a.bc, lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                txtChietkhau.Focus();
+                if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+                {
+                    okTao = false;
+                    MessageBox.Show("Chiết khẩu phải là số thực lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    txtChietkhau.Focus();
+                }
+            }
+            else
+            {
+                chietkhau = 0;
             }
             if (okTao)
             {
-                //DTODonhang dhmoi = new DTODonhang();
-                //dhmoi.MaDMH = txtMaDMH.Text;
-                //dhmoi.Ngaylap = ngaylaps;
-                //dhmoi.MaHDMH = cbMaHD.SelectedValue.ToString();
-                //dhmoi.MaNV = txtMaNV.Text;
-                //dhmoi.MaNCC = cbMaNCC.SelectedValue.ToString();
-                //dhmoi.Tthai = cbTrangThai.SelectedValue.ToString();
-                //dhmoi.Chietkhau = chietkhau;
-                //dhmoi.Mota = txtMoTa.Text;
-                //    if (bllDonmua.Taodonhang(dhmoi))
-                //    {
-                //        MessageBox.Show("Tạo đơn hàng mới thành công", "Thông báo", MessageBoxButtons.OK);
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Tạo đơn hàng mới thất bại", "Thông báo", MessageBoxButtons.OK);
-                //    }
                 try
                 {
                     DONMUAHANG dhmoi = new DONMUAHANG();
@@ -293,12 +283,13 @@ namespace PC_GUI
                 }
                 //4.Chiết khấu là số thực và > 0 
                 decimal chietkhau;
+                string input = txtChietkhau.Text.Replace(",", ".");
                 if (!string.IsNullOrEmpty(txtChietkhau.Text))
                 {
-                    if (!decimal.TryParse(txtChietkhau.Text, out chietkhau) || chietkhau <= 0 || chietkhau >= 1000) 
+                    if (!decimal.TryParse(input, out chietkhau) || chietkhau <= 0 || chietkhau >= 1000) 
                     {
                         okTao = false;
-                        MessageBox.Show("Chiết khẩu phải là số thực có dạng a.b và > 0", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                        MessageBox.Show("Chiết khấu phải là số thực lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
                         txtChietkhau.Focus();
                     }
                 }
@@ -313,7 +304,7 @@ namespace PC_GUI
                     dhmoi.MaNV = txtMaNV.Text;
                     dhmoi.MaNCC = cbMaNCC.SelectedValue.ToString();
                     dhmoi.Tthai = cbTrangThai.SelectedValue.ToString();
-                    dhmoi.Chietkhau = Math.Round(chietkhau,2);
+                    dhmoi.Chietkhau = chietkhau;
                     dhmoi.Mota = txtMoTa.Text;
                     if (bllDonmua.Suadonhang(dhmoi))
                     {

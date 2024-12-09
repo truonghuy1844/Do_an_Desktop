@@ -137,7 +137,6 @@ namespace PC_GUI
         private void btnTaoctmua_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
-            btnTaoctmua.Enabled = false;
             loadmadhtao();
             cbMaDH.Enabled = true;
             cbMaSP.Enabled = true;
@@ -199,7 +198,6 @@ namespace PC_GUI
                 cbMaDH.SelectedIndex = -1;
                 cbMaDH.Enabled = false;
                 btnLuu.Enabled = false;
-                btnTaoctmua.Enabled = true;
             }
         }
 

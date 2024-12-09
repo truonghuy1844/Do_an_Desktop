@@ -100,6 +100,7 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(142, 20);
             this.txtTim.TabIndex = 161;
+            this.toolTip1.SetToolTip(this.txtTim, "Nhập mã phân công hoặc tên nhân viên");
             // 
             // cbTenNV
             // 
