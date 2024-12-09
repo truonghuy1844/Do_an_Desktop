@@ -44,6 +44,7 @@ namespace PC_GUI
             txtMaPC.Enabled = false;
             Loadtrangthai();
             cbTrangthai.SelectedIndex = -1;
+            btnPhancong.Enabled = false;
 
         }
         //Nút tạo phân công mới 
@@ -53,6 +54,8 @@ namespace PC_GUI
             txtMaPC.Text = string.Empty;
             cbTenNV.SelectedIndex = -1;
             txtKLCV.Text = string.Empty;
+            btnTaopc.Enabled = false;
+            btnPhancong.Enabled = true;
         }
         //Nút phân công 
         private void btnPhancong_Click(object sender, EventArgs e)
@@ -121,15 +124,18 @@ namespace PC_GUI
                 phancong.Ngayht = dateTimengayht.Value;
                 phancong.Kluong = KLCV;
 
-                if (rBchua.Checked)
+                if (rBchuabd.Checked)
                 {
-                    phancong.Tthai = "Chưa hoàn thành";
+                    phancong.Tthai = "Chưa bắt đầu";
                 }
-                else if (rBroi.Checked)
+                else if (rBdangth.Checked)
                 {
-                    phancong.Tthai = "Đã hoàn thành";
+                    phancong.Tthai = "Đang thực hiện";
                 }
-
+                else if (rBdaht.Checked)
+                {
+                    phancong.Tthai = "Hoàn thành";
+                }    
                 if (bllphancong.Taophancong(phancong))
                 {
                     MessageBox.Show("Tạo phân công mới thành công", "Thông báo", MessageBoxButtons.OK);
@@ -143,6 +149,8 @@ namespace PC_GUI
                 txtMaPC.Enabled = false;
                 cbTenNV.SelectedIndex = -1;
                 txtKLCV.Clear();
+                btnPhancong.Enabled = false;
+                btnTaopc.Enabled = true;
             }
         }
         //Chọn hàng trong datagridview 
@@ -158,15 +166,23 @@ namespace PC_GUI
                 txtKLCV.Text = dataGridViewPhancong.CurrentRow.Cells["KLuong"].Value.ToString();
                 //Trường trạng thái
                 string tthai = dataGridViewPhancong.CurrentRow.Cells["TThai"].Value.ToString();
-                if (tthai == "Chưa hoàn thành")
+                if (tthai == "Chưa bắt đầu")
                 {
-                    rBchua.Checked = true;
-                    rBroi.Checked = false;
+                    rBchuabd.Checked = true;
+                    rBdangth.Checked = false;
+                    rBdaht.Checked = false;
                 }
-                else if (tthai == "Đã hoàn thành")
+                else if (tthai == "Đang thực hiện")
                 {
-                    rBroi.Checked = true;
-                    rBchua.Checked = false;
+                    rBdangth.Checked = true;
+                    rBchuabd.Checked = false;
+                    rBdaht.Checked = false;
+                }
+                else if (tthai == "Hoàn thành")
+                {
+                    rBdaht.Checked = true;
+                    rBchuabd.Checked = false;
+                    rBdangth.Checked = false;
                 }    
 
                 txtMaPC.Enabled = false;
@@ -216,13 +232,17 @@ namespace PC_GUI
                     phancong.Ngayht = dateTimengayht.Value;
                     phancong.Kluong = KLCV;
 
-                    if (rBchua.Checked)
+                    if (rBchuabd.Checked)
                     {
-                        phancong.Tthai = "Chưa hoàn thành";
+                        phancong.Tthai = "Chưa bắt đầu";
                     }
-                    else if (rBroi.Checked)
+                    else if (rBdangth.Checked)
                     {
-                        phancong.Tthai = "Đã hoàn thành";
+                        phancong.Tthai = "Đang thực hiện";
+                    }
+                    else if (rBdaht.Checked)
+                    {
+                        phancong.Tthai = "Hoàn thành";
                     }
                     if (bllphancong.Suaphancong(phancong))
                     {
@@ -276,9 +296,9 @@ namespace PC_GUI
         //Nút tìm 
         private void btnTim_Click(object sender, EventArgs e)
         {   bool ktra = true;
-            if (!txtTim.Text.All(char.IsLetter))
+            if (!txtTim.Text.All(char.IsLetterOrDigit))
             { 
-                MessageBox.Show("Bạn phải nhập ký tự chữ!");
+                MessageBox.Show("Bạn phải nhập ký tự chữ hoặc số !");
                 txtTim.Focus();
             }
             if (ktra)
@@ -290,6 +310,7 @@ namespace PC_GUI
                 }
                 else
                 {
+                    MessageBox.Show("Tìm thấy kết quả");
                     dataGridViewPhancong.DataSource = tim;
                 }
             }

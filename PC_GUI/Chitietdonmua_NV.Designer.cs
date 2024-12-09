@@ -160,7 +160,7 @@
             this.cbMabaogia.Name = "cbMabaogia";
             this.cbMabaogia.Size = new System.Drawing.Size(152, 21);
             this.cbMabaogia.TabIndex = 131;
-            this.cbMabaogia.SelectedIndexChanged += new System.EventHandler(this.cbMabaogia_SelectedIndexChanged);
+            this.cbMabaogia.SelectedIndexChanged += new System.EventHandler(this.Combobox_SelectedIndexChanged);
             // 
             // label2
             // 

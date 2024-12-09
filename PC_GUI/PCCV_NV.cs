@@ -70,13 +70,17 @@ namespace PC_GUI
                     phancong.Ngayht = dateTimeNgayht.Value;
                     phancong.Kluong = KLCV;
 
-                    if (rBchua.Checked)
+                    if (rBchuabd.Checked)
                     {
-                        phancong.Tthai = "Chưa hoàn thành";
+                        phancong.Tthai = "Chưa bắt đầu";
                     }
-                    else if (rBroi.Checked)
+                    else if (rBdangth.Checked)
                     {
-                        phancong.Tthai = "Đã hoàn thành";
+                        phancong.Tthai = "Đang thực hiện";
+                    }
+                    else if (rBdaht.Checked)
+                    {
+                        phancong.Tthai = "Hoàn thành";
                     }
                     if (bllPhancong.Suaphancong(phancong))
                     {
@@ -100,9 +104,9 @@ namespace PC_GUI
         private void btnTim_Click(object sender, EventArgs e)
         {
             bool ktra = true;
-            if (!txtTim.Text.All(char.IsLetter))
+            if (!txtTim.Text.All(char.IsLetterOrDigit))
             {
-                MessageBox.Show("Bạn phải nhập ký tự chữ!");
+                MessageBox.Show("Bạn phải nhập ký tự chữ hoặc số!");
                 txtTim.Focus();
             }
             if (ktra)
@@ -114,6 +118,7 @@ namespace PC_GUI
                 }
                 else
                 {
+                    MessageBox.Show("Tìm thấy kết quả");
                     dataGridViewPhancong.DataSource = tim;
                 }
             }
@@ -135,15 +140,23 @@ namespace PC_GUI
                 txtKLCV.Text = dataGridViewPhancong.CurrentRow.Cells["KLuong"].Value.ToString();
                 //Trường trạng thái
                 string tthai = dataGridViewPhancong.CurrentRow.Cells["TThai"].Value.ToString();
-                if (tthai == "Chưa hoàn thành")
+                if (tthai == "Chưa bắt đầu")
                 {
-                    rBchua.Checked = true;
-                    rBroi.Checked = false;
+                    rBchuabd.Checked = true;
+                    rBdangth.Checked = false;
+                    rBdaht.Checked = false;
                 }
-                else if (tthai == "Đã hoàn thành")
+                else if (tthai == "Đang thực hiện")
                 {
-                    rBroi.Checked = true;
-                    rBchua.Checked = false;
+                    rBdangth.Checked = true;
+                    rBchuabd.Checked = false;
+                    rBdaht.Checked = false;
+                }
+                else if (tthai == "Hoàn thành")
+                {
+                    rBdaht.Checked = true;
+                    rBchuabd.Checked = false;
+                    rBdangth.Checked = false;
                 }
 
                 txtMaPC.Enabled = false;

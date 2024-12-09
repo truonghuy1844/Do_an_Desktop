@@ -37,6 +37,10 @@ namespace PC_GUI
 
             btnLuu.Enabled = false;
 
+            //Sự kiện 
+            cbMaSP.SelectedIndexChanged += Combobox_SelectedIndexChanged;
+            cbMabaogia.SelectedIndexChanged += Combobox_SelectedIndexChanged;
+
         }
         void loadmadh()
         {
@@ -117,21 +121,24 @@ namespace PC_GUI
             }
         }
 
-        private void cbMabaogia_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbMabaogia.SelectedIndex != -1)
+            if (cbMaSP.SelectedIndex != -1 && cbMabaogia.SelectedIndex != -1)
             {
+                string masp = cbMaSP.SelectedValue.ToString();
+                string mabg = cbMabaogia.SelectedValue.ToString();
                 QLMHDataContext db = new QLMHDataContext();
                 var dongia = (from bg in db.CT_BAOGIA_LQs
-                              where bg.MaBG == cbMabaogia.SelectedValue.ToString()
+                              where bg.MaBG == mabg && bg.MaSP == masp
                               select bg.DonGia).FirstOrDefault();
                 txtDongia.Text = dongia.ToString();
             }
         }
-
         private void btnTaoctmua_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
+            btnTaoctmua.Enabled = false;
             loadmadhtao();
             cbMaDH.Enabled = true;
             cbMaSP.Enabled = true;
@@ -189,6 +196,8 @@ namespace PC_GUI
                 }
                 finally { db.Connection.Close(); }
                 loadchitietdm();
+                btnTaoctmua.Enabled = true;
+                btnLuu.Enabled = false;
             }
         }
 

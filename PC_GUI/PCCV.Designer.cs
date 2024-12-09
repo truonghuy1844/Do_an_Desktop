@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnTim = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.cbTenNV = new System.Windows.Forms.ComboBox();
@@ -45,12 +46,14 @@
             this.dateTimengaygiao = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimengayht = new System.Windows.Forms.DateTimePicker();
-            this.rBchua = new System.Windows.Forms.RadioButton();
-            this.rBroi = new System.Windows.Forms.RadioButton();
+            this.rBchuabd = new System.Windows.Forms.RadioButton();
+            this.rBdangth = new System.Windows.Forms.RadioButton();
             this.btnPhancong = new System.Windows.Forms.Button();
             this.cbTrangthai = new System.Windows.Forms.ComboBox();
             this.btnLoc = new System.Windows.Forms.Button();
             this.btnchitiet = new System.Windows.Forms.Button();
+            this.rBdaht = new System.Windows.Forms.RadioButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPhancong)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +74,7 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(142, 20);
             this.txtTim.TabIndex = 140;
+            this.toolTip1.SetToolTip(this.txtTim, "Nhập mã phân công hoặc tên nhân viên");
             // 
             // cbTenNV
             // 
@@ -171,6 +175,7 @@
             this.txtKLCV.Name = "txtKLCV";
             this.txtKLCV.Size = new System.Drawing.Size(110, 20);
             this.txtKLCV.TabIndex = 122;
+            this.toolTip1.SetToolTip(this.txtKLCV, "Ví dụ: 13");
             this.txtKLCV.TextChanged += new System.EventHandler(this.txtDongia_TextChanged);
             // 
             // txtMaPC
@@ -179,6 +184,7 @@
             this.txtMaPC.Name = "txtMaPC";
             this.txtMaPC.Size = new System.Drawing.Size(115, 20);
             this.txtMaPC.TabIndex = 143;
+            this.toolTip1.SetToolTip(this.txtMaPC, "Bắt đầu bằng \"PC\"");
             // 
             // dateTimengaygiao
             // 
@@ -203,27 +209,27 @@
             this.dateTimengayht.Size = new System.Drawing.Size(181, 20);
             this.dateTimengayht.TabIndex = 146;
             // 
-            // rBchua
+            // rBchuabd
             // 
-            this.rBchua.AutoSize = true;
-            this.rBchua.Checked = true;
-            this.rBchua.Location = new System.Drawing.Point(572, 110);
-            this.rBchua.Name = "rBchua";
-            this.rBchua.Size = new System.Drawing.Size(110, 17);
-            this.rBchua.TabIndex = 147;
-            this.rBchua.TabStop = true;
-            this.rBchua.Text = "Chưa hoàn thành ";
-            this.rBchua.UseVisualStyleBackColor = true;
+            this.rBchuabd.AutoSize = true;
+            this.rBchuabd.Checked = true;
+            this.rBchuabd.Location = new System.Drawing.Point(572, 110);
+            this.rBchuabd.Name = "rBchuabd";
+            this.rBchuabd.Size = new System.Drawing.Size(90, 17);
+            this.rBchuabd.TabIndex = 147;
+            this.rBchuabd.TabStop = true;
+            this.rBchuabd.Text = "Chưa bắt đầu";
+            this.rBchuabd.UseVisualStyleBackColor = true;
             // 
-            // rBroi
+            // rBdangth
             // 
-            this.rBroi.AutoSize = true;
-            this.rBroi.Location = new System.Drawing.Point(688, 110);
-            this.rBroi.Name = "rBroi";
-            this.rBroi.Size = new System.Drawing.Size(99, 17);
-            this.rBroi.TabIndex = 148;
-            this.rBroi.Text = "Đã hoàn thành ";
-            this.rBroi.UseVisualStyleBackColor = true;
+            this.rBdangth.AutoSize = true;
+            this.rBdangth.Location = new System.Drawing.Point(688, 110);
+            this.rBdangth.Name = "rBdangth";
+            this.rBdangth.Size = new System.Drawing.Size(98, 17);
+            this.rBdangth.TabIndex = 148;
+            this.rBdangth.Text = "Đang thực hiện";
+            this.rBdangth.UseVisualStyleBackColor = true;
             // 
             // btnPhancong
             // 
@@ -263,17 +269,28 @@
             this.btnchitiet.UseVisualStyleBackColor = true;
             this.btnchitiet.Click += new System.EventHandler(this.btnchitiet_Click);
             // 
+            // rBdaht
+            // 
+            this.rBdaht.AutoSize = true;
+            this.rBdaht.Location = new System.Drawing.Point(623, 134);
+            this.rBdaht.Name = "rBdaht";
+            this.rBdaht.Size = new System.Drawing.Size(84, 17);
+            this.rBdaht.TabIndex = 154;
+            this.rBdaht.Text = "Hoàn thành ";
+            this.rBdaht.UseVisualStyleBackColor = true;
+            // 
             // PCCV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rBdaht);
             this.Controls.Add(this.btnchitiet);
             this.Controls.Add(this.btnLoc);
             this.Controls.Add(this.cbTrangthai);
             this.Controls.Add(this.btnPhancong);
-            this.Controls.Add(this.rBroi);
-            this.Controls.Add(this.rBchua);
+            this.Controls.Add(this.rBdangth);
+            this.Controls.Add(this.rBchuabd);
             this.Controls.Add(this.dateTimengayht);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimengaygiao);
@@ -318,11 +335,13 @@
         private System.Windows.Forms.DateTimePicker dateTimengaygiao;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimengayht;
-        private System.Windows.Forms.RadioButton rBchua;
-        private System.Windows.Forms.RadioButton rBroi;
+        private System.Windows.Forms.RadioButton rBchuabd;
+        private System.Windows.Forms.RadioButton rBdangth;
         private System.Windows.Forms.Button btnPhancong;
         private System.Windows.Forms.ComboBox cbTrangthai;
         private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Button btnchitiet;
+        private System.Windows.Forms.RadioButton rBdaht;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

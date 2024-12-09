@@ -107,6 +107,7 @@ namespace PC_GUI
             cbTensp.SelectedIndex = -1; 
             txtMaDGSP.Focus();
             btnLuu.Enabled = true;
+            btnTaodg.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -170,6 +171,8 @@ namespace PC_GUI
                 da.Connection.Close(); // đóng 
 
                 loadlichsudg();
+                btnLuu.Enabled = false;
+                btnTaodg.Enabled = true;
             }
         }
         //Viết bằng EF 

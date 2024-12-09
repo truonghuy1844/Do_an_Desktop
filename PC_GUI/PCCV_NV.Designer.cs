@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.rBroi = new System.Windows.Forms.RadioButton();
-            this.rBchua = new System.Windows.Forms.RadioButton();
             this.dateTimeNgayht = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimeNgaygiao = new System.Windows.Forms.DateTimePicker();
@@ -49,30 +47,11 @@
             this.txtKLCV = new System.Windows.Forms.TextBox();
             this.btnchitiet = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.rBdaht = new System.Windows.Forms.RadioButton();
+            this.rBdangth = new System.Windows.Forms.RadioButton();
+            this.rBchuabd = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPhancong)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rBroi
-            // 
-            this.rBroi.AutoSize = true;
-            this.rBroi.Location = new System.Drawing.Point(686, 114);
-            this.rBroi.Name = "rBroi";
-            this.rBroi.Size = new System.Drawing.Size(99, 17);
-            this.rBroi.TabIndex = 168;
-            this.rBroi.TabStop = true;
-            this.rBroi.Text = "Đã hoàn thành ";
-            this.rBroi.UseVisualStyleBackColor = true;
-            // 
-            // rBchua
-            // 
-            this.rBchua.AutoSize = true;
-            this.rBchua.Location = new System.Drawing.Point(570, 114);
-            this.rBchua.Name = "rBchua";
-            this.rBchua.Size = new System.Drawing.Size(110, 17);
-            this.rBchua.TabIndex = 167;
-            this.rBchua.TabStop = true;
-            this.rBchua.Text = "Chưa hoàn thành ";
-            this.rBchua.UseVisualStyleBackColor = true;
             // 
             // dateTimeNgayht
             // 
@@ -225,14 +204,47 @@
             // 
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // rBdaht
+            // 
+            this.rBdaht.AutoSize = true;
+            this.rBdaht.Location = new System.Drawing.Point(634, 136);
+            this.rBdaht.Name = "rBdaht";
+            this.rBdaht.Size = new System.Drawing.Size(84, 17);
+            this.rBdaht.TabIndex = 172;
+            this.rBdaht.Text = "Hoàn thành ";
+            this.rBdaht.UseVisualStyleBackColor = true;
+            // 
+            // rBdangth
+            // 
+            this.rBdangth.AutoSize = true;
+            this.rBdangth.Location = new System.Drawing.Point(699, 112);
+            this.rBdangth.Name = "rBdangth";
+            this.rBdangth.Size = new System.Drawing.Size(98, 17);
+            this.rBdangth.TabIndex = 171;
+            this.rBdangth.Text = "Đang thực hiện";
+            this.rBdangth.UseVisualStyleBackColor = true;
+            // 
+            // rBchuabd
+            // 
+            this.rBchuabd.AutoSize = true;
+            this.rBchuabd.Checked = true;
+            this.rBchuabd.Location = new System.Drawing.Point(583, 112);
+            this.rBchuabd.Name = "rBchuabd";
+            this.rBchuabd.Size = new System.Drawing.Size(90, 17);
+            this.rBchuabd.TabIndex = 170;
+            this.rBchuabd.TabStop = true;
+            this.rBchuabd.Text = "Chưa bắt đầu";
+            this.rBchuabd.UseVisualStyleBackColor = true;
+            // 
             // PCCV_NV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rBdaht);
+            this.Controls.Add(this.rBdangth);
+            this.Controls.Add(this.rBchuabd);
             this.Controls.Add(this.btnchitiet);
-            this.Controls.Add(this.rBroi);
-            this.Controls.Add(this.rBchua);
             this.Controls.Add(this.dateTimeNgayht);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimeNgaygiao);
@@ -259,9 +271,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton rBroi;
-        private System.Windows.Forms.RadioButton rBchua;
         private System.Windows.Forms.DateTimePicker dateTimeNgayht;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimeNgaygiao;
@@ -280,5 +289,8 @@
         private System.Windows.Forms.TextBox txtKLCV;
         private System.Windows.Forms.Button btnchitiet;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.RadioButton rBdaht;
+        private System.Windows.Forms.RadioButton rBdangth;
+        private System.Windows.Forms.RadioButton rBchuabd;
     }
 }

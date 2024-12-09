@@ -56,7 +56,8 @@ namespace PC_GUI
             cbMaNCC.DisplayMember = "TenNCC";
             cbMaNCC.ValueMember = "MaNCC";
         }
-        void loadTrangthai()
+        //Load combobox trạng thái 
+        void loadcbTrangthai()
         {
             List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
             {
@@ -67,11 +68,19 @@ namespace PC_GUI
             cbTrangThai.DataSource = dstrangthai;
             cbTrangThai.DisplayMember = "Hienthi";
             cbTrangThai.ValueMember = "Luu";
+        }
+        void loadcbLoc()
+        {
+            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            {
+                new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
+                new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
+                new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
+            };
             cbLoc.DataSource = dstrangthai;
             cbLoc.DisplayMember = "Hienthi";
             cbLoc.ValueMember = "Luu";
         }
-
         private void btnThongtindh_Click_1(object sender, EventArgs e)
         {
             LoadDonmua();
@@ -84,7 +93,8 @@ namespace PC_GUI
             cbMaHD.DisplayMember = "MaHDMH";
             cbMaHD.ValueMember = "MaHDMH";
             loadNhaCC();
-            loadTrangthai();
+            loadcbTrangthai();
+            loadcbLoc();
             txtMaDMH.Enabled = false;
             cbMaHD.SelectedIndex = -1;
             cbMaNCC.SelectedIndex = -1;
@@ -112,6 +122,7 @@ namespace PC_GUI
             txtMoTa.Text = string.Empty;
             txtChietkhau.Text = string.Empty;
             btnLuu.Enabled = true;
+            btnTao.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -239,6 +250,8 @@ namespace PC_GUI
                 txtMoTa.Clear();
                 txtChietkhau.Clear();
                 txtMaDMH.Focus();
+                btnLuu.Enabled = false;
+                btnTao.Enabled = true;
             }
         }
 
@@ -393,6 +406,7 @@ namespace PC_GUI
                                    select new
                                    {
                                        dm.MaDMH,
+                                       dm.NgayLap,
                                        dm.TThai
                                    };
                 dataGridView1.DataSource = trangthaidon.ToList();

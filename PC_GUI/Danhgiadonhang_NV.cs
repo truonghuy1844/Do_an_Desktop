@@ -87,6 +87,8 @@ namespace PC_GUI
             cbMaDH.DisplayMember = "MaDMH";
             cbMaDH.ValueMember = "MaDMH";
             cbMaDH.SelectedIndex = -1;
+            btnLuu.Enabled = false;
+
 
         }
 
@@ -100,6 +102,8 @@ namespace PC_GUI
             cbMaDH.SelectedIndex = -1; cbDiemdanhgia.SelectedIndex = -1;
             cbTensp.SelectedIndex = -1;
             txtMaDGSP.Focus();
+            btnLuu.Enabled = true;
+            btnTaodg.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -163,6 +167,8 @@ namespace PC_GUI
                 da.Connection.Close(); // đóng 
 
                 loadlichsudg();
+                btnLuu.Enabled = false;
+                btnTaodg.Enabled = true;
             }
         }
 

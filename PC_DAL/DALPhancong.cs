@@ -123,9 +123,9 @@ namespace PC_DAL
                 else
                 {
                     cmd = new SqlCommand("Select pc.MaPC, pc.MaNV,nv.TenNV, pc.NgayGiao,pc.NgayHT,pc.KLuong,pc.TThai from PHANCONG_CONGVIEC pc join NHANVIEN nv on pc.MaNV = nv.MaNV " +
-                        "where nv.TenNV like @tensp or pc.MaPC = @pc", conn);
-                    cmd.Parameters.AddWithValue("@tensp", "%" + tukhoa + "%");
-                    cmd.Parameters.AddWithValue("@tensp", "%" + tukhoa + "%");
+                        "where nv.TenNV LIKE @tennv or pc.MaPC LIKE @pc", conn);
+                    cmd.Parameters.AddWithValue("@tennv", "%" + tukhoa + "%");
+                    cmd.Parameters.AddWithValue("@pc", "%" + tukhoa + "%");
                 }
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -168,21 +168,5 @@ namespace PC_DAL
             catch (Exception) { return null; }
             finally { conn.Close(); }   
         }
-
-        //public DataTable dahoanthanh()
-        //{
-        //    try
-        //    {
-        //        conn.Open();
-        //        SqlCommand cmd = new SqlCommand("Select * from PHANCONG_CONGVIEC" +
-        //            "where TThai = N'Đã hoàn thành'", conn);
-        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //        DataTable chuaht = new DataTable();
-        //        da.Fill(chuaht);
-        //        return chuaht;
-        //    }
-        //    catch (Exception) { return null; }
-        //    finally { conn.Close(); }
-        //}
     }
 }

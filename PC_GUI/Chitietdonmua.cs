@@ -50,12 +50,14 @@ namespace PC_GUI
             db.Connection.Open();
             var listdm = from dm in db.CT_DONMUAHANG_LQs
                          join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
+                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG 
                          select new
                          {
                              dm.MaDMH,
                              dm.MaSP,
                              sp.TenSP,
                              dm.MaBG,
+                             bg.DonGia,
                              dm.SoLuong
                          };
 
@@ -76,6 +78,9 @@ namespace PC_GUI
 
             cbMaDH.Enabled = false;
             btnLuu.Enabled = false;
+            //Sự kiện 
+            cbMaSP.SelectedIndexChanged += Combobox_SelectedIndexChanged;
+            cbMabaogia.SelectedIndexChanged += Combobox_SelectedIndexChanged;
         }
 
         //Nút chi tiết đơn load đơn 
@@ -84,12 +89,15 @@ namespace PC_GUI
             QLMHDataContext db = new QLMHDataContext();
             var listdm = from dm in db.CT_DONMUAHANG_LQs
                          join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
+                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+                         where dm.MaSP == bg.MaSP
                          select new
                          {
                              dm.MaDMH,
                              dm.MaSP,
                              sp.TenSP,
                              dm.MaBG,
+                             bg.DonGia,
                              dm.SoLuong
                          };
             dataGridViewChitiet.DataSource = listdm.ToList();
@@ -112,14 +120,15 @@ namespace PC_GUI
                 cbMabaogia.ValueMember = "MaBG";
             }
         }
-
-        private void cbMabaogia_SelectedIndexChanged(object sender, EventArgs e)
+        private void Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbMabaogia.SelectedIndex != -1)
+            if (cbMaSP.SelectedIndex != -1 && cbMabaogia.SelectedIndex != -1)
             {
+                string masp = cbMaSP.SelectedValue.ToString();  
+                string mabg = cbMabaogia.SelectedValue.ToString();
                 QLMHDataContext db = new QLMHDataContext();
                 var dongia = (from bg in db.CT_BAOGIA_LQs
-                              where bg.MaBG == cbMabaogia.SelectedValue.ToString()
+                              where bg.MaBG == mabg && bg.MaSP == masp  
                               select bg.DonGia).FirstOrDefault();
                 txtDongia.Text = dongia.ToString();
             }
@@ -128,6 +137,7 @@ namespace PC_GUI
         private void btnTaoctmua_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
+            btnTaoctmua.Enabled = false;
             loadmadhtao();
             cbMaDH.Enabled = true;
             cbMaSP.Enabled = true;
@@ -189,6 +199,7 @@ namespace PC_GUI
                 cbMaDH.SelectedIndex = -1;
                 cbMaDH.Enabled = false;
                 btnLuu.Enabled = false;
+                btnTaoctmua.Enabled = true;
             }
         }
 

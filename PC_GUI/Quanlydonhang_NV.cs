@@ -66,7 +66,7 @@ namespace PC_GUI
             return listncc.ToList();
         }
         //Load combobox trạng thái 
-        void loadTrangthai()
+        void loadcbTrangthai()
         {
             List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
             {
@@ -77,15 +77,27 @@ namespace PC_GUI
             cbTrangThai.DataSource = dstrangthai;
             cbTrangThai.DisplayMember = "Hienthi";
             cbTrangThai.ValueMember = "Luu";
+        }
+        //Load cb lọc 
+        void loadcbLoc()
+        {
+            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            {
+                new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
+                new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
+                new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
+            };
             cbLoc.DataSource = dstrangthai;
             cbLoc.DisplayMember = "Hienthi";
             cbLoc.ValueMember = "Luu";
         }
+
         private void Quanlydonhang_NV_Load(object sender, EventArgs e)
         {
             loadloctt();
             loadhopdong();
-            loadTrangthai();
+            loadcbTrangthai();
+            loadcbLoc();
             //load NCC 
             cbMaNCC.DataSource = loadnhacc();
             cbMaNCC.DisplayMember = "TenNCC";
@@ -193,6 +205,7 @@ namespace PC_GUI
                 cbTrangThai.SelectedValue = dataGridView2.CurrentRow.Cells["TThai"].Value.ToString();
 
                 txtMaDMH.Enabled = false;
+                cbLoc.SelectedIndex = -1;
             }
         }
 
@@ -208,6 +221,7 @@ namespace PC_GUI
             cbMaHD.SelectedIndex = -1;
             cbMaNCC.SelectedIndex = -1;
             cbTrangThai.SelectedIndex = -1;
+            btnTao.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -306,6 +320,8 @@ namespace PC_GUI
                 }
                 db.Connection.Close();
                 loaddonmua();
+                btnLuu.Enabled = false;
+                btnTao.Enabled = true;
             }
         }
 
