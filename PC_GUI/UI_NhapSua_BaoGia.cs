@@ -18,9 +18,17 @@ namespace PC_GUI
 {
     public partial class UI_NhapSua_BaoGia : Form
     {
-        public UI_NhapSua_BaoGia()
+        public UI_NhapSua_BaoGia(DTO_NhanVien nvien)
         {
             InitializeComponent();
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool kiemtraPhongBan = kt.Kiem_Tra_PhongBan(nvien);
+            if (!kiemtraPhongBan)
+            {
+                this.Controls.Remove(groupBox1);
+                this.Controls.Remove(groupBox2);
+                
+            }
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)

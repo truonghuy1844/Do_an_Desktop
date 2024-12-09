@@ -15,9 +15,17 @@ namespace PC_GUI
 {
     public partial class UI_View_BaoGia : Form
     {
-        public UI_View_BaoGia()
+         public DTO_NhanVien nv = new DTO_NhanVien();
+        public UI_View_BaoGia(DTO_NhanVien nvien)
         {
             InitializeComponent();
+            nv = nvien;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool kiemtraPhongBan = kt.Kiem_Tra_PhongBan(nvien);
+            if (!kiemtraPhongBan) 
+            { 
+                this.Controls.Remove(btnTuyChinhBG);
+            }
         }
 
         private void UI_View_BaoGia_Load(object sender, EventArgs e)
@@ -188,7 +196,8 @@ namespace PC_GUI
 
         private void btnTuyChinhBG_Click(object sender, EventArgs e)
         {
-            UI_NhapSua_BaoGia ui = new UI_NhapSua_BaoGia();
+            
+            UI_NhapSua_BaoGia ui = new UI_NhapSua_BaoGia(nv);
             ui.ShowDialog();
         }
     }

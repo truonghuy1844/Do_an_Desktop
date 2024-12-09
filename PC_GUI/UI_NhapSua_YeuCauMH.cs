@@ -16,9 +16,12 @@ namespace PC_GUI
 {
     public partial class UI_NhapSua_YeuCauMH : Form
     {
-        public UI_NhapSua_YeuCauMH()
+        public DTO_NhanVien nv = new DTO_NhanVien();
+        public UI_NhapSua_YeuCauMH( DTO_NhanVien nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            txtMaNV.Text = nvien.MaNV.ToString();
         }
 
         private void btnSuaSP_Click(object sender, EventArgs e)
@@ -115,6 +118,7 @@ namespace PC_GUI
             }
             dgvYCMH.Columns["MaYC"].Visible = true;
             dgvYCMH.Columns["PhongBanYC"].Visible = true;
+            dgvYCMH.Columns["TinhTrang"].Visible = true;
         }
 
         private void dgvYCMH_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -235,7 +239,7 @@ namespace PC_GUI
         {
             BLL_YeuCauMH bll = new BLL_YeuCauMH();
             DTO_YeuCauMH dto = new DTO_YeuCauMH();
-            dto.MaNV = "NV001";//txtMaNV.Text;
+            dto.MaNV = nv.MaNV;//txtMaNV.Text;
             dto.MaYC = txtMaYC.Text.Trim();
             if (cbBoPhanYC.SelectedIndex == 0) 
             {
@@ -280,7 +284,7 @@ namespace PC_GUI
         {
             BLL_YeuCauMH bll = new BLL_YeuCauMH();
             DTO_YeuCauMH dto = new DTO_YeuCauMH();
-            dto.MaNV = txtMaNV.Text;
+            dto.MaNV = nv.MaNV;
             dto.MaYC = txtMaYC.Text.Trim();
             if (cbBoPhanYC.SelectedIndex == 0)
             {

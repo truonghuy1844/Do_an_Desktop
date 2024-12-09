@@ -62,6 +62,7 @@
       <DependentUpon>BangCT_BG.cs</DependentUpon>
     </Compile>
     <Compile Include="BLL\BLL_BaoGia.cs" />
+    <Compile Include="BLL\BLL_KiemTraTruyCap.cs" />
     <Compile Include="BLL\BLL_YeuCauMH.cs" />
     <Compile Include="BLL\LoadCB.cs" />
     <Compile Include="DAL\BAOGIA.cs">
@@ -114,6 +115,7 @@
     <Compile Include="DAL\KHOHANG.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\KiemTraChucVu.cs" />
     <Compile Include="DAL\LoadComboBox.cs" />
     <Compile Include="DAL\NHACUNGCAP.cs">
       <DependentUpon>EF.tt</DependentUpon>

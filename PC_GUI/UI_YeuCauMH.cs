@@ -17,9 +17,21 @@ namespace PC_GUI
 {
     public partial class UI_YeuCauMH : Form
     {
-        public UI_YeuCauMH()
+        public DTO_NhanVien nv = new DTO_NhanVien();
+        public UI_YeuCauMH( DTO_NhanVien nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nvien);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nvien);
+            if(!KiemTraChucVu || !KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnDuyet);
+                this.Controls.Remove(btnTuChoi);
+            }
+            
         }
         //Điều chỉnh theo đăng nhập
         public void CheDoDung()
@@ -299,7 +311,7 @@ namespace PC_GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH();
+            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nv);
             ui.ShowDialog();
         }
 
