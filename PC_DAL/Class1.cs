@@ -9,6 +9,6 @@ namespace PC_DAL
 {
     public class DBConnect
     {
-
+        protected SqlConnection conn = new SqlConnection("Data Source=LAPTOP-P7MATAOO\\DUYMANH;Initial Catalog=QLMH;Integrated Security=True;Encrypt=False");
     }
 }
