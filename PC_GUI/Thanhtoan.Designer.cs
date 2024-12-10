@@ -31,8 +31,6 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.btnCapnhat = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,12 +42,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSotien = new System.Windows.Forms.TextBox();
             this.txtTrangthai = new System.Windows.Forms.TextBox();
+            this.btnThuchien = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTT)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(564, 740);
+            this.btnLuu.Location = new System.Drawing.Point(687, 740);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(6);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(150, 44);
@@ -60,7 +59,7 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(1032, 740);
+            this.btnTim.Location = new System.Drawing.Point(687, 250);
             this.btnTim.Margin = new System.Windows.Forms.Padding(6);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(150, 44);
@@ -71,7 +70,7 @@
             // 
             // btnCapnhat
             // 
-            this.btnCapnhat.Location = new System.Drawing.Point(402, 740);
+            this.btnCapnhat.Location = new System.Drawing.Point(446, 740);
             this.btnCapnhat.Margin = new System.Windows.Forms.Padding(6);
             this.btnCapnhat.Name = "btnCapnhat";
             this.btnCapnhat.Size = new System.Drawing.Size(150, 44);
@@ -79,28 +78,6 @@
             this.btnCapnhat.Text = "Cập nhật ";
             this.btnCapnhat.UseVisualStyleBackColor = true;
             this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(240, 740);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(6);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(150, 44);
-            this.btnXoa.TabIndex = 60;
-            this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(78, 728);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(6);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(150, 68);
-            this.btnThem.TabIndex = 59;
-            this.btnThem.Text = "Tạo thanh toán mới ";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dateTimePicker1
             // 
@@ -173,15 +150,15 @@
             this.label4.Location = new System.Drawing.Point(629, 60);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 25);
+            this.label4.Size = new System.Drawing.Size(210, 25);
             this.label4.TabIndex = 69;
-            this.label4.Text = "Số tiền ";
+            this.label4.Text = "Tổng tiền thanh toán";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(599, 159);
+            this.label5.Location = new System.Drawing.Point(629, 153);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 25);
@@ -190,23 +167,34 @@
             // 
             // txtSotien
             // 
-            this.txtSotien.Location = new System.Drawing.Point(733, 60);
+            this.txtSotien.Location = new System.Drawing.Point(869, 57);
             this.txtSotien.Name = "txtSotien";
             this.txtSotien.Size = new System.Drawing.Size(274, 31);
             this.txtSotien.TabIndex = 71;
             // 
             // txtTrangthai
             // 
-            this.txtTrangthai.Location = new System.Drawing.Point(733, 159);
+            this.txtTrangthai.Location = new System.Drawing.Point(869, 147);
             this.txtTrangthai.Name = "txtTrangthai";
             this.txtTrangthai.Size = new System.Drawing.Size(274, 31);
             this.txtTrangthai.TabIndex = 72;
+            // 
+            // btnThuchien
+            // 
+            this.btnThuchien.Location = new System.Drawing.Point(869, 252);
+            this.btnThuchien.Name = "btnThuchien";
+            this.btnThuchien.Size = new System.Drawing.Size(255, 41);
+            this.btnThuchien.TabIndex = 74;
+            this.btnThuchien.Text = "Thực hiện thanh toán";
+            this.btnThuchien.UseVisualStyleBackColor = true;
+            this.btnThuchien.Click += new System.EventHandler(this.btnThuchien_Click);
             // 
             // Thanhtoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1445, 823);
+            this.Controls.Add(this.btnThuchien);
             this.Controls.Add(this.txtTrangthai);
             this.Controls.Add(this.txtSotien);
             this.Controls.Add(this.label5);
@@ -217,8 +205,6 @@
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnCapnhat);
-            this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -236,8 +222,6 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Button btnCapnhat;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -249,5 +233,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSotien;
         private System.Windows.Forms.TextBox txtTrangthai;
+        private System.Windows.Forms.Button btnThuchien;
     }
 }

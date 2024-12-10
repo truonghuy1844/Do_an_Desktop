@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using PC_DTO;
 using PC_BLL;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 namespace PC_GUI
 {
     public partial class Hoadon : Form
@@ -28,7 +29,7 @@ namespace PC_GUI
             txtDongia.Enabled = false;
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
-            txtSanpham .Enabled = false;
+            cbSanpham .Enabled = false;
             txtThanhtien.Enabled = false;
             cbMaDH.DataSource = bllHoadon.loadmadmh();
             cbMaDH.DisplayMember = "MaDMH";
@@ -165,7 +166,7 @@ namespace PC_GUI
                 txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
                 cbMaDH.SelectedValue = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
                 txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
-                txtSanpham.Text = dataGridView1.CurrentRow.Cells["TenSP"].Value.ToString();
+                cbSanpham .Text = dataGridView1.CurrentRow.Cells["TenSP"].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                 txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
                 txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
@@ -211,13 +212,7 @@ namespace PC_GUI
                 MessageBox.Show("Mã đơn hàng đã tồn tại trong hệ thống, hãy nhập mã khác");
                 txtMaHD.Focus();
             }
-           if (bllHoadon.Kiemtrasp(txtSanpham.Text))
-            {
-                okTao = false;
-                MessageBox.Show("Sản phẩm không  đã tồn tại trong hệ thống, hãy nhập sản phẩm khác");
-                txtSanpham.Focus();
-            }
-
+           
             if (dateTimePicker1.Value > DateTime.Now)
             {
                 okTao = false;
@@ -228,7 +223,47 @@ namespace PC_GUI
 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbMaDH.SelectedIndex != -1)
+        {     
 
+                string madmh = cbMaDH.SelectedValue.ToString();
+            cbSanpham.DataSource = bllHoadon.loadtensp(madmh);
+            cbSanpham.DisplayMember = "TenSP";
+
+
+        }
+    }
+        private void cbSanpham_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSanpham.SelectedIndex != -1)
+            {
+                try
+                {
+                    string tensp = cbSanpham.SelectedValue.ToString();
+
+                    
+                    var result = bllHoadon.loadsldg(tensp);
+
+                    if (result is DataTable dt && dt.Rows.Count > 0)
+                    {
+                        decimal dongia = Convert.ToDecimal(dt.Rows[0]["DonGia"]);
+                        int soluong = Convert.ToInt32(dt.Rows[0]["SoLuong"]);
+
+                        txtDongia.Text = dongia.ToString();
+                        txtSoluong.Text = soluong.ToString();
+                    }
+                    else
+                    {
+                        txtDongia.Text = "0";
+                        txtSoluong.Text = "0";
+                    }
+                }
+                catch 
+                {
+                    
+                    MessageBox.Show($"Không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnXoa_Click_1(object sender, EventArgs e)
@@ -266,9 +301,6 @@ namespace PC_GUI
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 bool okTao = true;
-
-
-
 
 
                 if (dateTimePicker1.Value > DateTime.Now)

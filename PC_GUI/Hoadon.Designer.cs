@@ -50,7 +50,7 @@
             this.txtSoluong = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbMaDH = new System.Windows.Forms.ComboBox();
-            this.txtSanpham = new System.Windows.Forms.MaskedTextBox();
+            this.cbSanpham = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,20 +269,21 @@
             this.cbMaDH.TabIndex = 46;
             this.cbMaDH.SelectedIndexChanged += new System.EventHandler(this.cbMaDH_SelectedIndexChanged);
             // 
-            // txtSanpham
+            // cbSanpham
             // 
-            this.txtSanpham.Location = new System.Drawing.Point(1044, 70);
-            this.txtSanpham.Margin = new System.Windows.Forms.Padding(6);
-            this.txtSanpham.Name = "txtSanpham";
-            this.txtSanpham.Size = new System.Drawing.Size(404, 31);
-            this.txtSanpham.TabIndex = 47;
+            this.cbSanpham.FormattingEnabled = true;
+            this.cbSanpham.Location = new System.Drawing.Point(1048, 67);
+            this.cbSanpham.Margin = new System.Windows.Forms.Padding(6);
+            this.cbSanpham.Name = "cbSanpham";
+            this.cbSanpham.Size = new System.Drawing.Size(404, 33);
+            this.cbSanpham.TabIndex = 47;
             // 
             // Hoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1658, 904);
-            this.Controls.Add(this.txtSanpham);
+            this.Controls.Add(this.cbSanpham);
             this.Controls.Add(this.cbMaDH);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnLuu);
@@ -339,6 +340,6 @@
         private System.Windows.Forms.MaskedTextBox txtSoluong;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbMaDH;
-        private System.Windows.Forms.MaskedTextBox txtSanpham;
+        private System.Windows.Forms.ComboBox cbSanpham;
     }
 }

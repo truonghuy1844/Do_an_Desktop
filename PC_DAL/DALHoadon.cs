@@ -151,20 +151,48 @@ namespace PC_DAL
 
 
         }
-        public bool Kiemtrasp(string sp)
+        public DataTable loadtensp(string madm)
         {
+
             try
             {
-                conn.Open();
-                string myQuery = "Select COUNT(*) from CT_DONMUAHANG where MaSP=@masp";
-                SqlCommand cmd = new SqlCommand(myQuery, conn);
-                cmd.Parameters.AddWithValue("@masp", sp);
 
-                int count = (int)cmd.ExecuteScalar();
-                return count < 0 ? true : false;
+
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select * from SANPHAM join CT_DONMUAHANG" +
+                "on SANPHAM.MaSP = CT_DONMUAHANG.MaSP" +
+                " where CT_DONMUAHANG.MaDMH = @madmh", conn);
+                cmd.Parameters.AddWithValue("@madmh", madm);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
             }
-            catch (SqlException) { return false; }
+
+            catch (SqlException) { return null; }
             finally { conn.Close(); }
         }
-    } 
+        public DataTable loadsldg(string tensp)
+        {
+
+            try
+            {
+
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select * from SANPHAM join CT_DONMUAHANG" +
+                "on SANPHAM.MaSP = CT_DONMUAHANG.MaSP" + "join CT_BAOGIA on CT_DONMUAHANG.MaBG=CT_BAOGIA.MaBG " +
+                " where SANPHAM.TenSP = @tensp", conn);
+                cmd.Parameters.AddWithValue("@tensp", tensp);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+
+            catch (SqlException) { return null; }
+            finally { conn.Close(); }
+        }
+    }
 }

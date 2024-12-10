@@ -46,10 +46,14 @@ namespace PC_BLL
         public bool Kiemtramadmh(string madmh)
         {
             return dalHoadon.Kiemtramahd(madmh);
-                }
-        public bool Kiemtrasp(string sp)
+        }
+        public DataTable loadtensp(string madm)
         {
-            return dalHoadon.Kiemtrasp(sp);
+            return dalHoadon.loadtensp(madm);
+        }
+        public DataTable loadsldg(string tensp)
+        {
+            return dalHoadon.loadsldg(tensp);
         }
     }
 }
