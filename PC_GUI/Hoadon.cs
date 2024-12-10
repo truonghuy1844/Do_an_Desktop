@@ -27,6 +27,9 @@ namespace PC_GUI
             txtDongia.Enabled = false;
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
+            cbMaDH.DataSource = bllHoadon.loadmadmh();
+            cbMaDH.DisplayMember = "MaDMH";
+            cbMaDH.ValueMember = "MaDMH";
 
         }
 
@@ -34,16 +37,7 @@ namespace PC_GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            txtMaHD.Enabled = true;
-            dateTimePicker1.Enabled = true;
-
-            txtMaHD.Focus();
-            txtMaHD.Text = string.Empty;
-            txtGhichu.Text = string.Empty;
-            txtSoluong.Text = string.Empty;
-            txtDongia.Text = string.Empty;
-
-            btnLuu.Enabled = true;
+            
 
 
 
@@ -78,36 +72,17 @@ namespace PC_GUI
                     MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
                     dateTimePicker1.Focus();
                 }
-                if (!txtMaDH.Text.All(char.IsLetterOrDigit) || !txtMaDH.Text.StartsWith("DMH"))
+                if (!txtMaHD.Text.All(char.IsDigit))
                 {
                     okTao = false;
-                    MessageBox.Show("Mã đơn hàng chỉ chứa ký tự chữ, số và bắt đầu bằng 'DMH' !", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                    txtMaDH.Focus();
+                    MessageBox.Show("Mã hóa đơn chỉ chứa ký tự số ", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    txtMaHD.Focus();
                 }
-                if ((txtMaDH.Text.Length < 6) || (txtMaDH.Text.Length > 10))
+                if ((txtMaHD.Text.Length < 1) || (txtMaHD.Text.Length > 10))
                 {
                     okTao = false;
-                    MessageBox.Show("Mã đơn hàng tối thiểu 6 ký tự và không quá 10 ký tự");
-                    txtMaDH.Focus();
-                }
-                decimal dongia;
-                if (!string.IsNullOrEmpty(txtDongia.Text))
-                {
-                    if (!decimal.TryParse(txtDongia.Text, out dongia) || dongia <= 0)
-                    {
-                        okTao = false;
-                        MessageBox.Show("Đơn giá phải là số dương", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                        txtDongia.Focus();
-                    }
-                }
-                if (!string.IsNullOrEmpty(txtSoluong.Text))
-                {
-                    if (!int.TryParse(txtSoluong.Text, out soluong) || soluong <= 0)
-                    {
-                        okTao = false;
-                        MessageBox.Show("Số lượng phải là số dương", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                        txtSoluong.Focus();
-                    }
+                    MessageBox.Show("Mã hóa đơn tối thiểu 1 ký tự và không quá 10 ký tự");
+                    txtMaHD.Focus();
                 }
 
                 if (okTao)
@@ -115,7 +90,7 @@ namespace PC_GUI
                     DTOHoadon dhmoi = new DTOHoadon();
                     dhmoi.MaHD = txtMaHD.Text;
                     dhmoi.Ngaylap = dateTimePicker1.Value;
-                    dhmoi.MaDMH = txtMaDH.Text;
+                    dhmoi.MaDMH = cbMaDH.SelectedValue.ToString();
                     dhmoi.GhiChu = txtGhichu.Text;
                     if (bllHoadon.Capnhathoadon(dhmoi))
                     {
@@ -156,47 +131,6 @@ namespace PC_GUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            bool okTao = true;
-
-            if (txtMaHD.Text.Length == 0)
-            {
-                okTao = false;
-                MessageBox.Show("Mã đơn hàng không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                txtMaHD.Focus();
-            }
-
-            if (!txtMaDH.Text.All(char.IsLetterOrDigit) || !txtMaDH.Text.StartsWith("DMH"))
-            {
-                okTao = false;
-                MessageBox.Show("Mã đơn hàng chỉ chứa ký tự chữ, số và bắt đầu bằng 'DMH' !", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                txtMaDH.Focus();
-            }
-            if ((txtMaDH.Text.Length < 6) || (txtMaDH.Text.Length > 10))
-            {
-                okTao = false;
-                MessageBox.Show("Mã đơn hàng tối thiểu 6 ký tự và không quá 10 ký tự");
-                txtMaDH.Focus();
-            }
-            if (bllHoadon.Kiemtramahd(txtMaHD.Text))
-            {
-                okTao = false;
-                MessageBox.Show("Mã đơn hàng đã tồn tại trong hệ thống, hãy nhập mã khác");
-                txtMaHD.Focus();
-            }
-
-            //3 Ngày lập không được lớn hơn ngày hiện tại 
-            if (dateTimePicker1.Value > DateTime.Now)
-            {
-                okTao = false;
-                MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
-                dateTimePicker1.Focus();
-            }
-
-
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -234,7 +168,17 @@ namespace PC_GUI
         }
         private void btnThem_Click_1(object sender, EventArgs e)
         {
+            txtMaHD.Enabled = true;
+            dateTimePicker1.Enabled = true;
 
+            txtMaHD.Focus();
+            txtMaHD.Text = string.Empty;
+            txtGhichu.Text = string.Empty;
+            txtSoluong.Text = string.Empty;
+            txtDongia.Text = string.Empty;
+
+            btnLuu.Enabled = true;
+            
         }
 
         private void btnThanhtoan_Click_1(object sender, EventArgs e)
@@ -247,14 +191,61 @@ namespace PC_GUI
             if (dataGridView1.SelectedRows != null)
             {
                 txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
-                txtMaDH.Text = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
+                cbMaDH.SelectedValue = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
                 txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
-                txtSanPham.Text = dataGridView1.CurrentRow.Cells["MaSP"].Value.ToString();
+                cbTensp.SelectedValue = dataGridView1.CurrentRow.Cells["TenSP"].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                 txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
                 txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
-                txtThanhtien.Text = dataGridView1.CurrentRow.Cells["ThanhTien"].Value.ToString();
+                txtThanhtien.Text = dataGridView1.CurrentRow.Cells["Tonghoadon"].Value.ToString();
+
+                txtMaHD.Enabled = false;
+
             }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            bool okTao = true;
+
+            if (txtMaHD.Text.Length == 0)
+            {
+                okTao = false;
+                MessageBox.Show("Mã đơn hàng không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                txtMaHD.Focus();
+            }
+
+            if (!txtMaDH.Text.All(char.IsLetterOrDigit) || !txtMaDH.Text.StartsWith("DMH"))
+            {
+                okTao = false;
+                MessageBox.Show("Mã đơn hàng chỉ chứa ký tự chữ, số và bắt đầu bằng 'DMH' !", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                txtMaDH.Focus();
+            }
+            if ((txtMaDH.Text.Length < 6) || (txtMaDH.Text.Length > 10))
+            {
+                okTao = false;
+                MessageBox.Show("Mã đơn hàng tối thiểu 6 ký tự và không quá 10 ký tự");
+                txtMaDH.Focus();
+            }
+            if (bllHoadon.Kiemtramahd(txtMaHD.Text))
+            {
+                okTao = false;
+                MessageBox.Show("Mã đơn hàng đã tồn tại trong hệ thống, hãy nhập mã khác");
+                txtMaHD.Focus();
+            }
+
+            //3 Ngày lập không được lớn hơn ngày hiện tại 
+            if (dateTimePicker1.Value > DateTime.Now)
+            {
+                okTao = false;
+                MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
+                dateTimePicker1.Focus();
+            }
+        }
+
+        private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

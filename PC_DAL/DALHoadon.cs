@@ -16,9 +16,11 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                string query = "SELECT DISTINCT   HOADON.MaHD,  HOADON.MaDMH,  HOADON.NgayLap,CT_DONMUAHANG.MaSP, CAST(CT_BAOGIA.DonGia AS INT) as DonGia,  CT_DONMUAHANG.SoLuong,    CAST((CT_BAOGIA.DonGia * CT_DONMUAHANG.SoLuong) AS INT) AS ThanhTien,    HOADON.GhiChu " +
-                    "FROM HOADON JOIN CT_DONMUAHANG ON HOADON.MaDMH =  CT_DONMUAHANG.MaDMH " +
-                    "JOIN CT_BAOGIA ON CT_DONMUAHANG.MaBG = CT_BAOGIA.MaBG JOIN SANPHAM ON CT_DONMUAHANG.MaSP = CT_BAOGIA.MaSP WHERE CT_DONMUAHANG.MaSP=CT_BAOGIA.MaSP ";
+                string query = "SELECT Distinct HOADON.MaHD,  HOADON.MaDMH,  HOADON.NgayLap,SANPHAM.TenSP, CAST(CT_BAOGIA.DonGia AS INT) as DonGia,  " +
+                    "CT_DONMUAHANG.SoLuong,   CAST((CT_BAOGIA.DonGia * CT_DONMUAHANG.SoLuong) AS INT) AS ThanhTien, SUM(CAST((CT_DONMUAHANG.SoLuong * CT_BAOGIA.DonGia) AS INT)) OVER (PARTITION BY HOADON.MaHD) " +
+                    "as Tonghoadon,     HOADON.GhiChu FROM HOADON JOIN CT_DONMUAHANG ON HOADON.MaDMH =  CT_DONMUAHANG.MaDMH " +
+                    "JOIN CT_BAOGIA ON CT_DONMUAHANG.MaBG = CT_BAOGIA.MaBG JOIN SANPHAM ON CT_DONMUAHANG.MaSP = CT_BAOGIA.MaSP " +
+                    "WHERE CT_DONMUAHANG.MaSP=CT_BAOGIA.MaSP and CT_BAOGIA.MaSP = SANPHAM.MaSP";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                 {
                     DataTable dt = new DataTable();
@@ -118,6 +120,19 @@ namespace PC_DAL
             { return null; }
             finally { conn.Close(); }
         }
-
+        public DataTable loadmadmh()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select * from DONMUAHANG");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (SqlException) { return null; }
+            finally { conn.Close(); }
+        }
     }
 }

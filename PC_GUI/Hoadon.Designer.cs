@@ -42,7 +42,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtMaDH = new System.Windows.Forms.MaskedTextBox();
             this.txtMaHD = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,7 +50,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSoluong = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtSanPham = new System.Windows.Forms.MaskedTextBox();
+            this.cbMaDH = new System.Windows.Forms.ComboBox();
+            this.cbTensp = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@
             this.btnLuu.TabIndex = 43;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnThanhtoan
             // 
@@ -149,9 +150,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(422, 188);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 31;
-            this.label7.Text = "Tổng thành tiền";
+            this.label7.Text = "Tổng hóa đơn";
             // 
             // label4
             // 
@@ -177,13 +178,6 @@
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 26;
             this.label3.Text = "Ngày lập";
-            // 
-            // txtMaDH
-            // 
-            this.txtMaDH.Location = new System.Drawing.Point(155, 88);
-            this.txtMaDH.Name = "txtMaDH";
-            this.txtMaDH.Size = new System.Drawing.Size(204, 20);
-            this.txtMaDH.TabIndex = 25;
             // 
             // txtMaHD
             // 
@@ -251,19 +245,30 @@
             this.label8.TabIndex = 44;
             this.label8.Text = "Sản phẩm ";
             // 
-            // txtSanPham
+            // cbMaDH
             // 
-            this.txtSanPham.Location = new System.Drawing.Point(522, 35);
-            this.txtSanPham.Name = "txtSanPham";
-            this.txtSanPham.Size = new System.Drawing.Size(204, 20);
-            this.txtSanPham.TabIndex = 45;
+            this.cbMaDH.FormattingEnabled = true;
+            this.cbMaDH.Location = new System.Drawing.Point(155, 86);
+            this.cbMaDH.Name = "cbMaDH";
+            this.cbMaDH.Size = new System.Drawing.Size(204, 21);
+            this.cbMaDH.TabIndex = 46;
+            this.cbMaDH.SelectedIndexChanged += new System.EventHandler(this.cbMaDH_SelectedIndexChanged);
+            // 
+            // cbTensp
+            // 
+            this.cbTensp.FormattingEnabled = true;
+            this.cbTensp.Location = new System.Drawing.Point(522, 33);
+            this.cbTensp.Name = "cbTensp";
+            this.cbTensp.Size = new System.Drawing.Size(204, 21);
+            this.cbTensp.TabIndex = 47;
             // 
             // Hoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(829, 470);
-            this.Controls.Add(this.txtSanPham);
+            this.Controls.Add(this.cbTensp);
+            this.Controls.Add(this.cbMaDH);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnThanhtoan);
@@ -283,7 +288,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtMaDH);
             this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -312,7 +316,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox txtMaDH;
         private System.Windows.Forms.MaskedTextBox txtMaHD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -321,6 +324,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox txtSoluong;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.MaskedTextBox txtSanPham;
+        private System.Windows.Forms.ComboBox cbMaDH;
+        private System.Windows.Forms.ComboBox cbTensp;
     }
 }
