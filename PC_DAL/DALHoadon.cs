@@ -16,7 +16,7 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                string query = "SELECT    HOADON.MaHD,  HOADON.MaDMH,  HOADON.NgayLap,CT_BAOGIA.DonGia,  CT_DONMUAHANG.SoLuong,    (CT_BAOGIA.DonGia * CT_DONMUAHANG.SoLuong) AS ThanhTien,    HOADON.GhiChu FROM HOADON JOIN CT_DONMUAHANG ON HOADON.MaDMH =  CT_DONMUAHANG.MaDMH JOIN CT_BAOGIA ON CT_DONMUAHANG.MaBG = CT_BAOGIA.MaBG;";
+                string query = "SELECT    HOADON.MaHD,  HOADON.MaDMH,  HOADON.NgayLap,CT_BAOGIA.DonGia,  CT_DONMUAHANG.SoLuong,    (CT_BAOGIA.DonGia * CT_DONMUAHANG.SoLuong) AS ThanhTien,    HOADON.GhiChu FROM HOADON JOIN CT_DONMUAHANG ON HOADON.MaDMH =  CT_DONMUAHANG.MaDMH JOIN CT_BAOGIA ON CT_DONMUAHANG.MaBG = CT_BAOGIA.MaBG; WHERE CT_DONMUAHANG.MASP=CT_BAOGIA.MASP ";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                 {
                     DataTable dt = new DataTable();

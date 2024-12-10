@@ -17,7 +17,7 @@ namespace PC_DTO
         public DateTime NgayTT { get => ngayTT;set => ngayTT = value; }
         public string MaHD { get => maHD; set => maHD = value; }
         public decimal  SoTien { get => sotien; set => sotien = value; }
-        private string TrangThai { get => trangthai;set=> trangthai = value; }
+        public string TrangThai { get => trangthai;set=> trangthai = value; }
 
     } 
 }

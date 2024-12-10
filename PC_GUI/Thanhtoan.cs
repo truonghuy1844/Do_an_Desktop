@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace PC_GUI
 {
     public partial class Thanhtoan : Form
-    {
+    {BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
         public Thanhtoan()
         {
             InitializeComponent();
@@ -67,8 +67,8 @@ namespace PC_GUI
                 DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa thanh toán này?", "Cảnh báo", MessageBoxButtons.YesNo);
                 if (rs == DialogResult.Yes)
                 {
-                    DTOThanhtoan dhxoa = new DTOThanhtoan();
-                    dhxoa.MaTT = dataGridViewTT.CurrentRow.Cells["MaDMH"].Value.ToString();
+                    DTOThanhtoan ttxoa = new DTOThanhtoan();
+                    ttxoa.MaTT = dataGridViewTT.CurrentRow.Cells["MaDMH"].Value.ToString();
                     if (bllThanhtoan.Xoathanhtoan(ttxoa))
                     {
                         MessageBox.Show("Xóa thanh toán thành công", "Thông báo", MessageBoxButtons.OK);
@@ -124,7 +124,7 @@ namespace PC_GUI
                     ttmoi.MaHD = txtMaHD.Text;
                     ttmoi.NgayTT = dateTimePicker1.Value;
                     ttmoi.MaTT = txtMaTT.Text;
-                    ttmoi.TrangThai = txt.TrangthaiText;
+                    ttmoi.TrangThai = txtTrangthai.Text;
                     if (bllThanhtoan.Capnhatthanhtoan(ttmoi))
                     {
                         MessageBox.Show("Cập nhật thông tin thanh toán thành công", "Thông báo", MessageBoxButtons.OK);
@@ -150,7 +150,7 @@ namespace PC_GUI
         {
             
                 string tukhoa = txtMaTT.Text;
-                DataTable dt = bllThanhtoan.TimHoadon(tukhoa);
+                DataTable dt = bllThanhtoan.Timthanhtoan(tukhoa);
                 if (dt == null || dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy kết quả, hãy thử lại!", "Thông báo", MessageBoxButtons.OK);
@@ -163,9 +163,7 @@ namespace PC_GUI
                 }
 
             }
-        
-    }
-    private void dataGridViewTT_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewTT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewTT.SelectedRows != null)
             {
@@ -173,8 +171,11 @@ namespace PC_GUI
                 txtMaTT.Text = dataGridViewTT.CurrentRow.Cells["MaTT"].Value.ToString();
                 txtTrangthai.Text = dataGridViewTT.CurrentRow.Cells["TrangThai"].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridViewTT.CurrentRow.Cells["NgayTT"].Value);
-                
+
             }
         }
+
+    }
+   
     
 }

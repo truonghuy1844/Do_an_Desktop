@@ -13,7 +13,7 @@ using PC_BLL;
 namespace PC_GUI
 {
     public partial class Hoadon : Form
-    {
+    {BLLHoadon bllHoadon= new BLLHoadon();
         public Hoadon()
         {
             InitializeComponent();

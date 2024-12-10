@@ -25,14 +25,14 @@ namespace PC_BLL
         {
             return dalThanhtoan.Kiemtramatt(matt);
         }
-        public bool Capnhatthanhtoan(DTOThanhtoan hd)
+        public bool Capnhatthanhtoan(DTOThanhtoan tt)
         {
-            return dalThanhtoan.Capnhatthanhtoan(hd);
+            return dalThanhtoan.Capnhatthanhtoan(tt);
         }
 
-        public bool Xoathanhtoan(DTOThanhtoan hd)
+        public bool Xoathanhtoan(DTOThanhtoan tt)
         {
-            return dalThanhtoan.Xoathanhtoan(hd);
+            return dalThanhtoan.Xoathanhtoan(tt);
         }
 
         public DataTable Timthanhtoan(string tukhoa)
