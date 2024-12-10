@@ -49,5 +49,13 @@ namespace PC_GUI
             UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nvien);
             ui.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DTO_NhanVien nvien = new DTO_NhanVien();
+            nvien.MaNV = "NV001";
+            UI_ThemSP ui = new UI_ThemSP(nvien);
+            ui.Show();
+        }
     }
 }

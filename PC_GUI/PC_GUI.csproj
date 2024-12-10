@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="BLL\BLL_BaoGia.cs" />
     <Compile Include="BLL\BLL_KiemTraTruyCap.cs" />
+    <Compile Include="BLL\BLL_SanPham.cs" />
     <Compile Include="BLL\BLL_YeuCauMH.cs" />
     <Compile Include="BLL\LoadCB.cs" />
     <Compile Include="DAL\BAOGIA.cs">
@@ -78,6 +79,7 @@
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL_BaoGia.cs" />
+    <Compile Include="DAL\DAL_SanPham.cs" />
     <Compile Include="DAL\DAL_YeuCauMH.cs" />
     <Compile Include="DAL\DANHGIASP_TRONGDON.cs">
       <DependentUpon>EF.tt</DependentUpon>
@@ -158,6 +160,12 @@
     <Compile Include="UI_NhapSua_YeuCauMH.Designer.cs">
       <DependentUpon>UI_NhapSua_YeuCauMH.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_ThemSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_ThemSP.Designer.cs">
+      <DependentUpon>UI_ThemSP.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_View_BaoGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI_NhapSua_YeuCauMH.resx">
       <DependentUpon>UI_NhapSua_YeuCauMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_ThemSP.resx">
+      <DependentUpon>UI_ThemSP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_View_BaoGia.resx">
       <DependentUpon>UI_View_BaoGia.cs</DependentUpon>

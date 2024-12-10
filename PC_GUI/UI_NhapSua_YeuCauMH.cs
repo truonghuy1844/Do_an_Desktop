@@ -395,5 +395,17 @@ namespace PC_GUI
             
             
         }
+
+        private void btnSPhamMoi_Click(object sender, EventArgs e)
+        {
+            UI_ThemSP ui    = new UI_ThemSP(nv);
+            var result =  ui.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+
+                // Cập nhật dữ liệu combobox
+                Load_CB_SP();
+            }
+        }
     }
 }
