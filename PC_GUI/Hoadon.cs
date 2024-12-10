@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using PC_DTO;
+using PC_BLL;
 namespace PC_GUI
 {
     public partial class Hoadon : Form
@@ -241,7 +243,18 @@ namespace PC_GUI
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                 txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
                 txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
+                txtThanhtien.Text= dataGridView1.CurrentRow.Cells["ThanhTien"].Value.ToString();
             }
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThanhtoan_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
