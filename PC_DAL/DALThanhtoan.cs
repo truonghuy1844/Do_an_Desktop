@@ -118,6 +118,26 @@ namespace PC_DAL
             { return null; }
             finally { conn.Close(); }
         }
+        public DataTable Thuchien(string mahd)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+               
+                    cmd = new SqlCommand("UPDATE HOADON SET TrangThai = N'Đã thanh toán' WHERE MaHD LIKE @mahd;", conn);
+                
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (SqlException)
+            { return null; }
+            finally { conn.Close(); }
+
+        }
     }
     
 }

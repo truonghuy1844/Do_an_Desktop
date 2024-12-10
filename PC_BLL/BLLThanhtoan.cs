@@ -39,6 +39,10 @@ namespace PC_BLL
         {
             return dalThanhtoan.Timthanhtoan(tukhoa);
         }
+        public DataTable Thuchien(string matt)
+        {
+            return dalThanhtoan.Thuchien(matt);
+        }
     }
    
 }

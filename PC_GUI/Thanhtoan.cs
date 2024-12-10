@@ -78,7 +78,52 @@ namespace PC_GUI
 
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridViewTT.SelectedRows.Count > 0)
+            {
+                bool okTao = true;
+
+
+
+                if (dateTimePicker1.Value > DateTime.Now)
+                {
+                    okTao = false;
+                    MessageBox.Show("Ngày không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
+                    dateTimePicker1.Focus();
+                }
+                if (!txtMaHD.Text.All(char.IsDigit))
+                {
+                    okTao = false;
+                    MessageBox.Show("Mã hóa đơn chỉ chứa ký tự số ", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    txtMaHD.Focus();
+                }
+                if ((txtMaHD.Text.Length < 1) || (txtMaHD.Text.Length > 10))
+                {
+                    okTao = false;
+                    MessageBox.Show("Mã hóa đơn tối thiểu 1 ký tự và không quá 10 ký tự");
+                    txtMaHD.Focus();
+                }
+
+                if (okTao)
+                {
+                    DTOThanhtoan ttmoi = new DTOThanhtoan();
+                    ttmoi.MaHD = txtMaHD.Text;
+                    ttmoi.NgayTT = dateTimePicker1.Value;
+                    ttmoi.MaTT = txtMaTT.Text;
+                    ttmoi.TrangThai = txtTrangthai.Text;
+                    if (bllThanhtoan.Capnhatthanhtoan(ttmoi))
+                    {
+                        MessageBox.Show("Cập nhật thông tin đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật thông tin đơn hàng thất bại", "Thông báo", MessageBoxButtons.OK);
+                    }
+
+                }
+                dataGridViewTT.DataSource = bllThanhtoan.LoadData();
+            }
+            else
+            { MessageBox.Show("Hãy chọn 1 hàng để thực hiện"); }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -118,6 +163,8 @@ namespace PC_GUI
 
         private void btnThuchien_Click(object sender, EventArgs e)
         {
+            string mahd = txtMaHD.Text;
+            DataTable dt = bllThanhtoan.Thuchien(mahd);
             
         }
     }
