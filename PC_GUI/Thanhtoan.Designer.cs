@@ -30,7 +30,6 @@
         {
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
-            this.btnTaomoi = new System.Windows.Forms.Button();
             this.btnCapnhat = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -69,16 +68,6 @@
             this.btnTim.Text = "Tìm hoá đơn";
             this.btnTim.UseVisualStyleBackColor = true;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // btnTaomoi
-            // 
-            this.btnTaomoi.Location = new System.Drawing.Point(794, 740);
-            this.btnTaomoi.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTaomoi.Name = "btnTaomoi";
-            this.btnTaomoi.Size = new System.Drawing.Size(150, 44);
-            this.btnTaomoi.TabIndex = 62;
-            this.btnTaomoi.Text = "Clear";
-            this.btnTaomoi.UseVisualStyleBackColor = true;
             // 
             // btnCapnhat
             // 
@@ -227,7 +216,6 @@
             this.Controls.Add(this.dataGridViewTT);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnTim);
-            this.Controls.Add(this.btnTaomoi);
             this.Controls.Add(this.btnCapnhat);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
@@ -247,7 +235,6 @@
 
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.Button btnTaomoi;
         private System.Windows.Forms.Button btnCapnhat;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;

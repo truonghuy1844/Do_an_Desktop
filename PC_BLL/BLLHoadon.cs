@@ -39,5 +39,17 @@ namespace PC_BLL
         {
             return dalHoadon.TimHoadon(tukhoa);
         }
+        public DataTable loadmadmh()
+        {
+            return dalHoadon.loadmadmh();
+        }
+        public bool Kiemtramadmh(string madmh)
+        {
+            return dalHoadon.Kiemtramahd(madmh);
+                }
+        public bool Kiemtrasp(string sp)
+        {
+            return dalHoadon.Kiemtrasp(sp);
+        }
     }
 }

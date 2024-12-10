@@ -64,6 +64,21 @@ namespace PC_DAL
             catch (SqlException) { return false; }
             finally { conn.Close(); }
         }
+        public bool Kiemtramadmh(string madmh)
+        {
+            try
+            {
+                conn.Open();
+                string myQuery = "Select COUNT(*) from CT_DONMUAHANG where MaDMH  = @madmh";
+                SqlCommand cmd = new SqlCommand(myQuery, conn);
+                cmd.Parameters.AddWithValue("@madmh", madmh);
+
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0 ? true : false;
+            }
+            catch (SqlException) { return false; }
+            finally { conn.Close(); }
+        }
         public bool Capnhathoadon(DTOHoadon hd)
         {
             try
@@ -133,6 +148,23 @@ namespace PC_DAL
             }
             catch (SqlException) { return null; }
             finally { conn.Close(); }
+
+
         }
-    }
+        public bool Kiemtrasp(string sp)
+        {
+            try
+            {
+                conn.Open();
+                string myQuery = "Select COUNT(*) from CT_DONMUAHANG where MaSP=@masp";
+                SqlCommand cmd = new SqlCommand(myQuery, conn);
+                cmd.Parameters.AddWithValue("@masp", sp);
+
+                int count = (int)cmd.ExecuteScalar();
+                return count < 0 ? true : false;
+            }
+            catch (SqlException) { return false; }
+            finally { conn.Close(); }
+        }
+    } 
 }
