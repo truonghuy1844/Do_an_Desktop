@@ -395,5 +395,11 @@ namespace PC_GUI
             
             
         }
+
+        private void btnSPhamMoi_Click(object sender, EventArgs e)
+        {
+            UI_ThemSP ui    = new UI_ThemSP(nv);
+            ui.ShowDialog();
+        }
     }
 }

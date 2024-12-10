@@ -49,29 +49,32 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.toolTipMaYC = new System.Windows.Forms.ToolTip(this.components);
             this.btnXoaYC = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSPhamMoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCT_YC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYCMH)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSuaSP
             // 
             this.btnSuaSP.AutoSize = true;
-            this.btnSuaSP.Location = new System.Drawing.Point(786, 256);
+            this.btnSuaSP.Location = new System.Drawing.Point(652, 35);
             this.btnSuaSP.Name = "btnSuaSP";
             this.btnSuaSP.Size = new System.Drawing.Size(176, 35);
             this.btnSuaSP.TabIndex = 109;
-            this.btnSuaSP.Text = "Sửa sản phẩm";
+            this.btnSuaSP.Text = "Sửa";
             this.btnSuaSP.UseVisualStyleBackColor = true;
             this.btnSuaSP.Click += new System.EventHandler(this.btnSuaSP_Click);
             // 
             // btnXoaSP
             // 
             this.btnXoaSP.AutoSize = true;
-            this.btnXoaSP.Location = new System.Drawing.Point(515, 256);
+            this.btnXoaSP.Location = new System.Drawing.Point(381, 33);
             this.btnXoaSP.Name = "btnXoaSP";
             this.btnXoaSP.Size = new System.Drawing.Size(176, 39);
             this.btnXoaSP.TabIndex = 108;
-            this.btnXoaSP.Text = "Xóa sản phẩm";
+            this.btnXoaSP.Text = "Xóa";
             this.btnXoaSP.UseVisualStyleBackColor = true;
             this.btnXoaSP.Click += new System.EventHandler(this.btnXoaSP_Click);
             // 
@@ -80,12 +83,12 @@
             this.dgvCT_YC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCT_YC.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvCT_YC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCT_YC.Location = new System.Drawing.Point(456, 325);
+            this.dgvCT_YC.Location = new System.Drawing.Point(456, 372);
             this.dgvCT_YC.Name = "dgvCT_YC";
             this.dgvCT_YC.RowHeadersWidth = 82;
             this.dgvCT_YC.RowTemplate.Height = 33;
             this.dgvCT_YC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCT_YC.Size = new System.Drawing.Size(850, 499);
+            this.dgvCT_YC.Size = new System.Drawing.Size(850, 452);
             this.dgvCT_YC.TabIndex = 107;
             this.dgvCT_YC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
             this.dgvCT_YC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
@@ -101,11 +104,11 @@
             // btnThemSP
             // 
             this.btnThemSP.AutoSize = true;
-            this.btnThemSP.Location = new System.Drawing.Point(244, 256);
+            this.btnThemSP.Location = new System.Drawing.Point(110, 35);
             this.btnThemSP.Name = "btnThemSP";
             this.btnThemSP.Size = new System.Drawing.Size(176, 40);
             this.btnThemSP.TabIndex = 101;
-            this.btnThemSP.Text = "Thêm sản phẩm";
+            this.btnThemSP.Text = "Thêm";
             this.btnThemSP.UseVisualStyleBackColor = true;
             this.btnThemSP.Click += new System.EventHandler(this.btnThemSP_Click);
             // 
@@ -129,12 +132,12 @@
             // 
             this.dgvYCMH.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvYCMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvYCMH.Location = new System.Drawing.Point(12, 325);
+            this.dgvYCMH.Location = new System.Drawing.Point(12, 372);
             this.dgvYCMH.Name = "dgvYCMH";
             this.dgvYCMH.RowHeadersWidth = 20;
             this.dgvYCMH.RowTemplate.Height = 33;
             this.dgvYCMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvYCMH.Size = new System.Drawing.Size(438, 499);
+            this.dgvYCMH.Size = new System.Drawing.Size(438, 452);
             this.dgvYCMH.TabIndex = 97;
             this.dgvYCMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYCMH_CellContentClick);
             this.dgvYCMH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYCMH_CellContentClick);
@@ -142,7 +145,7 @@
             // btnYeuCauDuyet
             // 
             this.btnYeuCauDuyet.AutoSize = true;
-            this.btnYeuCauDuyet.Location = new System.Drawing.Point(1001, 88);
+            this.btnYeuCauDuyet.Location = new System.Drawing.Point(1001, 81);
             this.btnYeuCauDuyet.Name = "btnYeuCauDuyet";
             this.btnYeuCauDuyet.Size = new System.Drawing.Size(213, 39);
             this.btnYeuCauDuyet.TabIndex = 96;
@@ -222,7 +225,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.AutoSize = true;
-            this.btnCapNhat.Location = new System.Drawing.Point(1001, 148);
+            this.btnCapNhat.Location = new System.Drawing.Point(1001, 149);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(213, 39);
             this.btnCapNhat.TabIndex = 111;
@@ -233,7 +236,7 @@
             // btnXoaYC
             // 
             this.btnXoaYC.AutoSize = true;
-            this.btnXoaYC.Location = new System.Drawing.Point(1001, 208);
+            this.btnXoaYC.Location = new System.Drawing.Point(1001, 217);
             this.btnXoaYC.Name = "btnXoaYC";
             this.btnXoaYC.Size = new System.Drawing.Size(213, 39);
             this.btnXoaYC.TabIndex = 112;
@@ -241,19 +244,41 @@
             this.btnXoaYC.UseVisualStyleBackColor = true;
             this.btnXoaYC.Click += new System.EventHandler(this.btnXoaYC_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnThemSP);
+            this.groupBox1.Controls.Add(this.btnXoaSP);
+            this.groupBox1.Controls.Add(this.btnSuaSP);
+            this.groupBox1.Location = new System.Drawing.Point(134, 254);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(842, 94);
+            this.groupBox1.TabIndex = 113;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thêm sản phẩm vào yêu cầu mua hàng";
+            // 
+            // btnSPhamMoi
+            // 
+            this.btnSPhamMoi.AutoSize = true;
+            this.btnSPhamMoi.Location = new System.Drawing.Point(1001, 285);
+            this.btnSPhamMoi.Name = "btnSPhamMoi";
+            this.btnSPhamMoi.Size = new System.Drawing.Size(216, 39);
+            this.btnSPhamMoi.TabIndex = 114;
+            this.btnSPhamMoi.Text = "Thêm sản phẩm mới";
+            this.btnSPhamMoi.UseVisualStyleBackColor = true;
+            this.btnSPhamMoi.Click += new System.EventHandler(this.btnSPhamMoi_Click);
+            // 
             // UI_NhapSua_YeuCauMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1318, 836);
+            this.Controls.Add(this.btnSPhamMoi);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnXoaYC);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.cbSanPham);
-            this.Controls.Add(this.btnSuaSP);
-            this.Controls.Add(this.btnXoaSP);
             this.Controls.Add(this.dgvCT_YC);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnThemSP);
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvYCMH);
@@ -270,6 +295,8 @@
             this.Load += new System.EventHandler(this.UI_NhapSua_YeuCauMH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCT_YC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYCMH)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +324,7 @@
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.ToolTip toolTipMaYC;
         private System.Windows.Forms.Button btnXoaYC;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnSPhamMoi;
     }
 }
