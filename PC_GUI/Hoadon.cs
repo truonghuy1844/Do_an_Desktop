@@ -15,12 +15,12 @@ using System.Text.RegularExpressions;
 namespace PC_GUI
 {
     public partial class Hoadon : Form
-    {BLLHoadon bllHoadon= new BLLHoadon();
+    {
         public Hoadon()
         {
             InitializeComponent();
         }
-
+        BLLHoadon bllHoadon = new BLLHoadon();
         private void Hoadon_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = bllHoadon.LoadData();
@@ -29,7 +29,7 @@ namespace PC_GUI
             txtDongia.Enabled = false;
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
-            cbSanpham .Enabled = false;
+
             txtThanhtien.Enabled = false;
             cbMaDH.DataSource = bllHoadon.loadmadmh();
             cbMaDH.DisplayMember = "MaDMH";
@@ -143,13 +143,14 @@ namespace PC_GUI
         {
             txtMaHD.Enabled = true;
             dateTimePicker1.Enabled = true;
-
+            cbMaDH.Enabled = true;
+            cbSP.Enabled = true;
             txtMaHD.Focus();
             txtMaHD.Text = string.Empty;
             txtGhichu.Text = string.Empty;
             txtSoluong.Text = string.Empty;
             txtDongia.Text = string.Empty;
-
+            cbSP.SelectedIndex = -1;
             btnLuu.Enabled = true;
             
         }
@@ -166,14 +167,15 @@ namespace PC_GUI
                 txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
                 cbMaDH.SelectedValue = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
                 txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
-                cbSanpham .Text = dataGridView1.CurrentRow.Cells["TenSP"].Value.ToString();
+                cbSP.SelectedValue = dataGridView1.CurrentRow.Cells["TenSP"].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                 txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
                 txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
                 txtThanhtien.Text = dataGridView1.CurrentRow.Cells["Tonghoadon"].Value.ToString();
 
                 txtMaHD.Enabled = false;
-
+                cbMaDH.Enabled = false;
+                cbSP.Enabled = false;
             }
         }
 
@@ -224,24 +226,20 @@ namespace PC_GUI
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbMaDH.SelectedIndex != -1)
-        {     
-
-                string madmh = cbMaDH.SelectedValue.ToString();
-            cbSanpham.DataSource = bllHoadon.loadtensp(madmh);
-            cbSanpham.DisplayMember = "TenSP";
-
-
+            {   
+            string madmh = cbMaDH.SelectedValue.ToString();
+            cbSP.DataSource = bllHoadon.loadtensp(madmh);
+            cbSP.DisplayMember = "TenSP";
+            cbSP.ValueMember = "TenSP";
+            }
         }
-    }
         private void cbSanpham_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbSanpham.SelectedIndex != -1)
+            if (cbSP.SelectedIndex != -1)
             {
                 try
                 {
-                    string tensp = cbSanpham.SelectedValue.ToString();
-
-                    
+                    string tensp = cbSP.SelectedValue.ToString();
                     var result = bllHoadon.loadsldg(tensp);
 
                     if (result is DataTable dt && dt.Rows.Count > 0)
@@ -258,9 +256,9 @@ namespace PC_GUI
                         txtSoluong.Text = "0";
                     }
                 }
-                catch 
+                catch
                 {
-                    
+
                     MessageBox.Show($"Không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -274,7 +272,7 @@ namespace PC_GUI
                 if (rs == DialogResult.Yes)
                 {
                     DTOHoadon dhxoa = new DTOHoadon();
-                    dhxoa.MaDMH = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
+                    dhxoa.MaHD = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
                     if (bllHoadon.Xoahoadon(dhxoa))
                     {
                         MessageBox.Show("Xóa đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);

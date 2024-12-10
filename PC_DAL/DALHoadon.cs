@@ -103,7 +103,7 @@ namespace PC_DAL
                 conn.Open();
                 string myQuery = "Delete from HOADON where MaHD = @maHD";
                 SqlCommand cmd = new SqlCommand(myQuery, conn);
-                cmd.Parameters.AddWithValue("@mahd", hd.MaDMH);
+                cmd.Parameters.AddWithValue("@mahd", hd.MaHD);
 
                 return cmd.ExecuteNonQuery() > 0 ? true : false;
             }
@@ -140,7 +140,7 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from DONMUAHANG");
+                SqlCommand cmd = new SqlCommand("Select * from DONMUAHANG",conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -156,12 +156,9 @@ namespace PC_DAL
 
             try
             {
-
-
-
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select * from SANPHAM join CT_DONMUAHANG" +
-                "on SANPHAM.MaSP = CT_DONMUAHANG.MaSP" +
+                " on SANPHAM.MaSP = CT_DONMUAHANG.MaSP" +
                 " where CT_DONMUAHANG.MaDMH = @madmh", conn);
                 cmd.Parameters.AddWithValue("@madmh", madm);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -169,7 +166,6 @@ namespace PC_DAL
                 da.Fill(dt);
                 return dt;
             }
-
             catch (SqlException) { return null; }
             finally { conn.Close(); }
         }
@@ -177,9 +173,7 @@ namespace PC_DAL
         {
 
             try
-            {
-
-
+            {   
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select * from SANPHAM join CT_DONMUAHANG" +
                 "on SANPHAM.MaSP = CT_DONMUAHANG.MaSP" + "join CT_BAOGIA on CT_DONMUAHANG.MaBG=CT_BAOGIA.MaBG " +
