@@ -232,21 +232,6 @@ namespace PC_GUI
             Thanhtoan tt = new Thanhtoan();
             tt.Show();
         }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridView1.SelectedRows != null)
-            {
-                txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
-                txtMaDH.Text = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
-                txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
-                txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
-                txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
-                txtThanhtien.Text= dataGridView1.CurrentRow.Cells["ThanhTien"].Value.ToString();
-            }
-        }
-
         private void btnThem_Click_1(object sender, EventArgs e)
         {
 
@@ -255,6 +240,21 @@ namespace PC_GUI
         private void btnThanhtoan_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedRows != null)
+            {
+                txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
+                txtMaDH.Text = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
+                txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
+                txtSanPham.Text = dataGridView1.CurrentRow.Cells["MaSP"].Value.ToString();
+                dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
+                txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
+                txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
+                txtThanhtien.Text = dataGridView1.CurrentRow.Cells["ThanhTien"].Value.ToString();
+            }
         }
     }
 }
