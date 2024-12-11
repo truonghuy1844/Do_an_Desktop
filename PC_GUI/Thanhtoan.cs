@@ -165,7 +165,13 @@ namespace PC_GUI
         {
             string mahd = txtMaHD.Text;
             DataTable dt = bllThanhtoan.Thuchien(mahd);
+            MessageBox.Show("Thanh toán thành công");
             
+        }
+
+        private void Thanhtoan_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
    

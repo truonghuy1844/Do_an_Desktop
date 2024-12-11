@@ -105,8 +105,8 @@ namespace PC_DAL
                 }
                 else
                 {
-                    cmd = new SqlCommand("Select * from THANHTOAN where MaTT LIKE @matt", conn);
-                    cmd.Parameters.AddWithValue("@matt", "%" + tukhoa + "%");
+                    cmd = new SqlCommand("Select * from THANHTOAN where MaHD LIKE @mahd", conn);
+                    cmd.Parameters.AddWithValue("@mahd", "%" + tukhoa + "%");
                 }
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -123,10 +123,8 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand();
-               
-                    cmd = new SqlCommand("UPDATE HOADON SET TrangThai = N'Đã thanh toán' WHERE MaHD LIKE @mahd;", conn);
-                
+                SqlCommand cmd = new SqlCommand("UPDATE THANHTOAN SET TrangThai = N'Đã thanh toán' WHERE MaHD LIKE @mahd", conn);
+                cmd.Parameters.AddWithValue("@mahd", mahd);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

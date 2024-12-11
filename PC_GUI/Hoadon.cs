@@ -133,12 +133,6 @@ namespace PC_GUI
         }
 
         
-
-        private void btnThanhtoan_Click(object sender, EventArgs e)
-        {
-            Thanhtoan tt = new Thanhtoan();
-            tt.Show();
-        }
         private void btnThem_Click_1(object sender, EventArgs e)
         {
             txtMaHD.Enabled = true;
@@ -157,7 +151,8 @@ namespace PC_GUI
 
         private void btnThanhtoan_Click_1(object sender, EventArgs e)
         {
-
+            Thanhtoan tt = new Thanhtoan();
+            tt.Show();
         }
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -230,7 +225,7 @@ namespace PC_GUI
             string madmh = cbMaDH.SelectedValue.ToString();
             cbSP.DataSource = bllHoadon.loadtensp(madmh);
             cbSP.DisplayMember = "TenSP";
-            cbSP.ValueMember = "TenSP";
+            cbSP.ValueMember = "MaSP";
             }
         }
         private void cbSanpham_SelectedIndexChanged(object sender, EventArgs e)
@@ -239,8 +234,8 @@ namespace PC_GUI
             {
                 try
                 {
-                    string tensp = cbSP.SelectedValue.ToString();
-                    var result = bllHoadon.loadsldg(tensp);
+                    string masp = cbSP.SelectedValue.ToString();
+                    var result = bllHoadon.loadsldg(masp);
 
                     if (result is DataTable dt && dt.Rows.Count > 0)
                     {
