@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PC_DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,51 @@ namespace PC_GUI
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DTO_NhanVien nvien = new DTO_NhanVien();
+            nvien.MaNV = "NV020";
+            UI_View_BaoGia ui = new UI_View_BaoGia(nvien);
+            ui.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DTO_NhanVien nvien = new DTO_NhanVien();
+            nvien.MaNV = "NV020";
+            UI_NhapSua_BaoGia ui = new UI_NhapSua_BaoGia(nvien);
+            ui.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DTO_NhanVien nvien = new DTO_NhanVien();
+            nvien.MaNV = "NV020";
+            UI_YeuCauMH ui = new UI_YeuCauMH(nvien);
+            ui.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DTO_NhanVien nvien = new DTO_NhanVien();
+            nvien.MaNV = "NV020";
+            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nvien);
+            ui.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DTO_NhanVien nvien = new DTO_NhanVien();
+            nvien.MaNV = "NV001";
+            UI_ThemSP ui = new UI_ThemSP(nvien);
+            ui.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
