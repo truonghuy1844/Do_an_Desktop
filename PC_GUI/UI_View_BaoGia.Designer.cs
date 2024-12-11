@@ -104,7 +104,7 @@
             this.cbbLocSP.Location = new System.Drawing.Point(195, 77);
             this.cbbLocSP.MaxDropDownItems = 5;
             this.cbbLocSP.Name = "cbbLocSP";
-            this.cbbLocSP.Size = new System.Drawing.Size(488, 33);
+            this.cbbLocSP.Size = new System.Drawing.Size(345, 33);
             this.cbbLocSP.Sorted = true;
             this.cbbLocSP.TabIndex = 23;
             this.cbbLocSP.SelectedIndexChanged += new System.EventHandler(this.cbbLocSP_SelectedIndexChanged);
@@ -149,7 +149,7 @@
             this.cbLoc_NCC.FormattingEnabled = true;
             this.cbLoc_NCC.Location = new System.Drawing.Point(195, 34);
             this.cbLoc_NCC.Name = "cbLoc_NCC";
-            this.cbLoc_NCC.Size = new System.Drawing.Size(488, 33);
+            this.cbLoc_NCC.Size = new System.Drawing.Size(345, 33);
             this.cbLoc_NCC.TabIndex = 10;
             this.cbLoc_NCC.SelectedIndexChanged += new System.EventHandler(this.cbLoc_NCC_SelectedIndexChanged);
             // 
@@ -165,7 +165,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(702, 85);
+            this.label3.Location = new System.Drawing.Point(551, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 25);
             this.label3.TabIndex = 8;
@@ -174,7 +174,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(702, 42);
+            this.label2.Location = new System.Drawing.Point(565, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 25);
             this.label2.TabIndex = 7;
@@ -182,19 +182,17 @@
             // 
             // datetimepickerEnd
             // 
-            this.datetimepickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetimepickerEnd.Location = new System.Drawing.Point(759, 80);
+            this.datetimepickerEnd.Location = new System.Drawing.Point(608, 80);
             this.datetimepickerEnd.Name = "datetimepickerEnd";
-            this.datetimepickerEnd.Size = new System.Drawing.Size(255, 31);
+            this.datetimepickerEnd.Size = new System.Drawing.Size(406, 31);
             this.datetimepickerEnd.TabIndex = 1;
             this.datetimepickerEnd.ValueChanged += new System.EventHandler(this.datetimepickerEnd_ValueChanged);
             // 
             // datetimepickerStart
             // 
-            this.datetimepickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetimepickerStart.Location = new System.Drawing.Point(759, 37);
+            this.datetimepickerStart.Location = new System.Drawing.Point(608, 37);
             this.datetimepickerStart.Name = "datetimepickerStart";
-            this.datetimepickerStart.Size = new System.Drawing.Size(255, 31);
+            this.datetimepickerStart.Size = new System.Drawing.Size(406, 31);
             this.datetimepickerStart.TabIndex = 0;
             this.datetimepickerStart.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.datetimepickerStart.ValueChanged += new System.EventHandler(this.datetimepickerStart_ValueChanged);

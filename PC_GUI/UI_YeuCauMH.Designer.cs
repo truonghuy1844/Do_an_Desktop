@@ -144,16 +144,16 @@
             this.groupBox1.Controls.Add(this.datetimepickerStart);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.datetimepickerEnd);
-            this.groupBox1.Location = new System.Drawing.Point(101, 270);
+            this.groupBox1.Location = new System.Drawing.Point(44, 270);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1100, 137);
+            this.groupBox1.Size = new System.Drawing.Size(1214, 137);
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             // 
             // btnLoc_BoTG
             // 
             this.btnLoc_BoTG.AutoSize = true;
-            this.btnLoc_BoTG.Location = new System.Drawing.Point(867, 81);
+            this.btnLoc_BoTG.Location = new System.Drawing.Point(971, 83);
             this.btnLoc_BoTG.Name = "btnLoc_BoTG";
             this.btnLoc_BoTG.Size = new System.Drawing.Size(217, 41);
             this.btnLoc_BoTG.TabIndex = 22;
@@ -164,7 +164,7 @@
             // btnLoc
             // 
             this.btnLoc.AutoSize = true;
-            this.btnLoc.Location = new System.Drawing.Point(867, 30);
+            this.btnLoc.Location = new System.Drawing.Point(971, 31);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(217, 40);
             this.btnLoc.TabIndex = 21;
@@ -219,10 +219,9 @@
             // 
             // datetimepickerStart
             // 
-            this.datetimepickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datetimepickerStart.Location = new System.Drawing.Point(551, 33);
             this.datetimepickerStart.Name = "datetimepickerStart";
-            this.datetimepickerStart.Size = new System.Drawing.Size(247, 31);
+            this.datetimepickerStart.Size = new System.Drawing.Size(397, 31);
             this.datetimepickerStart.TabIndex = 0;
             this.datetimepickerStart.Value = new System.DateTime(2024, 1, 1, 0, 0, 0, 0);
             this.datetimepickerStart.ValueChanged += new System.EventHandler(this.datetimepickerStart_ValueChanged);
@@ -238,10 +237,9 @@
             // 
             // datetimepickerEnd
             // 
-            this.datetimepickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datetimepickerEnd.Location = new System.Drawing.Point(551, 90);
             this.datetimepickerEnd.Name = "datetimepickerEnd";
-            this.datetimepickerEnd.Size = new System.Drawing.Size(247, 31);
+            this.datetimepickerEnd.Size = new System.Drawing.Size(397, 31);
             this.datetimepickerEnd.TabIndex = 1;
             this.datetimepickerEnd.ValueChanged += new System.EventHandler(this.datetimepickerEnd_ValueChanged);
             // 
