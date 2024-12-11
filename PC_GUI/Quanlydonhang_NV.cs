@@ -214,6 +214,14 @@ namespace PC_GUI
                 cbTrangThai.SelectedValue = dataGridView2.CurrentRow.Cells["TThai"].Value.ToString();
 
                 txtMaDMH.Enabled = false;
+                if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất")
+                {
+                    cbTrangThai.Enabled = false;
+                }
+                else
+                {
+                    cbTrangThai.Enabled = true;
+                }
                 cbLoc.SelectedIndex = -1;
             }
         }

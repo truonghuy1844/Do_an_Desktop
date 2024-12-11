@@ -339,7 +339,16 @@ namespace PC_GUI
                 txtMoTa.Text = dataGridView1.CurrentRow.Cells["MoTa"].Value.ToString();
                 txtChietkhau.Text = dataGridView1.CurrentRow.Cells["Chietkhau"].Value.ToString();
                 txtMaDMH.Enabled = false;
+                if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất")
+                {
+                    cbTrangThai.Enabled = false;
+                }
+                else
+                {
+                    cbTrangThai.Enabled = true;
+                }
                 cbLoc.SelectedIndex = -1;
+
              }
         }
 
