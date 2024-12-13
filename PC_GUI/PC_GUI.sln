@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC_GUI", "PC_GUI.csproj", "{EFC42199-12E5-4E1A-A079-4D692B16ECE4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E30D283E-E4D5-4BA8-AB7B-4BCDA0E00497} = {E30D283E-E4D5-4BA8-AB7B-4BCDA0E00497}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PC_BLL", "..\PC_BLL\PC_BLL.csproj", "{2D765E26-B02B-4910-97C6-7CEBADF60441}"
 EndProject
