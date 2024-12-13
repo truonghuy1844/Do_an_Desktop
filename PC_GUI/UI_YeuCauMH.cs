@@ -55,7 +55,9 @@ namespace PC_GUI
             txtSoSP.ReadOnly = true;
             txtTinhTrang.ReadOnly = true;
             txtMaYC.ReadOnly = true;
-            
+            txtGiaTriUocTinh.ReadOnly = true;
+            txtNgayDuyet.ReadOnly = true;
+
             dataGridView1.ReadOnly = true;
             datetimepickerStart.MaxDate = datetimepickerEnd.Value;
             datetimepickerEnd.MinDate = datetimepickerStart.Value;

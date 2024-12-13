@@ -237,8 +237,11 @@ namespace PC_GUI
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 txtMaBG.Text = row.Cells["MaBG"].Value.ToString();
-                cbNCC.SelectedValue = row.Cells["MaNCC"].Value.ToString();          
-                                
+                cbNCC.SelectedValue = row.Cells["MaNCC"].Value.ToString();
+                txtMota.Text = "";
+                cbSanPham.SelectedIndex = 0;
+                txtDonGia.Text = "";
+
             }
             catch { return; }
         }

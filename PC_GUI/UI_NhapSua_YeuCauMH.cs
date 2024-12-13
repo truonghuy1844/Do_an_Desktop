@@ -125,6 +125,8 @@ namespace PC_GUI
         {
             try
             {
+                cbSanPham.SelectedIndex = 0;
+                txtSoLuong.Text = "";
                 DataGridViewRow row = dgvYCMH.Rows[e.RowIndex];
                 txtMaYC.Text = row.Cells["MaYC"].Value.ToString();
                 cbBoPhanYC.SelectedItem = row.Cells["PhongBanYC"].Value.ToString();
