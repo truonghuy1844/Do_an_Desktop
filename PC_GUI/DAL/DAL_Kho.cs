@@ -1,26 +1,26 @@
-﻿using System;
+﻿using PC_DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PC_DTO;
 
-namespace PC_DAL
+namespace PC_GUI.DAL
 {
-    public class DALKho
+    public class DAL_Kho
     {
-        QLMHEntities db = new QLMHEntities();
+        QLMHEntities2 db = new QLMHEntities2();
         public List<DTOKho> LoadKho()
         {
             var listKho = from k in db.KHOHANGs
-                         select new DTOKho  
-                         {
-                            MaKho = k.MaKho,
-                            TenKho = k.TenKho,
-                            LoaiKho = k.LoaiKho,
-                            SucChua = k.Suc_Chua,
-                            DiaChi = k.DiaChi,
-                         };
+                          select new DTOKho
+                          {
+                              MaKho = k.MaKho,
+                              TenKho = k.TenKho,
+                              LoaiKho = k.LoaiKho,
+                              SucChua = k.Suc_Chua,
+                              DiaChi = k.DiaChi,
+                          };
             return listKho.ToList();
         }
         public void AddKho(DTOKho dTOKho)
@@ -29,14 +29,14 @@ namespace PC_DAL
             {
                 KHOHANG kh = new KHOHANG()
                 {
-                   MaKho = dTOKho.MaKho,
-                   TenKho= dTOKho.TenKho,
-                   DiaChi = dTOKho.DiaChi,
-                   Suc_Chua = $"{dTOKho.SucChuaTanSo} tấn",
-                   LoaiKho = dTOKho.LoaiKho
+                    MaKho = dTOKho.MaKho,
+                    TenKho = dTOKho.TenKho,
+                    DiaChi = dTOKho.DiaChi,
+                    Suc_Chua = $"{dTOKho.SucChuaTanSo} tấn",
+                    LoaiKho = dTOKho.LoaiKho
 
                 };
-                using (var db = new QLMHEntities())
+                using (var db = new QLMHEntities2())
                 {
                     var existingKho = db.KHOHANGs.Find(dTOKho.MaKho);
                     if (existingKho != null)
@@ -68,15 +68,15 @@ namespace PC_DAL
         public List<DTOKho> TimKho(string maKho)
         {
             var khoTim = from kh in db.KHOHANGs
-                        where kh.MaKho == maKho
-                        select new DTOKho
-                        {
-                            MaKho = kh.MaKho,
-                            TenKho = kh.TenKho,
-                            DiaChi = kh.DiaChi,
-                            SucChua = kh.Suc_Chua,
-                            LoaiKho = kh.LoaiKho
-                        };
+                         where kh.MaKho == maKho
+                         select new DTOKho
+                         {
+                             MaKho = kh.MaKho,
+                             TenKho = kh.TenKho,
+                             DiaChi = kh.DiaChi,
+                             SucChua = kh.Suc_Chua,
+                             LoaiKho = kh.LoaiKho
+                         };
             return khoTim.ToList();
         }
         public void SuaKho(DTOKho dTOKho)
@@ -130,13 +130,10 @@ namespace PC_DAL
                               LoaiKho = l.LoaiKho,
                               DiaChi = l.DiaChi,
                               SucChua = l.Suc_Chua,
-                        };
+                          };
             return loaiTim.ToList();
         }
-        
-        
 
 
     }
-
 }

@@ -16,8 +16,8 @@ namespace PC_GUI
 {
     public partial class UI_NhapSua_YeuCauMH : Form
     {
-        public DTO_NhanVien nv = new DTO_NhanVien();
-        public UI_NhapSua_YeuCauMH( DTO_NhanVien nvien)
+        public DTONV nv = new DTONV();
+        public UI_NhapSua_YeuCauMH( DTONV nvien)
         {
             InitializeComponent();
             nv.MaNV = nvien.MaNV;

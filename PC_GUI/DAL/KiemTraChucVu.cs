@@ -9,7 +9,7 @@ namespace PC_GUI.DAL
 {
     public class KiemTraChucVu
     {
-        public bool Kiem_Tra_QuanLy(DTO_NhanVien nvien)
+        public bool Kiem_Tra_QuanLy(DTONV nvien)
         {
             QLMHEntities2 qlmh = new QLMHEntities2();
             
@@ -20,7 +20,7 @@ namespace PC_GUI.DAL
                 if (check.ChucVu != "Nhân viên") return true;
             } return false; 
         }
-        public bool Kiem_Tra_PhongBan(DTO_NhanVien nvien) 
+        public bool Kiem_Tra_PhongBan(DTONV nvien) 
         {
             QLMHEntities2 qlmh = new QLMHEntities2();
 

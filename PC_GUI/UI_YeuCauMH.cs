@@ -17,15 +17,15 @@ namespace PC_GUI
 {
     public partial class UI_YeuCauMH : Form
     {
-        public DTO_NhanVien nv = new DTO_NhanVien();
-        public UI_YeuCauMH( DTO_NhanVien nvien)
+        public DTONV nv = new DTONV();
+        public UI_YeuCauMH( DTONV nvien)
         {
             InitializeComponent();
             nv.MaNV = nvien.MaNV;
             BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
 
-            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nvien);
-            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nvien);
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
             if(!KiemTraChucVu || !KiemTraPhongBan)
             {
                 this.Controls.Remove(btnDuyet);

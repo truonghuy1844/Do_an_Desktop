@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PC_BLL;
-using PC_DAL;
+using PC_GUI.BLL;
+
 using PC_DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
@@ -25,7 +25,7 @@ namespace PC_GUI
         {
             LoadComboBox();
         }
-        BLLNV bLLNV = new BLLNV();  
+        BLL_NhanVien bLLNV = new BLL_NhanVien();  
         
         private void LoadComboBox()
         {

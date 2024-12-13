@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\PC_GUI\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\PC_GUI\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,87 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BAOGIA.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CT_BAOGIA.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CT_DONMUAHANG.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CT_YEUCAU.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DALKho.cs" />
-    <Compile Include="DALNV.cs" />
-    <Compile Include="DANHGIASP_TRONGDON.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DANHGIA_NCC.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DONMUAHANG.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HANGHOA_VANCHUYEN.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HOADON.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HOPDONGMH.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KHOHANG.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NHACUNGCAP.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NHANVIEN.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PHANCONG_CONGVIEC.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLMH.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLMH.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLMH.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="QLMH.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLMH.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="SANPHAM.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SANPHAM_XUATKHO.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="THANHTOAN.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="YEUCAU_MUAHANG.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PC_DTO\PC_DTO.csproj">
@@ -140,31 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
-    <EntityDeploy Include="QLMH.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLMH.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="QLMH.edmx.diagram">
-      <DependentUpon>QLMH.edmx</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="QLMH.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLMH.edmx</DependentUpon>
-      <LastGenOutput>QLMH.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="QLMH.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLMH.edmx</DependentUpon>
-      <LastGenOutput>QLMH.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

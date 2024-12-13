@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿
 using PC_DTO;
 using PC_GUI.BLL;
 using System;
@@ -15,8 +15,8 @@ namespace PC_GUI
 {
     public partial class UI_View_BaoGia : Form
     {
-         public DTO_NhanVien nv = new DTO_NhanVien();
-        public UI_View_BaoGia(DTO_NhanVien nvien)
+         public DTONV nv = new DTONV();
+        public UI_View_BaoGia(DTONV nvien)
         {
             InitializeComponent();
             nv = nvien;

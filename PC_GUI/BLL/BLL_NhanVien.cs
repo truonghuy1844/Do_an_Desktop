@@ -1,23 +1,22 @@
-﻿using System;
+﻿using PC_DTO;
+using PC_GUI.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using PC_DTO;
-using PC_DAL;
-using System.Data;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
-namespace PC_BLL
+namespace PC_GUI.BLL
 {
-    public class BLLNV
+    public class BLL_NhanVien
     {
-        DALNV dALNV = new DALNV();
+        DAL_NhanVien dALNV = new DAL_NhanVien();
         public List<DTONV> LoadNVBlL()
         {
             return dALNV.LoadNV();
         }
-       public List<DTOChucVu> LoadChucVu()
+        public List<DTOChucVu> LoadChucVu()
         {
             return dALNV.LoadChucVu();
         }
@@ -64,7 +63,7 @@ namespace PC_BLL
             if (string.IsNullOrEmpty(dTONV.PhongBan))
                 throw new ArgumentException("Phòng ban của nhân viên không được để trống.");
             dALNV.SuaNV(dTONV);
-        }    
+        }
         public void XoaNV(DTONV dTONV)
         {
             dALNV.XoaNV(dTONV);

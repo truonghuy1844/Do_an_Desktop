@@ -1,5 +1,4 @@
-﻿using PC_BLL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PC_DTO;
-using PC_DAL;
+using PC_GUI.BLL;
 
 namespace PC_GUI
 {
@@ -33,7 +32,7 @@ namespace PC_GUI
             comboBoxPhongBan.Enabled = false;
             btnLuu.Enabled = false; 
         }
-        BLLNV bLLNV = new BLLNV();
+        BLL_NhanVien bLLNV = new BLL_NhanVien();
         private void LoadComboBox()
         {
             comboBoxChucVu.DataSource = bLLNV.LoadChucVu();

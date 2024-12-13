@@ -18,7 +18,7 @@ namespace PC_GUI
 {
     public partial class UI_NhapSua_BaoGia : Form
     {
-        public UI_NhapSua_BaoGia(DTO_NhanVien nvien)
+        public UI_NhapSua_BaoGia(DTONV nvien)
         {
             InitializeComponent();
             BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();

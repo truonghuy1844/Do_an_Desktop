@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PC_BLL;
+using PC_GUI.BLL;
 using PC_DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
@@ -19,7 +19,7 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
-        BLLKho bLLKho = new BLLKho();
+        BLL_Kho bLLKho = new BLL_Kho();
         private void AddKho_Load(object sender, EventArgs e)
         {
             LoadComboBox();

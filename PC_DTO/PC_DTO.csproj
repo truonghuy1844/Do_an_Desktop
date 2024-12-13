@@ -41,9 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DTO_BaoGia.cs" />
-    <Compile Include="DTO_NhanVien.cs" />
     <Compile Include="DTO_SanPham.cs" />
     <Compile Include="DTO_YeuCauMH.cs" />
     <Compile Include="DTOKho.cs" />

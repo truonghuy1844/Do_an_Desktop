@@ -1,18 +1,17 @@
-﻿using System;
+﻿
+using PC_DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
-using System.Data;
-using System.Runtime.InteropServices.WindowsRuntime;
-using PC_DTO;
 
-namespace PC_DAL
+namespace PC_GUI.DAL
 {
-    public class DALNV
+    public class DAL_NhanVien
     {
-        QLMHEntities db = new QLMHEntities();
+
+        QLMHEntities2 db = new QLMHEntities2();
         public List<DTONV> LoadNV()
         {
             var listNV = from nv in db.NHANVIENs
@@ -69,7 +68,7 @@ namespace PC_DAL
                     ChucVu = dTONV.ChucVu,
                     PhongBan = dTONV.PhongBan
                 };
-                using (var db = new QLMHEntities())
+                using (var db = new QLMHEntities2())
                 {
                     var existingNV = db.NHANVIENs.Find(dTONV.MaNV);
                     if (existingNV != null)
@@ -88,17 +87,17 @@ namespace PC_DAL
         public List<DTONV> TimNhanVien(string maNV)
         {
             var nvTim = from nv in db.NHANVIENs
-                         where nv.MaNV == maNV
-                         select new DTONV
-                         {
-                             MaNV = nv.MaNV,
-                             TenNV = nv.TenNV,
-                             DiaChi = nv.DiaChi,
-                             GioiTinh = nv.GioiTinh,
-                             SDT = nv.DienThoai,
-                             ChucVu = nv.ChucVu,
-                             PhongBan = nv.PhongBan
-                         };
+                        where nv.MaNV == maNV
+                        select new DTONV
+                        {
+                            MaNV = nv.MaNV,
+                            TenNV = nv.TenNV,
+                            DiaChi = nv.DiaChi,
+                            GioiTinh = nv.GioiTinh,
+                            SDT = nv.DienThoai,
+                            ChucVu = nv.ChucVu,
+                            PhongBan = nv.PhongBan
+                        };
             return nvTim.ToList();
         }
         public void SuaNV(DTONV dTONV)
@@ -154,32 +153,32 @@ namespace PC_DAL
         {
             var nvTim = from nv in db.NHANVIENs
                         where nv.MaNV == maNV && chucVu == nv.ChucVu && phongBan == nv.PhongBan
-                            select new DTONV
-                            {
-                                MaNV = nv.MaNV,
-                                TenNV = nv.TenNV,
-                                DiaChi = nv.DiaChi,
-                                GioiTinh = nv.GioiTinh,
-                                SDT = nv.DienThoai,
-                                ChucVu = nv.ChucVu,
-                                PhongBan = nv.PhongBan
-                            };
+                        select new DTONV
+                        {
+                            MaNV = nv.MaNV,
+                            TenNV = nv.TenNV,
+                            DiaChi = nv.DiaChi,
+                            GioiTinh = nv.GioiTinh,
+                            SDT = nv.DienThoai,
+                            ChucVu = nv.ChucVu,
+                            PhongBan = nv.PhongBan
+                        };
             return nvTim.ToList();
         }
         public List<DTONV> TimChucVuVaPhongBan(string chucVu, string phongBan)
         {
             var nvTim = from nv in db.NHANVIENs
                         where chucVu == nv.ChucVu && phongBan == nv.PhongBan
-                            select new DTONV
-                            {
-                                MaNV = nv.MaNV,
-                                TenNV = nv.TenNV,
-                                DiaChi = nv.DiaChi,
-                                GioiTinh = nv.GioiTinh,
-                                SDT = nv.DienThoai,
-                                ChucVu = nv.ChucVu,
-                                PhongBan = nv.PhongBan
-                            };
+                        select new DTONV
+                        {
+                            MaNV = nv.MaNV,
+                            TenNV = nv.TenNV,
+                            DiaChi = nv.DiaChi,
+                            GioiTinh = nv.GioiTinh,
+                            SDT = nv.DienThoai,
+                            ChucVu = nv.ChucVu,
+                            PhongBan = nv.PhongBan
+                        };
             return nvTim.ToList();
         }
         public List<DTONV> TimChucVu(string chucVu)
@@ -214,6 +213,5 @@ namespace PC_DAL
                         };
             return nvTim.ToList();
         }
-
     }
 }

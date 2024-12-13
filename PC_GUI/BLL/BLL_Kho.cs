@@ -1,17 +1,16 @@
-﻿using System;
+﻿using PC_DTO;
+using PC_GUI.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PC_DTO;
-using PC_DAL;
-using System.Text.RegularExpressions;
 
-namespace PC_BLL
+namespace PC_GUI.BLL
 {
-    public class BLLKho
+    public class BLL_Kho
     {
-        DALKho dALKho= new DALKho();
+        DAL_Kho dALKho = new DAL_Kho();
         public List<DTOKho> LoadKho()
         {
             return dALKho.LoadKho();
@@ -60,7 +59,7 @@ namespace PC_BLL
         {
             return dALKho.TimTuKhoaKho(tuKhoa);
         }
-        
+
         public List<DTOKho> LocKho(string loaiKho, string keyword, int? sucChuaFilter)
         {
             var danhSach = dALKho.LoadKho();
@@ -93,6 +92,5 @@ namespace PC_BLL
 
             return danhSach;
         }
-
     }
 }

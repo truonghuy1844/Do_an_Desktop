@@ -17,8 +17,8 @@ namespace PC_GUI
 {
     public partial class UI_ThemSP : Form
     {
-        public DTO_NhanVien nv = new DTO_NhanVien();
-        public UI_ThemSP(DTO_NhanVien nvien)
+        public DTONV nv = new DTONV();
+        public UI_ThemSP(DTONV nvien)
         {
             InitializeComponent();
             nv = nvien;

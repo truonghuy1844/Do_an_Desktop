@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PC_DTO;
-using PC_BLL;
+using PC_GUI.BLL;
 
 namespace PC_GUI
 {
     public partial class QLKho : Form
     {
-        BLLKho bLLKho = new BLLKho();
+        BLL_Kho bLLKho = new BLL_Kho();
         public QLKho()
         {
             InitializeComponent();
