@@ -65,7 +65,7 @@ namespace PC_GUI
                     MaKho = txtMaKho.Text.Trim(),
                     TenKho = txtTenKho.Text.Trim(),
                     DiaChi = txtDiaChi.Text.Trim(),
-                    SucChua = txtSucChua.Text.Trim(),
+                    SucChuaTanSo = double.Parse(txtSucChua.Text.Trim()),
                     LoaiKho = comboBoxLoaiKho.SelectedValue?.ToString()
                 };
 

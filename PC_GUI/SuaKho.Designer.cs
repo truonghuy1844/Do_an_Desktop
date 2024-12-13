@@ -112,11 +112,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(399, 179);
+            this.label7.Location = new System.Drawing.Point(370, 182);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 16);
+            this.label7.Size = new System.Drawing.Size(99, 16);
             this.label7.TabIndex = 61;
-            this.label7.Text = "Sức chứa*:";
+            this.label7.Text = "Sức chứa (tấn)*:";
             // 
             // txtDiaChi
             // 

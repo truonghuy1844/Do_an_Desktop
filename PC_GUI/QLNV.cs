@@ -40,19 +40,19 @@ namespace PC_GUI
         private void btnThemNV_Click(object sender, EventArgs e)
         {
             AddNV addNV = new AddNV();
-            addNV.Show();
+            addNV.ShowDialog();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             SuaNV suaNV = new SuaNV();
-            suaNV.Show();
+            suaNV.ShowDialog();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             XoaNV xoaNV = new XoaNV();
-            xoaNV.Show();
+            xoaNV.ShowDialog();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -73,11 +73,18 @@ namespace PC_GUI
                 string maNV = txtMaNV.Text.Trim();
                 string chucVu = comboBoxChucVu.SelectedValue?.ToString();
                 string phongBan = comboBoxPhongBan.SelectedValue?.ToString();
-                List<DTONV> result;
+                if (string.IsNullOrEmpty(maNV) && string.IsNullOrEmpty(chucVu) && string.IsNullOrEmpty(phongBan))
+                {
+                    MessageBox.Show("Vui lòng nhập ít nhất một tiêu chí để tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                List<DTONV> result = null;
                 int searchCase = 0;
-                if (!string.IsNullOrEmpty(maNV)) searchCase += 1;       //Thêm 1 nếu có mã nhân viên
-                if (!string.IsNullOrEmpty(chucVu)) searchCase += 2;     //Thêm 2 nếu lọc theo chức vụ
-                if (!string.IsNullOrEmpty(phongBan)) searchCase += 4;   //Thêm 3 nếu lọc theo phòng ban
+
+                if (!string.IsNullOrEmpty(maNV)) searchCase += 1;       // Thêm 1 nếu có mã nhân viên
+                if (!string.IsNullOrEmpty(chucVu)) searchCase += 2;     // Thêm 2 nếu lọc theo chức vụ
+                if (!string.IsNullOrEmpty(phongBan)) searchCase += 4;   // Thêm 4 nếu lọc theo phòng ban
+
                 switch (searchCase)
                 {
                     case 1:
@@ -103,16 +110,16 @@ namespace PC_GUI
                         break;
                     default:
                         dataGridViewDSNV.DataSource = bLLNV.LoadNVBlL();
-                        return;          
+                        return;
                 }
-                if (result == null && result.Count == 0)
+                dataGridViewDSNV.DataSource = result;
+
+                if (result == null || result.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy nhân viên phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
-                else
-                {
-                    dataGridViewDSNV.DataSource = result;
-                }
+
             }
             catch (Exception ex)
             {

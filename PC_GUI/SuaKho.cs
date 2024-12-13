@@ -71,7 +71,7 @@ namespace PC_GUI
                     MaKho = txtMaKho.Text.Trim(),
                     TenKho = txtTenKho.Text.Trim(),
                     DiaChi = txtDiaChi.Text.Trim(),
-                    SucChua = txtSucChua.Text.Trim(),
+                    SucChuaTanSo = double.Parse(txtSucChua.Text.Trim()),
                     LoaiKho = comboBoxLoaiKho.SelectedValue?.ToString()
                 };
                 bLLKho.SuaKho(suaKho);
@@ -111,11 +111,10 @@ namespace PC_GUI
                 var kh = listKho.First();
                 txtMaKho.Text = kh.MaKho;
                 txtTenKho.Text= kh.TenKho;
-                txtSucChua.Text = kh.SucChua;
+                txtSucChua.Text = kh.SucChuaTanSo.ToString();
                 txtDiaChi.Text = kh.DiaChi;
                 comboBoxLoaiKho.SelectedValue = kh.LoaiKho;
 
-                txtMaKho.Enabled = true;
                 txtTenKho.Enabled = true;
                 txtDiaChi.Enabled = true;
                 txtSucChua.Enabled = true;

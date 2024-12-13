@@ -29,8 +29,8 @@ namespace PC_BLL
         {
             if (string.IsNullOrEmpty(dTONV.MaNV))
                 throw new ArgumentException("Mã nhân viên không được để trống.");
-            if (dTONV.MaNV.Length != 5)
-                throw new ArgumentException("Mã nhân viên phải gồm đúng 5 ký tự.");
+            if (!dTONV.MaNV.StartsWith("NV"))
+                throw new ArgumentException("Mã nhân viên phải bắt đầu bằng 'NV'.");
             if (string.IsNullOrEmpty(dTONV.TenNV))
                 throw new ArgumentException("Tên nhân viên không được để trống.");
             if (string.IsNullOrEmpty(dTONV.SDT))

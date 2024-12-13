@@ -19,7 +19,24 @@ namespace PC_DTO
         public string TenKho { get; set; }
         public string LoaiKho { get; set; }
         public string DiaChi { get; set; }
-        public string SucChua { get; set; }
+        public string SucChua
+        {
+            get => $"{SucChuaTanSo} tấn";
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    string cleanValue = value.Replace("tấn", "").Trim();
+                    if (double.TryParse(cleanValue, out double tons))
+                    {
+                        SucChuaTanSo = tons;
+                    }
+                }
+            }
+        }
+
+        [Browsable(false)]
+        public double SucChuaTanSo { get; set; }
 
         [Browsable(false)]
         public double SucChuaKg 

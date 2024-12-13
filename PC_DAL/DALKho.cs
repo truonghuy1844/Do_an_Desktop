@@ -32,7 +32,7 @@ namespace PC_DAL
                    MaKho = dTOKho.MaKho,
                    TenKho= dTOKho.TenKho,
                    DiaChi = dTOKho.DiaChi,
-                   Suc_Chua = dTOKho.SucChua,
+                   Suc_Chua = $"{dTOKho.SucChuaTanSo} tấn",
                    LoaiKho = dTOKho.LoaiKho
 
                 };
@@ -86,7 +86,7 @@ namespace PC_DAL
             kh.TenKho = dTOKho.TenKho;
             kh.LoaiKho = dTOKho.LoaiKho;
             kh.DiaChi = dTOKho.DiaChi;
-            kh.Suc_Chua = dTOKho.SucChua;
+            kh.Suc_Chua = $"{dTOKho.SucChuaTanSo} tấn";
             db.SaveChanges();
         }
         public void XoaKho(DTOKho dTOKho)

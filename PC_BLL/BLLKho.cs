@@ -20,18 +20,16 @@ namespace PC_BLL
         {
             if (string.IsNullOrEmpty(dTOKho.MaKho))
                 throw new ArgumentException("Mã kho không được để trống.");
-            if (dTOKho.MaKho.Length != 6)
-                throw new ArgumentException("Mã nhân viên phải gồm đúng 6 ký tự.");
+            if (!dTOKho.MaKho.StartsWith("KHO"))
+                throw new ArgumentException("Mã kho phải bắt đầu bằng 'KHO'.");
             if (string.IsNullOrEmpty(dTOKho.TenKho))
                 throw new ArgumentException("Tên kho không được để trống.");
             if (string.IsNullOrEmpty(dTOKho.LoaiKho))
                 throw new ArgumentException("Loại kho không được để trống.");
-            if (string.IsNullOrEmpty(dTOKho.SucChua))
-                throw new ArgumentException("Sức chứa của kho không được để trống.");
-            if (!double.TryParse(dTOKho.SucChua.Replace("tấn", "").Trim(), out double sucChuaTons) || sucChuaTons <= 0)
+            if (dTOKho.SucChuaTanSo <= 0)
                 throw new ArgumentException("Sức chứa của kho phải là số hợp lệ lớn hơn 0.");
 
-            dTOKho.SucChua = $"{sucChuaTons} tấn";
+            dTOKho.SucChua = $"{dTOKho.SucChuaTanSo} tấn";
             dALKho.AddKho(dTOKho);
         }
         public List<DTOLoaiKho> LoadLoaiKho()
@@ -48,12 +46,10 @@ namespace PC_BLL
                 throw new ArgumentException("Tên kho không được để trống.");
             if (string.IsNullOrEmpty(dTOKho.LoaiKho))
                 throw new ArgumentException("Loại kho không được để trống.");
-            if (string.IsNullOrEmpty(dTOKho.SucChua))
-                throw new ArgumentException("Sức chứa của kho không được để trống.");
-            if (!double.TryParse(dTOKho.SucChua.Replace("tấn", "").Trim(), out double sucChuaTons) || sucChuaTons <= 0)
+            if (dTOKho.SucChuaTanSo <= 0)
                 throw new ArgumentException("Sức chứa của kho phải là số hợp lệ lớn hơn 0.");
 
-            dTOKho.SucChua = $"{sucChuaTons} tấn";
+            dTOKho.SucChua = $"{dTOKho.SucChuaTanSo} tấn";
             dALKho.SuaKho(dTOKho);
         }
         public void XoaKho(DTOKho dTOKho)

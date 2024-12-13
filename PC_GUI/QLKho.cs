@@ -45,26 +45,33 @@ namespace PC_GUI
             string keyword = !string.IsNullOrEmpty(txtTim.Text) ? txtTim.Text.Trim() : null;
 
             var ketQua = bLLKho.LocKho(loaiKho, keyword, sucChuaFilter);
-
             dataGridViewDSKho.DataSource = ketQua;
+            if (ketQua == null || ketQua.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy kết quả nào phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             AddKho addKho = new AddKho();
-            addKho.Show();
+            addKho.ShowDialog();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             SuaKho suaKho = new SuaKho();
-            suaKho.Show();
+            suaKho.ShowDialog();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             XoaKho xoaKho = new XoaKho();
-            xoaKho.Show();
+            xoaKho.ShowDialog();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
