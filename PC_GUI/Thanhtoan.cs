@@ -14,9 +14,11 @@ namespace PC_GUI
 {
     public partial class Thanhtoan : Form
     {BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
-        public Thanhtoan()
+        public DTOThanhtoan dto = new DTOThanhtoan();
+        public Thanhtoan(DTOThanhtoan thanhToan)
         {
             InitializeComponent();
+            dto = thanhToan;
         }
         private void Thanhtoan_Load(object sender, EventArgs e)
         {
@@ -27,6 +29,8 @@ namespace PC_GUI
             txtMaTT.Enabled = false;
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
+
+
 
         }
         private void label2_Click(object sender, EventArgs e)

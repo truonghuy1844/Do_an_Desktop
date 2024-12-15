@@ -24,11 +24,13 @@ namespace PC_GUI
         private void Hoadon_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = bllHoadon.LoadData();
+            dataGridView1.Columns["MaSP"].Visible = false;
 
             txtSoluong.Enabled = false;
             txtDongia.Enabled = false;
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
+            dataGridView1.ReadOnly = true;
 
             txtThanhtien.Enabled = false;
             cbMaDH.DataSource = bllHoadon.loadmadmh();
@@ -151,8 +153,16 @@ namespace PC_GUI
 
         private void btnThanhtoan_Click_1(object sender, EventArgs e)
         {
-            Thanhtoan tt = new Thanhtoan();
-            tt.Show();
+            DTOThanhtoan dto = new DTOThanhtoan();
+            dto.MaHD = txtMaHD.Text;
+
+            Thanhtoan tt = new Thanhtoan(dto);
+            
+
+            tt.ShowDialog();
+            dataGridView1.DataSource = bllHoadon.LoadData();
+            dataGridView1.Columns["MaSP"].Visible = false;
+
         }
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
@@ -162,7 +172,7 @@ namespace PC_GUI
                 txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
                 cbMaDH.SelectedValue = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
                 txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
-                cbSP.SelectedValue = dataGridView1.CurrentRow.Cells["TenSP"].Value.ToString();
+                cbSP.SelectedValue = dataGridView1.CurrentRow.Cells["MaSP"].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                 txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
                 txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
@@ -357,6 +367,11 @@ namespace PC_GUI
                 MessageBox.Show("Tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK);
                 dataGridView1.DataSource = dt;
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
