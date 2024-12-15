@@ -14,18 +14,24 @@ namespace PC_GUI
 {
     public partial class Thanhtoan : Form
     {BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
-        public Thanhtoan()
+       
+            public string MaHD{ get; set; }
+            public int Thanhtien { get; set; }
+           
+
+            public Thanhtoan()
         {
             InitializeComponent();
+
         }
         private void Thanhtoan_Load(object sender, EventArgs e)
         {
             dataGridViewTT.DataSource = bllThanhtoan.LoadData();
 
-            txtSotien.Enabled = false;
+            txtSotien.Text= Thanhtien.ToString();
             txtTrangthai.Enabled = false;
             txtMaTT.Enabled = false;
-            txtMaHD.Enabled = false;
+            txtMaHD.Text=MaHD;
             btnLuu.Enabled = false;
 
         }

@@ -136,8 +136,24 @@ namespace PC_GUI
 
         private void btnThanhtoan_Click(object sender, EventArgs e)
         {
-            Thanhtoan tt = new Thanhtoan();
-            tt.Show();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                string maHD = selectedRow.Cells["MaHD"].Value.ToString();
+                int thanhtien = Convert.ToInt32(selectedRow.Cells["ThanhTien"].Value);
+
+
+                Thanhtoan tt = new Thanhtoan
+                {
+                    MaHD = maHD,
+                    Thanhtien= thanhtien
+                };
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng để thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void btnThem_Click_1(object sender, EventArgs e)
         {
@@ -239,7 +255,7 @@ namespace PC_GUI
             {
                 try
                 {
-                    string tensp = cbSP.SelectedValue.ToString();
+                    string tensp = cbSP.SelectedValue?.ToString();
                     var result = bllHoadon.loadsldg(tensp);
 
                     if (result is DataTable dt && dt.Rows.Count > 0)
@@ -259,7 +275,7 @@ namespace PC_GUI
                 catch
                 {
 
-                    MessageBox.Show($"Không có dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Lỗi", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -362,6 +378,11 @@ namespace PC_GUI
                 MessageBox.Show("Tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK);
                 dataGridView1.DataSource = dt;
             }
+        }
+
+        private void txtSoluong_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
