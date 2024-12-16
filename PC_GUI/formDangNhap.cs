@@ -1,4 +1,5 @@
-﻿using PC_BLL;
+﻿
+using PC_GUI.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace PC_GUI
 {
     public partial class frmdangNhap : Form
     {
-        BLLNhanVien bLLNhanVien = new BLLNhanVien();
+        BLL_NhanVien bLLNhanVien = new BLL_NhanVien();
         public frmdangNhap()
         {
             InitializeComponent();

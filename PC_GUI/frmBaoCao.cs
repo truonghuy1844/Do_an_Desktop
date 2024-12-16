@@ -16,5 +16,10 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
+
+        private void frmBaoCao_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

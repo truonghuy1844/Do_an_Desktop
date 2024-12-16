@@ -10,6 +10,14 @@ namespace PC_GUI.DAL
 {
     public class DAL_NhanVien
     {
+        public List<NHANVIEN> DangNhap()
+        {
+
+            using (QLMHEntities2 data = new QLMHEntities2())
+            {
+                return data.NHANVIENs.ToList();
+            }
+        }
 
         QLMHEntities2 db = new QLMHEntities2();
         public List<DTONV> LoadNV()

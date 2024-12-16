@@ -1,4 +1,6 @@
-﻿using PC_BLL;
+﻿
+using PC_DTO;
+using PC_GUI.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +15,7 @@ namespace PC_GUI
 {
     public partial class frmMainForm : Form
     {
-        BLLNhanVien bLLNhanVien = new BLLNhanVien();
+        BLL_NhanVien bLLNhanVien = new BLL_NhanVien();
         public frmMainForm()
         {
             InitializeComponent();
@@ -89,6 +91,23 @@ namespace PC_GUI
             }    
         }
 
-        
+        private void pnTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void frmMainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFormBG_Click(object sender, EventArgs e)
+        {
+            DTONV nvien = new DTONV();
+            nvien.MaNV = "NV020";
+            UI_View_BaoGia ui_BG = new UI_View_BaoGia(nvien);
+            ui_BG.Show();
+
+        }
     }
 }

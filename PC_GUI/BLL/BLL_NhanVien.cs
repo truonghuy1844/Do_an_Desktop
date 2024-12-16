@@ -11,6 +11,20 @@ namespace PC_GUI.BLL
 {
     public class BLL_NhanVien
     {
+        
+        public bool CheckDangNhap(string tenDangNhap, string matKhau)
+        {
+
+            List<NHANVIEN> lnv = dALNV.DangNhap();
+            
+            foreach (var nv in lnv)
+            {
+                if (nv.MaNV == tenDangNhap && nv.DienThoai == matKhau)
+                    return true;
+            }
+            return false;
+
+        }
         DAL_NhanVien dALNV = new DAL_NhanVien();
         public List<DTONV> LoadNVBlL()
         {
