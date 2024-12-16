@@ -17,9 +17,10 @@ namespace PC_GUI
         public frmMainForm()
         {
             InitializeComponent();
+            pnMenuDoc.Size = pnMenuDoc.MinimumSize;
         }
 
-        #region Xử lý toggle nhà cung cấp và đơn hàng
+        #region Xử lý submenu
 
         private void btnFormNCC_Click(object sender, EventArgs e)
         {
@@ -30,26 +31,6 @@ namespace PC_GUI
             else pnContainerNCC.Size = MinimumSize;
         }
 
-        #endregion
-
-        #region xử lý ẩn hiện menu
-        private void iconMenu_Click(object sender, EventArgs e)
-        {
-            //if (pnMenuDoc.Size == pnMenuDoc.MaximumSize)
-            //{
-            //    pnMenuDoc.Size = pnMenuDoc.MinimumSize;
-            //    pnTop.Size = pnTop.MaximumSize;
-            //    ptLogo.Size = pnMenuDoc.MinimumSize;
-
-            //}
-            //else
-            //{
-            //    pnMenuDoc.Size = pnMenuDoc.MaximumSize;
-            //    pnTop.Size = pnTop.MinimumSize;
-            //    ptLogo.Size = pnMenuDoc.MaximumSize;
-            //}
-        }
-        #endregion
         private void btnFormDonHang_Click(object sender, EventArgs e)
         {
             //ToggleSubMenu(pnDonHang);
@@ -60,6 +41,41 @@ namespace PC_GUI
             else pnDonHang.Size = MinimumSize;
 
         }
+
+        private void btnFormYeuCauMua_Click(object sender, EventArgs e)
+        {
+            if (pnYeuCauMua.Size == pnYeuCauMua.MinimumSize)
+            {
+                pnYeuCauMua.Size = pnYeuCauMua.MaximumSize;
+            }
+            else pnYeuCauMua.Size= pnYeuCauMua.MinimumSize;
+        }
+
+        private void btnFormNguonLuc_Click(object sender, EventArgs e)
+        {
+            if (pnNguonLuc.Size == pnNguonLuc.MinimumSize)
+            {
+                pnNguonLuc.Size = pnNguonLuc.MaximumSize;
+            }
+            else pnNguonLuc.Size = pnNguonLuc.MinimumSize;
+        }
+
+
+
+        #endregion
+
+        #region xử lý ẩn hiện menu
+        private void iconMenu_Click(object sender, EventArgs e)
+        {
+            if (pnMenuDoc.Size == pnMenuDoc.MinimumSize)
+            {
+                pnMenuDoc.Size = pnMenuDoc.MaximumSize;
+            }
+            else pnMenuDoc.Size = pnMenuDoc.MinimumSize;
+            
+        }
+        #endregion
+        
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -72,5 +88,7 @@ namespace PC_GUI
                 dn.Show();
             }    
         }
+
+        
     }
 }
