@@ -40,13 +40,13 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnFThongTinNCC = new System.Windows.Forms.Button();
             this.btnFDanhGiaNCC = new System.Windows.Forms.Button();
-            this.btnFormBG = new System.Windows.Forms.Button();
             this.btnSanPham = new System.Windows.Forms.Button();
             this.pnYeuCauMua = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnFDuyetYCM = new System.Windows.Forms.Button();
             this.btnFormYeuCauMua = new System.Windows.Forms.Button();
             this.btnFDieuChinhYCM = new System.Windows.Forms.Button();
+            this.btnFormBG = new System.Windows.Forms.Button();
             this.pnDonHang = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnFDGSP = new System.Windows.Forms.Button();
@@ -232,24 +232,6 @@
             this.btnFDanhGiaNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDanhGiaNCC.UseVisualStyleBackColor = false;
             // 
-            // btnFormBG
-            // 
-            this.btnFormBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
-            this.btnFormBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
-            this.btnFormBG.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(83)))), ((int)(((byte)(107)))));
-            this.btnFormBG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormBG.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold);
-            this.btnFormBG.ForeColor = System.Drawing.Color.White;
-            this.btnFormBG.Image = global::PC_GUI.Properties.Resources.icons8_dollar_coin_50;
-            this.btnFormBG.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnFormBG.Location = new System.Drawing.Point(3, 241);
-            this.btnFormBG.Name = "btnFormBG";
-            this.btnFormBG.Size = new System.Drawing.Size(307, 70);
-            this.btnFormBG.TabIndex = 4;
-            this.btnFormBG.Text = "&Báo giá";
-            this.btnFormBG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFormBG.UseVisualStyleBackColor = false;
-            // 
             // btnSanPham
             // 
             this.btnSanPham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
@@ -348,6 +330,24 @@
             this.btnFDieuChinhYCM.Text = "Điều chỉnh YC";
             this.btnFDieuChinhYCM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDieuChinhYCM.UseVisualStyleBackColor = false;
+            // 
+            // btnFormBG
+            // 
+            this.btnFormBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
+            this.btnFormBG.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
+            this.btnFormBG.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(83)))), ((int)(((byte)(107)))));
+            this.btnFormBG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormBG.Font = new System.Drawing.Font("Montserrat Medium", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFormBG.ForeColor = System.Drawing.Color.White;
+            this.btnFormBG.Image = global::PC_GUI.Properties.Resources.icons8_dollar_coin_50;
+            this.btnFormBG.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnFormBG.Location = new System.Drawing.Point(3, 241);
+            this.btnFormBG.Name = "btnFormBG";
+            this.btnFormBG.Size = new System.Drawing.Size(307, 70);
+            this.btnFormBG.TabIndex = 4;
+            this.btnFormBG.Text = "&Báo giá";
+            this.btnFormBG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFormBG.UseVisualStyleBackColor = false;
             // 
             // pnDonHang
             // 
