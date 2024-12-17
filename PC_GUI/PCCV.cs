@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
 using PC_DTO;
 using System;
 using System.Collections.Generic;
@@ -10,12 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using PC_GUI.DAL;
 
 namespace PC_GUI
 {
     public partial class PCCV : Form
     {
-        BLLPhancong bllphancong = new BLLPhancong();
+        BLL_PhanCong bllphancong = new BLL_PhanCong();
         public PCCV()
         {
             InitializeComponent();
@@ -24,8 +25,8 @@ namespace PC_GUI
         //Load combobox trạng thái
         void Loadtrangthai()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            var dstt = (from dm in db.PHANCONG_CONGVIEC_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            var dstt = (from dm in db.PHANCONG_CONGVIEC
                         select dm.TThai).Distinct().ToList();
             cbTrangthai.DataSource = dstt;
         }
@@ -388,8 +389,8 @@ namespace PC_GUI
             HideAllTooltips();
             if (cbTrangthai.SelectedIndex != -1)
             {
-                QLMHDataContext db = new QLMHDataContext();
-                var listloc = from dm in db.PHANCONG_CONGVIEC_LQs
+                QLMHEntities3 db = new QLMHEntities3();
+                var listloc = from dm in db.PHANCONG_CONGVIEC
                               where dm.TThai == cbTrangthai.SelectedValue.ToString()
                               select new
                               {

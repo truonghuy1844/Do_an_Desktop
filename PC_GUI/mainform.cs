@@ -152,5 +152,47 @@ namespace PC_GUI
             panel1.Controls.Add(ui);
             panel1.Dock = DockStyle.Fill;
         }
+
+        private void btnFTTDonHang_Click(object sender, EventArgs e)
+        {
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            bool checkNV = bll.Kiem_Tra_Chuc_Vu(nv_DN);
+            bool checkPhongBan = bll.Kiem_Tra_PhongBan(nv_DN);
+            if (checkNV && checkPhongBan) 
+            {
+                panel1.Controls.Clear();
+                Quanlydonhang ui = new Quanlydonhang();
+                panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel1.Controls.Clear();
+                Quanlydonhang ui = new Quanlydonhang();
+                panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+        }
+
+        private void btnFDGSP_Click(object sender, EventArgs e)
+        {
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            bool checkNV = bll.Kiem_Tra_Chuc_Vu(nv_DN);
+            bool checkPhongBan = bll.Kiem_Tra_PhongBan(nv_DN);
+            if (checkNV && checkPhongBan)
+            {
+                panel1.Controls.Clear();
+                //Danhgiadonhang ui = new Danhgiadonhang();
+                //panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel1.Controls.Clear();
+                //Danhgiadonhang_NV ui = new Danhgiadonhang_NV(nv_DN);
+                //panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+        }
     }
 }

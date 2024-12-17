@@ -201,18 +201,18 @@
             this.lbMaNV.AutoSize = true;
             this.lbMaNV.Location = new System.Drawing.Point(108, 134);
             this.lbMaNV.Name = "lbMaNV";
-            this.lbMaNV.Size = new System.Drawing.Size(178, 25);
+            this.lbMaNV.Size = new System.Drawing.Size(186, 25);
             this.lbMaNV.TabIndex = 104;
-            this.lbMaNV.Text = "Mã nhà cung cấp";
+            this.lbMaNV.Text = "Mã nhà cung cấp*";
             // 
             // lbMaBG
             // 
             this.lbMaBG.AutoSize = true;
             this.lbMaBG.Location = new System.Drawing.Point(112, 71);
             this.lbMaBG.Name = "lbMaBG";
-            this.lbMaBG.Size = new System.Drawing.Size(119, 25);
+            this.lbMaBG.Size = new System.Drawing.Size(127, 25);
             this.lbMaBG.TabIndex = 103;
-            this.lbMaBG.Text = "Mã báo giá";
+            this.lbMaBG.Text = "Mã báo giá*";
             // 
             // cbSanPham
             // 

@@ -14,16 +14,25 @@ namespace PC_GUI.DAL
     
     public partial class DANHGIA_NCC
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DANHGIA_NCC()
+        {
+            this.DANHGIASP_TRONGDON = new HashSet<DANHGIASP_TRONGDON>();
+        }
+    
         public string MaDGNCC { get; set; }
         public string MaNV { get; set; }
         public string MaNCC { get; set; }
-        public System.DateTime NgayDanhGia { get; set; }
-        public Nullable<int> DiemChatLuong { get; set; }
-        public Nullable<int> DiemHieuQua { get; set; }
-        public Nullable<int> DiemGiaCa { get; set; }
+        public Nullable<System.DateTime> NgayDanhGia { get; set; }
+        public Nullable<double> DiemChatLuong { get; set; }
+        public Nullable<double> DiemGiaCa { get; set; }
+        public Nullable<double> DiemHieuQua { get; set; }
         public string MucDoDanhGia { get; set; }
+        public string TieuChiDanhGia { get; set; }
     
         public virtual NHACUNGCAP NHACUNGCAP { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DANHGIASP_TRONGDON> DANHGIASP_TRONGDON { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
 using PC_DTO;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using PC_GUI.DAL;
 
 namespace PC_GUI
 {
@@ -19,7 +20,7 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
-        BLLPhancong bllPhancong = new BLLPhancong();
+        BLL_PhanCong bllPhancong = new BLL_PhanCong();
         private void PCCV_NV_Load(object sender, EventArgs e)
         {
             dataGridViewPhancong.DataSource = bllPhancong.loadphancong();

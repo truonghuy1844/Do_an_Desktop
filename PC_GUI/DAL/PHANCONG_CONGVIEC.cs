@@ -18,7 +18,7 @@ namespace PC_GUI.DAL
         public string MaNV { get; set; }
         public System.DateTime NgayGiao { get; set; }
         public System.DateTime NgayHT { get; set; }
-        public Nullable<int> KLuong { get; set; }
+        public string Congviec { get; set; }
         public string TThai { get; set; }
     
         public virtual NHANVIEN NHANVIEN { get; set; }

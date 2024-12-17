@@ -193,9 +193,9 @@
             this.lb.AutoSize = true;
             this.lb.Location = new System.Drawing.Point(64, 145);
             this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(174, 25);
+            this.lb.Size = new System.Drawing.Size(182, 25);
             this.lb.TabIndex = 91;
-            this.lb.Text = "Bộ phận yêu cầu";
+            this.lb.Text = "Bộ phận yêu cầu*";
             // 
             // lbMaNV
             // 
@@ -211,9 +211,9 @@
             this.lbMaYC.AutoSize = true;
             this.lbMaYC.Location = new System.Drawing.Point(114, 88);
             this.lbMaYC.Name = "lbMaYC";
-            this.lbMaYC.Size = new System.Drawing.Size(124, 25);
+            this.lbMaYC.Size = new System.Drawing.Size(132, 25);
             this.lbMaYC.TabIndex = 89;
-            this.lbMaYC.Text = "Mã yêu cầu";
+            this.lbMaYC.Text = "Mã yêu cầu*";
             // 
             // cbSanPham
             // 
@@ -261,7 +261,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(617, 153);
+            this.label3.Location = new System.Drawing.Point(650, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 25);
             this.label3.TabIndex = 114;

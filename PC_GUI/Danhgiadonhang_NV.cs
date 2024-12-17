@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
 using PC_DTO;
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PC_GUI.DAL;
 
 namespace PC_GUI
 {
@@ -22,13 +23,13 @@ namespace PC_GUI
             this.madm = madm;
             this.masp = masp;
         }
-        BLLDonmuahang bllDonmua = new BLLDonmuahang();
+        BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
         //Load combobox tên sản phẩm 
 
         //Load đánh giá theo chi tiết đơn mua 
         void loaddgtheodonmua()
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
                        where ls.MaDMH == madm && ls.MaSP == masp
                        select new
@@ -47,7 +48,7 @@ namespace PC_GUI
         }
         void loadlichsudg()
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             var lichsu = from ls in db.DANHGIASP_TRONGDON
                          select new
                          {
@@ -66,7 +67,7 @@ namespace PC_GUI
         // load danh sách đơn hàng vào datagridview 
         void LoadChitietdon() 
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             var listchitiet = from dm in db.CT_DONMUAHANG
                               select new
                               {
@@ -197,7 +198,7 @@ namespace PC_GUI
             }
             if (kiemtra)
             {
-                DANHGIASP_TRONGDON_LQ dgsp = new DANHGIASP_TRONGDON_LQ();
+                DANHGIASP_TRONGDON dgsp = new DANHGIASP_TRONGDON();
                 dgsp.MaDGSP = txtMaDGSP.Text;
                 dgsp.NgayDG = datetime1.Value;
                 dgsp.MaSP = cbTensp.SelectedValue.ToString();
@@ -207,17 +208,17 @@ namespace PC_GUI
                 dgsp.DiemHieuQua = Convert.ToInt32(cBHieuqua.SelectedValue);
                 dgsp.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
                 dgsp.GhiChu = txtGhichu.Text;
-                QLMHDataContext da = new QLMHDataContext();
-                da.Connection.Open(); // mở 
+                QLMHEntities3 da = new  QLMHEntities3();
+                
                 try
                 {
-                    da.DANHGIASP_TRONGDON_LQs.InsertOnSubmit(dgsp);
-                    da.SubmitChanges();
+                    da.DANHGIASP_TRONGDON.Add(dgsp);
+                    da.SaveChanges();
                     MessageBox.Show("Đánh giá thành công!");
                 }
                 catch (Exception ex)
                 { MessageBox.Show("Lỗi", ex.Message); }
-                da.Connection.Close(); // đóng 
+                
 
                 loadlichsudg();
                 btnLuu.Enabled = false;
@@ -322,7 +323,7 @@ namespace PC_GUI
         {
             if (string.IsNullOrEmpty(txtTim.Text))
             {
-                QLMHEntities db = new QLMHEntities();
+                QLMHEntities3 db = new QLMHEntities3();
                 var listtim = from dg in db.DANHGIASP_TRONGDON
                               where dg.NgayDG >= dateTimebatdau.Value && dg.NgayDG <= dateTimeketthuc.Value
                               select new
@@ -351,7 +352,7 @@ namespace PC_GUI
             }
             else
             {
-                QLMHEntities db = new QLMHEntities();
+                QLMHEntities3 db = new QLMHEntities3();
                 var listtimp = from dg in db.DANHGIASP_TRONGDON
                                where dg.SANPHAM.TenSP.Contains(txtTim.Text.Trim())
                                && dg.NgayDG >= dateTimebatdau.Value
@@ -382,7 +383,7 @@ namespace PC_GUI
 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             if (cbMaDH.SelectedIndex != -1)
             {
                 string madhchon = cbMaDH.SelectedValue.ToString();

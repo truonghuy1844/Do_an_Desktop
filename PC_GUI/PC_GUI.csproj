@@ -69,7 +69,9 @@
     <Compile Include="BangCT_BG.cs">
       <SubType>Form</SubType>
     </Compile>
-     <Compile Include="Chitietdonmua.cs">
+    <Compile Include="BLL\BLL_DonMuaHang.cs" />
+    <Compile Include="BLL\BLL_PhanCong.cs" />
+    <Compile Include="Chitietdonmua.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Chitietdonmua.Designer.cs">
@@ -81,31 +83,10 @@
     <Compile Include="Chitietdonmua_NV.Designer.cs">
       <DependentUpon>Chitietdonmua_NV.cs</DependentUpon>
     </Compile>
-    <Compile Include="Danhgiadonhang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Danhgiadonhang.Designer.cs">
-      <DependentUpon>Danhgiadonhang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Danhgiadonhang_NV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Danhgiadonhang_NV.Designer.cs">
-      <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BangCT_BG.Designer.cs">
-      <DependentUpon>BangCT_BG.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BLL\BLL_BaoGia.cs" />
-    <Compile Include="BLL\BLL_Kho.cs" />
-    <Compile Include="BLL\BLL_KiemTraTruyCap.cs" />
-    <Compile Include="BLL\BLL_NhanVien.cs" />
-    <Compile Include="BLL\BLL_SanPham.cs" />
-    <Compile Include="BLL\BLL_YeuCauMH.cs" />
-    <Compile Include="BLL\LoadCB.cs" />
     <Compile Include="DAL\BAOGIA.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\ConectDB_Manual.cs" />
     <Compile Include="DAL\CT_BAOGIA.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
@@ -115,46 +96,14 @@
     <Compile Include="DAL\CT_YEUCAU.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DAL_BaoGia.cs" />
-    <Compile Include="DAL\DAL_Kho.cs" />
-    <Compile Include="DAL\DAL_NhanVien.cs" />
-    <Compile Include="DAL\DAL_SanPham.cs" />
-    <Compile Include="DAL\DAL_YeuCauMH.cs" />
+    <Compile Include="DAL\DAL_DonMuaHang.cs" />
+    <Compile Include="DAL\DAL_PhanCong.cs" />
     <Compile Include="DAL\DANHGIASP_TRONGDON.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\DANHGIA_NCC.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
-    <Compile Include="DangNhap.cs" />
-    <Compile Include="formDangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formDangNhap.Designer.cs">
-      <DependentUpon>formDangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoCao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCao.Designer.cs">
-      <DependentUpon>frmBaoCao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="mainform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="mainform.Designer.cs">
-      <DependentUpon>mainform.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="formDangNhap.resx">
-      <DependentUpon>formDangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCao.resx">
-      <DependentUpon>frmBaoCao.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="mainform.resx">
-      <DependentUpon>mainform.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="DAL\DONMUAHANG.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
@@ -185,8 +134,6 @@
     <Compile Include="DAL\KHOHANG.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\KiemTraChucVu.cs" />
-    <Compile Include="DAL\LoadComboBox.cs" />
     <Compile Include="DAL\NHACUNGCAP.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
@@ -208,6 +155,64 @@
     <Compile Include="DAL\YEUCAU_MUAHANG.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
+    <Compile Include="Danhgiadonhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhgiadonhang.Designer.cs">
+      <DependentUpon>Danhgiadonhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhgiadonhang_NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Danhgiadonhang_NV.Designer.cs">
+      <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BangCT_BG.Designer.cs">
+      <DependentUpon>BangCT_BG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\BLL_BaoGia.cs" />
+    <Compile Include="BLL\BLL_Kho.cs" />
+    <Compile Include="BLL\BLL_KiemTraTruyCap.cs" />
+    <Compile Include="BLL\BLL_NhanVien.cs" />
+    <Compile Include="BLL\BLL_SanPham.cs" />
+    <Compile Include="BLL\BLL_YeuCauMH.cs" />
+    <Compile Include="BLL\LoadCB.cs" />
+    <Compile Include="DAL\DAL_BaoGia.cs" />
+    <Compile Include="DAL\DAL_Kho.cs" />
+    <Compile Include="DAL\DAL_NhanVien.cs" />
+    <Compile Include="DAL\DAL_SanPham.cs" />
+    <Compile Include="DAL\DAL_YeuCauMH.cs" />
+    <Compile Include="DangNhap.cs" />
+    <Compile Include="formDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDangNhap.Designer.cs">
+      <DependentUpon>formDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCao.Designer.cs">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainform.Designer.cs">
+      <DependentUpon>mainform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formDangNhap.resx">
+      <DependentUpon>formDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainform.resx">
+      <DependentUpon>mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="DAL\KiemTraChucVu.cs" />
+    <Compile Include="DAL\LoadComboBox.cs" />
     <Compile Include="UI_NhapSua_BaoGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,13 +261,6 @@
     <EmbeddedResource Include="UI_YeuCauMH.resx">
       <DependentUpon>UI_YeuCauMH.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="DAL\EF.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EF.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DAL\EF.edmx.diagram">
-      <DependentUpon>EF.edmx</DependentUpon>
-    </None>
     <Compile Include="AddKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,24 +273,6 @@
     <Compile Include="AddNV.Designer.cs">
       <DependentUpon>AddNV.cs</DependentUpon>
     </Compile>
-    <Compile Include="HANGHOA_VANCHUYEN.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HOADON.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="HOPDONGMH.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KHOHANG.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NHACUNGCAP.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NHANVIEN.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
     <Compile Include="PCCV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,9 +284,6 @@
     </Compile>
     <Compile Include="PCCV_NV.Designer.cs">
       <DependentUpon>PCCV_NV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PHANCONG_CONGVIEC.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="QLKho.cs">
@@ -356,19 +333,18 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-        <Compile Include="Quanlydonhang.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Quanlydonhang.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Quanlydonhang.Designer.cs">
       <DependentUpon>Quanlydonhang.cs</DependentUpon>
     </Compile>
     <Compile Include="Quanlydonhang_NV.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Quanlydonhang_NV.Designer.cs">
       <DependentUpon>Quanlydonhang_NV.cs</DependentUpon>
     </Compile>
- 
     <EmbeddedResource Include="Chitietdonmua.resx">
       <DependentUpon>Chitietdonmua.cs</DependentUpon>
     </EmbeddedResource>
@@ -386,7 +362,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PCCV_NV.resx">
       <DependentUpon>PCCV_NV.cs</DependentUpon>
-     </EmbeddedResource>  
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -415,7 +391,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Quanlydonhang_NV.resx">
       <DependentUpon>Quanlydonhang_NV.cs</DependentUpon>
-    </EmbeddedResource> 
+    </EmbeddedResource>
+    <EntityDeploy Include="DAL\EF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\EF.edmx.diagram">
+      <DependentUpon>EF.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -426,21 +409,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QLMH.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>QLMH.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLMH.dbml.layout">
-      <DependentUpon>QLMH.dbml</DependentUpon>
-    </None>
-    <EntityDeploy Include="QLMH.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLMH1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="QLMH.edmx.diagram">
-      <DependentUpon>QLMH.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -460,16 +428,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\EF.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EF.edmx</DependentUpon>
-      <LastGenOutput>EF.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DAL\EF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EF.edmx</DependentUpon>
-      <LastGenOutput>EF.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\57.png" />
   </ItemGroup>
   <ItemGroup>
@@ -549,6 +507,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\EF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF.edmx</DependentUpon>
+      <LastGenOutput>EF.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\EF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF.edmx</DependentUpon>
+      <LastGenOutput>EF.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

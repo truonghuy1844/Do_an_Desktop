@@ -13,10 +13,10 @@ namespace PC_GUI.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLMHEntities2 : DbContext
+    public partial class QLMHEntities3 : DbContext
     {
-        public QLMHEntities2()
-            : base("name=QLMHEntities2")
+        public QLMHEntities3()
+            : base("name=QLMHEntities3")
         {
         }
     
