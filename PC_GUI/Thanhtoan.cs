@@ -15,20 +15,29 @@ namespace PC_GUI
     public partial class Thanhtoan : Form
     {BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
         public DTOThanhtoan dto = new DTOThanhtoan();
+        private DTOThanhtoan _dto;
         public Thanhtoan(DTOThanhtoan thanhToan)
         {
             InitializeComponent();
-            dto = thanhToan;
-        }
+            _dto = dto;
+            
+            
+        
+    }
         private void Thanhtoan_Load(object sender, EventArgs e)
         {
             dataGridViewTT.DataSource = bllThanhtoan.LoadData();
 
             txtSotien.Enabled = false;
             txtTrangthai.Enabled = false;
+            txtTrangthai.Enabled = false;
+            dateTimePicker1.Enabled = false;
             txtMaTT.Enabled = false;
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
+            dataGridViewTT.ReadOnly = true;
+            txtSotien.Text = _dto.Tongtien.ToString();
+            txtMaHD.Text=_dto.MaHD.ToString();
 
 
 
@@ -145,11 +154,7 @@ namespace PC_GUI
                     MessageBox.Show("Không tìm thấy kết quả, hãy thử lại!", "Thông báo", MessageBoxButtons.OK);
                     dataGridViewTT.DataSource = null;
                 }
-                else
-                {
-                    MessageBox.Show("Tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK);
-                    dataGridViewTT.DataSource = dt;
-                }
+               
 
             }
         private void dataGridViewTT_CellClick(object sender, DataGridViewCellEventArgs e)

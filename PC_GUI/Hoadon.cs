@@ -153,17 +153,34 @@ namespace PC_GUI
 
         private void btnThanhtoan_Click_1(object sender, EventArgs e)
         {
-            DTOThanhtoan dto = new DTOThanhtoan();
-            dto.MaHD = txtMaHD.Text;
+            if (dataGridView1.CurrentRow != null)
+            {
+                
+                string maHD = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
+                decimal  tongTien = Convert.ToDecimal( dataGridView1.CurrentRow.Cells["TongTien"].Value.ToString());
 
-            Thanhtoan tt = new Thanhtoan(dto);
-            
+                
+                DTOThanhtoan dto = new DTOThanhtoan
+                {
+                    MaHD = maHD,
+                   
+                    Tongtien = tongTien
+                };
 
-            tt.ShowDialog();
-            dataGridView1.DataSource = bllHoadon.LoadData();
-            dataGridView1.Columns["MaSP"].Visible = false;
+                
+                Thanhtoan tt = new Thanhtoan(dto);
+                tt.ShowDialog();
 
-        }
+                
+                dataGridView1.DataSource = bllHoadon.LoadData();
+                dataGridView1.Columns["MaSP"].Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn để thanh toán.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        
+    }
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
