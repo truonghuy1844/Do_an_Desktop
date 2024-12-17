@@ -313,8 +313,7 @@ namespace PC_GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nv);
-            ui.ShowDialog();
+            
         }
 
         private void txtBoPhanYC_TextChanged(object sender, EventArgs e)

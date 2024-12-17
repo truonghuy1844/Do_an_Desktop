@@ -30,6 +30,7 @@
         {
             this.dataGridViewDSKho = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnResetFilter = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxSucChua = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,93 +43,106 @@
             this.btnTim = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnResetFilter = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSKho)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewDSKho
             // 
-            this.dataGridViewDSKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSKho.Location = new System.Drawing.Point(30, 12);
+            this.dataGridViewDSKho.ColumnHeadersHeight = 29;
+            this.dataGridViewDSKho.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewDSKho.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewDSKho.Name = "dataGridViewDSKho";
             this.dataGridViewDSKho.RowHeadersWidth = 51;
             this.dataGridViewDSKho.RowTemplate.Height = 24;
-            this.dataGridViewDSKho.Size = new System.Drawing.Size(762, 267);
+            this.dataGridViewDSKho.Size = new System.Drawing.Size(1205, 333);
             this.dataGridViewDSKho.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnResetFilter);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.comboBoxSucChua);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBoxLoaiKho);
-            this.groupBox1.Controls.Add(this.btnLoad);
-            this.groupBox1.Controls.Add(this.btnXoa);
-            this.groupBox1.Controls.Add(this.btnSua);
-            this.groupBox1.Controls.Add(this.btnThem);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.txtTim);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(30, 298);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.groupBox1.Location = new System.Drawing.Point(6, 339);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 221);
+            this.groupBox1.Size = new System.Drawing.Size(1173, 248);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
+            // 
+            // btnResetFilter
+            // 
+            this.btnResetFilter.Location = new System.Drawing.Point(827, 158);
+            this.btnResetFilter.Name = "btnResetFilter";
+            this.btnResetFilter.Size = new System.Drawing.Size(130, 42);
+            this.btnResetFilter.TabIndex = 33;
+            this.btnResetFilter.Text = "Reset bộ lọc";
+            this.btnResetFilter.UseVisualStyleBackColor = true;
+            this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(392, 74);
+            this.label3.Location = new System.Drawing.Point(478, 172);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.Size = new System.Drawing.Size(101, 25);
             this.label3.TabIndex = 32;
             this.label3.Text = "Sức chứa:";
             // 
             // comboBoxSucChua
             // 
             this.comboBoxSucChua.FormattingEnabled = true;
-            this.comboBoxSucChua.Location = new System.Drawing.Point(395, 102);
+            this.comboBoxSucChua.Location = new System.Drawing.Point(613, 164);
             this.comboBoxSucChua.Name = "comboBoxSucChua";
-            this.comboBoxSucChua.Size = new System.Drawing.Size(184, 24);
+            this.comboBoxSucChua.Size = new System.Drawing.Size(184, 33);
             this.comboBoxSucChua.TabIndex = 31;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(126, 74);
+            this.label2.Location = new System.Drawing.Point(16, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.Size = new System.Drawing.Size(86, 25);
             this.label2.TabIndex = 30;
             this.label2.Text = "Loại kho";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 74);
+            this.label1.Location = new System.Drawing.Point(15, 130);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.Size = new System.Drawing.Size(83, 25);
             this.label1.TabIndex = 29;
             this.label1.Text = "Hiển thị:";
             // 
             // comboBoxLoaiKho
             // 
             this.comboBoxLoaiKho.FormattingEnabled = true;
-            this.comboBoxLoaiKho.Location = new System.Drawing.Point(129, 102);
+            this.comboBoxLoaiKho.Location = new System.Drawing.Point(170, 172);
             this.comboBoxLoaiKho.Name = "comboBoxLoaiKho";
-            this.comboBoxLoaiKho.Size = new System.Drawing.Size(184, 24);
+            this.comboBoxLoaiKho.Size = new System.Drawing.Size(184, 33);
             this.comboBoxLoaiKho.TabIndex = 28;
             // 
             // btnLoad
             // 
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoad.BackColor = System.Drawing.Color.ForestGreen;
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(578, 151);
+            this.btnLoad.Location = new System.Drawing.Point(988, 37);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(152, 42);
+            this.btnLoad.Size = new System.Drawing.Size(205, 42);
             this.btnLoad.TabIndex = 27;
             this.btnLoad.Text = "Load/ Refresh";
             this.btnLoad.UseVisualStyleBackColor = false;
@@ -136,12 +150,13 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnXoa.BackColor = System.Drawing.Color.Tomato;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(395, 151);
+            this.btnXoa.Location = new System.Drawing.Point(645, 37);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(152, 42);
+            this.btnXoa.Size = new System.Drawing.Size(205, 42);
             this.btnXoa.TabIndex = 26;
             this.btnXoa.Text = "- Xóa kho";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -149,12 +164,13 @@
             // 
             // btnSua
             // 
+            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSua.BackColor = System.Drawing.Color.Goldenrod;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(207, 151);
+            this.btnSua.Location = new System.Drawing.Point(317, 37);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(165, 42);
+            this.btnSua.Size = new System.Drawing.Size(205, 42);
             this.btnSua.TabIndex = 25;
             this.btnSua.Text = "Sửa thông tin kho";
             this.btnSua.UseVisualStyleBackColor = false;
@@ -165,9 +181,9 @@
             this.btnThem.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(10, 151);
+            this.btnThem.Location = new System.Drawing.Point(6, 37);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(165, 42);
+            this.btnThem.Size = new System.Drawing.Size(205, 42);
             this.btnThem.TabIndex = 24;
             this.btnThem.Text = "+ Thêm kho";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -175,7 +191,7 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(603, 32);
+            this.btnTim.Location = new System.Drawing.Point(827, 59);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(127, 33);
             this.btnTim.TabIndex = 20;
@@ -185,9 +201,9 @@
             // 
             // txtTim
             // 
-            this.txtTim.Location = new System.Drawing.Point(19, 37);
+            this.txtTim.Location = new System.Drawing.Point(21, 62);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(558, 22);
+            this.txtTim.Size = new System.Drawing.Size(558, 30);
             this.txtTim.TabIndex = 21;
             // 
             // label9
@@ -195,25 +211,29 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(16, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(157, 16);
+            this.label9.Size = new System.Drawing.Size(231, 25);
             this.label9.TabIndex = 20;
             this.label9.Text = "Nhập từ khóa để tìm kiếm";
             // 
-            // btnResetFilter
+            // groupBox2
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(603, 92);
-            this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(130, 42);
-            this.btnResetFilter.TabIndex = 33;
-            this.btnResetFilter.Text = "Reset bộ lọc";
-            this.btnResetFilter.UseVisualStyleBackColor = true;
-            this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
+            this.groupBox2.Controls.Add(this.btnThem);
+            this.groupBox2.Controls.Add(this.btnSua);
+            this.groupBox2.Controls.Add(this.btnXoa);
+            this.groupBox2.Controls.Add(this.btnLoad);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Location = new System.Drawing.Point(0, 587);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1205, 115);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
             // 
             // QLKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 558);
+            this.ClientSize = new System.Drawing.Size(1205, 702);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridViewDSKho);
             this.Name = "QLKho";
@@ -222,6 +242,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSKho)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -243,5 +264,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxLoaiKho;
         private System.Windows.Forms.Button btnResetFilter;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
