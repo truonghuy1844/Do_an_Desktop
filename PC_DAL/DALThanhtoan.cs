@@ -16,7 +16,7 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                string query = "SELECT    THANHTOAN.MaTT ,HOADON.Matt,    THANHTOAN.NgayTT , THANHTOAN.SoTien, THANHTOAN.TrangThai       FROM HOADON JOIN THANHTOAN  ON HOADON.MaHD =  THANHTOAN.MaHD ;";
+                string query = "SELECT    THANHTOAN.MaTT ,HOADON.Matt,    THANHTOAN.NgayTT , THANHTOAN.TrangThai       FROM HOADON JOIN THANHTOAN  ON HOADON.MaHD =  THANHTOAN.MaHD ;";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                 {
                     DataTable dt = new DataTable();
@@ -33,12 +33,11 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                string myQuery = "Insert into THANHTOAN (MaTT, MaHD, NgayTT,SoTien,TrangThai) values (@matt, @mahd,@ngaytt,@sotien,@trangthai)";
+                string myQuery = "Insert into THANHTOAN (MaTT, MaHD, NgayTT,TrangThai) values (@matt, @mahd,@ngaytt,@trangthai)";
                 SqlCommand cmd = new SqlCommand(myQuery, conn);
                 cmd.Parameters.AddWithValue("@matt", tt.MaTT);
                 cmd.Parameters.AddWithValue("@ngaytt", tt .NgayTT.Date);
                 cmd.Parameters.AddWithValue("@madmh", tt.MaHD);
-                cmd.Parameters.AddWithValue("@sotien",tt.SoTien);
                 cmd.Parameters.AddWithValue("@trangthai", tt.TrangThai);
 
 
