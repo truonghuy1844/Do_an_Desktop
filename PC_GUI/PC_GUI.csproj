@@ -95,9 +95,6 @@
     <Compile Include="DANHGIASP_TRONGDON.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
-    <Compile Include="DANHGIA_NCC.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
     <Compile Include="DONMUAHANG.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>

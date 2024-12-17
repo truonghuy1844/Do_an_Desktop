@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PC_GUI
 {
@@ -32,43 +33,29 @@ namespace PC_GUI
             cbTenNV.SelectedIndex = -1;
 
             txtMaPC.Enabled = false;
+            btnXoa.Enabled = false;
 
         }
+        //Kiểm tra khối lượng công việc 
+        private void txtKLCV_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+        //Kiểm tra ngày hoàn thành 
+        private void dateTimeNgayht_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             if (dataGridViewPhancong.CurrentRow != null)
             {
-                bool okPc = true;
-                //2.Kiểm tra trường ngày hết hạn 
-                if (dateTimeNgayht.Value < DateTime.Now)
-                {
-                    okPc = false;
-                    MessageBox.Show("Đã quá hạn, không thể cập nhật");
-                }
-                //3.Kiểm tra trường số lượng 
-                if (txtKLCV.Text.Length == 0)
-                {
-                    okPc = false;
-                    MessageBox.Show("Khối lượng công việc không được trống");
-                    txtKLCV.Focus();
-                }
-                int KLCV;
-                if (!int.TryParse(txtKLCV.Text, out KLCV) || KLCV <= 0 || KLCV >= 1000)
-                {
-                    okPc = false;
-                    MessageBox.Show("Khối lượng công việc phải là số nguyên dương. Ví dụ: 13", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                    txtKLCV.Focus();
-                }
-
-                if (okPc)
-                {
                     DTOPhancong phancong = new DTOPhancong();
                     phancong.MaPC = txtMaPC.Text;
                     phancong.MaNV = cbTenNV.SelectedValue.ToString();
                     phancong.Ngaygiao = dateTimeNgaygiao.Value;
                     phancong.Ngayht = dateTimeNgayht.Value;
-                    phancong.Kluong = KLCV;
+                    phancong.Congviec = txtKLCV.Text;
 
                     if (rBchuabd.Checked)
                     {
@@ -95,7 +82,6 @@ namespace PC_GUI
                     txtMaPC.Enabled = false;
                     cbTenNV.SelectedIndex = -1;
                     txtKLCV.Clear();
-                }
             }
             else
             { MessageBox.Show("Hãy chọn 1 hàng để cập nhật"); }
@@ -114,11 +100,10 @@ namespace PC_GUI
                 DataTable tim = bllPhancong.Timphancong(txtTim.Text);
                 if (tim == null)
                 {
-                    MessageBox.Show("Không tìm thấy dữ liệu");
+                    MessageBox.Show("Không tìm thấy kết quả");
                 }
                 else
                 {
-                    MessageBox.Show("Tìm thấy kết quả");
                     dataGridViewPhancong.DataSource = tim;
                 }
             }
@@ -133,11 +118,12 @@ namespace PC_GUI
         {
             if (dataGridViewPhancong.CurrentRow != null)
             {
+                MessageBox.Show("Phân công đã được chọn, cập nhật tiến độ công việc nhé!");
                 txtMaPC.Text = dataGridViewPhancong.CurrentRow.Cells["MaPC"].Value.ToString();
                 cbTenNV.SelectedValue = dataGridViewPhancong.CurrentRow.Cells["MaNV"].Value.ToString();
-                dateTimeNgaygiao.Value = Convert.ToDateTime(dataGridViewPhancong.CurrentRow.Cells["NgayGIao"].Value);
+                dateTimeNgaygiao.Value = Convert.ToDateTime(dataGridViewPhancong.CurrentRow.Cells["NgayGiao"].Value);
                 dateTimeNgayht.Value = Convert.ToDateTime(dataGridViewPhancong.CurrentRow.Cells["NgayHT"].Value);
-                txtKLCV.Text = dataGridViewPhancong.CurrentRow.Cells["KLuong"].Value.ToString();
+                txtKLCV.Text = dataGridViewPhancong.CurrentRow.Cells["Congviec"].Value.ToString();
                 //Trường trạng thái
                 string tthai = dataGridViewPhancong.CurrentRow.Cells["TThai"].Value.ToString();
                 if (tthai == "Chưa bắt đầu")
@@ -145,25 +131,51 @@ namespace PC_GUI
                     rBchuabd.Checked = true;
                     rBdangth.Checked = false;
                     rBdaht.Checked = false;
+                    rBdaht.Enabled = true;
+                    rBchuabd.Enabled = true;
+                    rBdangth.Enabled = true;
                 }
                 else if (tthai == "Đang thực hiện")
                 {
                     rBdangth.Checked = true;
                     rBchuabd.Checked = false;
                     rBdaht.Checked = false;
+                    rBdaht.Enabled = true;
+                    rBchuabd.Enabled = false;
+                    rBdangth.Enabled = true;
                 }
                 else if (tthai == "Hoàn thành")
                 {
                     rBdaht.Checked = true;
                     rBchuabd.Checked = false;
                     rBdangth.Checked = false;
+                    // Không cho đổi sang trạng thái khác
+                    rBdaht.Enabled = true;
+                    rBchuabd.Enabled = false;
+                    rBdangth.Enabled = false;
                 }
 
                 txtMaPC.Enabled = false;
                 cbTenNV.Enabled = false;
                 dateTimeNgaygiao.Enabled = false;
                 dateTimeNgayht.Enabled = false;
+                txtKLCV.Enabled = false;
             }
+        }
+
+        private void txtMaPC_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaPC_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rBdaht_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

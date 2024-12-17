@@ -17,7 +17,6 @@ namespace PC_GUI
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NHANVIEN()
         {
-            this.DANHGIA_NCC = new HashSet<DANHGIA_NCC>();
             this.DONMUAHANGs = new HashSet<DONMUAHANG>();
             this.HOPDONGMHs = new HashSet<HOPDONGMH>();
             this.PHANCONG_CONGVIEC = new HashSet<PHANCONG_CONGVIEC>();
@@ -32,8 +31,6 @@ namespace PC_GUI
         public string ChucVu { get; set; }
         public string PhongBan { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANHGIA_NCC> DANHGIA_NCC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONMUAHANG> DONMUAHANGs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

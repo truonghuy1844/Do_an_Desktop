@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using PC_DTO;
@@ -178,5 +179,21 @@ namespace PC_DAL
             catch (Exception) { return false; }
             finally { conn.Close(); };
         }
+        //Load chi tiết đơn mua của đơn hàng được chọn 
+        //public DataTable Chitietdonmua(string madonmua)
+        //{
+        //    try
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("Select (*) from CT_DONMUAHANG where MaDMH = @madmh", conn);
+        //        cmd.Parameters.AddWithValue("@madmh", madonmua);
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        DataTable dt = new DataTable();
+        //        da.Fill(dt);
+        //        return dt;
+        //    }
+        //    catch (Exception) { return null; }
+        //    finally { conn.Close(); };
+        //}
     }
 }

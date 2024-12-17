@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DALChucvu.cs" />
     <Compile Include="DALDonmuahang.cs" />
     <Compile Include="DALPhancong.cs" />
     <Compile Include="Donmuahang.Context.cs">

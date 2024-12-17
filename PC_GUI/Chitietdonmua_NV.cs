@@ -13,14 +13,17 @@ namespace PC_GUI
 {
     public partial class Chitietdonmua_NV : Form
     {
-        public Chitietdonmua_NV()
+        private string madonmua;
+        public Chitietdonmua_NV(string madonmua)
         {
             InitializeComponent();
+            this.madonmua = madonmua;
         }
         BLLDonmuahang bllDonmua = new BLLDonmuahang();
 
         private void Chitietdonmua_NV_Load(object sender, EventArgs e)
         {
+            loadctdm();
             loadmadh();
             loadmasp();
             cbMaDH.SelectedIndex = -1;
@@ -73,31 +76,62 @@ namespace PC_GUI
             QLMHDataContext db = new QLMHDataContext();
             db.Connection.Open();
             var listdm = from dm in db.CT_DONMUAHANG_LQs
+                         join dmh in db.DONMUAHANG_LQs on dm.MaDMH equals dmh.MaDMH
                          join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
+                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+                         where dm.MaSP == bg.MaSP
+                         orderby dmh.NgayLap descending
                          select new
                          {
                              dm.MaDMH,
                              dm.MaSP,
                              sp.TenSP,
                              dm.MaBG,
+                             bg.DonGia,
                              dm.SoLuong
                          };
 
             dataGridViewChitiet.DataSource = listdm.ToList();
             db.Connection.Close();
         }
-
-        private void btnChitietdon_Click(object sender, EventArgs e)
+        //Load chi tiết đơn mua theo đơn mua ở QUANLYDONHANG
+        void loadctdm()
         {
             QLMHDataContext db = new QLMHDataContext();
+            db.Connection.Open();
+            var ctdm = from dm in db.CT_DONMUAHANG_LQs
+                       join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
+                       join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+                       where dm.MaDMH == madonmua && dm.MaSP == bg.MaSP
+                       select new
+                       {
+                           dm.MaDMH,
+                           dm.MaSP,
+                           sp.TenSP,
+                           dm.MaBG,
+                           bg.DonGia,
+                           dm.SoLuong
+                       };
+            dataGridViewChitiet.DataSource = ctdm.ToList();
+            db.Connection.Close();
+        }
+        private void btnChitietdon_Click(object sender, EventArgs e)
+        {
+            HideAllTooltips();
+            QLMHDataContext db = new QLMHDataContext();
             var listdm = from dm in db.CT_DONMUAHANG_LQs
+                         join dmh in db.DONMUAHANG_LQs on dm.MaDMH equals dmh.MaDMH
                          join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
+                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+                         where dm.MaSP == bg.MaSP
+                         orderby dmh.NgayLap descending
                          select new
                          {
                              dm.MaDMH,
                              dm.MaSP,
                              sp.TenSP,
                              dm.MaBG,
+                             bg.DonGia,
                              dm.SoLuong
                          };
             dataGridViewChitiet.DataSource = listdm.ToList();
@@ -137,6 +171,7 @@ namespace PC_GUI
         }
         private void btnTaoctmua_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             btnLuu.Enabled = true;
             loadmadhtao();
             cbMaDH.Enabled = true;
@@ -158,13 +193,23 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Hãy chọn mã đơn hàng!", "Thông báo", MessageBoxButtons.OK);
                 cbMaDH.Focus();
+                return;
+            }
+            //1.1 Kiểm tra đã chọn mã sản phẩm
+            if (cbMaSP.SelectedIndex == -1)
+            {
+                okTao = false;
+                MessageBox.Show("Hãy chọn mã sản phẩm!", "Thông báo", MessageBoxButtons.OK);
+                cbMaSP.Focus();
+                return;
             }
             //2.Kiểm tra số lượng 
-            if (txtSoluong.Text.Length == 0 || !txtSoluong.Text.All(char.IsDigit))
+            if (string.IsNullOrWhiteSpace(txtSoluong.Text) || !txtSoluong.Text.All(char.IsDigit))
             {
                 okTao = false;
                 MessageBox.Show("Hãy nhập số lượng, số lượng phải là số nguyên. Ví dụ: 13", "Thông báo", MessageBoxButtons.OK);
                 txtSoluong.Focus();
+                return;
             }
             //3.Kiểm tra khóa chính 
             if (bllDonmua.Kiemtrakhoactdonmua(cbMaDH.SelectedValue.ToString(), cbMaSP.SelectedValue.ToString(), cbMabaogia.SelectedValue.ToString()))
@@ -172,6 +217,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Chi tiết đơn mua đã tồn tại trong hệ thống. Hãy kiểm tra lại", "Thông báo", MessageBoxButtons.OK);
                 cbMaDH.Focus();
+                return;
             }
             if (okTao)
             {
@@ -219,8 +265,17 @@ namespace PC_GUI
 
         private void btnDanhgiasp_Click(object sender, EventArgs e)
         {
-            Danhgiadonhang_NV danhgia1 = new Danhgiadonhang_NV();
-            danhgia1.Show();
+            if (dataGridViewChitiet.SelectedRows.Count > 0)
+            {
+                string madm = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
+                string masp = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
+                Danhgiadonhang_NV danhgia1 = new Danhgiadonhang_NV(madm, masp);
+                danhgia1.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn 1 sản phẩm để đánh giá");
+            }
         }
 
         private void txtTim_TextChanged(object sender, EventArgs e)
@@ -230,6 +285,7 @@ namespace PC_GUI
 
         private void btnTim_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             QLMHDataContext db = new QLMHDataContext();
             db.Connection.Close();
             try
@@ -248,20 +304,50 @@ namespace PC_GUI
                                }).ToList();
                 if (listtim.Count > 0)
                 {
-                    MessageBox.Show("Tìm thấy dữ liệu ", "Thông báo", MessageBoxButtons.OK);
                     dataGridViewChitiet.DataSource = listtim;
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy dữ liệu ", "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show("Không tìm thấy kết quả ", "Thông báo", MessageBoxButtons.OK);
                     dataGridViewChitiet = null;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Không tìm thấy dữ liệu", ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Không tìm thấy kết quả", ex.Message); }
             finally
             {
                 db.Connection.Close();
             }
+        }
+        //Kiểm tra số lượng 
+        
+
+        private void txtSoluong_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtSoluong.Focused) return;
+            int Soluong;
+            if (string.IsNullOrWhiteSpace(txtSoluong.Text))
+            {
+                toolTip1.Show("Số lượng không được để trống!", txtSoluong, 0, txtSoluong.Height);
+            }
+            else if (!int.TryParse(txtSoluong.Text, out Soluong) || Soluong <= 0)
+            {
+                toolTip1.Show("Số lượng phải là số nguyên dương. Ví dụ: 13", txtSoluong, 0, txtSoluong.Height);
+            }
+            else
+            {
+                toolTip1.Hide(txtSoluong);
+            }
+        }
+
+        //Ẩn tooltip khi nhấn vào các nút khác 
+        private void HideAllTooltips()
+        {
+            toolTip1.Hide(txtSoluong);
+        }
+
+        private void txtSoluong_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

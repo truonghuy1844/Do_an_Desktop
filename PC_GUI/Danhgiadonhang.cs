@@ -10,16 +10,42 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PC_GUI
 {
     public partial class Danhgiadonhang : Form
     {
-        public Danhgiadonhang()
+        private string madm;
+        private string masp;
+        public Danhgiadonhang(string madm, string masp)
         {
             InitializeComponent();
+            this.madm = madm;
+            this.masp = masp;
         }
         BLLDonmuahang bllDonmmua = new BLLDonmuahang();
+
+        //Load đánh giá theo chi tiết đơn mua 
+        void loaddgtheodonmua()
+        {
+            QLMHEntities db = new QLMHEntities();
+            var ctdg = from ls in db.DANHGIASP_TRONGDON
+                       where ls.MaDMH == madm && ls.MaSP == masp
+                       select new
+                       {
+                           ls.MaDGSP,
+                           ls.NgayDG,
+                           ls.MaSP,
+                           ls.MaDMH,
+                           ls.MoTaDG,
+                           ls.DiemChatLuong,
+                           ls.DiemHieuQua,
+                           ls.DiemGiaCa,
+                           ls.GhiChu
+                       };
+            dataGridViewChitiet.DataSource = ctdg.ToList();
+        }
         void LoadChitietdon() // load danh sách đơn hàng vào datagridview 
         {
             QLMHEntities db = new QLMHEntities();
@@ -27,7 +53,7 @@ namespace PC_GUI
                               select new
                               {
                                   dm.MaDMH,
-                                  dm.MaSP,
+                                  dm.MaSP,  
                                   dm.SANPHAM.TenSP,
                                   dm.MaBG,
                                   dm.SoLuong
@@ -39,6 +65,7 @@ namespace PC_GUI
         {
             QLMHEntities db = new QLMHEntities();
             var lichsu = from ls in db.DANHGIASP_TRONGDON
+                         orderby ls.NgayDG descending 
                          select new
                          {
                              ls.MaDGSP,
@@ -46,8 +73,9 @@ namespace PC_GUI
                              ls.MaSP,
                              ls.MaDMH,
                              ls.MoTaDG,
-                             ls.DiemDG,
-                             ls.MucdoDG,
+                             ls.DiemChatLuong,
+                             ls.DiemHieuQua,
+                             ls.DiemGiaCa,
                              ls.GhiChu
                          };
             dataGridViewChitiet.DataSource = lichsu.ToList();
@@ -63,19 +91,28 @@ namespace PC_GUI
                 new DTODiemDG { Thutu = 4, Diemdg = 4},
                 new DTODiemDG { Thutu = 5, Diemdg = 5},
             };
-            cbDiemdanhgia.DataSource = diemdg;
-            cbDiemdanhgia.DisplayMember = "Diemdg";
-            cbDiemdanhgia.ValueMember = "Thutu";
+            cbChatluong.DataSource = diemdg;
+            cbChatluong.DisplayMember = "Diemdg";
+            cbChatluong.ValueMember = "Thutu";
+
+            cBHieuqua.DataSource = diemdg;
+            cBHieuqua.DisplayMember = "Diemdg";
+            cBHieuqua.ValueMember = "Thutu";
+
+            cbGiaca.DataSource = diemdg;
+            cbGiaca.DisplayMember = "Diemdg";
+            cbGiaca.ValueMember = "Thutu";
+
         }
 
 
         private void Danhgiadonhang_Load(object sender, EventArgs e)
         {
-            LoadChitietdon();
+            loadlichsudg();
+            loaddgtheodonmua();
             loaddiemdg();
             txtMaDGSP.Enabled = false; 
-            cbDiemdanhgia.SelectedIndex = -1;  
-            datetime1.Value = DateTime.Now;
+            datetimedanhgia.Value = DateTime.Now;
             //load vào comboboxMaDH
             cbMaDH.DataSource = bllDonmmua.loaddmh();
             cbMaDH.DisplayMember = "MaDMH";
@@ -83,27 +120,37 @@ namespace PC_GUI
             cbMaDH.SelectedIndex = -1;
 
             btnLuu.Enabled = false;
+            //cb Đánh giá 
+            cbChatluong.SelectedIndex = -1;
+            cBHieuqua.SelectedIndex = -1;
+            cbGiaca.SelectedIndex = -1;
         }
 
         private void btnChitietdon_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             LoadChitietdon();
         }
 
 
         private void btnLichsu_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             loadlichsudg();
         }
 
         private void btnTaodg_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             txtMaDGSP.Enabled = true; cbMaDH.Enabled = true; cbTensp.Enabled = true; 
-            cbDiemdanhgia.Enabled = true; txtDanhgia.Enabled = true; txtGhichu.Enabled = true;
-            datetime1.Enabled = true;
-            txtMaDGSP.Text = string.Empty;   txtMucdgia.Text = string.Empty;
+            cbChatluong.Enabled = true; txtDanhgia.Enabled = true; txtGhichu.Enabled = true;
+            datetimedanhgia.Enabled = true;
+            txtMaDGSP.Text = string.Empty;  
             txtDanhgia.Text = string.Empty; txtGhichu.Text = string.Empty;
-            cbMaDH.SelectedIndex = -1; cbDiemdanhgia.SelectedIndex = -1;
+            cbMaDH.SelectedIndex = -1; 
+            cbChatluong.SelectedIndex = -1;
+            cbGiaca.SelectedIndex = -1;
+            cBHieuqua.SelectedIndex = -1;
             cbTensp.SelectedIndex = -1; 
             txtMaDGSP.Focus();
             btnLuu.Enabled = true;
@@ -112,7 +159,9 @@ namespace PC_GUI
         private void btnLuu_Click(object sender, EventArgs e)
         {
             bool kiemtra = true;
-            if (txtMaDGSP.Text.Length == 0)
+
+            //1.Mã đánh giá không được trống 
+            if (string.IsNullOrWhiteSpace(txtMaDGSP.Text))
             {
                 kiemtra = false;
                 MessageBox.Show("Mã đánh giá không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
@@ -139,23 +188,31 @@ namespace PC_GUI
                 MessageBox.Show("Mã đánh giá đã tồn tại trong hệ thống", "Thông báo", MessageBoxButtons.OK);
                 txtMaDGSP.Focus();
             }
-            //2.Ngày không được lớn hơn ngày hiện tại 
-            if (datetime1.Value > DateTime.Now)
+            //2.Mã đơn mua hàng không được trống 
+            if (cbMaDH.SelectedIndex == -1)
             {
                 kiemtra = false;
-                MessageBox.Show("Ngày tạo đánh giá không được lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
-                datetime1.Focus();
+                MessageBox.Show("Mã đơn mua hàng không được để trống", "Thông báo", MessageBoxButtons.OK);
+                cbMaDH.Focus();
+
+            }
+            //3.Điểm đánh giá 
+            if (cbChatluong.SelectedIndex == -1 && cBHieuqua.SelectedIndex == -1 && cbGiaca.SelectedIndex == -1)
+            {
+                kiemtra = false;
+                MessageBox.Show("Đánh giá tối thiểu một tiêu chí", "Thông báo", MessageBoxButtons.OK);
             }
             if (kiemtra)
             {
                 DANHGIASP_TRONGDON_LQ dgsp = new DANHGIASP_TRONGDON_LQ();
                 dgsp.MaDGSP = txtMaDGSP.Text;
-                dgsp.NgayDG = datetime1.Value;
+                dgsp.NgayDG = datetimedanhgia.Value;
                 dgsp.MaSP = cbTensp.SelectedValue.ToString();
                 dgsp.MaDMH = cbMaDH.SelectedValue.ToString();
                 dgsp.MoTaDG = txtDanhgia.Text;
-                dgsp.DiemDG = Convert.ToInt32(cbDiemdanhgia.SelectedValue);
-                dgsp.MucdoDG = txtMucdgia.Text;
+                dgsp.DiemChatLuong = Convert.ToInt32(cbChatluong.SelectedValue);
+                dgsp.DiemHieuQua = Convert.ToInt32(cBHieuqua.SelectedValue);
+                dgsp.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
                 dgsp.GhiChu = txtGhichu.Text;
                 QLMHDataContext da = new QLMHDataContext();
                 da.Connection.Open(); // mở 
@@ -173,59 +230,27 @@ namespace PC_GUI
                 btnLuu.Enabled = false;
             }
         }
-       
 
-        private void cbDiemdanhgia_SelectedIndexChanged(object sender, EventArgs e)
+        private void cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbDiemdanhgia.SelectedItem != null)
-            {
-                switch (cbDiemdanhgia.SelectedValue)
-                {
-                    case 1 :
-                        txtMucdgia.Text = "Kém";
-                        break;
-                    case 2 :
-                        txtMucdgia.Text = "Kém";
-                        break;
-                    case 3:
-                        txtMucdgia.Text = "Trung bình";
-                        break;
-                    case 4:
-                        txtMucdgia.Text = "Tốt";
-                        break;
-                    case 5:
-                        txtMucdgia.Text = "Tốt";
-                        break;
-                    default:
-                        txtMucdgia.Text = string.Empty;
-                        break;
-                }
-            }    
+
         }
         //Nút cập nhật 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             bool okSua = true;
-            //1.Mã đơn mua hàng không được trống 
-            if (cbMaDH.SelectedIndex == -1)
+            //1 Mô tả đánh giá không được trống 
+            if (string.IsNullOrWhiteSpace(txtDanhgia.Text))
             {
                 okSua = false;
-                MessageBox.Show("Mã đơn mua hàng không được bỏ trống", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Mô tả đánh giá không được bỏ trống", "Thông báo", MessageBoxButtons.OK);
                 cbMaDH.Focus();
             }
-            //2.Điểm đánh giá không được trống 
-            if (cbDiemdanhgia.SelectedIndex == -1)
+            //3.Điểm đánh giá 
+            if (cbChatluong.SelectedIndex == -1 && cBHieuqua.SelectedIndex == -1 && cbGiaca.SelectedIndex == -1)
             {
                 okSua = false;
-                MessageBox.Show("Hãy chọn điểm đánh giá cho sản phẩm", "Thông báo", MessageBoxButtons.OK);
-                cbDiemdanhgia.Focus();
-            }
-            //3.Ngày không được lớn hơn ngày hiện tại 
-            if (datetime1.Value > DateTime.Now)
-            {
-                okSua = false;
-                MessageBox.Show("Ngày tạo đánh giá không được lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
-                datetime1.Focus();
+                MessageBox.Show("Đánh giá tối thiểu một tiêu chí", "Thông báo", MessageBoxButtons.OK);
             }
             if (okSua)
             {
@@ -233,9 +258,10 @@ namespace PC_GUI
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
-                    dg.NgayDG = datetime1.Value;
-                    dg.DiemDG = Convert.ToInt32(cbDiemdanhgia.SelectedValue);
-                    dg.MucdoDG = txtMucdgia.Text;
+                    dg.NgayDG = datetimedanhgia.Value;
+                    dg.DiemChatLuong = Convert.ToInt32(cbChatluong.SelectedValue);
+                    dg.DiemHieuQua= Convert.ToInt32(cBHieuqua.SelectedValue);
+                    dg.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
                     dg.MoTaDG = txtDanhgia.Text;
                     dg.GhiChu = txtGhichu.Text;
                     try
@@ -286,16 +312,21 @@ namespace PC_GUI
             {
                 txtMaDGSP.Text = dataGridViewChitiet.CurrentRow.Cells["MaDGSP"].Value.ToString();
                 cbMaDH.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
+                //Gọi tên sp theo MaDH 
+                cbMaDH_SelectedIndexChanged(sender, e);
                 cbTensp.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
-                cbDiemdanhgia.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemDG"].Value);
-                txtMucdgia.Text = dataGridViewChitiet.CurrentRow.Cells["MucdoDG"].Value.ToString();
+                cbChatluong.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemChatLuong"].Value);
+                cBHieuqua.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemHieuQua"].Value);
+                cbGiaca.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemGiaCa"].Value);
                 txtDanhgia.Text = dataGridViewChitiet.CurrentRow.Cells["MoTaDG"].Value.ToString();
-                txtGhichu.Text = dataGridViewChitiet.CurrentRow.Cells["GhiChu"].Value ==null? string.Empty :
+                txtGhichu.Text = dataGridViewChitiet.CurrentRow.Cells["GhiChu"].Value == null ? string.Empty :
                 dataGridViewChitiet.CurrentRow.Cells["GhiChu"].Value.ToString();
+                datetimedanhgia.Value = Convert.ToDateTime(dataGridViewChitiet.CurrentRow.Cells["NgayDG"].Value);
 
                 cbMaDH.Enabled = false;
                 cbTensp.Enabled = false;
-            }    
+                txtMaDGSP.Enabled = false;
+            }
         }
         //Cbtensp tự động hiển thị theo cbMaDH 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
@@ -327,6 +358,122 @@ namespace PC_GUI
         private void txtMucdgia_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtMaDGSP_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaDGSP.Text))
+            {
+                toolTip1.Show("Mã đánh giá không được để trống !", txtMaDGSP, 0, txtMaDGSP.Height);
+            }
+            //1.2 Mã trường chỉ được chứa ký tự chữ và số 
+            else if (!txtMaDGSP.Text.All(char.IsLetterOrDigit) || !txtMaDGSP.Text.StartsWith("DGSP"))
+            {
+                toolTip1.Show("Mã đánh giá chỉ chứa ký tự chữ, số và bắt đầu bằng 'DGSP' !",txtMaDGSP, 0, txtMaDGSP.Height);
+            }
+            //1.3 Mã trường tối thiểu 7, tối đa 10 
+            else if ((txtMaDGSP.Text.Length < 7) || (txtMaDGSP.Text.Length > 10))
+            {
+                toolTip1.Show("Mã đánh giá tối thiểu 7 ký tự và không quá 10 ký tự! ",txtMaDGSP, 0, txtMaDGSP.Height);
+            }
+            else
+            {
+                toolTip1.Hide(txtMaDGSP);
+            }    
+        }
+
+        private void txtMaDGSP_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaDGSP.Text.Length > 0 &&
+                txtMaDGSP.Text.All(char.IsLetterOrDigit) && 
+                txtMaDGSP.Text.StartsWith("DGSP") &&
+                txtMaDGSP.Text.Length >= 7 && 
+                txtMaDGSP.Text.Length <= 10 )
+            {
+                toolTip1.Hide(txtMaDGSP);
+            }    
+        }
+
+        private void datetime1_ValueChanged(object sender, EventArgs e)
+        {
+            if (datetimedanhgia.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày tạo đánh giá không được lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
+                datetimedanhgia.Value = DateTime.Now;
+            }
+        }
+
+        private void HideAllTooltips()
+        {
+            toolTip1.Hide(txtMaDGSP);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTim.Text))
+            {
+                QLMHEntities db = new QLMHEntities();
+                var listtim = from dg in db.DANHGIASP_TRONGDON
+                              where dg.NgayDG >= dateTimebatdau.Value && dg.NgayDG <= dateTimeketthuc.Value
+                              select new
+                              {
+                                  dg.MaDGSP,
+                                  dg.NgayDG,
+                                  dg.MaSP,
+                                  dg.MaDMH,
+                                  dg.MoTaDG,
+                                  dg.DiemChatLuong,
+                                  dg.DiemHieuQua,
+                                  dg.DiemGiaCa,
+                                  dg.GhiChu
+                              };
+                dataGridViewChitiet.DataSource = listtim.ToList();
+                if (!listtim.ToList().Any())
+                {
+                    MessageBox.Show("Không tìm thấy kết quả");
+                    loadlichsudg();
+                }
+                else
+                {
+                    dataGridViewChitiet.DataSource = listtim.ToList();
+                }
+
+            }
+            else
+            {
+                QLMHEntities db = new QLMHEntities();
+                var listtimp = from dg in db.DANHGIASP_TRONGDON
+                               where dg.SANPHAM.TenSP.Contains(txtTim.Text.Trim())
+                               && dg.NgayDG >= dateTimebatdau.Value
+                               && dg.NgayDG <= dateTimeketthuc.Value
+                               select new
+                               {
+                                   dg.MaDGSP,
+                                   dg.NgayDG,
+                                   dg.MaSP,
+                                   dg.MaDMH,
+                                   dg.MoTaDG,
+                                   dg.DiemChatLuong,
+                                   dg.DiemHieuQua,
+                                   dg.DiemGiaCa,
+                                   dg.GhiChu
+                               };
+                if (!listtimp.ToList().Any())
+                {
+                    MessageBox.Show("Không tìm thấy kết quả");
+                    loadlichsudg();
+                }
+                else
+                {
+                    dataGridViewChitiet.DataSource = listtimp.ToList();
+                }
+                
+            }    
         }
     }
 }

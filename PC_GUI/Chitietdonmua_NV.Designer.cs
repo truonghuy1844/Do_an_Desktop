@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnDanhgiasp = new System.Windows.Forms.Button();
             this.btnTim = new System.Windows.Forms.Button();
             this.txtTim = new System.Windows.Forms.TextBox();
@@ -49,6 +50,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDongia = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChitiet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +103,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 115);
+            this.label3.Location = new System.Drawing.Point(12, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 137;
-            this.label3.Text = "Mã sản phẩm";
+            this.label3.Text = "Mã sản phẩm(*)";
             // 
             // txtTensp
             // 
@@ -195,9 +197,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(503, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 127;
-            this.label1.Text = "Số lượng ";
+            this.label1.Text = "Số lượng (*)";
             // 
             // txtSoluong
             // 
@@ -205,6 +207,8 @@
             this.txtSoluong.Name = "txtSoluong";
             this.txtSoluong.Size = new System.Drawing.Size(110, 20);
             this.txtSoluong.TabIndex = 126;
+            this.txtSoluong.TextChanged += new System.EventHandler(this.txtSoluong_TextChanged);
+            this.txtSoluong.Leave += new System.EventHandler(this.txtSoluong_Leave);
             // 
             // label7
             // 
@@ -218,11 +222,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 73);
+            this.label6.Location = new System.Drawing.Point(12, 73);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 124;
-            this.label6.Text = "Mã đơn hàng";
+            this.label6.Text = "Mã đơn hàng(*)";
             // 
             // label5
             // 
@@ -298,5 +302,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDongia;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

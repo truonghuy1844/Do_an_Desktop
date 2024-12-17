@@ -18,7 +18,6 @@ namespace PC_GUI
         public NHACUNGCAP()
         {
             this.BAOGIAs = new HashSet<BAOGIA>();
-            this.DANHGIA_NCC = new HashSet<DANHGIA_NCC>();
             this.DONMUAHANGs = new HashSet<DONMUAHANG>();
         }
     
@@ -30,8 +29,6 @@ namespace PC_GUI
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BAOGIA> BAOGIAs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANHGIA_NCC> DANHGIA_NCC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DONMUAHANG> DONMUAHANGs { get; set; }
     }

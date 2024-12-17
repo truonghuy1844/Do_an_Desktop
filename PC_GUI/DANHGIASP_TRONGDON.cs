@@ -19,9 +19,10 @@ namespace PC_GUI
         public string MaSP { get; set; }
         public string MaDMH { get; set; }
         public string MoTaDG { get; set; }
-        public Nullable<int> DiemDG { get; set; }
-        public string MucdoDG { get; set; }
         public string GhiChu { get; set; }
+        public Nullable<int> DiemChatLuong { get; set; }
+        public Nullable<int> DiemHieuQua { get; set; }
+        public Nullable<int> DiemGiaCa { get; set; }
     
         public virtual SANPHAM SANPHAM { get; set; }
         public virtual DONMUAHANG DONMUAHANG { get; set; }

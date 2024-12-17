@@ -101,7 +101,6 @@
             this.cbMabaogia.Name = "cbMabaogia";
             this.cbMabaogia.Size = new System.Drawing.Size(152, 21);
             this.cbMabaogia.TabIndex = 107;
-            //this.cbMabaogia.SelectedIndexChanged += new System.EventHandler(this.cbMabaogia_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -136,9 +135,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(505, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 102;
-            this.label1.Text = "Số lượng ";
+            this.label1.Text = "Số lượng (*)";
             // 
             // txtSoluong
             // 
@@ -146,11 +145,13 @@
             this.txtSoluong.Name = "txtSoluong";
             this.txtSoluong.Size = new System.Drawing.Size(110, 20);
             this.txtSoluong.TabIndex = 101;
+            this.txtSoluong.TextChanged += new System.EventHandler(this.txtSoluong_TextChanged);
+            this.txtSoluong.Leave += new System.EventHandler(this.txtSoluong_Leave);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(502, 73);
+            this.label7.Location = new System.Drawing.Point(523, 73);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 99;
@@ -159,11 +160,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 73);
+            this.label6.Location = new System.Drawing.Point(12, 73);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 13);
+            this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 98;
-            this.label6.Text = "Mã đơn hàng";
+            this.label6.Text = "Mã đơn hàng(*)";
             // 
             // label5
             // 
@@ -200,11 +201,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 115);
+            this.label3.Location = new System.Drawing.Point(12, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 115;
-            this.label3.Text = "Mã sản phẩm";
+            this.label3.Text = "Mã sản phẩm(*)";
             // 
             // cbMaDH
             // 

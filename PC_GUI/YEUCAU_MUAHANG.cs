@@ -18,6 +18,7 @@ namespace PC_GUI
         public YEUCAU_MUAHANG()
         {
             this.CT_YEUCAU = new HashSet<CT_YEUCAU>();
+            this.DONMUAHANGs = new HashSet<DONMUAHANG>();
         }
     
         public string MaYC { get; set; }
@@ -30,5 +31,7 @@ namespace PC_GUI
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_YEUCAU> CT_YEUCAU { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DONMUAHANG> DONMUAHANGs { get; set; }
     }
 }

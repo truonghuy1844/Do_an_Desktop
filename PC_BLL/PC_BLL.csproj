@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLLDonmuahang.cs" />
     <Compile Include="BLLPhancong.cs" />
+    <Compile Include="BLLTruycap.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

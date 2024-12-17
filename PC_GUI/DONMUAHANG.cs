@@ -30,6 +30,7 @@ namespace PC_GUI
         public Nullable<decimal> Chietkhau { get; set; }
         public string TThai { get; set; }
         public string MoTa { get; set; }
+        public string MaYC { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_DONMUAHANG> CT_DONMUAHANG { get; set; }
@@ -40,5 +41,6 @@ namespace PC_GUI
         public virtual NHANVIEN NHANVIEN { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
+        public virtual YEUCAU_MUAHANG YEUCAU_MUAHANG { get; set; }
     }
 }

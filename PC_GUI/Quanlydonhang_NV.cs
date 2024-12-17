@@ -33,11 +33,13 @@ namespace PC_GUI
         {
             QLMHDataContext db = new QLMHDataContext();
             var donMua = from dm in db.DONMUAHANG_LQs
+                         orderby dm.NgayLap descending
                          select new
                          {
                              dm.MaDMH,
                              dm.NgayLap,
                              dm.MaHDMH,
+                             dm.MaYC,
                              dm.MaNV,
                              dm.MaNCC,
                              dm.Chietkhau,
@@ -91,13 +93,23 @@ namespace PC_GUI
             cbLoc.DisplayMember = "Hienthi";
             cbLoc.ValueMember = "Luu";
         }
-
+        //Load combobox yêu cầu mua hàng 
+        void loadycmh()
+        {
+            QLMHEntities db = new QLMHEntities();
+            var ycmh = from yc in db.YEUCAU_MUAHANG
+                       select yc;
+            cbYcmh.DataSource = ycmh.ToList();
+            cbYcmh.DisplayMember = "MaYC";
+            cbYcmh.ValueMember = "MaYC";
+        }
         private void Quanlydonhang_NV_Load(object sender, EventArgs e)
         {
             loadloctt();
             loadhopdong();
             loadcbTrangthai();
             loadcbLoc();
+            loadycmh();
             //load NCC 
             cbMaNCC.DataSource = loadnhacc();
             cbMaNCC.DisplayMember = "TenNCC";
@@ -109,6 +121,7 @@ namespace PC_GUI
             cbMaHD.SelectedIndex = -1;
             cbMaNCC.SelectedIndex = -1;
             cbTrangThai.SelectedIndex = -1;
+            cbYcmh.SelectedIndex = -1;
             cbLoc.SelectedIndex = -1;
             btnXoa.Enabled = false;  //NV không được phép xóa đơn 
 
@@ -119,16 +132,19 @@ namespace PC_GUI
         }
         //II.Xử lý các nút 
         //LinQ 
-        private void btnLichSu_Click(object sender, EventArgs e)
+        private void btnThongtin_Click(object sender, EventArgs e)
         {
+            HideAllTooltips(); //ẩn tooltip 
             QLMHDataContext db = new QLMHDataContext();
 
             var listdonmua = from dm in db.DONMUAHANG_LQs
+                             orderby dm.NgayLap descending
                              select new
                              {
                                  dm.MaDMH,
                                  dm.NgayLap,
                                  dm.MaHDMH,
+                                 dm.MaYC,
                                  dm.MaNV,
                                  dm.MaNCC,
                                  dm.Chietkhau,
@@ -140,8 +156,10 @@ namespace PC_GUI
 
         private void btnTheodoi_Click(object sender, EventArgs e)
         {
+            HideAllTooltips(); //ẩn tooltip 
             QLMHDataContext db = new QLMHDataContext();
             var listtheodoi = from dm in db.DONMUAHANG_LQs
+                              orderby dm.NgayLap descending
                               select new
                               {
                                   dm.MaDMH,
@@ -153,6 +171,7 @@ namespace PC_GUI
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
+            HideAllTooltips(); //ẩn tooltip 
             QLMHDataContext db = new QLMHDataContext();
             var listloc = from dm in db.DONMUAHANG_LQs
                           where dm.TThai == cbLoc.SelectedValue.ToString()
@@ -161,6 +180,7 @@ namespace PC_GUI
                               dm.MaDMH,
                               dm.NgayLap,
                               dm.MaHDMH,
+                              dm.MaYC,
                               dm.MaNV,
                               dm.MaNCC,
                               dm.Chietkhau,
@@ -172,6 +192,7 @@ namespace PC_GUI
 
         private void btnTim_Click(object sender, EventArgs e)
         {
+            HideAllTooltips(); //ẩn tooltip 
             QLMHDataContext db = new QLMHDataContext();
             db.Connection.Open();
             var listtim = from dm in db.DONMUAHANG_LQs
@@ -181,6 +202,7 @@ namespace PC_GUI
                               dm.MaDMH,
                               dm.NgayLap,
                               dm.MaHDMH,
+                              dm.MaYC,
                               dm.MaNV,
                               dm.MaNCC,
                               dm.Chietkhau,
@@ -189,11 +211,10 @@ namespace PC_GUI
                           };
             if (listtim == null)
             {
-                MessageBox.Show("Không tìm thấy dữ liệu");
+                MessageBox.Show("Không tìm thấy kết quả");
             }
             else
             {
-                MessageBox.Show("Tìm thấy dữ liệu");
                 dataGridView2.DataSource = listtim;
             }
             
@@ -208,6 +229,7 @@ namespace PC_GUI
                 dateTime2.Value = Convert.ToDateTime(dataGridView2.CurrentRow.Cells["NgayLap"].Value);
                 cbMaHD.SelectedValue = dataGridView2.CurrentRow.Cells["MaHDMH"].Value.ToString();
                 cbMaNCC.SelectedValue = dataGridView2.CurrentRow.Cells["MaNCC"].Value.ToString();
+                cbYcmh.SelectedValue = dataGridView2.CurrentRow.Cells["MaYC"].Value.ToString();
                 txtMaNV.Text = dataGridView2.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtChietkhau.Text = dataGridView2.CurrentRow.Cells["Chietkhau"].Value.ToString();
                 txtMoTa.Text = dataGridView2.CurrentRow.Cells["MoTa"].Value.ToString();
@@ -228,25 +250,128 @@ namespace PC_GUI
 
         private void btnTao_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
+            //Mở khóa các textbox 
             txtMaDMH.Enabled = true;
-            btnLuu.Enabled = true;
+            dateTime2.Enabled = true;
+            txtMaNV.Enabled = true; cbMaNCC.Enabled = true;
+            cbMaHD.Enabled = true; cbTrangThai.Enabled = true;
+            txtMoTa.Enabled = true; txtChietkhau.Enabled = true;
+            //Làm trống dữ liệu 
             txtMaDMH.Focus();
             txtMaDMH.Text = string.Empty;
             txtMaNV.Text = string.Empty;
             txtMoTa.Text = string.Empty;
             txtChietkhau.Text = string.Empty;
-            cbMaHD.SelectedIndex = -1;
+            dateTime2.Value = DateTime.Now;
             cbMaNCC.SelectedIndex = -1;
             cbTrangThai.SelectedIndex = -1;
-            btnTao.Enabled = false;
+            cbMaHD.SelectedIndex = -1;
+            cbYcmh.SelectedIndex = -1;
+            //Mở lưu
+            btnLuu.Enabled = true;
+
+        }
+        private void txtMaDMH_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaDMH.Text))
+            {
+                toolTip1.Show("Mã đơn hàng không được để trống!", txtMaDMH, 0, txtMaDMH.Height); // Hiển thị tooltip trong 3 giây
+            }
+            else if (!txtMaDMH.Text.All(char.IsLetterOrDigit) || !txtMaDMH.Text.StartsWith("DMH"))
+            {
+                toolTip1.Show("Mã đơn hàng chỉ chứa ký tự chữ, số và bắt đầu bằng 'DMH'!", txtMaDMH, 0, txtMaDMH.Height);
+            }
+            else if (txtMaDMH.Text.Length < 6 || txtMaDMH.Text.Length > 10)
+            {
+                toolTip1.Show("Mã đơn hàng tối thiểu 6 ký tự và không quá 10 ký tự!", txtMaDMH, 0, txtMaDMH.Height);
+            }
+            else
+            {
+                toolTip1.Hide(txtMaDMH); // Ẩn tooltip 
+            }
         }
 
+        private void txtMaDMH_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaDMH.Text.Length >= 6 &&
+               txtMaDMH.Text.Length <= 10 &&
+               txtMaDMH.Text.All(char.IsLetterOrDigit) &&
+               txtMaDMH.Text.StartsWith("DMH"))
+            {
+                toolTip1.Hide(txtMaDMH);
+            }
+        }
+
+        private void txtMaNV_Leave(object sender, EventArgs e)
+        {
+            //2.1 Mã nhân viên không được trống 
+            if (string.IsNullOrWhiteSpace(txtMaNV.Text))
+            {
+                toolTip2.Show("Mã nhân viên không được để trống!", txtMaNV, 0, txtMaNV.Height);
+
+            }
+            //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
+            else if (!txtMaNV.Text.All(char.IsLetterOrDigit) || !txtMaNV.Text.StartsWith("NV"))
+            {
+                toolTip2.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", txtMaNV, 0, txtMaNV.Height);
+            }
+            //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
+            else if ((txtMaNV.Text.Length < 5) || (txtMaNV.Text.Length > 10))
+            {
+                toolTip2.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự!", txtMaNV, 0, txtMaNV.Height);
+            }
+            else
+            {
+                toolTip2.Hide(txtMaNV); //ẩn đi 
+            }
+        }
+
+        private void txtMaNV_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaNV.Text.Length >= 5 &&
+              txtMaNV.Text.Length <= 10 &&
+              txtMaNV.Text.All(char.IsLetterOrDigit) &&
+              txtMaNV.Text.StartsWith("NV"))
+            {
+                toolTip2.Hide(txtMaNV);
+            }
+        }
+
+        private void txtChietkhau_Leave(object sender, EventArgs e)
+        {
+            decimal chietkhau;
+            if (!string.IsNullOrEmpty(txtChietkhau.Text))
+            {
+                if (!decimal.TryParse(txtChietkhau.Text, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+                {
+                    toolTip3.Show("Chiết khấu phải là số thực lớn hơn 0 và nhỏ hơn 1000", txtChietkhau, 0, txtChietkhau.Height);
+                }
+                else
+                {
+                    toolTip3.Hide(txtChietkhau);
+                }
+            }
+            else
+            {
+                toolTip3.Show("Vui lòng nhập chiết khấu!", txtChietkhau, 0, txtChietkhau.Height);
+            }
+        }
+
+        private void dateTime2_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTime2.Value > DateTime.Now)
+            {
+                MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
+                dateTime2.Value = DateTime.Now;
+            }
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
             bool okTao = true;
             //1.Kiểm tra trường mã đơn hàng 
             //1.1 Mã trường không được trống 
-            if (txtMaDMH.Text.Length == 0)
+            if (string.IsNullOrWhiteSpace(txtMaDMH.Text))
             {
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
@@ -275,7 +400,7 @@ namespace PC_GUI
             }
             //2.Kiêm tra trường mã nhân viên 
             //2.1 Mã nhân viên không được trống 
-            if (txtMaNV.Text.Length == 0)
+            if (string.IsNullOrWhiteSpace(txtMaNV.Text))
             {
                 okTao = false;
                 MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
@@ -295,28 +420,24 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Focus();
             }
-            //3 Ngày lập không được lớn hơn ngày hiện tại 
-            if (dateTime2.Value > DateTime.Now)
+            //3.Trường mã yêu cầu mua hàng 
+            if (cbYcmh.SelectedIndex == -1)
             {
                 okTao = false;
-                MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
-                dateTime2.Focus();
+                MessageBox.Show("Mã yêu cầu mua hàng không được để trống", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                cbYcmh.Focus();
             }
             //4.Chiết khấu là số thực và > 0 
-            decimal chietkhau;
+            decimal chietkhau = 0;
             string input = txtChietkhau.Text.Replace(",", ".");
             if (!string.IsNullOrEmpty(txtChietkhau.Text))
             {
-                if (!decimal.TryParse(txtChietkhau.Text, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
+                if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
                 {
                     okTao = false;
-                    MessageBox.Show("Chiết khẩu phải là số thực lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    MessageBox.Show("Chiết khấu là số thực lớn hơn 0 và nhỏ hơn 1000! Nếu không có, hãy điền '0'", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtChietkhau.Focus();
                 }
-            }
-            else
-            {
-                chietkhau = 0;
             }
             if (okTao)
             {
@@ -324,6 +445,7 @@ namespace PC_GUI
                 donmua.MaDMH = txtMaDMH.Text;
                 donmua.NgayLap = dateTime2.Value;
                 donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
+                donmua.MaYC = cbYcmh.SelectedValue.ToString();
                 donmua.MaNV = txtMaNV.Text;
                 donmua.MaNCC = cbMaNCC.SelectedValue.ToString();
                 donmua.Chietkhau = chietkhau;
@@ -346,7 +468,6 @@ namespace PC_GUI
                 db.Connection.Close();
                 loaddonmua();
                 btnLuu.Enabled = false;
-                btnTao.Enabled = true;
             }
         }
 
@@ -355,7 +476,7 @@ namespace PC_GUI
             bool okSua = true;
             //2.Kiêm tra trường mã nhân viên 
             //2.1 Mã nhân viên không được trống 
-            if (txtMaNV.Text.Length == 0)
+            if (string.IsNullOrWhiteSpace(txtMaNV.Text))
             {
                 okSua = false;
                 MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
@@ -375,28 +496,17 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Focus();
             }
-            //3 Ngày lập không được lớn hơn ngày hiện tại 
-            if (dateTime2.Value > DateTime.Now)
-            {
-                okSua = false;
-                MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
-                dateTime2.Focus();
-            }
             //4.Chiết khấu là số thực và > 0 
-            decimal chietkhau;
+            decimal chietkhau = 0;
             string input = txtChietkhau.Text.Replace(",",".");
             if (String.IsNullOrEmpty(txtChietkhau.Text))
             {
                 if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
                 {
                     okSua = false;
-                    MessageBox.Show("Chiết khẩu phải là số thực có dạng a.bc, lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    MessageBox.Show("Chiết khấu là số thực lớn hơn 0 và nhỏ hơn 1000! Nếu không có, hãy điền '0'", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtChietkhau.Focus();
                 }
-            }
-            else
-            {
-                chietkhau = 0;
             }
             if (okSua)
             {
@@ -411,6 +521,7 @@ namespace PC_GUI
                     donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
                     donmua.MaNV = txtMaNV.Text;
                     donmua.MaNCC = cbMaNCC.SelectedValue.ToString();
+                    donmua.MaYC = cbYcmh.SelectedValue.ToString();
                     donmua.Chietkhau = chietkhau;
                     donmua.TThai = cbTrangThai.SelectedValue.ToString();
                     donmua.MoTa = txtMoTa.Text;
@@ -425,10 +536,18 @@ namespace PC_GUI
             }
 
         }
-        private void btnDanhgia_Click(object sender, EventArgs e)
+        private void btnChitiet_Click(object sender, EventArgs e)
         {
-            Chitietdonmua_NV ctdm_nv = new Chitietdonmua_NV();
-            ctdm_nv.Show();
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                string madonmua = dataGridView2.CurrentRow.Cells["MaDMH"].Value.ToString();
+                Chitietdonmua_NV ctdm_nv = new Chitietdonmua_NV(madonmua);
+                ctdm_nv.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn đơn hàng để xem chi tiết");
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -436,6 +555,13 @@ namespace PC_GUI
             //NV không được xóa 
         }
 
-        
+        //Ẩn tooltip khi nhấn vào các nút khác 
+        private void HideAllTooltips()
+        {
+            toolTip1.Hide(txtMaDMH);
+            toolTip2.Hide(txtMaNV);
+            toolTip3.Hide(txtChietkhau);
+        }
+
     }
 }

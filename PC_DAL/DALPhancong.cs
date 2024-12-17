@@ -43,19 +43,19 @@ namespace PC_DAL
             catch (SqlException) { return null; }
             finally{ conn.Close(); }
         }
-            
+        //Tạo phân công mới     
         public bool Taophancong(DTOPhancong pc)
         {
             try
             {
                 conn.Open();
-                string myQuery = "Insert into PHANCONG_CONGVIEC (MaPC, MaNV, NgayGiao, NgayHT, KLuong, TThai) values (@mapc,@manv,@ngaygiao,@ngayht,@kl,@tthai)";
+                string myQuery = "Insert into PHANCONG_CONGVIEC (MaPC, MaNV, NgayGiao, NgayHT, Congviec, TThai) values (@mapc,@manv,@ngaygiao,@ngayht,@cv,@tthai)";
                 SqlCommand cmd = new SqlCommand(myQuery, conn);
                 cmd.Parameters.AddWithValue("@mapc", pc.MaPC);
                 cmd.Parameters.AddWithValue("@manv", pc.MaNV);
                 cmd.Parameters.AddWithValue("@ngaygiao", pc.Ngaygiao);
                 cmd.Parameters.AddWithValue("@ngayht", pc.Ngayht);
-                cmd.Parameters.AddWithValue("@kl", pc.Kluong);
+                cmd.Parameters.AddWithValue("@cv", pc.Congviec);
                 cmd.Parameters.AddWithValue("@tthai", pc.Tthai);
 
                 return cmd.ExecuteNonQuery() > 0 ? true : false;
@@ -63,6 +63,7 @@ namespace PC_DAL
             catch (Exception) { return false; }
             finally { conn.Close(); }
         }
+        //Kiểm tra mã phân công tồn tại trong hệ thống 
         public bool kiemtramapc(string mapc)
         {
             try
@@ -78,16 +79,17 @@ namespace PC_DAL
             catch { return false; }
             finally { conn.Close(); }
         }
+        //Cập nhật phân công 
         public bool Suaphancong(DTOPhancong pc)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Update PHANCONG_CONGVIEC set NgayHT = @ngayht, KLuong = @kl,TThai = @tt where MaPC = @mapc", conn);
-                cmd.Parameters.AddWithValue("mapc", pc.MaPC);
-                cmd.Parameters.AddWithValue("ngayht", pc.Ngayht);
-                cmd.Parameters.AddWithValue("kl", pc.Kluong);
-                cmd.Parameters.AddWithValue("tt", pc.Tthai);
+                SqlCommand cmd = new SqlCommand("Update PHANCONG_CONGVIEC set NgayHT = @ngayht, Congviec = @cv,TThai = @tt where MaPC = @mapc", conn);
+                cmd.Parameters.AddWithValue("@mapc", pc.MaPC);
+                cmd.Parameters.AddWithValue("@ngayht", pc.Ngayht);
+                cmd.Parameters.AddWithValue("@cv", pc.Congviec);
+                cmd.Parameters.AddWithValue("@tt", pc.Tthai);
 
                 return cmd.ExecuteNonQuery() > 0 ? true : false;
             }
@@ -95,7 +97,7 @@ namespace PC_DAL
             finally { conn.Close(); }
         }
 
-        //Xóa
+        //Xóa phân công 
         public bool Xoaphancong(DTOPhancong pc)
         {
             try
@@ -110,6 +112,7 @@ namespace PC_DAL
             catch (SqlException) { return false; }
             finally { conn.Close(); }
         }
+        //Tìm phân công theo mã, tên nhân viên, mã phân công hoặc khối lượng 
         public DataTable Timphancong(string tukhoa)
         {
             try
@@ -122,10 +125,12 @@ namespace PC_DAL
                 }
                 else
                 {
-                    cmd = new SqlCommand("Select pc.MaPC, pc.MaNV,nv.TenNV, pc.NgayGiao,pc.NgayHT,pc.KLuong,pc.TThai from PHANCONG_CONGVIEC pc join NHANVIEN nv on pc.MaNV = nv.MaNV " +
-                        "where nv.TenNV LIKE @tennv or pc.MaPC LIKE @pc", conn);
+                    cmd = new SqlCommand("Select pc.MaPC, pc.MaNV,nv.TenNV, pc.NgayGiao,pc.NgayHT,pc.Congviec,pc.TThai from PHANCONG_CONGVIEC pc join NHANVIEN nv on pc.MaNV = nv.MaNV " +
+                        "where nv.TenNV LIKE @tennv or pc.MaPC LIKE @pc or pc.Congviec LIKE @cv or nv.MaNV LIKE @manv", conn);
                     cmd.Parameters.AddWithValue("@tennv", "%" + tukhoa + "%");
                     cmd.Parameters.AddWithValue("@pc", "%" + tukhoa + "%");
+                    cmd.Parameters.AddWithValue("@cv", "%" + tukhoa + "%");
+                    cmd.Parameters.AddWithValue("@manv", "%" + tukhoa + "%");
                 }
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -136,7 +141,7 @@ namespace PC_DAL
             { return null; }
             finally { conn.Close(); }
         }
-
+        //Load combobox trạng thái phân công 
         public DataTable loadcbtt()
         {
             try
@@ -152,6 +157,7 @@ namespace PC_DAL
             { return null; }
             finally { conn.Close(); }
         }
+        //Lọc datagridview theo trạng thái 
         public DataTable hoanthanh(string trangthai)
         {
             try
@@ -165,7 +171,8 @@ namespace PC_DAL
                 da.Fill(chuaht);
                 return chuaht;
             }
-            catch (Exception) { return null; }
+            catch (Exception) 
+            { return null; }
             finally { conn.Close(); }   
         }
     }

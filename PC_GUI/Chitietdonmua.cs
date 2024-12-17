@@ -3,20 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PC_GUI
 {
     public partial class Chitietdonmua : Form
     {
         BLLDonmuahang bllDonmua = new BLLDonmuahang();
-        public Chitietdonmua()
+        private string madonmua;
+        public Chitietdonmua(string madonmua)
         {
             InitializeComponent();
+            this.madonmua = madonmua;
         }
         void loadmadh()
         {
@@ -43,14 +47,38 @@ namespace PC_GUI
             cbMaSP.DisplayMember = "MaSP";
             cbMaSP.ValueMember = "MaSP";
         }
+        //Load chi tiết đơn mua theo đơn mua ở QUANLYDONHANG
+        void loadctdm()
+        {
+            QLMHDataContext db = new QLMHDataContext();
+            db.Connection.Open();
+            var ctdm = from dm in db.CT_DONMUAHANG_LQs
+                       join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
+                       join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+                       where dm.MaDMH == madonmua && dm.MaSP == bg.MaSP
+                       select new
+                       {
+                           dm.MaDMH,
+                           dm.MaSP,
+                           sp.TenSP,
+                           dm.MaBG,
+                           bg.DonGia,
+                           dm.SoLuong
+                       };
+            dataGridViewChitiet.DataSource = ctdm.ToList();
+            db.Connection.Close();
+        }
         //Load chi tiết đơn mua 
         void loadchitietdm()
         {
             QLMHDataContext db = new QLMHDataContext();
             db.Connection.Open();
             var listdm = from dm in db.CT_DONMUAHANG_LQs
+                         join dmh in db.DONMUAHANG_LQs on dm.MaDMH equals dmh.MaDMH
                          join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
-                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG 
+                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+                         where dm.MaSP == bg.MaSP
+                         orderby dmh.NgayLap descending 
                          select new
                          {
                              dm.MaDMH,
@@ -64,8 +92,10 @@ namespace PC_GUI
             dataGridViewChitiet.DataSource = listdm.ToList();
             db.Connection.Close();
         }
+        //Load form 
         private void Chitietdonmua_Load(object sender, EventArgs e)
         {
+            loadctdm();
             loadmadh();
             loadmasp();
             cbMaDH.SelectedIndex = -1;
@@ -75,7 +105,7 @@ namespace PC_GUI
             txtDongia.Text = string.Empty;  
             txtTensp.Enabled = false;
             txtDongia.Enabled = false;
-
+            txtSoluong.Enabled = false;
             cbMaDH.Enabled = false;
             btnLuu.Enabled = false;
             //Sự kiện 
@@ -83,14 +113,17 @@ namespace PC_GUI
             cbMabaogia.SelectedIndexChanged += Combobox_SelectedIndexChanged;
         }
 
-        //Nút chi tiết đơn load đơn 
+        //Nút chi tiết load đơn 
         private void btnChitietdon_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             QLMHDataContext db = new QLMHDataContext();
             var listdm = from dm in db.CT_DONMUAHANG_LQs
+                         join dmh in db.DONMUAHANG_LQs on dm.MaDMH equals dmh.MaDMH
                          join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
                          join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
                          where dm.MaSP == bg.MaSP
+                         orderby dmh.NgayLap descending
                          select new
                          {
                              dm.MaDMH,
@@ -102,7 +135,7 @@ namespace PC_GUI
                          };
             dataGridViewChitiet.DataSource = listdm.ToList();
         }
-
+        //Tên sản phẩm và mã báo giá tự động điền theo Mã sản phẩm  
         private void cbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbMaSP.SelectedIndex != -1)
@@ -120,6 +153,7 @@ namespace PC_GUI
                 cbMabaogia.ValueMember = "MaBG";
             }
         }
+        //Đơn giá tự động điền theo mã sản phẩm và mã báo giá 
         private void Combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbMaSP.SelectedIndex != -1 && cbMabaogia.SelectedIndex != -1)
@@ -133,11 +167,12 @@ namespace PC_GUI
                 txtDongia.Text = dongia.ToString();
             }
         }
-
+        //Nút tạo mới chi tiết đơn mua 
         private void btnTaoctmua_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
             loadmadhtao();
+            txtSoluong.Enabled = true;
             cbMaDH.Enabled = true;
             cbMaSP.Enabled = true;
             txtSoluong.Text = string.Empty;
@@ -147,7 +182,7 @@ namespace PC_GUI
             cbMaSP.SelectedIndex = -1;
             cbMabaogia.SelectedIndex = -1;
         }
-
+        //Nút lưu chi tiết đơn mua 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             bool okTao = true;
@@ -157,13 +192,23 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Hãy chọn mã đơn hàng!", "Thông báo", MessageBoxButtons.OK);
                 cbMaDH.Focus();
+                return;
+            }
+            //1.1 Kiểm tra đã chọn mã sản phẩm
+            if (cbMaSP.SelectedIndex == -1)
+            {
+                okTao = false;
+                MessageBox.Show("Hãy chọn mã sản phẩm!", "Thông báo", MessageBoxButtons.OK);
+                cbMaSP.Focus();
+                return;
             }
             //2.Kiểm tra số lượng 
-            if (txtSoluong.Text.Length == 0 || !txtSoluong.Text.All(char.IsDigit))
+            if (string.IsNullOrWhiteSpace(txtSoluong.Text) || !txtSoluong.Text.All(char.IsDigit))
             {
                 okTao = false;
                 MessageBox.Show("Hãy nhập số lượng, số lượng phải là số nguyên. Ví dụ: 13", "Thông báo", MessageBoxButtons.OK);
                 txtSoluong.Focus();
+                return;
             }
             //3.Kiểm tra khóa chính 
             if (bllDonmua.Kiemtrakhoactdonmua(cbMaDH.SelectedValue.ToString(), cbMaSP.SelectedValue.ToString(), cbMabaogia.SelectedValue.ToString()))
@@ -171,6 +216,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Chi tiết đơn mua đã tồn tại trong hệ thống. Hãy kiểm tra lại", "Thông báo", MessageBoxButtons.OK);
                 cbMaDH.Focus();
+                return;
             }
             if (okTao)
             {
@@ -200,7 +246,7 @@ namespace PC_GUI
                 btnLuu.Enabled = false;
             }
         }
-
+        //Chọn 1 hàng trong DataGridviewChitiet
         private void dataGridViewChitiet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewChitiet.CurrentRow != null)
@@ -212,20 +258,22 @@ namespace PC_GUI
 
                 cbMaDH.Enabled = false;
                 cbMaSP.Enabled = false;
+                txtSoluong.Enabled = true;
             }
         }
-
+        //Nút cập nhật chi tiết đơn mua 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
             if (dataGridViewChitiet.SelectedRows != null)
             {
                 bool okSua = true;
                 //2.Kiểm tra số lượng 
-                if (txtSoluong.Text.Length == 0 || !txtSoluong.Text.All(char.IsDigit))
+                if (string.IsNullOrWhiteSpace(txtSoluong.Text) || !txtSoluong.Text.All(char.IsDigit))
                 {
                     okSua = false;
                     MessageBox.Show("Hãy nhập số lượng, số lượng phải là số nguyên. Ví dụ: 13", "Thông báo", MessageBoxButtons.OK);
                     txtSoluong.Focus();
+                    return;
                 }
                 if (okSua)
                 {
@@ -254,7 +302,7 @@ namespace PC_GUI
             }
 
         }
-
+        //Nút xóa chi tiết đơn mua 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (dataGridViewChitiet.SelectedRows != null)
@@ -287,15 +335,25 @@ namespace PC_GUI
                 MessageBox.Show("Hãy chọn một dòng để cập nhật");
             }
         }
-
+        //Nút đánh giá sản phẩm chuyển sang form Đánh giá 
         private void btnDanhgiasp_Click(object sender, EventArgs e)
         {
-            Danhgiadonhang danhgia = new Danhgiadonhang();
-            danhgia.Show();
+            if (dataGridViewChitiet.SelectedRows.Count > 0)
+            {
+                string madm = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
+                string masp = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
+                Danhgiadonhang danhgia = new Danhgiadonhang(madm, masp);
+                danhgia.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn 1 sản phẩm để đánh giá");
+            }
         }
-
+        //Nút tìm chi tiết đơn mua 
         private void btnTim_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             QLMHDataContext db = new QLMHDataContext();
             db.Connection.Close();
             try
@@ -318,34 +376,49 @@ namespace PC_GUI
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy dữ liệu ","Thông báo",MessageBoxButtons.OK);
+                    MessageBox.Show("Không tìm thấy kết quả ","Thông báo",MessageBoxButtons.OK);
                     dataGridViewChitiet = null;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Không tìm thấy dữ liệu", ex.Message); }
+            catch (Exception ex) { MessageBox.Show("Không tìm thấy kết quả", ex.Message); }
             finally
             {
                 db.Connection.Close();
             }
         }
+        //Kiểm tra số lượng 
+        private void txtSoluong_TextChanged(object sender, EventArgs e)
+        {
+            int Soluong;
+            if (string.IsNullOrWhiteSpace(txtSoluong.Text)) 
+            {
+                toolTip1.Show("Số lượng không được để trống!", txtSoluong, 0, txtSoluong.Height);
+            }
+            else if (!int.TryParse(txtSoluong.Text, out Soluong) || Soluong <= 0 )
+            {
+                toolTip1.Show("Số lượng phải là số nguyên dương. Ví dụ: 13", txtSoluong, 0, txtSoluong.Height);
+            }
+            else
+            {
+                toolTip1.Hide(txtSoluong);
+            }
+
+        }
+
+        //Ẩn tooltip khi nhấn vào các nút khác 
+        private void HideAllTooltips()
+        {
+            toolTip1.Hide(txtSoluong);
+        }
+
+        private void txtSoluong_Leave(object sender, EventArgs e)
+        {
+           
+        }
 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //QLMHDataContext db = new QLMHDataContext();
-            //if (cbMaDH.SelectedIndex != -1)
-            //{
-                
-            //    var msp = (from dm in db.CT_DONMUAHANG_LQs
-            //               where dm.MaDMH == cbMaDH.SelectedValue.ToString()
-            //               select dm.MaSP).ToList();
-            //    var spmoi = from sp in db.CT_BAOGIALQs
-            //                where !msp.Contains(sp.MaSP)
-            //                select sp;
-            //    cbMaSP.DataSource = spmoi.ToList();
-            //    cbMaSP.DisplayMember = "MaSP";
-            //    cbMaSP.ValueMember = "MaSP";
 
-            //}
         }
     }
 }

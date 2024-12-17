@@ -11,6 +11,7 @@ namespace PC_DTO
         private string maDMH;
         private DateTime ngaylap;
         private string maHDMH;
+        private string maYC;
         private string maNV;
         private string maNCC;
         private decimal chietkhau;
@@ -25,6 +26,7 @@ namespace PC_DTO
         public string Tthai { get => tthai; set => tthai = value; }
         public string Mota { get => mota; set => mota = value; }
         public decimal Chietkhau { get => chietkhau; set => chietkhau = value; }
+        public string MaYC { get => maYC; set => maYC = value; }
     }
     public class DTOTrangthai
     {

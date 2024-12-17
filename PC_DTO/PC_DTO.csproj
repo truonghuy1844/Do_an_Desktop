@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="DTODonhang.cs" />
+    <Compile Include="DTONhanvien.cs" />
     <Compile Include="DTOPhancong.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -59,5 +59,10 @@ namespace PC_BLL
         {
             return dAlDonmua.Kiemtrakhoactdonmua(maDMH, maSP, mabg);    
         }
+
+        //public DataTable Chitietdonmua(string madonmua)
+        //{
+        //    return dAlDonmua.Chitietdonmua(madonmua);
+        //}
     }
 }
