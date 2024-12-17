@@ -15,13 +15,13 @@ namespace PC_GUI
     public partial class Thanhtoan : Form
     {BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
         public DTOThanhtoan dto = new DTOThanhtoan();
-        private DTOThanhtoan _dto;
+        
         public Thanhtoan(DTOThanhtoan thanhToan)
         {
             InitializeComponent();
-            _dto = dto;
-            
-            
+
+
+            dto = thanhToan;
         
     }
         private void Thanhtoan_Load(object sender, EventArgs e)
@@ -36,8 +36,8 @@ namespace PC_GUI
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
             dataGridViewTT.ReadOnly = true;
-            txtSotien.Text = _dto.Tongtien.ToString();
-            txtMaHD.Text=_dto.MaHD.ToString();
+            txtSotien.Text = dto.Tongtien.ToString();
+            txtMaHD.Text=dto.MaHD.ToString();
 
 
 
