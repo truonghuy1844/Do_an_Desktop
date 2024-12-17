@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLMH" Class="QLMHDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-P7MATAOO\DUYMANH;Initial Catalog=QLMH;Integrated Security=True;Encrypt=False" SettingsObjectName="PC_GUI.Properties.Settings" SettingsPropertyName="QLMHConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BAOGIA" Member="BAOGIA_LQs">
+    <Type Name="BAOGIA_LQ">
+      <Column Name="MaBG" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNCC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayBG" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="BAOGIA_LQ_CT_BAOGIA_LQ" Member="CT_BAOGIA_LQs" ThisKey="MaBG" OtherKey="MaBG" Type="CT_BAOGIA_LQ" />
+      <Association Name="BAOGIA_LQ_CT_DONMUAHANG_LQ" Member="CT_DONMUAHANG_LQs" ThisKey="MaBG" OtherKey="MaBG" Type="CT_DONMUAHANG_LQ" />
+      <Association Name="NHACUNGCAP_LQ_BAOGIA_LQ" Member="NHACUNGCAP_LQ" ThisKey="MaNCC" OtherKey="MaNCC" Type="NHACUNGCAP_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.YEUCAU_MUAHANG" Member="YEUCAU_MUAHANG_LQs">
+    <Type Name="YEUCAU_MUAHANG_LQ">
+      <Column Name="MaYC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayYC" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayDuyet" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PhongBanYC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TinhTrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="YEUCAU_MUAHANG_LQ_CT_YEUCAU_LQ" Member="CT_YEUCAU_LQs" ThisKey="MaYC" OtherKey="MaYC" Type="CT_YEUCAU_LQ" />
+      <Association Name="YEUCAU_MUAHANG_LQ_DONMUAHANG_LQ" Member="DONMUAHANG_LQs" Storage="_DONMUAHANGs" ThisKey="MaYC" OtherKey="MaYC" Type="DONMUAHANG_LQ" />
+      <Association Name="NHANVIEN_LQ_YEUCAU_MUAHANG_LQ" Member="NHANVIEN_LQ" ThisKey="MaNV" OtherKey="MaNV" Type="NHANVIEN_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CT_BAOGIA" Member="CT_BAOGIA_LQs">
+    <Type Name="CT_BAOGIA_LQ">
+      <Column Name="MaBG" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DonGia" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="BAOGIA_LQ_CT_BAOGIA_LQ" Member="BAOGIA_LQ" ThisKey="MaBG" OtherKey="MaBG" Type="BAOGIA_LQ" IsForeignKey="true" />
+      <Association Name="SANPHAM_LQ_CT_BAOGIA_LQ" Member="SANPHAM_LQ" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CT_DONMUAHANG" Member="CT_DONMUAHANG_LQs">
+    <Type Name="CT_DONMUAHANG_LQ">
+      <Column Name="MaDMH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaBG" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BAOGIA_LQ_CT_DONMUAHANG_LQ" Member="BAOGIA_LQ" ThisKey="MaBG" OtherKey="MaBG" Type="BAOGIA_LQ" IsForeignKey="true" />
+      <Association Name="SANPHAM_LQ_CT_DONMUAHANG_LQ" Member="SANPHAM_LQ" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM_LQ" IsForeignKey="true" />
+      <Association Name="DONMUAHANG_LQ_CT_DONMUAHANG_LQ" Member="DONMUAHANG_LQ" Storage="_DONMUAHANG" ThisKey="MaDMH" OtherKey="MaDMH" Type="DONMUAHANG_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CT_YEUCAU" Member="CT_YEUCAU_LQs">
+    <Type Name="CT_YEUCAU_LQ">
+      <Column Name="MaYC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="YEUCAU_MUAHANG_LQ_CT_YEUCAU_LQ" Member="YEUCAU_MUAHANG_LQ" ThisKey="MaYC" OtherKey="MaYC" Type="YEUCAU_MUAHANG_LQ" IsForeignKey="true" />
+      <Association Name="SANPHAM_LQ_CT_YEUCAU_LQ" Member="SANPHAM_LQ" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DANHGIA_NCC" Member="DANHGIA_NCC_LQs">
+    <Type Name="DANHGIA_NCC_LQ">
+      <Column Name="MaDGNCC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaNCC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayDanhGia" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DiemChatLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiemHieuQua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiemGiaCa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MucDoDanhGia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="NHACUNGCAP_LQ_DANHGIA_NCC_LQ" Member="NHACUNGCAP_LQ" ThisKey="MaNCC" OtherKey="MaNCC" Type="NHACUNGCAP_LQ" IsForeignKey="true" />
+      <Association Name="NHANVIEN_LQ_DANHGIA_NCC_LQ" Member="NHANVIEN_LQ" ThisKey="MaNV" OtherKey="MaNV" Type="NHANVIEN_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HANGHOA_VANCHUYEN" Member="HANGHOA_VANCHUYEN_LQs">
+    <Type Name="HANGHOA_VANCHUYEN_LQ">
+      <Column Name="MaVC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaSP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SANPHAM_LQ_HANGHOA_VANCHUYEN_LQ" Member="SANPHAM_LQ" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOADON" Member="HOADON_LQs">
+    <Type Name="HOADON_LQ">
+      <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDMH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayLap" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="HOADON_LQ_THANHTOAN_LQ" Member="THANHTOAN_LQs" ThisKey="MaHD" OtherKey="MaHD" Type="THANHTOAN_LQ" />
+      <Association Name="DONMUAHANG_LQ_HOADON_LQ" Member="DONMUAHANG_LQ" Storage="_DONMUAHANG" ThisKey="MaDMH" OtherKey="MaDMH" Type="DONMUAHANG_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOPDONGMH" Member="HOPDONGMH_LQs">
+    <Type Name="HOPDONGMH_LQ">
+      <Column Name="MaHDMH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayBatDau" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NgayKetThuc" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DieuKhoan" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HOPDONGMH_LQ_DONMUAHANG_LQ" Member="DONMUAHANG_LQs" Storage="_DONMUAHANGs" ThisKey="MaHDMH" OtherKey="MaHDMH" Type="DONMUAHANG_LQ" />
+      <Association Name="NHANVIEN_LQ_HOPDONGMH_LQ" Member="NHANVIEN_LQ" ThisKey="MaNV" OtherKey="MaNV" Type="NHANVIEN_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHOHANG" Member="KHOHANG_LQs">
+    <Type Name="KHOHANG_LQ">
+      <Column Name="MaKho" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenKho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoaiKho" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Suc_Chua" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="KHOHANG_LQ_SANPHAM_XUATKHO_LQ" Member="SANPHAM_XUATKHO_LQs" ThisKey="MaKho" OtherKey="MaKho" Type="SANPHAM_XUATKHO_LQ" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHACUNGCAP" Member="NHACUNGCAP_LQs">
+    <Type Name="NHACUNGCAP_LQ">
+      <Column Name="MaNCC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNCC" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="NHACUNGCAP_LQ_BAOGIA_LQ" Member="BAOGIA_LQs" ThisKey="MaNCC" OtherKey="MaNCC" Type="BAOGIA_LQ" />
+      <Association Name="NHACUNGCAP_LQ_DANHGIA_NCC_LQ" Member="DANHGIA_NCC_LQs" ThisKey="MaNCC" OtherKey="MaNCC" Type="DANHGIA_NCC_LQ" />
+      <Association Name="NHACUNGCAP_LQ_DONMUAHANG_LQ" Member="DONMUAHANG_LQs" Storage="_DONMUAHANGs" ThisKey="MaNCC" OtherKey="MaNCC" Type="DONMUAHANG_LQ" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHANVIEN" Member="NHANVIEN_LQs">
+    <Type Name="NHANVIEN_LQ">
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNV" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhongBan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NHANVIEN_LQ_YEUCAU_MUAHANG_LQ" Member="YEUCAU_MUAHANG_LQs" ThisKey="MaNV" OtherKey="MaNV" Type="YEUCAU_MUAHANG_LQ" />
+      <Association Name="NHANVIEN_LQ_DANHGIA_NCC_LQ" Member="DANHGIA_NCC_LQs" ThisKey="MaNV" OtherKey="MaNV" Type="DANHGIA_NCC_LQ" />
+      <Association Name="NHANVIEN_LQ_HOPDONGMH_LQ" Member="HOPDONGMH_LQs" ThisKey="MaNV" OtherKey="MaNV" Type="HOPDONGMH_LQ" />
+      <Association Name="NHANVIEN_LQ_DONMUAHANG_LQ" Member="DONMUAHANG_LQs" Storage="_DONMUAHANGs" ThisKey="MaNV" OtherKey="MaNV" Type="DONMUAHANG_LQ" />
+      <Association Name="NHANVIEN_LQ_PHANCONG_CONGVIEC" Member="PHANCONG_CONGVIEC_LQs" ThisKey="MaNV" OtherKey="MaNV" Type="PHANCONG_CONGVIEC_LQ" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SANPHAM" Member="SANPHAM_LQs">
+    <Type Name="SANPHAM_LQ">
+      <Column Name="MaSP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenSP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LoaiSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DVT" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="SANPHAM_LQ_CT_BAOGIA_LQ" Member="CT_BAOGIA_LQs" ThisKey="MaSP" OtherKey="MaSP" Type="CT_BAOGIA_LQ" />
+      <Association Name="SANPHAM_LQ_CT_DONMUAHANG_LQ" Member="CT_DONMUAHANG_LQs" ThisKey="MaSP" OtherKey="MaSP" Type="CT_DONMUAHANG_LQ" />
+      <Association Name="SANPHAM_LQ_CT_YEUCAU_LQ" Member="CT_YEUCAU_LQs" ThisKey="MaSP" OtherKey="MaSP" Type="CT_YEUCAU_LQ" />
+      <Association Name="SANPHAM_LQ_HANGHOA_VANCHUYEN_LQ" Member="HANGHOA_VANCHUYEN_LQs" ThisKey="MaSP" OtherKey="MaSP" Type="HANGHOA_VANCHUYEN_LQ" />
+      <Association Name="SANPHAM_LQ_SANPHAM_XUATKHO_LQ" Member="SANPHAM_XUATKHO_LQs" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM_XUATKHO_LQ" />
+      <Association Name="SANPHAM_LQ_DANHGIASP_TRONGDON_LQ" Member="DANHGIASP_TRONGDON_LQs" ThisKey="MaSP" OtherKey="MaSP" Type="DANHGIASP_TRONGDON_LQ" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SANPHAM_XUATKHO" Member="SANPHAM_XUATKHO_LQs">
+    <Type Name="SANPHAM_XUATKHO_LQ">
+      <Column Name="MaSP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKho" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuongXuat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayXuat" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="KHOHANG_LQ_SANPHAM_XUATKHO_LQ" Member="KHOHANG_LQ" ThisKey="MaKho" OtherKey="MaKho" Type="KHOHANG_LQ" IsForeignKey="true" />
+      <Association Name="SANPHAM_LQ_SANPHAM_XUATKHO_LQ" Member="SANPHAM_LQ" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THANHTOAN" Member="THANHTOAN_LQs">
+    <Type Name="THANHTOAN_LQ">
+      <Column Name="MaTT" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaHD" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgayTT" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="SoTien" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="HOADON_LQ_THANHTOAN_LQ" Member="HOADON_LQ" ThisKey="MaHD" OtherKey="MaHD" Type="HOADON_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DANHGIASP_TRONGDON" Member="DANHGIASP_TRONGDON_LQs">
+    <Type Name="DANHGIASP_TRONGDON_LQ">
+      <Column Name="MaDGSP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayDG" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MaSP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaDMH" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MoTaDG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiemChatLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiemHieuQua" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiemGiaCa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="SANPHAM_LQ_DANHGIASP_TRONGDON_LQ" Member="SANPHAM_LQ" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM_LQ" IsForeignKey="true" />
+      <Association Name="DONMUAHANG_LQ_DANHGIASP_TRONGDON_LQ" Member="DONMUAHANG_LQ" Storage="_DONMUAHANG" ThisKey="MaDMH" OtherKey="MaDMH" Type="DONMUAHANG_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONMUAHANG" Member="DONMUAHANG_LQs">
+    <Type Name="DONMUAHANG_LQ">
+      <Column Name="MaDMH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayLap" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="MaHDMH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaYC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaNCC" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Chietkhau" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="TThai" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="DONMUAHANG_LQ_CT_DONMUAHANG_LQ" Member="CT_DONMUAHANG_LQs" ThisKey="MaDMH" OtherKey="MaDMH" Type="CT_DONMUAHANG_LQ" />
+      <Association Name="DONMUAHANG_LQ_HOADON_LQ" Member="HOADON_LQs" ThisKey="MaDMH" OtherKey="MaDMH" Type="HOADON_LQ" />
+      <Association Name="DONMUAHANG_LQ_DANHGIASP_TRONGDON_LQ" Member="DANHGIASP_TRONGDON_LQs" ThisKey="MaDMH" OtherKey="MaDMH" Type="DANHGIASP_TRONGDON_LQ" />
+      <Association Name="HOPDONGMH_LQ_DONMUAHANG_LQ" Member="HOPDONGMH_LQ" ThisKey="MaHDMH" OtherKey="MaHDMH" Type="HOPDONGMH_LQ" IsForeignKey="true" />
+      <Association Name="NHACUNGCAP_LQ_DONMUAHANG_LQ" Member="NHACUNGCAP_LQ" ThisKey="MaNCC" OtherKey="MaNCC" Type="NHACUNGCAP_LQ" IsForeignKey="true" />
+      <Association Name="NHANVIEN_LQ_DONMUAHANG_LQ" Member="NHANVIEN_LQ" ThisKey="MaNV" OtherKey="MaNV" Type="NHANVIEN_LQ" IsForeignKey="true" />
+      <Association Name="YEUCAU_MUAHANG_LQ_DONMUAHANG_LQ" Member="YEUCAU_MUAHANG_LQ" ThisKey="MaYC" OtherKey="MaYC" Type="YEUCAU_MUAHANG_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHANCONG_CONGVIEC" Member="PHANCONG_CONGVIEC_LQs">
+    <Type Name="PHANCONG_CONGVIEC_LQ">
+      <Column Name="MaPC" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayGiao" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NgayHT" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Congviec" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TThai" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="NHANVIEN_LQ_PHANCONG_CONGVIEC" Member="NHANVIEN_LQ" ThisKey="MaNV" OtherKey="MaNV" Type="NHANVIEN_LQ" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
