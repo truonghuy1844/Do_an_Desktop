@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace PC_GUI
 {
-    public partial class UI_NhapSua_YeuCauMH : Form
+    public partial class UI_NhapSua_YeuCauMH : UserControl
     {
         public DTONV nv = new DTONV();
         public UI_NhapSua_YeuCauMH( DTONV nvien)
@@ -68,6 +68,14 @@ namespace PC_GUI
             toolTipMaYC.IsBalloon = true; // Hiển thị Tooltip dạng bong bóng
             toolTipMaYC.ToolTipTitle = "Mã yêu cầu bắt đầu bằng YC";
             txtMaNV.ReadOnly = true;
+            txtTinhTrang.ReadOnly = true;
+            toolTipTT.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
+            toolTipTT.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây
+            toolTipTT.IsBalloon = true; // Hiển thị Tooltip dạng bong bóng
+            toolTipMaYC.ToolTipIcon = ToolTipIcon.Info;
+            toolTipMaYC.ToolTipTitle = "Trạng thái";
+            toolTipMaYC.SetToolTip(txtTinhTrang,"Chỉ chỉnh sửa yêu cầu chờ duyệt");
+
 
         }
         private void Load_CB_SP()
@@ -131,7 +139,8 @@ namespace PC_GUI
                 txtMaYC.Text = row.Cells["MaYC"].Value.ToString();
                 cbBoPhanYC.SelectedItem = row.Cells["PhongBanYC"].Value.ToString();
                 txtMaNV.Text = row.Cells["MaNV"].Value.ToString();
-                
+                txtTinhTrang.Text = row.Cells["TinhTrang"].Value.ToString();
+
             }
             catch { return; }
         }
@@ -400,14 +409,7 @@ namespace PC_GUI
 
         private void btnSPhamMoi_Click(object sender, EventArgs e)
         {
-            UI_ThemSP ui    = new UI_ThemSP(nv);
-            var result =  ui.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-
-                // Cập nhật dữ liệu combobox
-                Load_CB_SP();
-            }
+           
         }
     }
 }

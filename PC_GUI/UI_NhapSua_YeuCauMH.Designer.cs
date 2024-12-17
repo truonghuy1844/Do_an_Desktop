@@ -50,7 +50,9 @@
             this.toolTipMaYC = new System.Windows.Forms.ToolTip(this.components);
             this.btnXoaYC = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSPhamMoi = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTinhTrang = new System.Windows.Forms.TextBox();
+            this.toolTipTT = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCT_YC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYCMH)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -114,7 +116,7 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(765, 200);
+            this.txtSoLuong.Location = new System.Drawing.Point(765, 202);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(197, 31);
             this.txtSoLuong.TabIndex = 100;
@@ -158,7 +160,7 @@
             this.cbBoPhanYC.FormattingEnabled = true;
             this.cbBoPhanYC.Location = new System.Drawing.Point(244, 145);
             this.cbBoPhanYC.Name = "cbBoPhanYC";
-            this.cbBoPhanYC.Size = new System.Drawing.Size(718, 33);
+            this.cbBoPhanYC.Size = new System.Drawing.Size(367, 33);
             this.cbBoPhanYC.TabIndex = 95;
             this.cbBoPhanYC.SelectedIndexChanged += new System.EventHandler(this.cbBoPhanYC_SelectedIndexChanged);
             // 
@@ -256,23 +258,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thêm sản phẩm vào yêu cầu mua hàng";
             // 
-            // btnSPhamMoi
+            // label3
             // 
-            this.btnSPhamMoi.AutoSize = true;
-            this.btnSPhamMoi.Location = new System.Drawing.Point(1001, 285);
-            this.btnSPhamMoi.Name = "btnSPhamMoi";
-            this.btnSPhamMoi.Size = new System.Drawing.Size(216, 39);
-            this.btnSPhamMoi.TabIndex = 114;
-            this.btnSPhamMoi.Text = "Thêm sản phẩm mới";
-            this.btnSPhamMoi.UseVisualStyleBackColor = true;
-            this.btnSPhamMoi.Click += new System.EventHandler(this.btnSPhamMoi_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(617, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 25);
+            this.label3.TabIndex = 114;
+            this.label3.Text = "Tình trạng";
+            // 
+            // txtTinhTrang
+            // 
+            this.txtTinhTrang.Location = new System.Drawing.Point(765, 145);
+            this.txtTinhTrang.Name = "txtTinhTrang";
+            this.txtTinhTrang.Size = new System.Drawing.Size(197, 31);
+            this.txtTinhTrang.TabIndex = 115;
             // 
             // UI_NhapSua_YeuCauMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1318, 836);
-            this.Controls.Add(this.btnSPhamMoi);
+            this.Controls.Add(this.txtTinhTrang);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnXoaYC);
             this.Controls.Add(this.btnCapNhat);
@@ -291,7 +298,7 @@
             this.Controls.Add(this.lbMaNV);
             this.Controls.Add(this.lbMaYC);
             this.Name = "UI_NhapSua_YeuCauMH";
-            this.Text = "Tùy chỉnh yêu cầu mua hàng";
+            this.Size = new System.Drawing.Size(1318, 836);
             this.Load += new System.EventHandler(this.UI_NhapSua_YeuCauMH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCT_YC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvYCMH)).EndInit();
@@ -325,6 +332,8 @@
         private System.Windows.Forms.ToolTip toolTipMaYC;
         private System.Windows.Forms.Button btnXoaYC;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnSPhamMoi;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtTinhTrang;
+        private System.Windows.Forms.ToolTip toolTipTT;
     }
 }

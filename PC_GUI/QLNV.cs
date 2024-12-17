@@ -12,17 +12,35 @@ using PC_GUI.BLL;
 
 namespace PC_GUI
 {
-    public partial class QLNV : Form
+    public partial class QLNV : UserControl
     {
-        public QLNV()
+        public QLNV(DTONV nvien)
         {
             InitializeComponent();
+            nv = nvien;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnXoa);
+                this.Controls.Remove(btnThemNV);
+                this.Controls.Remove(btnSua);
+            } 
+            else if (KiemTraPhongBan && !KiemTraChucVu) 
+            {
+                this.Controls.Remove(btnXoa);
+
+            }   
         }
 
         BLL_NhanVien bLLNV = new BLL_NhanVien();
+        public DTONV nv = new DTONV();
         private void QLNV_Load(object sender, EventArgs e)
         {
             LoadComboBox();
+            dataGridViewDSNV.DataSource = bLLNV.LoadNVBlL();
         }
         private void LoadComboBox()
         {

@@ -16,7 +16,6 @@ namespace PC_GUI.DAL
             NHANVIEN check = qlmh.NHANVIENs.FirstOrDefault(s => s.MaNV == nvien.MaNV);
             if (check != null) 
             {
-
                 if (check.ChucVu != "Nhân viên") return true;
             } return false; 
         }

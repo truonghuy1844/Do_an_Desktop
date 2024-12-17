@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PC_GUI
 {
-    public partial class UI_YeuCauMH : Form
+    public partial class UI_YeuCauMH : UserControl
     {
         public DTONV nv = new DTONV();
         public UI_YeuCauMH( DTONV nvien)
@@ -313,8 +313,7 @@ namespace PC_GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nv);
-            ui.ShowDialog();
+            
         }
 
         private void txtBoPhanYC_TextChanged(object sender, EventArgs e)

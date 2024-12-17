@@ -1,4 +1,5 @@
 ﻿
+using PC_DTO;
 using PC_GUI.BLL;
 using System;
 using System.Collections.Generic;
@@ -16,11 +17,12 @@ namespace PC_GUI
     public partial class frmdangNhap : Form
     {
         BLL_NhanVien bLLNhanVien = new BLL_NhanVien();
+        
         public frmdangNhap()
         {
             InitializeComponent();
         }
-
+        
         private void btnDangNhap_Click_1(object sender, EventArgs e)
         {
 
@@ -29,15 +31,31 @@ namespace PC_GUI
 
                     if (bLLNhanVien.CheckDangNhap(txttenDangNhap.Text.Trim(),txtmatKhau.Text.Trim()))
                     {
-                        MessageBox.Show("Đăng nhập thành công", "Thông báo đăng nhập", MessageBoxButtons.OK);
-
+                       
                         this.Hide();
-                        frmMainForm dn = new frmMainForm();
-                        dn.ShowDialog();
+                        DTONV nvien = new DTONV();
+                        nvien.MaNV = txttenDangNhap.Text;
+                        frmMainForm dn = new frmMainForm(nvien);
+                        txtmatKhau.Text = null;
+                        txttenDangNhap.Text = null;
 
+                    dn.FormClosed += (s, args) =>
+                          {       
+                                if (dn.IsReopenDangNhap) // Điều kiện mở lại đăng nhập
+                                {
+                                    this.Show(); // Hiển thị lại Form đăng nhập
+                                  
+                                }
+                                else
+                                {
+                                    this.Close(); // Đóng nếu không cần mở lại
+                                }
+                          };
+                        dn.ShowDialog();
                         
 
-                    }
+
+                }
 
                     else
                     {

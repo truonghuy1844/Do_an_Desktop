@@ -60,6 +60,7 @@
             this.btnFNhanVien = new System.Windows.Forms.Button();
             this.btnFormNguonLuc = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconMenu)).BeginInit();
             this.pnMenuDoc.SuspendLayout();
@@ -263,6 +264,7 @@
             this.btnSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSanPham.UseVisualStyleBackColor = false;
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
             // pnYeuCauMua
             // 
@@ -308,6 +310,7 @@
             this.btnFDuyetYCM.Text = "Duyệt YC";
             this.btnFDuyetYCM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDuyetYCM.UseVisualStyleBackColor = false;
+            this.btnFDuyetYCM.Click += new System.EventHandler(this.btnFDuyetYCM_Click);
             // 
             // btnFormYeuCauMua
             // 
@@ -348,6 +351,7 @@
             this.btnFDieuChinhYCM.Text = "Điều chỉnh YC";
             this.btnFDieuChinhYCM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDieuChinhYCM.UseVisualStyleBackColor = false;
+            this.btnFDieuChinhYCM.Click += new System.EventHandler(this.btnFDieuChinhYCM_Click);
             // 
             // btnFormBG
             // 
@@ -488,7 +492,7 @@
             this.pnNguonLuc.MaximumSize = new System.Drawing.Size(474, 364);
             this.pnNguonLuc.MinimumSize = new System.Drawing.Size(474, 112);
             this.pnNguonLuc.Name = "pnNguonLuc";
-            this.pnNguonLuc.Size = new System.Drawing.Size(474, 112);
+            this.pnNguonLuc.Size = new System.Drawing.Size(474, 364);
             this.pnNguonLuc.TabIndex = 7;
             // 
             // pictureBox3
@@ -538,6 +542,7 @@
             this.btnFKho.Text = "Kho hàng";
             this.btnFKho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFKho.UseVisualStyleBackColor = false;
+            this.btnFKho.Click += new System.EventHandler(this.btnFKho_Click);
             // 
             // btnFNhanVien
             // 
@@ -556,6 +561,7 @@
             this.btnFNhanVien.Text = "Nhân viên";
             this.btnFNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFNhanVien.UseVisualStyleBackColor = false;
+            this.btnFNhanVien.Click += new System.EventHandler(this.btnFNhanVien_Click);
             // 
             // btnFormNguonLuc
             // 
@@ -588,7 +594,7 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::PC_GUI.Properties.Resources.icons8_move_up_50;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(4, 860);
+            this.btnLogOut.Location = new System.Drawing.Point(4, 1112);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(474, 109);
@@ -599,12 +605,20 @@
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(513, 75);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1620, 1461);
+            this.panel1.TabIndex = 2;
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(2133, 1527);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnMenuDoc);
             this.Controls.Add(this.pnTop);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -663,5 +677,6 @@
         private System.Windows.Forms.Button btnFKho;
         private System.Windows.Forms.Button btnFNhanVien;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel1;
     }
 }
