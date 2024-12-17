@@ -17,26 +17,26 @@ namespace PC_GUI
         public QLNV(DTONV nvien)
         {
             InitializeComponent();
-            nv = nvien;
+            nv_DN.MaNV = nvien.MaNV;
             BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
             
-            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv);
-            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv_DN);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv_DN);
             if (!KiemTraPhongBan)
             {
-                this.Controls.Remove(btnXoa);
-                this.Controls.Remove(btnThemNV);
-                this.Controls.Remove(btnSua);
-            } 
-            else if (KiemTraPhongBan && !KiemTraChucVu) 
-            {
-                this.Controls.Remove(btnXoa);
-
-            }   
+                btnThemNV.Enabled = false;
+                btnXoa.Enabled = false;
+                btnSua.Enabled = false;
+            }
+            else if (!KiemTraChucVu) 
+            { 
+                btnXoa.Enabled = false ;
+            }
+               
         }
 
         BLL_NhanVien bLLNV = new BLL_NhanVien();
-        public DTONV nv = new DTONV();
+        public DTONV nv_DN = new DTONV();
         private void QLNV_Load(object sender, EventArgs e)
         {
             LoadComboBox();

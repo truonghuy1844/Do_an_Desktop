@@ -198,7 +198,32 @@ namespace PC_GUI
         {
             
             UI_NhapSua_BaoGia ui = new UI_NhapSua_BaoGia(nv);
+
+            ui.FormClosed += (s, args) =>
+            {
+                BLL_BaoGia bll_bg = new BLL_BaoGia();
+                BLL_CT_BaoGia bll_ct_bg = new BLL_CT_BaoGia();
+
+                if (trangthaiHienThi == true)
+                {
+                    DTO_CT_BaoGia dto = new DTO_CT_BaoGia();
+                    dto.MaBG = txtMaBG.Text;
+                    btnHienThi.Text = "Quay lại";                 
+                    dataGridView1.DataSource = bll_ct_bg.Load_CT_BG(dto);
+                    dataGridView1.Columns["MaSP"].Visible = false;
+
+                }
+                else
+                {
+                    btnHienThi.Text = "Xem chi tiết báo giá";
+                    dataGridView1.DataSource = bll_bg.Load_BaoGia();
+                    //Format cho Datagridview
+
+                }
+            };
             ui.ShowDialog();
+            
+
         }
     }
 }

@@ -492,7 +492,7 @@
             this.pnNguonLuc.MaximumSize = new System.Drawing.Size(474, 364);
             this.pnNguonLuc.MinimumSize = new System.Drawing.Size(474, 112);
             this.pnNguonLuc.Name = "pnNguonLuc";
-            this.pnNguonLuc.Size = new System.Drawing.Size(474, 364);
+            this.pnNguonLuc.Size = new System.Drawing.Size(474, 112);
             this.pnNguonLuc.TabIndex = 7;
             // 
             // pictureBox3
@@ -594,7 +594,7 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::PC_GUI.Properties.Resources.icons8_move_up_50;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(4, 1112);
+            this.btnLogOut.Location = new System.Drawing.Point(4, 860);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(474, 109);
