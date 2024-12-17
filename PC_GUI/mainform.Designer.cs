@@ -62,7 +62,7 @@
             this.btnFNhanVien = new System.Windows.Forms.Button();
             this.btnFormNguonLuc = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.pnThan = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconMenu)).BeginInit();
             this.pnMenuDoc.SuspendLayout();
@@ -484,7 +484,7 @@
             this.pnNguonLuc.MaximumSize = new System.Drawing.Size(316, 222);
             this.pnNguonLuc.MinimumSize = new System.Drawing.Size(316, 72);
             this.pnNguonLuc.Name = "pnNguonLuc";
-            this.pnNguonLuc.Size = new System.Drawing.Size(316, 75);
+            this.pnNguonLuc.Size = new System.Drawing.Size(474, 364);
             this.pnNguonLuc.TabIndex = 7;
             // 
             // pictureBox3
@@ -582,7 +582,8 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::PC_GUI.Properties.Resources.icons8_move_up_50;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(3, 562);
+            this.btnLogOut.Location = new System.Drawing.Point(4, 1112);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(316, 75);
             this.btnLogOut.TabIndex = 4;
@@ -592,19 +593,20 @@
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // pnThan
+            // panel1
             // 
-            this.pnThan.Location = new System.Drawing.Point(0, 52);
-            this.pnThan.Name = "pnThan";
-            this.pnThan.Size = new System.Drawing.Size(1204, 592);
-            this.pnThan.TabIndex = 2;
+            this.panel1.Location = new System.Drawing.Point(513, 75);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1620, 1461);
+            this.panel1.TabIndex = 2;
             // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1207, 648);
+            this.ClientSize = new System.Drawing.Size(2133, 1527);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnMenuDoc);
             this.Controls.Add(this.pnThan);
             this.Controls.Add(this.pnTop);
@@ -663,7 +665,5 @@
         private System.Windows.Forms.Button btnFNhanVien;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel pnThan;
     }
 }

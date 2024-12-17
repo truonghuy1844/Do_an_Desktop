@@ -12,12 +12,29 @@ using PC_GUI.BLL;
 
 namespace PC_GUI
 {
-    public partial class QLKho : Form
+    public partial class QLKho : UserControl
     {
         BLL_Kho bLLKho = new BLL_Kho();
-        public QLKho()
+        public DTONV nv = new DTONV();
+        public QLKho(DTONV nvien)
         {
             InitializeComponent();
+            nv = nvien;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnXoa);
+                this.Controls.Remove(btnThem);
+                this.Controls.Remove(btnSua);
+            }
+            else if (!KiemTraPhongBan && !KiemTraChucVu)
+            {
+                this.Controls.Remove(btnXoa);
+
+            }
         }
 
         private void QLKho_Load(object sender, EventArgs e)

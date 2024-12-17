@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace PC_GUI
 {
-    public partial class UI_ThemSP : Form
+    public partial class UI_ThemSP : UserControl
     {
         public DTONV nv = new DTONV();
         public UI_ThemSP(DTONV nvien)
@@ -75,10 +75,6 @@ namespace PC_GUI
             cbDVT.SelectedIndex = 0; // Chọn mục đầu tiên
         }
      
-        private void Form_Closing(object sender, FormClosingEventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
         private void UI_ThemSP_Load(object sender, EventArgs e)
         {
             Load_DGV_SP();

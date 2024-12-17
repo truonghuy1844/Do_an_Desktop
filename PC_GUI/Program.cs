@@ -16,7 +16,7 @@ namespace PC_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QLKho());
+            Application.Run(new frmdangNhap());
         }
     }
 }

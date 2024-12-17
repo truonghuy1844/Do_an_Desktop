@@ -15,7 +15,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PC_GUI
 {
-    public partial class UI_YeuCauMH : Form
+    public partial class UI_YeuCauMH : UserControl
     {
         public DTONV nv = new DTONV();
         public UI_YeuCauMH( DTONV nvien)

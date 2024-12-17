@@ -53,7 +53,6 @@
             this.lbMaYC = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtNgayDuyet = new System.Windows.Forms.TextBox();
-            this.btnTuyChinhYCMH = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtGiaTriUocTinh = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -91,7 +90,7 @@
             // 
             // btnHienThi
             // 
-            this.btnHienThi.Location = new System.Drawing.Point(951, 55);
+            this.btnHienThi.Location = new System.Drawing.Point(951, 103);
             this.btnHienThi.Name = "btnHienThi";
             this.btnHienThi.Size = new System.Drawing.Size(250, 40);
             this.btnHienThi.TabIndex = 82;
@@ -303,17 +302,6 @@
             this.txtNgayDuyet.Size = new System.Drawing.Size(224, 31);
             this.txtNgayDuyet.TabIndex = 89;
             // 
-            // btnTuyChinhYCMH
-            // 
-            this.btnTuyChinhYCMH.AutoSize = true;
-            this.btnTuyChinhYCMH.Location = new System.Drawing.Point(951, 111);
-            this.btnTuyChinhYCMH.Name = "btnTuyChinhYCMH";
-            this.btnTuyChinhYCMH.Size = new System.Drawing.Size(250, 35);
-            this.btnTuyChinhYCMH.TabIndex = 90;
-            this.btnTuyChinhYCMH.Text = "Tùy chỉnh YCMH";
-            this.btnTuyChinhYCMH.UseVisualStyleBackColor = true;
-            this.btnTuyChinhYCMH.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -334,10 +322,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1303, 844);
             this.Controls.Add(this.txtGiaTriUocTinh);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnTuyChinhYCMH);
             this.Controls.Add(this.txtNgayDuyet);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnTuChoi);
@@ -354,7 +340,7 @@
             this.Controls.Add(this.lb);
             this.Controls.Add(this.lbMaYC);
             this.Name = "UI_YeuCauMH";
-            this.Text = "UI_YeuCauMH";
+            this.Size = new System.Drawing.Size(1303, 844);
             this.Load += new System.EventHandler(this.UI_YeuCauMH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -391,7 +377,6 @@
         private System.Windows.Forms.Button btnLoc_BoTG;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNgayDuyet;
-        private System.Windows.Forms.Button btnTuyChinhYCMH;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtGiaTriUocTinh;
     }
