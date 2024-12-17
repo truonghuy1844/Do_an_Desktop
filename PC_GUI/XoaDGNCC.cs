@@ -22,7 +22,6 @@ namespace PC_GUI
 
         private void XoaDGNCC_Load(object sender, EventArgs e)
         {
-            LoadCombobox();
             ResetField();
         }
 
@@ -40,47 +39,19 @@ namespace PC_GUI
                 this.Close();
             }
         }
-        private void LoadCombobox()
-        {
-            comboBoxChatLuong.DataSource = bLLNCC.LoadDiemChatLuong();
-            comboBoxChatLuong.DisplayMember = "DiemChatLuong";
-            comboBoxChatLuong.ValueMember = "DiemChatLuong";
-            comboBoxChatLuong.SelectedIndex = -1;
 
-            comboBoxHieuQua.DataSource = bLLNCC.LoadDiemHieuQua();
-            comboBoxHieuQua.DisplayMember = "DiemHieuQua";
-            comboBoxHieuQua.ValueMember = "DiemHieuQua";
-            comboBoxHieuQua.SelectedIndex = -1;
-
-            comboBoxGiaCa.DataSource = bLLNCC.LoadDiemGiaCa();
-            comboBoxGiaCa.DisplayMember = "DiemGiaCa";
-            comboBoxGiaCa.ValueMember = "DiemGiaCa";
-            comboBoxGiaCa.SelectedIndex = -1;
-
-            comboBoxMucDo.DataSource = bLLNCC.LoadMucDoDG();
-            comboBoxMucDo.DisplayMember = "MucDoDanhGia";
-            comboBoxMucDo.ValueMember = "MucDoDanhGia";
-            comboBoxMucDo.SelectedIndex = -1;
-
-        }
         private void ResetField()
         {
             txtTim.Text = string.Empty;
             txtMaDGNCC.Text = string.Empty;
             txtMaNV.Text = string.Empty;
             txtMaNCC.Text = string.Empty;
-            comboBoxChatLuong.SelectedIndex = -1;
-            comboBoxHieuQua.SelectedIndex = -1;
-            comboBoxGiaCa.SelectedIndex = -1;
-            comboBoxMucDo.SelectedIndex = -1;
+            txtTieuChiDanhGia.Text = string.Empty;
 
             txtMaDGNCC.Enabled = false;
             txtMaNV.Enabled = false;
             txtMaNCC.Enabled = false;
-            comboBoxChatLuong.Enabled = false;
-            comboBoxHieuQua.Enabled = false;
-            comboBoxGiaCa.Enabled = false;
-            comboBoxMucDo.Enabled = false;
+            txtTieuChiDanhGia.Enabled = false;
             btnXoa.Enabled = false;
 
         }
@@ -92,7 +63,7 @@ namespace PC_GUI
                 e.Handled = true;
             }
             TextBox textBox = sender as TextBox;
-            if (textBox != null && textBox.Text.Length >= 5 && !char.IsControl(e.KeyChar))
+            if (textBox != null && textBox.Text.Length >= 10 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -108,53 +79,29 @@ namespace PC_GUI
                 txtMaDGNCC.Text = dg.MaDGNCC;
                 txtMaNCC.Text = dg.MaNCC;
                 txtMaNV.Text = dg.MaNV;
-                if (dg.DiemChatLuong == null)
-                {
-                    comboBoxChatLuong.SelectedIndex = -1;
-                }
-                else
-                {
-                    comboBoxChatLuong.SelectedValue = dg.DiemChatLuong;
-                }
-                if (dg.DiemHieuQua == null)
-                {
-                    comboBoxHieuQua.SelectedIndex = -1;
-                }
-                else
-                {
-                    comboBoxHieuQua.SelectedValue = dg.DiemHieuQua;
-                }
-                if (dg.DiemGiaCa == null)
-                {
-                    comboBoxGiaCa.SelectedIndex = -1;
-                }
-                else
-                {
-                    comboBoxGiaCa.SelectedValue = dg.DiemGiaCa;
-                }
-                if (dg.MucDoDanhGia == null)
-                {
-                    comboBoxMucDo.SelectedIndex = -1;
-                }
-                else
-                {
-                    comboBoxMucDo.SelectedValue = dg.MucDoDanhGia;
-                }
+                txtTieuChiDanhGia.Text = dg.TieuChiDanhGia;
                 btnXoa.Enabled = true;
             }
             catch (ArgumentException ex)
             {
+                ResetField();
                 MessageBox.Show(ex.Message, "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetField();
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            string maDGNCC = txtMaDGNCC.Text.Trim();
+            List<string> listDGSP = new List<string>();
+            foreach (DataGridViewRow row in dataGridViewDSDMH.SelectedRows)
+            {
+                listDGSP.Add(row.Cells["MaDGSP"].Value.ToString());
+            }
             var confirmResult = MessageBox.Show(
            "Bạn có chắc chắn muốn xóa đánh giá này không?",
            "Xác nhận xóa",
@@ -173,14 +120,26 @@ namespace PC_GUI
                     MaDGNCC = txtMaDGNCC.Text.Trim(),
                     MaNV = txtMaNV.Text.Trim(),
                     MaNCC = txtMaNCC.Text.Trim(),
-                    DiemChatLuong = comboBoxChatLuong.SelectedValue != null ? (int?)int.Parse(comboBoxChatLuong.SelectedValue.ToString()) : null,
-                    DiemHieuQua = comboBoxHieuQua.SelectedValue != null ? (int?)int.Parse(comboBoxHieuQua.SelectedValue.ToString()) : null,
-                    DiemGiaCa = comboBoxGiaCa.SelectedValue != null ? (int?)int.Parse(comboBoxGiaCa.SelectedValue.ToString()) : null,
-                    MucDoDanhGia = comboBoxMucDo.SelectedIndex != -1 ? comboBoxMucDo.SelectedValue.ToString() : null
+                    TieuChiDanhGia = txtTieuChiDanhGia.Text.Trim()
                 };
-                bLLNCC.XoaDGNCC(xoaDG);
+                bLLNCC.XoaDGNCC(maDGNCC, listDGSP);
+                
                 MessageBox.Show("Xóa đánh giá nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK);
                 ResetField();
+            }
+        }
+
+        private void txtTieuChiDanhGia_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string maDGNCC = txtMaDGNCC.Text.Trim();
+                    dataGridViewDSDMH.DataSource = bLLNCC.LoadDMHChon(maDGNCC);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dataGridViewDSDMH.DataSource = null;
             }
         }
     }

@@ -86,7 +86,7 @@ namespace PC_GUI
                 e.Handled = true;
             }
             TextBox textBox = sender as TextBox;
-            if (textBox != null && textBox.Text.Length >= 6 && !char.IsControl(e.KeyChar))
+            if (textBox != null && textBox.Text.Length >= 10 && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using PC_DTO;
 
@@ -124,6 +126,7 @@ namespace PC_DAL
                               MaNCC = dg.MaNCC,
                               MaNV = dg.MaNV,
                               NgayDanhGia = dg.NgayDanhGia,
+                              TieuChiDanhGia = dg.TieuChiDanhGia,
                               DiemChatLuong = dg.DiemChatLuong,
                               DiemGiaCa = dg.DiemGiaCa,
                               DiemHieuQua = dg.DiemHieuQua,
@@ -164,46 +167,97 @@ namespace PC_DAL
 
             return listNCC;
         }
-        public void AddDGNCC(DTODGNCC dTODGNCC)
+        public void AddDGNCC(DTODGNCC dTODGNCC, string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
         {
             try
             {
                 using (var db = new QLMHEntities())
                 {
-                    // Kiểm tra nhân viên có tồn tại
-                    var isEmployeeExists = db.NHANVIENs.Any(nv => nv.MaNV == dTODGNCC.MaNV);
-                    if (!isEmployeeExists)
+                    if (!db.NHANVIENs.Any(nv => nv.MaNV == dTODGNCC.MaNV))
                     {
                         throw new Exception("Nhân viên không tồn tại.");
                     }
 
-                    // Kiểm tra nhà cung cấp có tồn tại
-                    var isSupplierExists = db.NHACUNGCAPs.Any(ncc => ncc.MaNCC == dTODGNCC.MaNCC);
-                    if (!isSupplierExists)
+                    if (!db.NHACUNGCAPs.Any(ncc => ncc.MaNCC == dTODGNCC.MaNCC))
                     {
                         throw new Exception("Nhà cung cấp không tồn tại.");
                     }
 
-                    // Kiểm tra đánh giá nhà cung cấp có tồn tại
-                    var existingDGNCC = db.DANHGIA_NCC.Find(dTODGNCC.MaDGNCC);
-                    if (existingDGNCC != null)
+                    if (db.DANHGIA_NCC.Any(dgncc => dgncc.MaDGNCC == dTODGNCC.MaDGNCC))
                     {
                         throw new Exception("Mã đánh giá nhà cung cấp đã tồn tại.");
                     }
 
-                    // Thêm mới đánh giá nhà cung cấp
-                    DANHGIA_NCC dg = new DANHGIA_NCC()
+                    double? diemChatLuong = null;
+                    double? diemHieuQua = null;
+                    double? diemGiaCa = null;
+
+                    if (listDGSP != null && listDGSP.Any())
+                    {
+                        var query = from dgsp in db.DANHGIASP_TRONGDON
+                                    where listDGSP.Contains(dgsp.MaDGSP)
+                                    select new
+                                    {
+                                        dgsp.DiemChatLuong,
+                                        dgsp.DiemHieuQua,
+                                        dgsp.DiemGiaCa
+                                    };
+
+                        var result = query.ToList();
+                        if (result.Any())
+                        {
+                            diemChatLuong = result.Average(x => x.DiemChatLuong);
+                            diemHieuQua = result.Average(x => x.DiemHieuQua);
+                            diemGiaCa = result.Average(x => x.DiemGiaCa);
+                        }
+                    }
+                    else if (frmDate.HasValue && toDate.HasValue)
+                    {
+                        var query = (from dgsp in db.DANHGIASP_TRONGDON
+                                     join dmh in db.DONMUAHANGs on dgsp.MaDMH equals dmh.MaDMH
+                                     where dmh.MaNCC == maNCC
+                                           && dgsp.NgayDG >= frmDate.Value
+                                           && dgsp.NgayDG <= toDate.Value
+                                     select new
+                                     {
+                                         dgsp.DiemChatLuong,
+                                         dgsp.DiemHieuQua,
+                                         dgsp.DiemGiaCa
+                                     });
+
+                        var result = query.ToList();
+                        if (result.Any())
+                        {
+                            diemChatLuong = result.Average(x => x.DiemChatLuong);
+                            diemHieuQua = result.Average(x => x.DiemHieuQua);
+                            diemGiaCa = result.Average(x => x.DiemGiaCa);
+                        }
+                    }
+
+                    string mucDoDanhGia = "Chưa đánh giá";
+                    if (diemChatLuong.HasValue && diemHieuQua.HasValue && diemGiaCa.HasValue)
+                    {
+                        double diemTrungBinh = (diemChatLuong.Value + diemHieuQua.Value + diemGiaCa.Value) / 3;
+
+                        if (diemTrungBinh >= 4)
+                            mucDoDanhGia = "Tốt";
+                        else if (diemTrungBinh >= 2.5)
+                            mucDoDanhGia = "Trung bình";
+                        else
+                            mucDoDanhGia = "Thấp";
+                    }   
+                    var dg = new DANHGIA_NCC
                     {
                         MaDGNCC = dTODGNCC.MaDGNCC,
                         MaNV = dTODGNCC.MaNV,
                         MaNCC = dTODGNCC.MaNCC,
-                        DiemChatLuong = dTODGNCC.DiemChatLuong,
-                        DiemHieuQua = dTODGNCC.DiemHieuQua,
-                        DiemGiaCa = dTODGNCC.DiemGiaCa,
-                        MucDoDanhGia = dTODGNCC.MucDoDanhGia,
+                        TieuChiDanhGia = dTODGNCC.TieuChiDanhGia,
+                        DiemChatLuong = diemChatLuong,
+                        DiemHieuQua = diemHieuQua,
+                        DiemGiaCa = diemGiaCa,
+                        MucDoDanhGia = mucDoDanhGia,
                         NgayDanhGia = DateTime.Now
                     };
-
                     db.DANHGIA_NCC.Add(dg);
                     db.SaveChanges();
                 }
@@ -213,43 +267,111 @@ namespace PC_DAL
                 throw new Exception($"Lỗi thêm đánh giá mới: {ex.Message}");
             }
         }
+        public void AddDGNCC_SPDMH(string maDGNCC, string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
+        {
+            if (listDGSP != null && listDGSP.Any())
+            {
+                foreach (var maDGSP in listDGSP)
+                {
+                    var danhGiaNCC_SPDMH = new DanhGiaNCC_SPDMH
+                    {
+                        MaDGNCC = maDGNCC,
+                        MaDGSP = maDGSP,
+                        ChuThich = string.Empty,
+                    };
+                    db.DanhGiaNCC_SPDMH.Add(danhGiaNCC_SPDMH);
 
-        public List<DTOHieuQua> LoadDiemHieuQua()
-        {
-            List<DTOHieuQua> list = new List<DTOHieuQua>
+                }
+            }
+            else if (frmDate.HasValue && toDate.HasValue)
             {
-                new DTOHieuQua { DiemHieuQua = 1},
-                new DTOHieuQua {DiemHieuQua = 2},
-                new DTOHieuQua {DiemHieuQua = 3},
-                new DTOHieuQua {DiemHieuQua = 4},
-                new DTOHieuQua {DiemHieuQua = 5}
+                var danhGiaList = (from dgsp in db.DANHGIASP_TRONGDON
+                                   join dmh in db.DONMUAHANGs on dgsp.MaDMH equals dmh.MaDMH
+                                   where dmh.MaNCC == maNCC
+                                         && dgsp.NgayDG >= frmDate.Value
+                                         && dgsp.NgayDG <= toDate.Value
+                                   select dgsp).ToList();
+                foreach (var dg in danhGiaList)
+                {
+                    var danhGiaNCC_SPDMH = new DanhGiaNCC_SPDMH
+                    {
+                        MaDGNCC = maDGNCC,
+                        MaDGSP = dg.MaDGSP,
+                        ChuThich = string.Empty
+                    };
+                    db.DanhGiaNCC_SPDMH.Add(danhGiaNCC_SPDMH);
+                }
+            }    
+                db.SaveChanges();
+        }
+
+        public List<DTOTieuChiDanhGia> LoadTieuChi()
+        {
+            List<DTOTieuChiDanhGia> list = new List<DTOTieuChiDanhGia>
+            {
+                new DTOTieuChiDanhGia { TieuChiDanhGia = "Theo tất cả đơn hàng"},
+                new DTOTieuChiDanhGia {TieuChiDanhGia = "Theo đánh giá đơn hàng tùy chọn"},
+                new DTOTieuChiDanhGia {TieuChiDanhGia = "Theo ngày tùy chọn"}
             };
             return list;
         }
-        public List<DTOChatLuong> LoadDiemChatLuong()
+        public List<DTOTieuChiSearch> TieuChiSearch()
         {
-            List<DTOChatLuong> list = new List<DTOChatLuong>
+            List<DTOTieuChiSearch> list = new List<DTOTieuChiSearch>
             {
-                new DTOChatLuong { DiemChatLuong = 1},
-                new DTOChatLuong {DiemChatLuong = 2},
-                new DTOChatLuong {DiemChatLuong = 3},
-                new DTOChatLuong {DiemChatLuong = 4},
-                new DTOChatLuong {DiemChatLuong = 5}
+                new DTOTieuChiSearch { TieuChiDanhGia = "Chọn tất cả"},
+                new DTOTieuChiSearch { TieuChiDanhGia = "Theo tất cả đơn hàng"},
+                new DTOTieuChiSearch {TieuChiDanhGia = "Theo đánh giá đơn hàng tùy chọn"},
+                new DTOTieuChiSearch {TieuChiDanhGia = "Theo ngày tùy chọn"}
             };
             return list;
         }
-        public List<DTOGiaCa> LoadDiemGiaCa()
+        public List<DTODSDMH> LoadTieuChiDMH(string maNCC)
         {
-            List<DTOGiaCa> list = new List<DTOGiaCa>
+            try
             {
-                new DTOGiaCa { DiemGiaCa = 1},
-                new DTOGiaCa {DiemGiaCa = 2},
-                new DTOGiaCa {DiemGiaCa = 3},
-                new DTOGiaCa {DiemGiaCa = 4},
-                new DTOGiaCa {DiemGiaCa = 5}
-            };
-            return list;
+                var isSupplierExists = db.NHACUNGCAPs.Any(ncc => ncc.MaNCC == maNCC);
+                if (!isSupplierExists)
+                {
+                    throw new Exception("Nhà cung cấp không tồn tại.");
+                }
+                var result = from dgsp in db.DANHGIASP_TRONGDON
+                             join dmh in db.DONMUAHANGs on dgsp.MaDMH equals dmh.MaDMH
+                             join sp in db.SANPHAMs on dgsp.MaSP equals sp.MaSP
+                             join ncc in db.NHACUNGCAPs on dmh.MaNCC equals ncc.MaNCC
+                             join dgncc in db.DANHGIA_NCC on ncc.MaNCC equals dgncc.MaNCC
+                             where dmh.MaNCC == maNCC
+                             group new { dgsp, sp } by dgsp.MaDGSP into g
+                             select new DTODSDMH
+                             {
+                                 MaDGSP = g.Key,
+                                 MaDMH = g.FirstOrDefault().dgsp.MaDMH,
+                                 MaSP = g.FirstOrDefault().sp.MaSP,     
+                                 TenSP = g.FirstOrDefault().sp.TenSP
+                             };
+                return result.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi tìm đơn mua hàng: {ex.Message}");
+            }
         }
+        public List<DTODSDMH> LoadDMHChon(string maDGNCC)
+        {
+            var listDGSP = from dgsp in db.DANHGIASP_TRONGDON
+                           join sp in db.SANPHAMs on dgsp.MaSP equals sp.MaSP
+                           join dgtg in db.DanhGiaNCC_SPDMH on dgsp.MaDGSP equals dgtg.MaDGSP
+                           where dgtg.MaDGNCC == maDGNCC
+                           select new DTODSDMH
+                           {
+                               MaDGSP = dgtg.MaDGSP,
+                               MaDMH = dgsp.MaDMH,
+                               MaSP = dgsp.MaSP,
+                               TenSP = sp.TenSP
+                           };
+            return listDGSP.ToList();
+        }
+
         public List<DTOMucDo> LoadMucDoDG()
         {
             List<DTOMucDo> list = new List<DTOMucDo>
@@ -275,7 +397,8 @@ namespace PC_DAL
                                  DiemChatLuong = dg.DiemChatLuong,
                                  DiemHieuQua = dg.DiemHieuQua,
                                  DiemGiaCa = dg.DiemGiaCa,
-                                 MucDoDanhGia = dg.MucDoDanhGia
+                                 MucDoDanhGia = dg.MucDoDanhGia,
+                                 TieuChiDanhGia = dg.TieuChiDanhGia     
                              };
                 var result = dgTim.ToList();
                 if (!result.Any())
@@ -287,88 +410,96 @@ namespace PC_DAL
                 throw new Exception(ex.Message);
             }
         }
-        public void SuaDGNCC(DTODGNCC dTODGNCC)
+        public void XoaDGNCC(string maDGNCC, List<string> listDGSP)
         {
-            try
-            {
-                using (var db = new QLMHEntities())
-                {
-                    var isEmployeeExists = db.NHANVIENs.Any(nv => nv.MaNV == dTODGNCC.MaNV);
-                    if (!isEmployeeExists)
-                    {
-                        throw new Exception("Nhân viên không tồn tại.");
-                    }
+            var recordsToDelete = db.DanhGiaNCC_SPDMH
+                            .Where(x => x.MaDGNCC == maDGNCC)
+                            .ToList();
 
-                    var isSupplierExists = db.NHACUNGCAPs.Any(ncc => ncc.MaNCC == dTODGNCC.MaNCC);
-                    if (!isSupplierExists)
-                    {
-                        throw new Exception("Nhà cung cấp không tồn tại.");
-                    }
-
-                    var dg = db.DANHGIA_NCC.Find(dTODGNCC.MaDGNCC);
-                    dg.MaNV = dTODGNCC.MaNV;
-                    dg.MaNCC = dTODGNCC.MaNCC;
-                    dg.NgayDanhGia = DateTime.Now;
-                    dg.DiemChatLuong = dTODGNCC.DiemChatLuong;
-                    dg.DiemHieuQua = dTODGNCC.DiemHieuQua;
-                    dg.DiemGiaCa = dTODGNCC.DiemGiaCa;
-                    dg.MucDoDanhGia = dTODGNCC.MucDoDanhGia;
-                    db.SaveChanges();
-                }
-            }
-            catch (Exception ex)
+            if (recordsToDelete.Any())
             {
-                throw new Exception($"Lỗi cập nhật đánh giá nhà cung cấp: {ex.Message}");
+                db.DanhGiaNCC_SPDMH.RemoveRange(recordsToDelete);
             }
-        }
-        public void XoaDGNCC(DTODGNCC dTODGNCC)
-        {
-            var dg = db.DANHGIA_NCC.Find(dTODGNCC.MaDGNCC);
-            db.DANHGIA_NCC.Remove(dg);
+
+            var dgncc = db.DANHGIA_NCC.Find(maDGNCC);
+            if (dgncc != null)
+            {
+                db.DANHGIA_NCC.Remove(dgncc);
+            }
+
             db.SaveChanges();
         }
-        public List<DTODGNCC> LocDGNCC(string tuKhoa, int? diemChatLuong, int? diemGiaCa, int? diemHieuQua, string mucDo, DateTime fromDate, DateTime toDate)
+        public List<DTODGNCC> LocDGNCC(string tuKhoa, string mucDo, DateTime fromDate, DateTime toDate, List<string> tieuChiDanhGia)
         {
-            var query = db.DANHGIA_NCC.AsQueryable();
+                var query = db.DANHGIA_NCC.AsQueryable();
 
-            if (!string.IsNullOrEmpty(tuKhoa))
-            {
-                query = query.Where(dg => dg.MaDGNCC.Contains(tuKhoa) || dg.MaNV.Contains(tuKhoa) || dg.MaNCC.Contains(tuKhoa));
-            }
+                if (!string.IsNullOrEmpty(tuKhoa))
+                {
+                    query = query.Where(dg => dg.MaDGNCC.Contains(tuKhoa) || dg.MaNV.Contains(tuKhoa) || dg.MaNCC.Contains(tuKhoa));
+                }
 
-            if (diemChatLuong.HasValue)
+                if (!string.IsNullOrEmpty(mucDo))
+                {
+                    query = query.Where(dg => dg.MucDoDanhGia == mucDo);
+                }
+            if (tieuChiDanhGia != null && tieuChiDanhGia.Any())
             {
-                query = query.Where(dg => dg.DiemChatLuong == diemChatLuong);
-            }
-
-            if (diemGiaCa.HasValue)
-            {
-                query = query.Where(dg => dg.DiemGiaCa == diemGiaCa);
-            }
-
-            if (diemHieuQua.HasValue)
-            {
-                query = query.Where(dg => dg.DiemHieuQua == diemHieuQua);
-            }
-
-            if (!string.IsNullOrEmpty(mucDo))
-            {
-                query = query.Where(dg => dg.MucDoDanhGia == mucDo);
+                query = query.Where(dg => tieuChiDanhGia.Contains(dg.TieuChiDanhGia));
             }
 
             query = query.Where(dg => dg.NgayDanhGia >= fromDate && dg.NgayDanhGia <= toDate);
 
-            return query.Select(dg => new DTODGNCC
-            {
-                MaDGNCC = dg.MaDGNCC,
-                MaNV = dg.MaNV,
-                MaNCC = dg.MaNCC,
-                NgayDanhGia = dg.NgayDanhGia,
-                DiemChatLuong = dg.DiemChatLuong,
-                DiemHieuQua = dg.DiemHieuQua,
-                DiemGiaCa = dg.DiemGiaCa,
-                MucDoDanhGia = dg.MucDoDanhGia
-            }).ToList();
+                return query.Select(dg => new DTODGNCC
+                {
+                    MaDGNCC = dg.MaDGNCC,
+                    MaNV = dg.MaNV,
+                    MaNCC = dg.MaNCC,
+                    NgayDanhGia = dg.NgayDanhGia,
+                    DiemChatLuong = dg.DiemChatLuong,
+                    DiemHieuQua = dg.DiemHieuQua,
+                    DiemGiaCa = dg.DiemGiaCa,
+                    MucDoDanhGia = dg.MucDoDanhGia,
+                    TieuChiDanhGia = dg.TieuChiDanhGia
+                }).ToList();
+            
+        }
+        public List<DTODGDMH> LoadDGDMH(string maDGNCC)
+        {
+            var listDGSP = from dgsp in db.DANHGIASP_TRONGDON
+                           join dgtg in db.DanhGiaNCC_SPDMH on dgsp.MaDGSP equals dgtg.MaDGSP
+                           where dgtg.MaDGNCC == maDGNCC
+                        select new DTODGDMH
+                        {
+                            MaDGSP = dgtg.MaDGSP,
+                            MaDMH = dgsp.MaDMH,
+                            MaSP = dgsp.MaSP,
+                            NgayDG = dgsp.NgayDG,
+                            MoTaDG = dgsp.MoTaDG,
+                            DiemChatLuong = dgsp.DiemChatLuong,
+                            DiemGiaCa = dgsp.DiemGiaCa,
+                            DiemHieuQua = dgsp.DiemHieuQua,
+                            GhiChu = dgsp.GhiChu
+                        };
+            return listDGSP.ToList();
+        }
+        public List<DTODGNCCReport> LoadDGNCCReport()
+        {
+            var listDG = from dg in db.DANHGIA_NCC
+                         join ncc in db.NHACUNGCAPs on dg.MaNCC equals ncc.MaNCC
+                         where dg.TieuChiDanhGia == "Theo tất cả đơn hàng" && dg.MucDoDanhGia == "Tốt"
+                         select new DTODGNCCReport
+                         {
+                             MaDGNCC = dg.MaDGNCC,
+                             MaNCC = dg.MaNCC,
+                             TenNCC = ncc.TenNCC,
+                             NgayDanhGia = dg.NgayDanhGia,
+                             TieuChiDanhGia = dg.TieuChiDanhGia,
+                             DiemChatLuong = dg.DiemChatLuong,
+                             DiemGiaCa = dg.DiemGiaCa,
+                             DiemHieuQua = dg.DiemHieuQua,
+                             MucDoDanhGia = dg.MucDoDanhGia
+                         };
+            return listDG.ToList();
         }
     }
 }

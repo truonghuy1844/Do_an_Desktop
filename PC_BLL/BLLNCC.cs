@@ -20,8 +20,8 @@ namespace PC_BLL
         {
             if (string.IsNullOrEmpty(dTONCC.MaNCC))
                 throw new ArgumentException("Mã nhà cung cấp không được để trống.");
-            if (dTONCC.MaNCC.Length != 6)
-                throw new ArgumentException("Mã nhà cung cấp phải gồm đúng 6 ký tự.");
+            if (!dTONCC.MaNCC.StartsWith("NCC"))
+                throw new ArgumentException("Mã nhà cung cấp phải bắt đầu bằng 'NCC'.");
             if (string.IsNullOrEmpty(dTONCC.TenNCC))
                 throw new ArgumentException("Tên nhà cung cấp không được để trống.");
             if (string.IsNullOrEmpty(dTONCC.SDT))
@@ -80,34 +80,38 @@ namespace PC_BLL
             var listNCC = dALNCC.LoadNCCDG(maDanhGia);
             return listNCC ?? new List<DTONCC>();
         }
-        public void AddDGNCC(DTODGNCC dTODGNCC)
+        public void AddDGNCC(DTODGNCC dTODGNCC, string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
         {
             if (string.IsNullOrEmpty(dTODGNCC.MaDGNCC))
                 throw new ArgumentException("Mã đánh giá nhà cung cấp không được để trống.");
-            if (dTODGNCC.MaDGNCC.Length != 5)
-                throw new ArgumentException("Mã đánh giá nhà cung cấp phải gồm đúng 5 ký tự.");
+            if (!dTODGNCC.MaDGNCC.StartsWith("DG"))
+                throw new ArgumentException("Mã đánh giá nhà cung cấp phải bắt đầu bằng 'DG'.");
             if (string.IsNullOrEmpty(dTODGNCC.MaNV))
                 throw new ArgumentException("Mã nhân viên đánh giá không được để trống.");
-            if (dTODGNCC.MaNV.Length != 5)
-                throw new ArgumentException("Mã nhân viên đánh giá phải gồm đúng 5 ký tự.");
+            if (!dTODGNCC.MaNV.StartsWith("NV"))
+                throw new ArgumentException("Mã nhân viên đánh giá phải bắt đầu bằng 'NV'.");
             if (string.IsNullOrEmpty(dTODGNCC.MaNCC))
                 throw new ArgumentException("Mã nhà cung cấp không được để trống.");
-            if (dTODGNCC.MaNCC.Length != 6)
-                throw new ArgumentException("Mã nhà cung cấp phải gồm đúng 6 ký tự.");
-            dALNCC.AddDGNCC(dTODGNCC);
+            if (!dTODGNCC.MaNCC.StartsWith("NCC"))
+                throw new ArgumentException("Mã nhà cung cấp phải bắt đầu bằng 'NCC'.");
+            if (string.IsNullOrEmpty(dTODGNCC.TieuChiDanhGia))
+                throw new ArgumentException("Vui lòng chọn tiêu chí đánh giá để tiến hành đánh giá");
+            dALNCC.AddDGNCC(dTODGNCC, maNCC, listDGSP, frmDate, toDate);
         }
-        public List<DTOChatLuong> LoadDiemChatLuong()
+        
+        public List<DTOTieuChiDanhGia> LoadTieuChi()
         {
-            return dALNCC.LoadDiemChatLuong();
+            return dALNCC.LoadTieuChi();
         }
-        public List<DTOHieuQua> LoadDiemHieuQua()
+        public List<DTOTieuChiSearch> TieuChiSearch()
         {
-            return dALNCC.LoadDiemHieuQua();
+            return dALNCC.TieuChiSearch();
         }
-        public List<DTOGiaCa> LoadDiemGiaCa()
+        public List<DTODSDMH> LoadTieuChiDMH(string maNCC)
         {
-            return dALNCC.LoadDiemGiaCa();
+                return dALNCC.LoadTieuChiDMH(maNCC);
         }
+
         public List<DTOMucDo> LoadMucDoDG()
         {
             return dALNCC.LoadMucDoDG();
@@ -117,8 +121,8 @@ namespace PC_BLL
             if (string.IsNullOrEmpty(maTim))
                 throw new ArgumentException("Vui lòng nhập mã nhà đánh giá để tìm kiếm.");
 
-            if (maTim.Length != 5)
-                throw new ArgumentException("Mã đánh giá phải gồm đúng 5 ký tự.");
+            if (!maTim.StartsWith("DG"))
+                throw new ArgumentException("Mã đánh giá nhà cung cấp phải bắt đầu bằng 'DG'.");
             try
             {
                 return dALNCC.TimDGNCC(maTim);
@@ -128,25 +132,29 @@ namespace PC_BLL
                 throw new Exception("Lỗi khi tìm đánh giá: " + ex.Message);
             }
         }
-        public void SuaDGNCC(DTODGNCC dTODGNCC)
+        public List<DTODGNCC> LocDGNCC(string tuKhoa, string mucDo, DateTime fromDate, DateTime toDate, List<string> tieuChiDanhGia)
         {
-            if (string.IsNullOrEmpty(dTODGNCC.MaNV))
-                throw new ArgumentException("Mã nhân viên đánh giá không được để trống.");
-            if (dTODGNCC.MaNV.Length != 5)
-                throw new ArgumentException("Mã nhân viên đánh giá phải gồm đúng 5 ký tự.");
-            if (string.IsNullOrEmpty(dTODGNCC.MaNCC))
-                throw new ArgumentException("Mã nhà cung cấp không được để trống.");
-            if (dTODGNCC.MaNCC.Length != 6)
-                throw new ArgumentException("Mã nhà cung cấp phải gồm đúng 6 ký tự.");
-            dALNCC.SuaDGNCC(dTODGNCC);
+            return dALNCC.LocDGNCC(tuKhoa, mucDo, fromDate, toDate, tieuChiDanhGia);
         }
-        public void XoaDGNCC(DTODGNCC dTODGNCC)
+        public List<DTODSDMH> LoadDMHChon(string maDGNCC)
         {
-            dALNCC.XoaDGNCC(dTODGNCC);
+            return dALNCC.LoadDMHChon(maDGNCC);
         }
-        public List<DTODGNCC> LocDGNCC(string tuKhoa, int? diemChatLuong, int? diemGiaCa, int? diemHieuQua, string mucDo, DateTime fromDate, DateTime toDate)
+        public void AddDGNCC_SPDMH(string maDGNCC,string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
         {
-            return dALNCC.LocDGNCC(tuKhoa, diemChatLuong, diemGiaCa, diemHieuQua, mucDo, fromDate, toDate);
+            dALNCC.AddDGNCC_SPDMH(maDGNCC, maNCC, listDGSP, frmDate, toDate);
+        }
+        public void XoaDGNCC(string maDGNCC, List<string> listDGSP)
+        {
+            dALNCC.XoaDGNCC(maDGNCC, listDGSP);
+        }
+        public List<DTODGDMH> LoadDGDMH(string maDGNCC)
+        {
+            return dALNCC.LoadDGDMH(maDGNCC);
+        }
+        public List<DTODGNCCReport> LoadDGNCCReport()
+        {
+            return dALNCC.LoadDGNCCReport();
         }
     }
 }

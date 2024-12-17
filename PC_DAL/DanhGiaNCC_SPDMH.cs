@@ -10,10 +10,15 @@
 namespace PC_DAL
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class DanhGiaNCC_SPDMH
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string MaDGNCC { get; set; }
+        public string MaDGSP { get; set; }
+        public string ChuThich { get; set; }
+    
+        public virtual DANHGIA_NCC DANHGIA_NCC { get; set; }
+        public virtual DANHGIASP_TRONGDON DANHGIASP_TRONGDON { get; set; }
     }
 }

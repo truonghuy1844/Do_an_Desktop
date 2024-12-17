@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ACER\Source\Repos\truonghuy1844\Do_an_Desktop\PC_DAL\QLMH.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\ACER\source\repos\truonghuy1844\Do_an_Desktop\PC_DAL\QLMH.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

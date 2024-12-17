@@ -63,6 +63,9 @@
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="DALNCC.cs" />
+    <Compile Include="DanhGiaNCC_SPDMH.cs">
+      <DependentUpon>QLMH.tt</DependentUpon>
+    </Compile>
     <Compile Include="DANHGIASP_TRONGDON.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
@@ -113,15 +116,6 @@
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="SANPHAM_XUATKHO.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>QLMH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>QLMH.tt</DependentUpon>
     </Compile>
     <Compile Include="THANHTOAN.cs">
