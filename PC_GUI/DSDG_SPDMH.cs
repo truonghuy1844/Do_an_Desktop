@@ -16,12 +16,12 @@ namespace PC_GUI
     {
         BLLNCC bLLNCC = new BLLNCC();
         private string maDGNCC;
-        //public DSDG_SPDMH(string maDGNCC)
-        //{
-        //    InitializeComponent();
-        //    this.maDGNCC = maDGNCC;
-        //    dataGridViewDSDGSP.DataSource = bLLNCC.LoadDGDMH(maDGNCC);
-        //}
+        public DSDG_SPDMH(string maDGNCC)
+        {
+            InitializeComponent();
+            this.maDGNCC = maDGNCC;
+            dataGridViewDSDGSP.DataSource = bLLNCC.LoadDGDMH(maDGNCC);
+        }
 
         private void DSDG_SPDMH_Load(object sender, EventArgs e)
         {

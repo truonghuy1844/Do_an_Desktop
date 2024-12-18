@@ -143,11 +143,11 @@ namespace PC_GUI
 
             if (e.RowIndex >= 0)
             {
-                //var selectedRow = dataGridViewDGNCC.Rows[e.RowIndex];
-                //string maDGNCC = selectedRow.Cells["maDGNCC"].Value.ToString();
+                var selectedRow = dataGridViewDGNCC.Rows[e.RowIndex];
+                string maDGNCC = selectedRow.Cells["maDGNCC"].Value.ToString();
 
-                ////DSDG_SPDMH dSDG = new DSDG_SPDMH(maDGNCC);
-                //dSDG.ShowDialog();
+                DSDG_SPDMH dSDG = new DSDG_SPDMH(maDGNCC);
+                dSDG.ShowDialog();
             }
         }
 

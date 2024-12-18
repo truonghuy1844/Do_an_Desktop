@@ -17,7 +17,7 @@ namespace PC_GUI.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DANHGIASP_TRONGDON()
         {
-            this.DANHGIA_NCC = new HashSet<DANHGIA_NCC>();
+            this.DanhGiaNCC_SPDMH = new HashSet<DanhGiaNCC_SPDMH>();
         }
     
         public string MaDGSP { get; set; }
@@ -30,9 +30,9 @@ namespace PC_GUI.DAL
         public Nullable<int> DiemGiaCa { get; set; }
         public string GhiChu { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DanhGiaNCC_SPDMH> DanhGiaNCC_SPDMH { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
         public virtual DONMUAHANG DONMUAHANG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DANHGIA_NCC> DANHGIA_NCC { get; set; }
     }
 }

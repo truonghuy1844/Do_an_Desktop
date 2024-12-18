@@ -136,22 +136,22 @@ namespace PC_GUI.BLL
         {
             return dALNCC.LocDGNCC(tuKhoa, mucDo, fromDate, toDate, tieuChiDanhGia);
         }
-        //public List<DTODSDMH> LoadDMHChon(string maDGNCC)
-        //{
-        //    return dALNCC.LoadDMHChon(maDGNCC);
-        //}
-        //public void AddDGNCC_SPDMH(string maDGNCC, string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
-        //{
-        //    dALNCC.AddDGNCC_SPDMH(maDGNCC, maNCC, listDGSP, frmDate, toDate);
-        //}
-        //public void XoaDGNCC(string maDGNCC, List<string> listDGSP)
-        //{
-        //    dALNCC.XoaDGNCC(maDGNCC, listDGSP);
-        //}
-        //public List<DTODGDMH> LoadDGDMH(string maDGNCC)
-        //{
-        //    return dALNCC.LoadDGDMH(maDGNCC);
-        //}
+        public List<DTODSDMH> LoadDMHChon(string maDGNCC)
+        {
+            return dALNCC.LoadDMHChon(maDGNCC);
+        }
+        public void AddDGNCC_SPDMH(string maDGNCC, string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
+        {
+            dALNCC.AddDGNCC_SPDMH(maDGNCC, maNCC, listDGSP, frmDate, toDate);
+        }
+        public void XoaDGNCC(string maDGNCC, List<string> listDGSP)
+        {
+            dALNCC.XoaDGNCC(maDGNCC, listDGSP);
+        }
+        public List<DTODGDMH> LoadDGDMH(string maDGNCC)
+        {
+            return dALNCC.LoadDGDMH(maDGNCC);
+        }
         public List<DTODGNCCReport> LoadDGNCCReport()
         {
             return dALNCC.LoadDGNCCReport();

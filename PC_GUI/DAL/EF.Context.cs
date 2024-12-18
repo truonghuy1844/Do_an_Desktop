@@ -16,7 +16,7 @@ namespace PC_GUI.DAL
     public partial class QLMHEntities3 : DbContext
     {
         public QLMHEntities3()
-            : base("name=QLMHEntities3")
+            : base("name=QLMHEntities4")
         {
         }
     
@@ -30,6 +30,7 @@ namespace PC_GUI.DAL
         public virtual DbSet<CT_DONMUAHANG> CT_DONMUAHANG { get; set; }
         public virtual DbSet<CT_YEUCAU> CT_YEUCAU { get; set; }
         public virtual DbSet<DANHGIA_NCC> DANHGIA_NCC { get; set; }
+        public virtual DbSet<DanhGiaNCC_SPDMH> DanhGiaNCC_SPDMH { get; set; }
         public virtual DbSet<DANHGIASP_TRONGDON> DANHGIASP_TRONGDON { get; set; }
         public virtual DbSet<DONMUAHANG> DONMUAHANGs { get; set; }
         public virtual DbSet<HANGHOA_VANCHUYEN> HANGHOA_VANCHUYEN { get; set; }

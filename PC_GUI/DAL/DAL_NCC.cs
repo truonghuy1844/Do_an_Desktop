@@ -264,43 +264,43 @@ namespace PC_GUI.DAL
                 throw new Exception($"Lỗi thêm đánh giá mới: {ex.Message}");
             }
         }
-        //public void AddDGNCC_SPDMH(string maDGNCC, string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
-        //{
-        //    if (listDGSP != null && listDGSP.Any())
-        //    {
-        //        foreach (var maDGSP in listDGSP)
-        //        {
-        //            var danhGiaNCC_SPDMH = new DanhGiaNCC_SPDMH
-        //            {
-        //                MaDGNCC = maDGNCC,
-        //                MaDGSP = maDGSP,
-        //                ChuThich = string.Empty,
-        //            };
-        //            db.DanhGiaNCC_SPDMH.Add(danhGiaNCC_SPDMH);
+        public void AddDGNCC_SPDMH(string maDGNCC, string maNCC, List<string> listDGSP, DateTime? frmDate, DateTime? toDate)
+        {
+            if (listDGSP != null && listDGSP.Any())
+            {
+                foreach (var maDGSP in listDGSP)
+                {
+                    var danhGiaNCC_SPDMH = new DanhGiaNCC_SPDMH
+                    {
+                        MaDGNCC = maDGNCC,
+                        MaDGSP = maDGSP,
+                        ChuThich = string.Empty,
+                    };
+                    db.DanhGiaNCC_SPDMH.Add(danhGiaNCC_SPDMH);
 
-        //        }
-        //    }
-        //    else if (frmDate.HasValue && toDate.HasValue)
-        //    {
-        //        var danhGiaList = (from dgsp in db.DANHGIASP_TRONGDON
-        //                           join dmh in db.DONMUAHANGs on dgsp.MaDMH equals dmh.MaDMH
-        //                           where dmh.MaNCC == maNCC
-        //                                 && dgsp.NgayDG >= frmDate.Value
-        //                                 && dgsp.NgayDG <= toDate.Value
-        //                           select dgsp).ToList();
-        //        foreach (var dg in danhGiaList)
-        //        {
-        //            var danhGiaNCC_SPDMH = new DanhGiaNCC_SPDMH
-        //            {
-        //                MaDGNCC = maDGNCC,
-        //                MaDGSP = dg.MaDGSP,
-        //                ChuThich = string.Empty
-        //            };
-        //            db.DanhGiaNCC_SPDMH.Add(danhGiaNCC_SPDMH);
-        //        }
-        //    }
-        //    db.SaveChanges();
-        //}
+                }
+            }
+            else if (frmDate.HasValue && toDate.HasValue)
+            {
+                var danhGiaList = (from dgsp in db.DANHGIASP_TRONGDON
+                                   join dmh in db.DONMUAHANGs on dgsp.MaDMH equals dmh.MaDMH
+                                   where dmh.MaNCC == maNCC
+                                         && dgsp.NgayDG >= frmDate.Value
+                                         && dgsp.NgayDG <= toDate.Value
+                                   select dgsp).ToList();
+                foreach (var dg in danhGiaList)
+                {
+                    var danhGiaNCC_SPDMH = new DanhGiaNCC_SPDMH
+                    {
+                        MaDGNCC = maDGNCC,
+                        MaDGSP = dg.MaDGSP,
+                        ChuThich = string.Empty
+                    };
+                    db.DanhGiaNCC_SPDMH.Add(danhGiaNCC_SPDMH);
+                }
+            }
+            db.SaveChanges();
+        }
 
         public List<DTOTieuChiDanhGia> LoadTieuChi()
         {
@@ -353,21 +353,21 @@ namespace PC_GUI.DAL
                 throw new Exception($"Lỗi tìm đơn mua hàng: {ex.Message}");
             }
         }
-        //public List<DTODSDMH> LoadDMHChon(string maDGNCC)
-        //{
-        //    var listDGSP = from dgsp in db.DANHGIASP_TRONGDON
-        //                   join sp in db.SANPHAMs on dgsp.MaSP equals sp.MaSP
-        //                   join dgtg in db.DanhGiaNCC_SPDMH on dgsp.MaDGSP equals dgtg.MaDGSP
-        //                   where dgtg.MaDGNCC == maDGNCC
-        //                   select new DTODSDMH
-        //                   {
-        //                       MaDGSP = dgtg.MaDGSP,
-        //                       MaDMH = dgsp.MaDMH,
-        //                       MaSP = dgsp.MaSP,
-        //                       TenSP = sp.TenSP
-        //                   };
-        //    return listDGSP.ToList();
-        //}
+        public List<DTODSDMH> LoadDMHChon(string maDGNCC)
+        {
+            var listDGSP = from dgsp in db.DANHGIASP_TRONGDON
+                           join sp in db.SANPHAMs on dgsp.MaSP equals sp.MaSP
+                           join dgtg in db.DanhGiaNCC_SPDMH on dgsp.MaDGSP equals dgtg.MaDGSP
+                           where dgtg.MaDGNCC == maDGNCC
+                           select new DTODSDMH
+                           {
+                               MaDGSP = dgtg.MaDGSP,
+                               MaDMH = dgsp.MaDMH,
+                               MaSP = dgsp.MaSP,
+                               TenSP = sp.TenSP
+                           };
+            return listDGSP.ToList();
+        }
 
         public List<DTOMucDo> LoadMucDoDG()
         {
@@ -407,25 +407,25 @@ namespace PC_GUI.DAL
                 throw new Exception(ex.Message);
             }
         }
-        //public void XoaDGNCC(string maDGNCC, List<string> listDGSP)
-        //{
-        //    var recordsToDelete = db.DanhGiaNCC_SPDMH
-        //                    .Where(x => x.MaDGNCC == maDGNCC)
-        //                    .ToList();
+        public void XoaDGNCC(string maDGNCC, List<string> listDGSP)
+        {
+            var recordsToDelete = db.DanhGiaNCC_SPDMH
+                            .Where(x => x.MaDGNCC == maDGNCC)
+                            .ToList();
 
-        //    if (recordsToDelete.Any())
-        //    {
-        //        db.DanhGiaNCC_SPDMH.RemoveRange(recordsToDelete);
-        //    }
+            if (recordsToDelete.Any())
+            {
+                db.DanhGiaNCC_SPDMH.RemoveRange(recordsToDelete);
+            }
 
-        //    var dgncc = db.DANHGIA_NCC.Find(maDGNCC);
-        //    if (dgncc != null)
-        //    {
-        //        db.DANHGIA_NCC.Remove(dgncc);
-        //    }
+            var dgncc = db.DANHGIA_NCC.Find(maDGNCC);
+            if (dgncc != null)
+            {
+                db.DANHGIA_NCC.Remove(dgncc);
+            }
 
-        //    db.SaveChanges();
-        //}
+            db.SaveChanges();
+        }
         public List<DTODGNCC> LocDGNCC(string tuKhoa, string mucDo, DateTime fromDate, DateTime toDate, List<string> tieuChiDanhGia)
         {
             var query = db.DANHGIA_NCC.AsQueryable();
@@ -460,25 +460,25 @@ namespace PC_GUI.DAL
             }).ToList();
 
         }
-        //public List<DTODGDMH> LoadDGDMH(string maDGNCC)
-        //{
-        //    var listDGSP = from dgsp in db.DANHGIASP_TRONGDON
-        //                   join dgtg in db.DanhGiaNCC_SPDMH on dgsp.MaDGSP equals dgtg.MaDGSP
-        //                   where dgtg.MaDGNCC == maDGNCC
-        //                   select new DTODGDMH
-        //                   {
-        //                       MaDGSP = dgtg.MaDGSP,
-        //                       MaDMH = dgsp.MaDMH,
-        //                       MaSP = dgsp.MaSP,
-        //                       NgayDG = dgsp.NgayDG,
-        //                       MoTaDG = dgsp.MoTaDG,
-        //                       DiemChatLuong = dgsp.DiemChatLuong,
-        //                       DiemGiaCa = dgsp.DiemGiaCa,
-        //                       DiemHieuQua = dgsp.DiemHieuQua,
-        //                       GhiChu = dgsp.GhiChu
-        //                   };
-        //    return listDGSP.ToList();
-        //}
+        public List<DTODGDMH> LoadDGDMH(string maDGNCC)
+        {
+            var listDGSP = from dgsp in db.DANHGIASP_TRONGDON
+                           join dgtg in db.DanhGiaNCC_SPDMH on dgsp.MaDGSP equals dgtg.MaDGSP
+                           where dgtg.MaDGNCC == maDGNCC
+                           select new DTODGDMH
+                           {
+                               MaDGSP = dgtg.MaDGSP,
+                               MaDMH = dgsp.MaDMH,
+                               MaSP = dgsp.MaSP,
+                               NgayDG = dgsp.NgayDG,
+                               MoTaDG = dgsp.MoTaDG,
+                               DiemChatLuong = dgsp.DiemChatLuong,
+                               DiemGiaCa = dgsp.DiemGiaCa,
+                               DiemHieuQua = dgsp.DiemHieuQua,
+                               GhiChu = dgsp.GhiChu
+                           };
+            return listDGSP.ToList();
+        }
         public List<DTODGNCCReport> LoadDGNCCReport()
         {
             var listDG = from dg in db.DANHGIA_NCC
