@@ -122,7 +122,7 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE THANHTOAN SET TrangThai = N'Đã thanh toán' WHERE MaHD LIKE @mahd", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE THANHTOAN SET  TrangThai = N'Đã thanh toán', NgayTT= Getdate() WHERE MaHD LIKE @mahd", conn);
                 cmd.Parameters.AddWithValue("@mahd", mahd);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
