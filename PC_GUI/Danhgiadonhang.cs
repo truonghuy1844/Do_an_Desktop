@@ -23,7 +23,7 @@ namespace PC_GUI
             InitializeComponent();
             
         }
-        BLL_DonMuaHang bllDonmmua = new BLL_DonMuaHang();
+        public BLL_DonMuaHang bllDonmmua = new BLL_DonMuaHang();
 
         //Load danh sách đơn mua
         void load_DS_DMH()
@@ -63,15 +63,15 @@ namespace PC_GUI
                        };
             dataGridViewChitiet.DataSource = ctdg.ToList();
         }
-        void LoadChitietdon(string maDMH) // load danh sách đơn hàng vào datagridview 
+        void LoadChitietdon(string maDMH) // load danh sách chi tiêt đơn hàng vào datagridview 
         {
             QLMHEntities3 db = new QLMHEntities3();
             var listchitiet = from dm in db.CT_DONMUAHANG
-                              where dm.MaDMH == maDMH
+                              where dm.MaDMH == maDMH.Trim()
                               select new
                               {
                                   dm.MaDMH,
-                                  dm.MaSP,  
+                                  dm.MaSP,
                                   dm.SANPHAM.TenSP,
                                   dm.MaBG,
                                   dm.SoLuong
@@ -127,7 +127,8 @@ namespace PC_GUI
         private void Danhgiadonhang_Load(object sender, EventArgs e)
         {
             loadlichsudg();
-            //loaddgtheodonmua();
+            btnChitietdon.Text = "Đánh giá của đơn mua";
+            btnLichsu.Text = "Danh sách đơn mua hàng";
             loaddiemdg();
             txtMaDGSP.Enabled = false; 
             datetimedanhgia.Value = DateTime.Now;
@@ -143,18 +144,76 @@ namespace PC_GUI
             cBHieuqua.SelectedIndex = -1;
             cbGiaca.SelectedIndex = -1;
         }
-
+        bool chitiet = true;
         private void btnChitietdon_Click(object sender, EventArgs e)
         {
-            //HideAllTooltips();
-            //LoadChitietdon();
+            if (cbMaDH.SelectedIndex != -1)
+            {
+                try
+                {
+                    if (chitiet)
+                    {
+                        if (cbTensp.SelectedIndex != -1) loaddgtheodonmua(cbMaDH.SelectedValue.ToString(), cbTensp.SelectedValue.ToString());
+                        else return;
+                        HideAllTooltips();
+                        btnChitietdon.Text = "Chi tiết đơn mua";
+                        chitiet = false;
+
+                    }
+                    else
+                    {
+
+                        HideAllTooltips();
+                        LoadChitietdon(cbMaDH.SelectedValue.ToString());
+                        btnChitietdon.Text = "Đánh giá trong đơn";
+                        chitiet = true;
+                    }
+
+
+
+                }
+                catch (Exception) { return; }
+            }
+
         }
 
-
+        bool trangthai = true;
         private void btnLichsu_Click(object sender, EventArgs e)
         {
-            HideAllTooltips();
-            loadlichsudg();
+            if (trangthai)
+            {
+                btnLichsu.Text = "Tất cả đánh giá";
+                trangthai = false;
+                HideAllTooltips();
+                load_DS_DMH();
+                btnLuu.Enabled = true;
+                cbMaDH.Enabled = true;
+                cbChatluong.Enabled = true;
+                cbTensp.Enabled = true;
+                txtMaDGSP.Enabled = true;
+                txtMaDGSP.Text = "";
+                cbTensp.SelectedIndex = -1;
+                cbMaDH.SelectedIndex = -1;
+                txtDanhgia.Text = "";
+                txtGhichu.Text = "";
+                cbGiaca.SelectedIndex = -1;
+                cbChatluong.SelectedIndex = -1;
+                cBHieuqua.SelectedIndex = -1;
+                datetimedanhgia.Value = DateTime.Now;
+                chitiet = false;
+                btnChitietdon.Text = "Chi tiết đơn mua";
+                
+            }
+            else
+            {
+                btnLichsu.Text = "Danh sách đơn mua";
+                trangthai = true;
+                HideAllTooltips();
+                loadlichsudg();
+                chitiet = true;
+                btnChitietdon.Text = "Đánh giá trong đơn";
+            }
+            
         }
 
         private void btnTaodg_Click(object sender, EventArgs e)
@@ -326,25 +385,39 @@ namespace PC_GUI
         //Click vào hàng hiện dữ liệu 
         private void dataGridViewChitiet_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewChitiet.CurrentRow != null)
+            try
             {
-                txtMaDGSP.Text = dataGridViewChitiet.CurrentRow.Cells["MaDGSP"].Value.ToString();
-                cbMaDH.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
-                //Gọi tên sp theo MaDH 
-                cbMaDH_SelectedIndexChanged(sender, e);
-                cbTensp.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
-                cbChatluong.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemChatLuong"].Value);
-                cBHieuqua.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemHieuQua"].Value);
-                cbGiaca.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemGiaCa"].Value);
-                txtDanhgia.Text = dataGridViewChitiet.CurrentRow.Cells["MoTaDG"].Value.ToString();
-                txtGhichu.Text = dataGridViewChitiet.CurrentRow.Cells["GhiChu"].Value == null ? string.Empty :
-                dataGridViewChitiet.CurrentRow.Cells["GhiChu"].Value.ToString();
-                datetimedanhgia.Value = Convert.ToDateTime(dataGridViewChitiet.CurrentRow.Cells["NgayDG"].Value);
+                if (!trangthai)
+                {
 
-                cbMaDH.Enabled = false;
-                cbTensp.Enabled = false;
-                txtMaDGSP.Enabled = false;
+                    cbMaDH.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
+                }
+                else
+                {
+                    if (dataGridViewChitiet.CurrentRow != null)
+                    {
+                        txtMaDGSP.Text = dataGridViewChitiet.CurrentRow.Cells["MaDGSP"].Value.ToString();
+                        cbMaDH.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
+                        //Gọi tên sp theo MaDH 
+                        cbMaDH_SelectedIndexChanged(sender, e);
+                        cbTensp.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
+                        cbChatluong.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemChatLuong"].Value);
+                        cBHieuqua.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemHieuQua"].Value);
+                        cbGiaca.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemGiaCa"].Value);
+                        txtDanhgia.Text = dataGridViewChitiet.CurrentRow.Cells["MoTaDG"].Value.ToString();
+                        txtGhichu.Text = dataGridViewChitiet.CurrentRow.Cells["GhiChu"].Value == null ? string.Empty :
+                        dataGridViewChitiet.CurrentRow.Cells["GhiChu"].Value.ToString();
+                        datetimedanhgia.Value = Convert.ToDateTime(dataGridViewChitiet.CurrentRow.Cells["NgayDG"].Value);
+
+                        cbMaDH.Enabled = false;
+                        cbTensp.Enabled = false;
+                        txtMaDGSP.Enabled = false;
+                    }
+                }
             }
+            catch (Exception) { return; }
+            
+            
         }
         //Cbtensp tự động hiển thị theo cbMaDH 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)

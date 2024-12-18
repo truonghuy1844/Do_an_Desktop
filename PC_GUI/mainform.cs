@@ -186,15 +186,15 @@ namespace PC_GUI
             if (checkNV && checkPhongBan)
             {
                 panel1.Controls.Clear();
-                //Danhgiadonhang ui = new Danhgiadonhang();
-                //panel1.Controls.Add(ui);
+                Danhgiadonhang ui = new Danhgiadonhang();
+                panel1.Controls.Add(ui);
                 panel1.Dock = DockStyle.Fill;
             }
             else
             {
                 panel1.Controls.Clear();
-                //Danhgiadonhang_NV ui = new Danhgiadonhang_NV();
-                //panel1.Controls.Add(ui);
+                Danhgiadonhang_NV ui = new Danhgiadonhang_NV();
+                panel1.Controls.Add(ui);
                 panel1.Dock = DockStyle.Fill;
             }
         }
