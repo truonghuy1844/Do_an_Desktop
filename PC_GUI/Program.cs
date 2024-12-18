@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PC_DTO;
+using PC_GUI.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +16,10 @@ namespace PC_GUI
         [STAThread]
         static void Main()
         {
+            DTONV nv = new DTONV();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmdangNhap());
+            Application.Run(new frmMainForm(nv));
         }
     }
 }

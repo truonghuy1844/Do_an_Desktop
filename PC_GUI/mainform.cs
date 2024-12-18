@@ -21,7 +21,6 @@ namespace PC_GUI
         public frmMainForm(DTONV nhanVien)
         {
             InitializeComponent();
-            pnMenuDoc.Size = pnMenuDoc.MinimumSize;
             nv_DN = nhanVien;
         }
 
@@ -69,24 +68,7 @@ namespace PC_GUI
 
         #endregion
 
-        private Form formCon;
-        private void moFormCon(Form tenFormCon)
-        {
-            if (formCon != null)
-            {
-                formCon.Close();
-            }
-            formCon = tenFormCon;
-            tenFormCon.TopLevel = false;
-            tenFormCon.ControlBox = false;
-            tenFormCon.Dock = DockStyle.Fill;
-            pnThan.Dock = DockStyle.Fill;
-            tenFormCon.FormBorderStyle = FormBorderStyle.None;
-            pnThan.Controls.Add(tenFormCon);
-            pnThan.Tag = tenFormCon;
-            tenFormCon.BringToFront();
-            tenFormCon.Show();
-        }
+        
 
         #region xử lý ẩn hiện menu
         private void iconMenu_Click(object sender, EventArgs e)
@@ -117,62 +99,34 @@ namespace PC_GUI
         // Báo giá
         private void btnFormBG_Click(object sender, EventArgs e)
         {
+            panel1.Controls.Clear();
             DTONV nvien = new DTONV();
             nvien.MaNV = "NV020";
             UI_View_BaoGia ui_BG = new UI_View_BaoGia(nvien);
-            moFormCon(ui_BG);
+            panel1.Controls.Add(ui_BG);
+            panel1.Dock = DockStyle.Fill;
 
         }
 
         #region Nguồn lực
 
-        private void btnFKho_Click(object sender, EventArgs e)
-        {
-            moFormCon(new QLKho());
-        }
+        
 
-        private void btnFNhanVien_Click(object sender, EventArgs e)
-        {
-            moFormCon(new QLNV());
-        }
+        
         #endregion
 
         #region Yêu cầu mua hàng
-        private void btnFDieuChinhYCM_Click(object sender, EventArgs e)
-        {
-            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nv);
-            moFormCon(ui);
-        }
-
-        private void btnFDuyetYCM_Click(object sender, EventArgs e)
-        {
-
-            UI_YeuCauMH _YeuCauMH = new UI_YeuCauMH(nv);
-            moFormCon(_YeuCauMH);
-        }
 
         #endregion
 
-        // Sản phẩm
-        private void btnSanPham_Click(object sender, EventArgs e)
-        {
-            UI_ThemSP uI_ThemSP = new UI_ThemSP(nv);
-            moFormCon(uI_ThemSP);
-        }
 
-
-
-
-
-
-        #endregion
 
         private void btnFPhanCong_Click(object sender, EventArgs e)
         {
-            panel1.Controls.Clear();
-            UI_View_BaoGia ui_BG = new UI_View_BaoGia(nv_DN);
-            panel1.Controls.Add(ui_BG);
-            panel1.Dock = DockStyle.Fill;
+            //panel1.Controls.Clear();
+            ////UI_View_BaoGia ui_BG = new UI_View_BaoGia(nv_DN);
+            //panel1.Controls.Add(ui_BG);
+            //panel1.Dock = DockStyle.Fill;
 
         }
 
@@ -180,14 +134,6 @@ namespace PC_GUI
         {
             panel1.Controls.Clear();
             UI_ThemSP ui = new UI_ThemSP(nv_DN);
-            panel1.Controls.Add(ui);
-            panel1.Dock = DockStyle.Fill;
-        }
-
-        private void btnFDuyetYCM_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            UI_YeuCauMH ui = new UI_YeuCauMH(nv_DN);
             panel1.Controls.Add(ui);
             panel1.Dock = DockStyle.Fill;
         }
@@ -216,6 +162,12 @@ namespace PC_GUI
             panel1.Dock = DockStyle.Fill;
         }
 
-        
+        private void btnFDuyetYCM_Click_1(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            UI_YeuCauMH ui = new UI_YeuCauMH(nv_DN);
+            panel1.Controls.Add(ui);
+            panel1.Dock = DockStyle.Fill;
+        }
     }
 }

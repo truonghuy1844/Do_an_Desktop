@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainForm));
-            this.pnTop = new System.Windows.Forms.Panel();
-            this.iconMenu = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnMenuDoc = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.ptLogo = new System.Windows.Forms.PictureBox();
             this.pnButton = new System.Windows.Forms.FlowLayoutPanel();
             this.pnContainerNCC = new System.Windows.Forms.Panel();
@@ -62,9 +59,6 @@
             this.btnFNhanVien = new System.Windows.Forms.Button();
             this.btnFormNguonLuc = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pnTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconMenu)).BeginInit();
             this.pnMenuDoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptLogo)).BeginInit();
             this.pnButton.SuspendLayout();
@@ -79,56 +73,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnTop
-            // 
-            this.pnTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(237)))), ((int)(((byte)(239)))));
-            this.pnTop.Controls.Add(this.iconMenu);
-            this.pnTop.Controls.Add(this.panel1);
-            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(0, 0);
-            this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1207, 50);
-            this.pnTop.TabIndex = 0;
-            // 
-            // iconMenu
-            // 
-            this.iconMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(237)))), ((int)(((byte)(239)))));
-            this.iconMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.iconMenu.Image = ((System.Drawing.Image)(resources.GetObject("iconMenu.Image")));
-            this.iconMenu.Location = new System.Drawing.Point(6, 0);
-            this.iconMenu.Name = "iconMenu";
-            this.iconMenu.Size = new System.Drawing.Size(40, 50);
-            this.iconMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconMenu.TabIndex = 0;
-            this.iconMenu.TabStop = false;
-            this.iconMenu.Click += new System.EventHandler(this.iconMenu_Click);
-            // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 50);
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Location = new System.Drawing.Point(343, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1283, 625);
+            this.panel1.Size = new System.Drawing.Size(1000, 789);
             this.panel1.TabIndex = 2;
             // 
             // pnMenuDoc
             // 
             this.pnMenuDoc.AutoScroll = true;
             this.pnMenuDoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
-            this.pnMenuDoc.Controls.Add(this.panel2);
             this.pnMenuDoc.Controls.Add(this.ptLogo);
             this.pnMenuDoc.Controls.Add(this.pnButton);
-            this.pnMenuDoc.Location = new System.Drawing.Point(0, 48);
+            this.pnMenuDoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnMenuDoc.Location = new System.Drawing.Point(0, 0);
             this.pnMenuDoc.MaximumSize = new System.Drawing.Size(337, 1024);
             this.pnMenuDoc.Name = "pnMenuDoc";
-            this.pnMenuDoc.Size = new System.Drawing.Size(337, 1024);
+            this.pnMenuDoc.Size = new System.Drawing.Size(337, 789);
             this.pnMenuDoc.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(392, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(815, 593);
-            this.panel2.TabIndex = 2;
             // 
             // ptLogo
             // 
@@ -312,7 +276,7 @@
             this.btnFDuyetYCM.Text = "Duyệt YC";
             this.btnFDuyetYCM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDuyetYCM.UseVisualStyleBackColor = false;
-            this.btnFDuyetYCM.Click += new System.EventHandler(this.btnFDuyetYCM_Click);
+            this.btnFDuyetYCM.Click += new System.EventHandler(this.btnFDuyetYCM_Click_1);
             // 
             // btnFormYeuCauMua
             // 
@@ -484,7 +448,7 @@
             this.pnNguonLuc.MaximumSize = new System.Drawing.Size(316, 222);
             this.pnNguonLuc.MinimumSize = new System.Drawing.Size(316, 72);
             this.pnNguonLuc.Name = "pnNguonLuc";
-            this.pnNguonLuc.Size = new System.Drawing.Size(474, 364);
+            this.pnNguonLuc.Size = new System.Drawing.Size(316, 72);
             this.pnNguonLuc.TabIndex = 7;
             // 
             // pictureBox3
@@ -582,7 +546,7 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::PC_GUI.Properties.Resources.icons8_move_up_50;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(4, 1112);
+            this.btnLogOut.Location = new System.Drawing.Point(4, 561);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(316, 75);
@@ -593,28 +557,17 @@
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(513, 75);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1620, 1461);
-            this.panel1.TabIndex = 2;
-            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(2133, 1527);
+            this.ClientSize = new System.Drawing.Size(1342, 789);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnMenuDoc);
-            this.Controls.Add(this.pnThan);
-            this.Controls.Add(this.pnTop);
             this.Name = "frmMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";
-            this.pnTop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconMenu)).EndInit();
             this.pnMenuDoc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptLogo)).EndInit();
             this.pnButton.ResumeLayout(false);
@@ -632,11 +585,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnTop;
         private System.Windows.Forms.Panel pnMenuDoc;
         private System.Windows.Forms.PictureBox ptLogo;
-        private System.Windows.Forms.PictureBox iconMenu;
         private System.Windows.Forms.Button btnFormHoaDon;
         private System.Windows.Forms.Button btnFormNguonLuc;
         private System.Windows.Forms.Button btnFormDonHang;

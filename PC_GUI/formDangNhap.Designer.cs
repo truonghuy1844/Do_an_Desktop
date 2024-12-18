@@ -35,11 +35,11 @@
             this.lbtenDangNhap = new System.Windows.Forms.Label();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.pnDangNhap = new System.Windows.Forms.Panel();
+            this.chcbHienMatKhau = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.chcbHienMatKhau = new System.Windows.Forms.CheckBox();
             this.pnDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,6 +83,7 @@
             // btnDangNhap
             // 
             this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(112)))), ((int)(((byte)(210)))));
+            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangNhap.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.Color.White;
             this.btnDangNhap.Location = new System.Drawing.Point(93, 367);
@@ -109,6 +110,18 @@
             this.pnDangNhap.Name = "pnDangNhap";
             this.pnDangNhap.Size = new System.Drawing.Size(368, 440);
             this.pnDangNhap.TabIndex = 0;
+            // 
+            // chcbHienMatKhau
+            // 
+            this.chcbHienMatKhau.AutoSize = true;
+            this.chcbHienMatKhau.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chcbHienMatKhau.Location = new System.Drawing.Point(42, 309);
+            this.chcbHienMatKhau.Name = "chcbHienMatKhau";
+            this.chcbHienMatKhau.Size = new System.Drawing.Size(148, 22);
+            this.chcbHienMatKhau.TabIndex = 2;
+            this.chcbHienMatKhau.Text = "Hiển thị mật khẩu";
+            this.chcbHienMatKhau.UseVisualStyleBackColor = true;
+            this.chcbHienMatKhau.CheckedChanged += new System.EventHandler(this.chcbHienMatKhau_CheckedChanged);
             // 
             // pictureBox2
             // 
@@ -149,18 +162,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            // 
-            // chcbHienMatKhau
-            // 
-            this.chcbHienMatKhau.AutoSize = true;
-            this.chcbHienMatKhau.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chcbHienMatKhau.Location = new System.Drawing.Point(42, 309);
-            this.chcbHienMatKhau.Name = "chcbHienMatKhau";
-            this.chcbHienMatKhau.Size = new System.Drawing.Size(148, 22);
-            this.chcbHienMatKhau.TabIndex = 2;
-            this.chcbHienMatKhau.Text = "Hiển thị mật khẩu";
-            this.chcbHienMatKhau.UseVisualStyleBackColor = true;
-            this.chcbHienMatKhau.CheckedChanged += new System.EventHandler(this.chcbHienMatKhau_CheckedChanged);
             // 
             // frmdangNhap
             // 
