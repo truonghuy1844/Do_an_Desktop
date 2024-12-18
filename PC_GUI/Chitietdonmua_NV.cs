@@ -266,17 +266,17 @@ namespace PC_GUI
 
         private void btnDanhgiasp_Click(object sender, EventArgs e)
         {
-            if (dataGridViewChitiet.SelectedRows.Count > 0)
-            {
-                string madm = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
-                string masp = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
-                Danhgiadonhang_NV danhgia1 = new Danhgiadonhang_NV(madm, masp);
-                danhgia1.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Hãy chọn 1 sản phẩm để đánh giá");
-            }
+            //if (dataGridViewChitiet.SelectedRows.Count > 0)
+            //{
+            //    string madm = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
+            //    string masp = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
+            //    Danhgiadonhang_NV danhgia1 = new Danhgiadonhang_NV(madm, masp);
+            //    danhgia1.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Hãy chọn 1 sản phẩm để đánh giá");
+            //}
         }
 
         private void txtTim_TextChanged(object sender, EventArgs e)
