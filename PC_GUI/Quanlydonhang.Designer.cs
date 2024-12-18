@@ -232,7 +232,7 @@
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(372, 400);
+            this.txtTimKiem.Location = new System.Drawing.Point(352, 413);
             this.txtTimKiem.Margin = new System.Windows.Forms.Padding(6);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(446, 31);
@@ -241,10 +241,10 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(914, 342);
+            this.btnXoa.Location = new System.Drawing.Point(693, 346);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(6);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(232, 44);
+            this.btnXoa.Size = new System.Drawing.Size(192, 42);
             this.btnXoa.TabIndex = 34;
             this.btnXoa.Text = "Xóa đơn hàng";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -252,10 +252,10 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(590, 342);
+            this.btnCapNhat.Location = new System.Drawing.Point(449, 346);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(6);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(232, 44);
+            this.btnCapNhat.Size = new System.Drawing.Size(232, 42);
             this.btnCapNhat.TabIndex = 33;
             this.btnCapNhat.Text = "Cập nhật thông tin";
             this.btnCapNhat.UseVisualStyleBackColor = true;
@@ -295,10 +295,10 @@
             // 
             // btnTao
             // 
-            this.btnTao.Location = new System.Drawing.Point(268, 342);
+            this.btnTao.Location = new System.Drawing.Point(212, 346);
             this.btnTao.Margin = new System.Windows.Forms.Padding(6);
             this.btnTao.Name = "btnTao";
-            this.btnTao.Size = new System.Drawing.Size(232, 44);
+            this.btnTao.Size = new System.Drawing.Size(225, 40);
             this.btnTao.TabIndex = 29;
             this.btnTao.Text = "Tạo đơn hàng ";
             this.btnTao.UseVisualStyleBackColor = true;
@@ -320,7 +320,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(860, 406);
+            this.label11.Location = new System.Drawing.Point(819, 418);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(360, 26);
@@ -349,10 +349,10 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(188, 344);
+            this.btnLuu.Location = new System.Drawing.Point(897, 348);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(6);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(68, 42);
+            this.btnLuu.Size = new System.Drawing.Size(165, 40);
             this.btnLuu.TabIndex = 63;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;

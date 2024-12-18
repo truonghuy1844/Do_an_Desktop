@@ -565,5 +565,9 @@ namespace PC_GUI
             toolTip3.Hide(txtChietkhau);
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

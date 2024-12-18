@@ -34,10 +34,7 @@ namespace PC_GUI
             
         }
         //Điều chỉnh theo đăng nhập
-        public void CheDoDung()
-        {
-            
-        }
+       
 
         //Load FORM
         private void UI_YeuCauMH_Load(object sender, EventArgs e)

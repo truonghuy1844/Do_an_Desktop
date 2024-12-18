@@ -13,20 +13,22 @@ using PC_GUI.DAL;
 
 namespace PC_GUI
 {
-    public partial class Danhgiadonhang_NV : Form
+    public partial class Danhgiadonhang_NV : UserControl
     {
-        private string madm;
-        private string masp;
-        public Danhgiadonhang_NV(string madm, string masp)
+        
+        public Danhgiadonhang_NV()
         {
             InitializeComponent();
-            this.madm = madm;
-            this.masp = masp;
+           
+            
         }
-        BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
+        public BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
         //Load combobox tên sản phẩm 
 
         //Load đánh giá theo chi tiết đơn mua 
+        public string madm, masp;
+        public bool trangThai = false;
+
         void loaddgtheodonmua()
         {
             QLMHEntities3 db = new QLMHEntities3();
@@ -79,6 +81,12 @@ namespace PC_GUI
                               };
             dataGridViewChitiet.DataSource = listchitiet.ToList();
         }
+        //Load datagridview danh sách đơn mua hàng
+        private void loadDS_DMH()
+        {
+            dataGridViewChitiet.DataSource = bllDonmua.loaddmh();
+        }
+        
         //loaddiemdanhgia
         void loaddiemdg()
         {

@@ -179,13 +179,13 @@
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
     <Compile Include="Danhgiadonhang.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Danhgiadonhang.Designer.cs">
       <DependentUpon>Danhgiadonhang.cs</DependentUpon>
     </Compile>
     <Compile Include="Danhgiadonhang_NV.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Danhgiadonhang_NV.Designer.cs">
       <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
