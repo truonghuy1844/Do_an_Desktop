@@ -13,20 +13,24 @@ using System.Windows.Forms;
 namespace PC_GUI
 {
     public partial class Thanhtoan : Form
-    {BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
-        public DTOThanhtoan dto = new DTOThanhtoan();
+    {
+        BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
+        public DTOHoadon dto = new DTOHoadon();
+        public decimal tien;
         
-        public Thanhtoan(DTOThanhtoan thanhToan)
+        public Thanhtoan(string maHD, string thanhTien)
         {
             InitializeComponent();
 
+            txtMaHD.Text = maHD;
+            txtSotien.Text = thanhTien;
 
-            dto = thanhToan;
-        
-    }
+
+        }
         private void Thanhtoan_Load(object sender, EventArgs e)
         {
-            dataGridViewTT.DataSource = bllThanhtoan.LoadData();
+           ///// Truy vấn hóa đơn có mã hóa đơn là mahd => Gán DTOThanhToan
+           ///Từ DTO gán Gán text box
 
             txtSotien.Enabled = false;
             txtTrangthai.Enabled = false;
@@ -36,8 +40,8 @@ namespace PC_GUI
             txtMaHD.Enabled = false;
             btnLuu.Enabled = false;
             dataGridViewTT.ReadOnly = true;
-            txtSotien.Text = dto.Tongtien.ToString();
-            txtMaHD.Text=dto.MaHD.ToString();
+            dataGridViewTT.DataSource = bllThanhtoan.LoadData();
+            
 
 
 
@@ -159,15 +163,14 @@ namespace PC_GUI
             }
         private void dataGridViewTT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewTT.SelectedRows != null)
-            {
+            
                 txtMaHD.Text = dataGridViewTT.CurrentRow.Cells["MaHD"].Value.ToString();
                 txtMaTT.Text = dataGridViewTT.CurrentRow.Cells["MaTT"].Value.ToString();
                 txtTrangthai.Text = dataGridViewTT.CurrentRow.Cells["TrangThai"].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridViewTT.CurrentRow.Cells["NgayTT"].Value);
 
 
-            }
+            
         }
 
         private void btnThuchien_Click(object sender, EventArgs e)

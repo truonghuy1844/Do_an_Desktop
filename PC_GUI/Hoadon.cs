@@ -24,11 +24,11 @@ namespace PC_GUI
         private void Hoadon_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = bllHoadon.LoadData();
-            dataGridView1.Columns["MaSP"].Visible = false;
+            
 
-            txtSoluong.Enabled = false;
-            txtDongia.Enabled = false;
-            txtMaHD.Enabled = false;
+            txtSoluong.ReadOnly = true;
+            txtDongia.ReadOnly = true;
+            txtMaHD.ReadOnly = true;
             dataGridView1.ReadOnly = true;
 
             txtThanhtien.Enabled = false;
@@ -152,25 +152,13 @@ namespace PC_GUI
 
         private void btnThanhtoan_Click_1(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (txtMaHD.Text != "" || txtMaHD != null)
             {
-                
-                string maHD = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
-                decimal  tongTien = Convert.ToDecimal( dataGridView1.CurrentRow.Cells["Tonghoadon"].Value.ToString());
 
+                Thanhtoan tt = new Thanhtoan(txtMaHD.Text, txtThanhtien.Text);
                 
-                DTOThanhtoan dto = new DTOThanhtoan
-                {
-                    MaHD = maHD,
-                   
-                    Tongtien = tongTien
-                };
-
-                
-                Thanhtoan tt = new Thanhtoan(dto);
                 tt.ShowDialog();
 
-                
                 dataGridView1.DataSource = bllHoadon.LoadData();
                 dataGridView1.Columns["MaSP"].Visible = false;
             }
@@ -183,21 +171,26 @@ namespace PC_GUI
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.SelectedRows != null)
-            {
-                txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
-                cbMaDH.SelectedValue = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
-                txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
-                cbSP.SelectedValue = dataGridView1.CurrentRow.Cells["MaSP"].Value.ToString();
-                txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
-                txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
-                txtThanhtien.Text = dataGridView1.CurrentRow.Cells["Tonghoadon"].Value.ToString();
 
-                txtMaHD.Enabled = false;
-                cbMaDH.Enabled = false;
-                cbSP.Enabled = false;
+            txtMaHD.Enabled = false;
+            cbMaDH.Enabled = false;
+            cbSP.Enabled = false;
+                        
+
+            try
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                cbSP.SelectedValue = row.Cells["MaSP"].Value.ToString();
+                txtGhichu.Text = row.Cells["GhiChu"].Value.ToString();
+                cbMaDH.SelectedValue = row.Cells["MaDMH"].Value.ToString();
+                dateTimePicker1.Value = Convert.ToDateTime(row.Cells["NgayLap"].Value);
+                txtSoluong.Text = row.Cells["SoLuong"].Value.ToString();
+                txtMaHD.Text = row.Cells["MaHD"].Value.ToString();
+                txtDongia.Text = row.Cells["DonGia"].Value.ToString();
+                txtThanhtien.Text = row.Cells["Tonghoadon"].Value.ToString();
             }
+            catch { return; }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -289,6 +282,11 @@ namespace PC_GUI
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                //Xóa thanh toán trước mới xóa được hóa đơn
+                ////
+                ///
+                BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
+
                 DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa đơn hàng này?", "Cảnh báo", MessageBoxButtons.YesNo);
                 if (rs == DialogResult.Yes)
                 {

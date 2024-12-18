@@ -11,7 +11,7 @@ namespace PC_BLL
 {
     public class BLLThanhtoan
     {
-        DALThanhtoan dalThanhtoan = new DALThanhtoan();
+        public DALThanhtoan dalThanhtoan = new DALThanhtoan();
         public DataTable LoadData()
         {
             return dalThanhtoan.LoadData();

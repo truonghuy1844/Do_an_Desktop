@@ -13,16 +13,24 @@ namespace PC_DAL
     {
         public DataTable LoadData()
         {
+            
             try
             {
                 conn.Open();
-                string query = "SELECT    THANHTOAN.MaTT ,HOADON.MaHD,    THANHTOAN.NgayTT , THANHTOAN.TrangThai       FROM HOADON JOIN THANHTOAN  ON HOADON.MaHD =  THANHTOAN.MaHD";
-                using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                string query = "SELECT *  FROM  THANHTOAN";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                var rowsToUpdate = dt.AsEnumerable()
+                 .Where(r => r.IsNull("NgayThan"));
+
+                foreach (var row in rowsToUpdate)
                 {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    return dt;
+                    row["NgayTT"] = DateTime.MinValue;
                 }
+                return dt;
+                
             }
             catch (Exception) { return null; }
             finally { conn.Close(); }
