@@ -219,23 +219,6 @@ namespace PC_GUI
                 panel1.Dock = DockStyle.Fill;
             }
         }
-
-        private void btnFThongTinNCC_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            QLNCC ui = new QLNCC();
-            panel1.Controls.Add(ui);
-            panel1.Dock = DockStyle.Fill;
-        }
-
-        private void btnFDanhGiaNCC_Click(object sender, EventArgs e)
-        {
-            panel1.Controls.Clear();
-            QLDGNCC ui = new QLDGNCC();
-            panel1.Controls.Add(ui);
-            panel1.Dock = DockStyle.Fill;
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
