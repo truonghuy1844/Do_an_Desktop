@@ -9,51 +9,27 @@ using PC_DTO;
 
 namespace PC_DAL
 {
-    public class DALThanhtoan: DBConnect 
+    public class DALThanhtoan : DBConnect
     {
-        public DataTable LoadData()
+        
+        public DataTable LoadThanhtoan(string mahd)
         {
-            
             try
             {
+
                 conn.Open();
-                string query = "SELECT *  FROM  THANHTOAN";
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                
+                string myQuery = "Select * from THANHTOAN where MaHD=@mahd";
+                SqlDataAdapter adapter = new SqlDataAdapter(myQuery, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                var rowsToUpdate = dt.AsEnumerable()
-                 .Where(r => r.IsNull("NgayThan"));
-
-                foreach (var row in rowsToUpdate)
-                {
-                    row["NgayTT"] = DateTime.MinValue;
-                }
                 return dt;
-                
             }
-            catch (Exception) { return null; }
+            catch (Exception ex) { return null; }
             finally { conn.Close(); }
 
-        }
-        public bool Taothanhtoan(DTOThanhtoan tt)
-        {
-            try
-            {
-                conn.Open();
-                string myQuery = "Insert into THANHTOAN (MaTT, MaHD, NgayTT,TrangThai) values (@matt, @mahd,@ngaytt,@trangthai)";
-                SqlCommand cmd = new SqlCommand(myQuery, conn);
-                cmd.Parameters.AddWithValue("@matt", tt.MaTT);
-                cmd.Parameters.AddWithValue("@ngaytt", tt .NgayTT.Date);
-                cmd.Parameters.AddWithValue("@madmh", tt.MaHD);
-                cmd.Parameters.AddWithValue("@trangthai", tt.TrangThai);
 
-
-                return cmd.ExecuteNonQuery() > 0 ? true : false;
             }
-            catch (SqlException) { return false; }
-            finally { conn.Close(); }
-        }
+        
         public bool Kiemtramatt(string matt)
         {
             try
@@ -86,45 +62,8 @@ namespace PC_DAL
             catch (SqlException) { return false; }
             finally { conn.Close(); }
         }
-        public bool Xoathanhtoan(DTOThanhtoan tt)
-        {
-            try
-            {
-                conn.Open();
-                string myQuery = "Delete from THANHTOAN where MaTT = @matt";
-                SqlCommand cmd = new SqlCommand(myQuery, conn);
-                cmd.Parameters.AddWithValue("@matt", tt.MaTT);
-
-                return cmd.ExecuteNonQuery() > 0 ? true : false;
-            }
-            catch (SqlException) { return false; }
-            finally { conn.Close(); }
-        }
-        public DataTable Timthanhtoan(string tukhoa)
-        {
-            try
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                if (string.IsNullOrWhiteSpace(tukhoa))
-                {
-                    cmd = new SqlCommand("Select * from THANHTOAN", conn);
-                }
-                else
-                {
-                    cmd = new SqlCommand("Select * from THANHTOAN where MaHD LIKE @mahd", conn);
-                    cmd.Parameters.AddWithValue("@mahd", "%" + tukhoa + "%");
-                }
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
-            }
-            catch (SqlException)
-            { return null; }
-            finally { conn.Close(); }
-        }
+       
+       
         public DataTable Thuchien(string mahd)
         {
             try

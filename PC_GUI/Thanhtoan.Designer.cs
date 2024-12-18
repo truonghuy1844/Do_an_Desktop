@@ -28,14 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnTim = new System.Windows.Forms.Button();
-            this.btnCapnhat = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewTT = new System.Windows.Forms.DataGridView();
             this.txtMaTT = new System.Windows.Forms.TextBox();
             this.txtMaHD = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,46 +39,13 @@
             this.txtSotien = new System.Windows.Forms.TextBox();
             this.txtTrangthai = new System.Windows.Forms.TextBox();
             this.btnThuchien = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTT)).BeginInit();
+            this.btnCapnhat = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Location = new System.Drawing.Point(688, 740);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(150, 44);
-            this.btnLuu.TabIndex = 65;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // btnTim
-            // 
-            this.btnTim.Location = new System.Drawing.Point(688, 250);
-            this.btnTim.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(150, 44);
-            this.btnTim.TabIndex = 63;
-            this.btnTim.Text = "Tìm hoá đơn";
-            this.btnTim.UseVisualStyleBackColor = true;
-            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
-            // 
-            // btnCapnhat
-            // 
-            this.btnCapnhat.Location = new System.Drawing.Point(446, 740);
-            this.btnCapnhat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.btnCapnhat.Name = "btnCapnhat";
-            this.btnCapnhat.Size = new System.Drawing.Size(150, 44);
-            this.btnCapnhat.TabIndex = 61;
-            this.btnCapnhat.Text = "Cập nhật ";
-            this.btnCapnhat.UseVisualStyleBackColor = true;
-            this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(212, 237);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(396, 31);
             this.dateTimePicker1.TabIndex = 49;
@@ -119,21 +82,10 @@
             this.label1.TabIndex = 44;
             this.label1.Text = "Mã thanh toán ";
             // 
-            // dataGridViewTT
-            // 
-            this.dataGridViewTT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTT.Location = new System.Drawing.Point(23, 328);
-            this.dataGridViewTT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridViewTT.Name = "dataGridViewTT";
-            this.dataGridViewTT.RowHeadersWidth = 82;
-            this.dataGridViewTT.RowTemplate.Height = 33;
-            this.dataGridViewTT.Size = new System.Drawing.Size(1332, 352);
-            this.dataGridViewTT.TabIndex = 66;
-            // 
             // txtMaTT
             // 
             this.txtMaTT.Location = new System.Drawing.Point(212, 58);
-            this.txtMaTT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaTT.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaTT.Name = "txtMaTT";
             this.txtMaTT.Size = new System.Drawing.Size(274, 31);
             this.txtMaTT.TabIndex = 67;
@@ -142,7 +94,7 @@
             // txtMaHD
             // 
             this.txtMaHD.Location = new System.Drawing.Point(212, 154);
-            this.txtMaHD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaHD.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.Size = new System.Drawing.Size(274, 31);
             this.txtMaHD.TabIndex = 68;
@@ -171,7 +123,7 @@
             // txtSotien
             // 
             this.txtSotien.Location = new System.Drawing.Point(868, 60);
-            this.txtSotien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSotien.Margin = new System.Windows.Forms.Padding(4);
             this.txtSotien.Name = "txtSotien";
             this.txtSotien.Size = new System.Drawing.Size(274, 31);
             this.txtSotien.TabIndex = 71;
@@ -179,7 +131,7 @@
             // txtTrangthai
             // 
             this.txtTrangthai.Location = new System.Drawing.Point(868, 146);
-            this.txtTrangthai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTrangthai.Margin = new System.Windows.Forms.Padding(4);
             this.txtTrangthai.Name = "txtTrangthai";
             this.txtTrangthai.Size = new System.Drawing.Size(274, 31);
             this.txtTrangthai.TabIndex = 72;
@@ -187,13 +139,24 @@
             // btnThuchien
             // 
             this.btnThuchien.Location = new System.Drawing.Point(868, 252);
-            this.btnThuchien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThuchien.Margin = new System.Windows.Forms.Padding(4);
             this.btnThuchien.Name = "btnThuchien";
             this.btnThuchien.Size = new System.Drawing.Size(256, 40);
             this.btnThuchien.TabIndex = 74;
             this.btnThuchien.Text = "Thực hiện thanh toán";
             this.btnThuchien.UseVisualStyleBackColor = true;
             this.btnThuchien.Click += new System.EventHandler(this.btnThuchien_Click);
+            // 
+            // btnCapnhat
+            // 
+            this.btnCapnhat.Location = new System.Drawing.Point(676, 252);
+            this.btnCapnhat.Margin = new System.Windows.Forms.Padding(6);
+            this.btnCapnhat.Name = "btnCapnhat";
+            this.btnCapnhat.Size = new System.Drawing.Size(150, 44);
+            this.btnCapnhat.TabIndex = 61;
+            this.btnCapnhat.Text = "Cập nhật ";
+            this.btnCapnhat.UseVisualStyleBackColor = true;
+            this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
             // 
             // Thanhtoan
             // 
@@ -207,34 +170,25 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.txtMaTT);
-            this.Controls.Add(this.dataGridViewTT);
-            this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.btnTim);
             this.Controls.Add(this.btnCapnhat);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Thanhtoan";
             this.Text = "Thanhtoan";
             this.Load += new System.EventHandler(this.Thanhtoan_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.Button btnCapnhat;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridViewTT;
         private System.Windows.Forms.TextBox txtMaTT;
         private System.Windows.Forms.TextBox txtMaHD;
         private System.Windows.Forms.Label label4;
@@ -242,5 +196,6 @@
         private System.Windows.Forms.TextBox txtSotien;
         private System.Windows.Forms.TextBox txtTrangthai;
         private System.Windows.Forms.Button btnThuchien;
+        private System.Windows.Forms.Button btnCapnhat;
     }
 }

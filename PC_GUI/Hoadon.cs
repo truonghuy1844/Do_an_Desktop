@@ -282,9 +282,7 @@ namespace PC_GUI
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                //Xóa thanh toán trước mới xóa được hóa đơn
-                ////
-                ///
+                
                 BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
 
                 DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa đơn hàng này?", "Cảnh báo", MessageBoxButtons.YesNo);

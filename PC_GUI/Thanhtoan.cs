@@ -38,10 +38,16 @@ namespace PC_GUI
             dateTimePicker1.Enabled = false;
             txtMaTT.Enabled = false;
             txtMaHD.Enabled = false;
-            btnLuu.Enabled = false;
-            dataGridViewTT.ReadOnly = true;
-            dataGridViewTT.DataSource = bllThanhtoan.LoadData();
-            
+
+            string mahd = txtMaHD.Text;
+            DataTable dt = bllThanhtoan.LoadThanhtoan(mahd);
+
+            {
+                txtMaTT.Text= dt.Rows[0]["MaTT"].ToString();
+                txtTrangthai.Text= dt.Rows[0]["TrangThai"].ToString();
+                
+
+            }
 
 
 
@@ -63,39 +69,11 @@ namespace PC_GUI
 
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewTT.SelectedRows.Count > 0)
-            {
-                DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa thanh toán này?", "Cảnh báo", MessageBoxButtons.YesNo);
-                if (rs == DialogResult.Yes)
-                {
-                    DTOThanhtoan ttxoa = new DTOThanhtoan();
-                    ttxoa.MaTT = dataGridViewTT.CurrentRow.Cells["MaDMH"].Value.ToString();
-                    if (bllThanhtoan.Xoathanhtoan(ttxoa))
-                    {
-                        MessageBox.Show("Xóa thanh toán thành công", "Thông báo", MessageBoxButtons.OK);
-                        dataGridViewTT.DataSource = bllThanhtoan.LoadData();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa thanh toán thất bại, kiểm tra dữ liệu", "Thông báo", MessageBoxButtons.OK);
-                    }
-                    txtMaHD.Clear();
-                    txtMaTT.Clear();
-                    txtSotien.Clear();
-                    txtTrangthai.Clear();
-
-                }
-            }
-            else
-            { MessageBox.Show("Hãy chọn 1 hàng để thực hiện"); }
-        }
 
 
         private void btnCapnhat_Click(object sender, EventArgs e)
         {
-            if (dataGridViewTT.SelectedRows.Count > 0)
+
             {
                 bool okTao = true;
 
@@ -137,10 +115,8 @@ namespace PC_GUI
                     }
 
                 }
-                dataGridViewTT.DataSource = bllThanhtoan.LoadData();
+
             }
-            else
-            { MessageBox.Show("Hãy chọn 1 hàng để thực hiện"); }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -148,30 +124,8 @@ namespace PC_GUI
 
         }
 
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-            txtMaHD.Enabled = true;
-            string tukhoa = txtMaHD.Text;
-                DataTable dt = bllThanhtoan.Timthanhtoan(tukhoa);
-                if (dt == null || dt.Rows.Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy kết quả, hãy thử lại!", "Thông báo", MessageBoxButtons.OK);
-                    dataGridViewTT.DataSource = null;
-                }
-               
-
-            }
-        private void dataGridViewTT_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-                txtMaHD.Text = dataGridViewTT.CurrentRow.Cells["MaHD"].Value.ToString();
-                txtMaTT.Text = dataGridViewTT.CurrentRow.Cells["MaTT"].Value.ToString();
-                txtTrangthai.Text = dataGridViewTT.CurrentRow.Cells["TrangThai"].Value.ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(dataGridViewTT.CurrentRow.Cells["NgayTT"].Value);
-
-
-            
-        }
+        
+       
 
         private void btnThuchien_Click(object sender, EventArgs e)
         {
