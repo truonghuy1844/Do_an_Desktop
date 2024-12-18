@@ -178,6 +178,11 @@ namespace PC_GUI
                         }
                         dataGridViewDSDMH.Enabled = false;
                     }
+                    else if (selectedTieuChi == "Theo đánh giá đơn hàng tùy chọn")
+                    {
+                        dataGridViewDSDMH.Enabled = true;
+                        dataGridViewDSDMH.ClearSelection();
+                    }
                 }
                 else if (selectedTieuChi == "Theo ngày tùy chọn")
                 {
