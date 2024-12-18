@@ -48,31 +48,9 @@ namespace PC_GUI
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
-            // 
-            this.btnHuy.BackColor = System.Drawing.Color.Tomato;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(442, 326);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(132, 48);
-            this.btnHuy.TabIndex = 53;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = false;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(261, 326);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(132, 48);
-            this.btnLuu.TabIndex = 52;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // label1
             // 
@@ -302,11 +280,6 @@ namespace PC_GUI
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(548, 176);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(247, 22);
-            this.txtSDT.TabIndex = 67;
-            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // label8
             // 
