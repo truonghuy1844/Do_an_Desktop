@@ -270,46 +270,34 @@ namespace PC_GUI
             BLL_CT_BaoGia bll_CT = new BLL_CT_BaoGia();
             ct.MaBG = txtMaBG.Text.Trim();
             //Xóa tất cả chi tiết báo giá
-            if (bll_CT.Xoa_CT_BG(ct))
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa báo giá này", "Báo giá sẽ bị xóa vĩnh viễn", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                if (bLL_BaoGia.Xoa_BaoGia(baoGia))
+                if (bll_CT.Xoa_CT_BG(ct))
                 {
-                    btnThemBG.Enabled = true;
-                    btnSuaBG.Enabled = false;
-                    btnXoaBG.Enabled = false;
-                    btnThemSP.Enabled = false;
-                    btnSuaSP.Enabled = false;
-                    btnXoaSP.Enabled = false;
-                    cbNCC.SelectedValue = 0;
-                    cbSanPham.SelectedValue = 0;
-                    txtMota.Text = "";
-                    txtDonGia.Text = "";
-                    Load_BaoGia();
-                    dtgCT_BG.DataSource = null;
-                    return;
+                    if (bLL_BaoGia.Xoa_BaoGia(baoGia))
+                    {
+                        btnThemBG.Enabled = true;
+                        btnSuaBG.Enabled = false;
+                        btnXoaBG.Enabled = false;
+                        btnThemSP.Enabled = false;
+                        btnSuaSP.Enabled = false;
+                        btnXoaSP.Enabled = false;
+                        cbNCC.SelectedValue = 0;
+                        cbSanPham.SelectedValue = 0;
+                        txtMota.Text = "";
+                        txtDonGia.Text = "";
+                        Load_BaoGia();
+                        dtgCT_BG.DataSource = null;
+                        return;
+                    }
+                    else { MessageBox.Show("Xảy ra lỗi khi xóa báo giá", "Xóa báo giá không thành công"); }
+
                 }
-                else { MessageBox.Show("Xảy ra lỗi khi xóa báo giá", "Xóa báo giá không thành công"); }
-
+                MessageBox.Show("Lỗi khi xóa chi tiết báo giá", "Xóa báo giá không thành công");
             }
-            MessageBox.Show("Lỗi khi xóa chi tiết báo giá","Xóa báo giá không thành công");
+            
 
-            //Xóa báo giá
-            if (bLL_BaoGia.Xoa_BaoGia(baoGia))
-            {
-                btnThemBG.Enabled = true;
-                btnSuaBG.Enabled = false;
-                btnXoaBG.Enabled = false;
-                btnThemSP.Enabled = false;
-                btnSuaSP.Enabled = false;
-                btnXoaSP.Enabled = false;
-                cbNCC.SelectedValue = 0;
-                cbSanPham.SelectedValue = 0;
-                txtMota.Text = "";
-                txtDonGia.Text = "";
-                Load_BaoGia();
-                return;
-            }
-            else { MessageBox.Show("Xảy ra lỗi khi xóa báo giá", "Xóa báo giá không thành công"); }
         }
         //Thêm chi tiết báo giá
         private void btnThemSP_Click(object sender, EventArgs e)

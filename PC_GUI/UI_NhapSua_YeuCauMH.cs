@@ -385,29 +385,32 @@ namespace PC_GUI
             DTO_CT_YeuCauMH ct = new DTO_CT_YeuCauMH();
             ct.MaYC = txtMaYC.Text.Trim();
             BLL_CT_YCMH bll_ct = new BLL_CT_YCMH();
-            if (bll_ct.Xoa_ALL_CT_YCMH(ct))
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa yêu cầu mua hàng này", "Yêu cầu mua hàng sẽ bị xóa vĩnh viễn", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                if (bll.Xoa_YCMH(dto))
+                if (bll_ct.Xoa_ALL_CT_YCMH(ct))
                 {
-                    Load_YCMH();
-                    dgvCT_YC.DataSource = null;
-                    btnCapNhat.Enabled = false;
-                    btnYeuCauDuyet.Enabled = true;
-                    btnXoaSP.Enabled = false;
-                    btnThemSP.Enabled = false;
-                    btnSuaSP.Enabled = false;
-                    btnXoaYC.Enabled = false;
-                    return;
+                    if (bll.Xoa_YCMH(dto))
+                    {
+                        Load_YCMH();
+                        dgvCT_YC.DataSource = null;
+                        btnCapNhat.Enabled = false;
+                        btnYeuCauDuyet.Enabled = true;
+                        btnXoaSP.Enabled = false;
+                        btnThemSP.Enabled = false;
+                        btnSuaSP.Enabled = false;
+                        btnXoaYC.Enabled = false;
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xảy ra lỗi khi xóa yêu cầu duyệt", "Xóa yêu cầu chưa thành công");
+                        return;
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Xảy ra lỗi khi xóa yêu cầu duyệt", "Xóa yêu cầu chưa thành công");
-                    return;
-                }
-            }
-            MessageBox.Show("Lỗi khi xóa chi tiết báo giá");
-            
-            
+                MessageBox.Show("Lỗi khi xóa chi tiết báo giá");
+            }          
+                        
         }
 
         private void btnSPhamMoi_Click(object sender, EventArgs e)
