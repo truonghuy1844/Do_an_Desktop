@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
 using PC_DTO;
 using System;
 using System.Collections.Generic;
@@ -11,25 +11,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using PC_GUI.DAL;
 
 namespace PC_GUI
 {
     public partial class Danhgiadonhang : Form
     {
-        private string madm;
-        private string masp;
+        public string madm;
+        public string masp;
         public Danhgiadonhang(string madm, string masp)
         {
             InitializeComponent();
             this.madm = madm;
             this.masp = masp;
         }
-        BLLDonmuahang bllDonmmua = new BLLDonmuahang();
+        BLL_DonMuaHang bllDonmmua = new BLL_DonMuaHang();
 
         //Load đánh giá theo chi tiết đơn mua 
         void loaddgtheodonmua()
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
                        where ls.MaDMH == madm && ls.MaSP == masp
                        select new
@@ -48,7 +49,7 @@ namespace PC_GUI
         }
         void LoadChitietdon() // load danh sách đơn hàng vào datagridview 
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             var listchitiet = from dm in db.CT_DONMUAHANG
                               select new
                               {
@@ -63,7 +64,7 @@ namespace PC_GUI
 
         void loadlichsudg()
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             var lichsu = from ls in db.DANHGIASP_TRONGDON
                          orderby ls.NgayDG descending 
                          select new
@@ -204,7 +205,7 @@ namespace PC_GUI
             }
             if (kiemtra)
             {
-                DANHGIASP_TRONGDON_LQ dgsp = new DANHGIASP_TRONGDON_LQ();
+                DANHGIASP_TRONGDON dgsp = new DANHGIASP_TRONGDON();
                 dgsp.MaDGSP = txtMaDGSP.Text;
                 dgsp.NgayDG = datetimedanhgia.Value;
                 dgsp.MaSP = cbTensp.SelectedValue.ToString();
@@ -214,17 +215,17 @@ namespace PC_GUI
                 dgsp.DiemHieuQua = Convert.ToInt32(cBHieuqua.SelectedValue);
                 dgsp.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
                 dgsp.GhiChu = txtGhichu.Text;
-                QLMHDataContext da = new QLMHDataContext();
-                da.Connection.Open(); // mở 
+                QLMHEntities3 da = new QLMHEntities3();
+                
                 try
                 {
-                    da.DANHGIASP_TRONGDON_LQs.InsertOnSubmit(dgsp);
-                    da.SubmitChanges();
+                    da.DANHGIASP_TRONGDON.Add(dgsp);
+                    da.SaveChanges();
                     MessageBox.Show("Đánh giá thành công!");
                 }
                 catch (Exception ex)
                 { MessageBox.Show("Lỗi", ex.Message); }
-                da.Connection.Close(); // đóng 
+                
 
                 loadlichsudg();
                 btnLuu.Enabled = false;
@@ -254,7 +255,7 @@ namespace PC_GUI
             }
             if (okSua)
             {
-                QLMHEntities db = new QLMHEntities();
+                QLMHEntities3 db = new QLMHEntities3();
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
@@ -285,7 +286,7 @@ namespace PC_GUI
             DialogResult rs = MessageBox.Show("Bạn chắc chắn xóa đánh giá này không?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (rs == DialogResult.Yes)
             {
-                QLMHEntities db = new QLMHEntities();
+                QLMHEntities3 db = new QLMHEntities3();
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
@@ -331,7 +332,7 @@ namespace PC_GUI
         //Cbtensp tự động hiển thị theo cbMaDH 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             if (cbMaDH.SelectedIndex != -1)
             {
                 string madhchon = cbMaDH.SelectedValue.ToString();
@@ -417,7 +418,7 @@ namespace PC_GUI
         {
             if (string.IsNullOrEmpty(txtTim.Text))
             {
-                QLMHEntities db = new QLMHEntities();
+                QLMHEntities3 db = new QLMHEntities3();
                 var listtim = from dg in db.DANHGIASP_TRONGDON
                               where dg.NgayDG >= dateTimebatdau.Value && dg.NgayDG <= dateTimeketthuc.Value
                               select new
@@ -446,7 +447,7 @@ namespace PC_GUI
             }
             else
             {
-                QLMHEntities db = new QLMHEntities();
+                QLMHEntities3 db = new QLMHEntities3();
                 var listtimp = from dg in db.DANHGIASP_TRONGDON
                                where dg.SANPHAM.TenSP.Contains(txtTim.Text.Trim())
                                && dg.NgayDG >= dateTimebatdau.Value

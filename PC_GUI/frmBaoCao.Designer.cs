@@ -1,6 +1,6 @@
 ﻿namespace PC_GUI
 {
-    partial class Form1
+    partial class frmBaoCao
     {
         /// <summary>
         /// Required designer variable.

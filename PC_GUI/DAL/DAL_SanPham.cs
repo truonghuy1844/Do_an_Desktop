@@ -15,7 +15,7 @@ namespace PC_GUI.DAL
         public DataTable Load_SanPham()
         {
 
-            QLMHEntities2 cnn = new QLMHEntities2();
+            QLMHEntities3 cnn = new QLMHEntities3();
             try
             {
                 var list_SP = (from sp in cnn.SANPHAMs                               
@@ -62,7 +62,7 @@ namespace PC_GUI.DAL
         //Thêm sanr phaamr
         public bool Them_SP(DTO_SanPham sanPham)
         {
-            QLMHEntities2 conn = new QLMHEntities2();
+            QLMHEntities3 conn = new QLMHEntities3();
             try
             {
                 SANPHAM sp = new SANPHAM();
@@ -84,7 +84,7 @@ namespace PC_GUI.DAL
         //Xóa sản phẩm
         public bool Xoa_SP(DTO_SanPham sanPham)
         {
-            QLMHEntities2 conn = new QLMHEntities2();
+            QLMHEntities3 conn = new QLMHEntities3();
             SANPHAM sp = conn.SANPHAMs.Find(sanPham.MaSanPham.Trim());
             if (sp != null)
             {
@@ -106,7 +106,7 @@ namespace PC_GUI.DAL
         //Sửa Sanr phaamr
         public bool Sua_SP(DTO_SanPham sanPham)
         {
-            QLMHEntities2 conn = new QLMHEntities2();
+            QLMHEntities3 conn = new QLMHEntities3();
             SANPHAM sp = conn.SANPHAMs.Find(sanPham.MaSanPham.Trim());
 
             if (sp != null)
@@ -130,7 +130,7 @@ namespace PC_GUI.DAL
         ///
         public bool KiemTraMaSP(DTO_SanPham sanPham)
         {
-            QLMHEntities2 conn = new QLMHEntities2();
+            QLMHEntities3 conn = new QLMHEntities3();
             SANPHAM sp = conn.SANPHAMs.FirstOrDefault(a => a.MaSP == sanPham.MaSanPham);
             if (sp == null) return true;
             return false;

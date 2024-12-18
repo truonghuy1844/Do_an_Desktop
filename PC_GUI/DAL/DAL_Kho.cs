@@ -9,7 +9,7 @@ namespace PC_GUI.DAL
 {
     public class DAL_Kho
     {
-        QLMHEntities2 db = new QLMHEntities2();
+        QLMHEntities3 db = new QLMHEntities3();
         public List<DTOKho> LoadKho()
         {
             var listKho = from k in db.KHOHANGs
@@ -36,7 +36,7 @@ namespace PC_GUI.DAL
                     LoaiKho = dTOKho.LoaiKho
 
                 };
-                using (var db = new QLMHEntities2())
+                using (var db = new QLMHEntities3())
                 {
                     var existingKho = db.KHOHANGs.Find(dTOKho.MaKho);
                     if (existingKho != null)

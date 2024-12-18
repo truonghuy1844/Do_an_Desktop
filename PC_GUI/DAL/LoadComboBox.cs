@@ -17,7 +17,7 @@ namespace PC_GUI.DAL
         {
             try
             {
-                QLMHEntities2 db = new QLMHEntities2();
+                QLMHEntities3 db = new QLMHEntities3();
                 var list = (from sp in db.SANPHAMs
                             select new
                             {
@@ -57,7 +57,7 @@ namespace PC_GUI.DAL
         {
             try
             {
-                QLMHEntities2 db = new QLMHEntities2();
+                QLMHEntities3 db = new QLMHEntities3();
                 var list = (from ncc in db.NHACUNGCAPs
                             select new
                             {

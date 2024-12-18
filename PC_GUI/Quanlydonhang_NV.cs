@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
 using PC_DTO;
 using System;
 using System.Collections.Generic;
@@ -9,12 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PC_GUI.DAL;
 
 namespace PC_GUI
 {
-    public partial class Quanlydonhang_NV : Form
+    public partial class Quanlydonhang_NV : UserControl
     {
-        BLLDonmuahang bllDonmua = new BLLDonmuahang();
+        BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
         public Quanlydonhang_NV()
         {
             InitializeComponent();
@@ -23,16 +24,16 @@ namespace PC_GUI
         //Load combobox lọc theo trạng thái 
         void loadloctt()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            var dstt = (from dm in db.DONMUAHANG_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            var dstt = (from dm in db.DONMUAHANGs
                         select dm.TThai).Distinct().ToList();
             cbLoc.DataSource = dstt;
         }
         //Load đơn mua 
         void loaddonmua()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            var donMua = from dm in db.DONMUAHANG_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            var donMua = from dm in db.DONMUAHANGs
                          orderby dm.NgayLap descending
                          select new
                          {
@@ -51,20 +52,20 @@ namespace PC_GUI
         //Load mã hợp đồng 
         void loadhopdong()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            cbMaHD.DataSource = db.HOPDONGMH_LQs.ToList();
+            QLMHEntities3 db = new QLMHEntities3();
+            cbMaHD.DataSource = db.HOPDONGMHs.ToList();
             cbMaHD.DisplayMember = "MaHDMH";
             cbMaHD.ValueMember = "MaHDMH";
         }
         //Load nhà cung cấp 
-        List<NHACUNGCAP_LQ> loadnhacc()
+        List<NHACUNGCAP> loadnhacc()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            db.Connection.Open();
-            var listncc = from ncc in db.NHACUNGCAP_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            
+            var listncc = from ncc in db.NHACUNGCAPs
                           select ncc;
-            db.Connection.Close();
-            listncc.Append(new NHACUNGCAP_LQ());
+            
+            listncc.Append(new NHACUNGCAP());
             return listncc.ToList();
         }
         //Load combobox trạng thái 
@@ -96,7 +97,7 @@ namespace PC_GUI
         //Load combobox yêu cầu mua hàng 
         void loadycmh()
         {
-            QLMHEntities db = new QLMHEntities();
+            QLMHEntities3 db = new QLMHEntities3();
             var ycmh = from yc in db.YEUCAU_MUAHANG
                        select yc;
             cbYcmh.DataSource = ycmh.ToList();
@@ -135,9 +136,9 @@ namespace PC_GUI
         private void btnThongtin_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHDataContext db = new QLMHDataContext();
+            QLMHEntities3 db = new QLMHEntities3();
 
-            var listdonmua = from dm in db.DONMUAHANG_LQs
+            var listdonmua = from dm in db.DONMUAHANGs
                              orderby dm.NgayLap descending
                              select new
                              {
@@ -157,8 +158,8 @@ namespace PC_GUI
         private void btnTheodoi_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHDataContext db = new QLMHDataContext();
-            var listtheodoi = from dm in db.DONMUAHANG_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            var listtheodoi = from dm in db.DONMUAHANGs
                               orderby dm.NgayLap descending
                               select new
                               {
@@ -172,8 +173,8 @@ namespace PC_GUI
         private void btnLoc_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHDataContext db = new QLMHDataContext();
-            var listloc = from dm in db.DONMUAHANG_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            var listloc = from dm in db.DONMUAHANGs
                           where dm.TThai == cbLoc.SelectedValue.ToString()
                           select new
                           {
@@ -193,9 +194,9 @@ namespace PC_GUI
         private void btnTim_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHDataContext db = new QLMHDataContext();
-            db.Connection.Open();
-            var listtim = from dm in db.DONMUAHANG_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            
+            var listtim = from dm in db.DONMUAHANGs
                           where dm.MaDMH.Contains(txtTimKiem.Text)
                           select new
                           {
@@ -218,7 +219,7 @@ namespace PC_GUI
                 dataGridView2.DataSource = listtim;
             }
             
-            db.Connection.Close();
+            
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -441,7 +442,7 @@ namespace PC_GUI
             }
             if (okTao)
             {
-                DONMUAHANG_LQ donmua = new DONMUAHANG_LQ();
+                DONMUAHANG donmua = new DONMUAHANG();
                 donmua.MaDMH = txtMaDMH.Text;
                 donmua.NgayLap = dateTime2.Value;
                 donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
@@ -452,20 +453,20 @@ namespace PC_GUI
                 donmua.MoTa = txtMoTa.Text;
                 donmua.TThai = cbTrangThai.SelectedValue.ToString();
 
-                QLMHDataContext db = new QLMHDataContext();
+                QLMHEntities3 db = new QLMHEntities3();
                 
-                db.Connection.Open();
+                
                 try
                 {
-                    db.DONMUAHANG_LQs.InsertOnSubmit(donmua);
-                    db.SubmitChanges();
+                    db.DONMUAHANGs.Add(donmua);
+                    db.SaveChanges();
                     MessageBox.Show("Tạo đơn hàng mới thành công", "Thông báo", MessageBoxButtons.OK);
                 }
                 catch ( Exception ex)
                 {
                     MessageBox.Show("Tạo đơn hàng mới thất bại", ex.Message );
                 }
-                db.Connection.Close();
+                
                 loaddonmua();
                 btnLuu.Enabled = false;
             }
@@ -510,13 +511,13 @@ namespace PC_GUI
             }
             if (okSua)
             {
-                QLMHDataContext db = new QLMHDataContext();
-                db.Connection.Open();
+                QLMHEntities3 db = new QLMHEntities3();
+                
                 try
                 {
-                    DONMUAHANG_LQ donmua = (from dm in db.DONMUAHANG_LQs
+                    DONMUAHANG donmua = (from dm in db.DONMUAHANGs
                                             where dm.MaDMH == txtMaDMH.Text
-                                            select dm).Single<DONMUAHANG_LQ>();
+                                            select dm).Single<DONMUAHANG>();
                     donmua.NgayLap = dateTime2.Value;
                     donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
                     donmua.MaNV = txtMaNV.Text;
@@ -526,12 +527,12 @@ namespace PC_GUI
                     donmua.TThai = cbTrangThai.SelectedValue.ToString();
                     donmua.MoTa = txtMoTa.Text;
 
-                    db.SubmitChanges();
+                    db.SaveChanges();
                     MessageBox.Show("Cập nhật đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
 
                 }
                 catch (Exception ex) { MessageBox.Show("Cập nhật đơn hàng thất bại", ex.Message); }
-                finally { db.Connection.Close(); }
+                finally {  }
                 loaddonmua();
             }
 

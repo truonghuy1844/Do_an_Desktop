@@ -1,4 +1,5 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
+using PC_GUI.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace PC_GUI
 {
     public partial class Chitietdonmua : Form
     {
-        BLLDonmuahang bllDonmua = new BLLDonmuahang();
+        BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
         private string madonmua;
         public Chitietdonmua(string madonmua)
         {
@@ -24,17 +25,17 @@ namespace PC_GUI
         }
         void loadmadh()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            cbMaDH.DataSource = db.DONMUAHANG_LQs.ToList();
+            QLMHEntities3 db = new QLMHEntities3();
+            cbMaDH.DataSource = db.DONMUAHANGs.ToList();
             cbMaDH.DisplayMember = "MaDMH";
             cbMaDH.ValueMember = "MaDMH";
         }
         //Load mã đơn hàng mới 
         void loadmadhtao()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            var mactdm = db.CT_DONMUAHANG_LQs.Select(ct => ct.MaDMH).ToList();
-            var ctdonmoi = from dm in db.DONMUAHANG_LQs
+            QLMHEntities3 db = new QLMHEntities3();
+            var mactdm = db.CT_DONMUAHANG.Select(ct => ct.MaDMH).ToList();
+            var ctdonmoi = from dm in db.DONMUAHANGs
                            select dm;
             cbMaDH.DataSource = ctdonmoi.ToList();
             cbMaDH.DisplayMember = "MaDMH";
@@ -42,19 +43,19 @@ namespace PC_GUI
         }
         void loadmasp()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            cbMaSP.DataSource = db.CT_BAOGIA_LQs.ToList();
+            QLMHEntities3 db = new QLMHEntities3();
+            cbMaSP.DataSource = db.CT_BAOGIA.ToList();
             cbMaSP.DisplayMember = "MaSP";
             cbMaSP.ValueMember = "MaSP";
         }
         //Load chi tiết đơn mua theo đơn mua ở QUANLYDONHANG
         void loadctdm()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            db.Connection.Open();
-            var ctdm = from dm in db.CT_DONMUAHANG_LQs
-                       join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
-                       join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+            QLMHEntities3 db = new QLMHEntities3();
+            
+            var ctdm = from dm in db.CT_DONMUAHANG
+                       join sp in db.SANPHAMs on dm.MaSP equals sp.MaSP
+                       join bg in db.CT_BAOGIA on dm.MaBG equals bg.MaBG
                        where dm.MaDMH == madonmua && dm.MaSP == bg.MaSP
                        select new
                        {
@@ -66,17 +67,17 @@ namespace PC_GUI
                            dm.SoLuong
                        };
             dataGridViewChitiet.DataSource = ctdm.ToList();
-            db.Connection.Close();
+           
         }
         //Load chi tiết đơn mua 
         void loadchitietdm()
         {
-            QLMHDataContext db = new QLMHDataContext();
-            db.Connection.Open();
-            var listdm = from dm in db.CT_DONMUAHANG_LQs
-                         join dmh in db.DONMUAHANG_LQs on dm.MaDMH equals dmh.MaDMH
-                         join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
-                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+            QLMHEntities3 db = new QLMHEntities3();
+            
+            var listdm = from dm in db.CT_DONMUAHANG
+                         join dmh in db.DONMUAHANGs on dm.MaDMH equals dmh.MaDMH
+                         join sp in db.SANPHAMs on dm.MaSP equals sp.MaSP
+                         join bg in db.CT_BAOGIA on dm.MaBG equals bg.MaBG
                          where dm.MaSP == bg.MaSP
                          orderby dmh.NgayLap descending 
                          select new
@@ -90,7 +91,7 @@ namespace PC_GUI
                          };
 
             dataGridViewChitiet.DataSource = listdm.ToList();
-            db.Connection.Close();
+           
         }
         //Load form 
         private void Chitietdonmua_Load(object sender, EventArgs e)
@@ -117,11 +118,11 @@ namespace PC_GUI
         private void btnChitietdon_Click(object sender, EventArgs e)
         {
             HideAllTooltips();
-            QLMHDataContext db = new QLMHDataContext();
-            var listdm = from dm in db.CT_DONMUAHANG_LQs
-                         join dmh in db.DONMUAHANG_LQs on dm.MaDMH equals dmh.MaDMH
-                         join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
-                         join bg in db.CT_BAOGIA_LQs on dm.MaBG equals bg.MaBG
+            QLMHEntities3 db = new QLMHEntities3();
+            var listdm = from dm in db.CT_DONMUAHANG
+                         join dmh in db.DONMUAHANGs on dm.MaDMH equals dmh.MaDMH
+                         join sp in db.SANPHAMs on dm.MaSP equals sp.MaSP
+                         join bg in db.CT_BAOGIA on dm.MaBG equals bg.MaBG
                          where dm.MaSP == bg.MaSP
                          orderby dmh.NgayLap descending
                          select new
@@ -140,12 +141,12 @@ namespace PC_GUI
         {
             if (cbMaSP.SelectedIndex != -1)
             {
-                QLMHDataContext db = new QLMHDataContext();
-                var tenSP = (from sp in db.SANPHAM_LQs
+                QLMHEntities3 db = new QLMHEntities3();
+                var tenSP = (from sp in db.SANPHAMs
                              where sp.MaSP == cbMaSP.SelectedValue.ToString()
                              select sp.TenSP).FirstOrDefault();
                 txtTensp.Text = tenSP;
-                var mabg = from bg in db.CT_BAOGIA_LQs
+                var mabg = from bg in db.CT_BAOGIA
                            where bg.MaSP == cbMaSP.SelectedValue.ToString()
                            select bg;
                 cbMabaogia.DataSource = mabg;
@@ -160,8 +161,8 @@ namespace PC_GUI
             {
                 string masp = cbMaSP.SelectedValue.ToString();  
                 string mabg = cbMabaogia.SelectedValue.ToString();
-                QLMHDataContext db = new QLMHDataContext();
-                var dongia = (from bg in db.CT_BAOGIA_LQs
+                QLMHEntities3 db = new QLMHEntities3();
+                var dongia = (from bg in db.CT_BAOGIA
                               where bg.MaBG == mabg && bg.MaSP == masp  
                               select bg.DonGia).FirstOrDefault();
                 txtDongia.Text = dongia.ToString();
@@ -220,25 +221,25 @@ namespace PC_GUI
             }
             if (okTao)
             {
-                CT_DONMUAHANG_LQ ctiet = new CT_DONMUAHANG_LQ(); // tạo mới 
+                CT_DONMUAHANG ctiet = new CT_DONMUAHANG(); // tạo mới 
                 ctiet.MaDMH = cbMaDH.SelectedValue.ToString();
                 ctiet.MaSP = cbMaSP.SelectedValue.ToString();
                 ctiet.MaBG = cbMabaogia.SelectedValue.ToString();
                 ctiet.SoLuong = Convert.ToInt32(txtSoluong.Text);
 
-                QLMHDataContext db = new QLMHDataContext();
-                db.Connection.Open();
+                QLMHEntities3 db = new QLMHEntities3();
+                
                 try
                 {
-                    db.CT_DONMUAHANG_LQs.InsertOnSubmit(ctiet);
-                    db.SubmitChanges();
+                    db.CT_DONMUAHANG.Add(ctiet);
+                    db.SaveChanges();
                     MessageBox.Show("Tạo mới chi tiết đơn mua thành công");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Tạo mới chi tiết đơn mua thất bại", ex.Message);
                 }
-                finally { db.Connection.Close(); }
+                finally { }
                 loadchitietdm();
 
                 cbMaDH.SelectedIndex = -1;
@@ -277,22 +278,22 @@ namespace PC_GUI
                 }
                 if (okSua)
                 {
-                    QLMHDataContext db = new QLMHDataContext();
-                    db.Connection.Open();
+                    QLMHEntities3 db = new QLMHEntities3();
+                    
                     try
                     {
-                        CT_DONMUAHANG_LQ ctiet = (from ct in db.CT_DONMUAHANG_LQs
+                        CT_DONMUAHANG ctiet = (from ct in db.CT_DONMUAHANG
                                                   where ct.MaDMH == cbMaDH.SelectedValue.ToString() &&
                                                   ct.MaSP == cbMaSP.SelectedValue.ToString()
-                                                  select ct).Single<CT_DONMUAHANG_LQ>();
+                                                  select ct).Single<CT_DONMUAHANG>();
                         ctiet.MaBG = cbMabaogia.SelectedValue.ToString();
                         ctiet.SoLuong = Convert.ToInt32(txtSoluong.Text);
 
-                        db.SubmitChanges();
+                        
                         MessageBox.Show("Cập nhật chi tiết đơn mua thành công", "Thông báo", MessageBoxButtons.OK);
                     }
                     catch (Exception ex) { MessageBox.Show("Cập nhật chi tiết đơn mua thất bại", ex.Message); }
-                    finally { db.Connection.Close(); }
+                    finally { }
                     loadchitietdm();
                 }
             }
@@ -310,16 +311,16 @@ namespace PC_GUI
                 DialogResult rs = MessageBox.Show("Bạn chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo);
                 if (rs == DialogResult.Yes)
                 {
-                    QLMHDataContext db = new QLMHDataContext();
-                    db.Connection.Open();
+                    QLMHEntities3 db = new QLMHEntities3();
+                    
                     try
                     {
-                        CT_DONMUAHANG_LQ ctiet = (from ct in db.CT_DONMUAHANG_LQs
+                        CT_DONMUAHANG ctiet = (from ct in db.CT_DONMUAHANG
                                                   where ct.MaDMH == cbMaDH.SelectedValue.ToString() &&
                                                   ct.MaSP == cbMaSP.SelectedValue.ToString()
-                                                  select ct).Single<CT_DONMUAHANG_LQ>();
-                        db.CT_DONMUAHANG_LQs.DeleteOnSubmit(ctiet);
-                        db.SubmitChanges();
+                                                  select ct).Single<CT_DONMUAHANG>();
+                        db.CT_DONMUAHANG.Remove(ctiet);
+                        db.SaveChanges();
                         MessageBox.Show("Xóa chi tiết đơn thành công");
                         loadchitietdm();
                     }
@@ -327,7 +328,7 @@ namespace PC_GUI
                     {
                         MessageBox.Show("Xóa chi tiết đơn thất bại", ex.Message);
                     }
-                    finally { db.Connection.Close(); }
+                    
                 }
             }
             else
@@ -354,12 +355,12 @@ namespace PC_GUI
         private void btnTim_Click(object sender, EventArgs e)
         {
             HideAllTooltips();
-            QLMHDataContext db = new QLMHDataContext();
-            db.Connection.Close();
+            QLMHEntities3 db = new QLMHEntities3();
+            
             try
             {
-                var listtim = (from dm in db.CT_DONMUAHANG_LQs
-                              join sp in db.SANPHAM_LQs on dm.MaSP equals sp.MaSP
+                var listtim = (from dm in db.CT_DONMUAHANG
+                              join sp in db.SANPHAMs on dm.MaSP equals sp.MaSP
                               where dm.MaDMH.Contains(txtTim.Text.Trim()) ||  sp.TenSP.Contains(txtTim.Text.Trim())
                               || dm.MaBG.Contains(txtTim.Text.Trim()) || dm.MaSP.Contains(txtTim.Text.Trim())
                               select new
@@ -383,7 +384,7 @@ namespace PC_GUI
             catch (Exception ex) { MessageBox.Show("Không tìm thấy kết quả", ex.Message); }
             finally
             {
-                db.Connection.Close();
+                
             }
         }
         //Kiểm tra số lượng 

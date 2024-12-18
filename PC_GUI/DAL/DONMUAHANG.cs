@@ -26,6 +26,7 @@ namespace PC_GUI.DAL
         public System.DateTime NgayLap { get; set; }
         public string MaHDMH { get; set; }
         public string MaNV { get; set; }
+        public string MaYC { get; set; }
         public string MaNCC { get; set; }
         public Nullable<decimal> Chietkhau { get; set; }
         public string TThai { get; set; }
@@ -38,6 +39,7 @@ namespace PC_GUI.DAL
         public virtual HOPDONGMH HOPDONGMH { get; set; }
         public virtual NHACUNGCAP NHACUNGCAP { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
+        public virtual YEUCAU_MUAHANG YEUCAU_MUAHANG { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
     }
