@@ -125,10 +125,5 @@ namespace PC_GUI
 
             dataGridViewDSKho.DataSource = bLLKho.LoadKho();
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }
