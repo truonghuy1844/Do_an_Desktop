@@ -142,7 +142,19 @@ namespace PC_GUI
             BLL_SanPham bll = new BLL_SanPham();
             DTO_SanPham sp = new DTO_SanPham();
             sp.MaSanPham = txtMaSP.Text;
-            
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa sản phẩm này", "Sản phẩm sẽ bị vĩnh viễn xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                if (bll.Xoa_SP(sp))
+                {
+                    Load_DGV_SP();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng kiểm tra dữ liệu", "Xóa sản phẩm không thành công");
+                    return;
+                }
+            }
 
             if (bll.Xoa_SP(sp))
             {
