@@ -62,12 +62,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 415);
+            this.dataGridView1.Location = new System.Drawing.Point(38, 506);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1759, 874);
+            this.dataGridView1.Size = new System.Drawing.Size(1759, 783);
             this.dataGridView1.TabIndex = 72;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -75,7 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(359, 217);
+            this.label1.Location = new System.Drawing.Point(366, 279);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 71;
@@ -84,7 +84,7 @@
             // lb
             // 
             this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(359, 159);
+            this.lb.Location = new System.Drawing.Point(366, 221);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(112, 20);
             this.lb.TabIndex = 70;
@@ -93,7 +93,7 @@
             // lbMaYC
             // 
             this.lbMaYC.AutoSize = true;
-            this.lbMaYC.Location = new System.Drawing.Point(359, 101);
+            this.lbMaYC.Location = new System.Drawing.Point(366, 163);
             this.lbMaYC.Name = "lbMaYC";
             this.lbMaYC.Size = new System.Drawing.Size(91, 20);
             this.lbMaYC.TabIndex = 69;
@@ -143,14 +143,14 @@
             // 
             // txtNgayBG
             // 
-            this.txtNgayBG.Location = new System.Drawing.Point(539, 211);
+            this.txtNgayBG.Location = new System.Drawing.Point(546, 273);
             this.txtNgayBG.Name = "txtNgayBG";
             this.txtNgayBG.Size = new System.Drawing.Size(629, 31);
             this.txtNgayBG.TabIndex = 76;
             // 
             // txtMaBG
             // 
-            this.txtMaBG.Location = new System.Drawing.Point(539, 101);
+            this.txtMaBG.Location = new System.Drawing.Point(546, 163);
             this.txtMaBG.Name = "txtMaBG";
             this.txtMaBG.Size = new System.Drawing.Size(629, 31);
             this.txtMaBG.TabIndex = 75;
@@ -216,7 +216,7 @@
             // 
             // btnHienThi
             // 
-            this.btnHienThi.Location = new System.Drawing.Point(1244, 93);
+            this.btnHienThi.Location = new System.Drawing.Point(1251, 155);
             this.btnHienThi.Name = "btnHienThi";
             this.btnHienThi.Size = new System.Drawing.Size(271, 49);
             this.btnHienThi.TabIndex = 77;
@@ -237,7 +237,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.datetimepickerEnd);
             this.groupBox1.Controls.Add(this.datetimepickerStart);
-            this.groupBox1.Location = new System.Drawing.Point(261, 260);
+            this.groupBox1.Location = new System.Drawing.Point(268, 322);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1296, 129);
             this.groupBox1.TabIndex = 73;
@@ -260,14 +260,14 @@
             // 
             // txtNCC
             // 
-            this.txtNCC.Location = new System.Drawing.Point(539, 156);
+            this.txtNCC.Location = new System.Drawing.Point(546, 218);
             this.txtNCC.Name = "txtNCC";
             this.txtNCC.Size = new System.Drawing.Size(629, 31);
             this.txtNCC.TabIndex = 80;
             // 
             // btnTuyChinhBG
             // 
-            this.btnTuyChinhBG.Location = new System.Drawing.Point(1244, 154);
+            this.btnTuyChinhBG.Location = new System.Drawing.Point(1251, 216);
             this.btnTuyChinhBG.Name = "btnTuyChinhBG";
             this.btnTuyChinhBG.Size = new System.Drawing.Size(271, 50);
             this.btnTuyChinhBG.TabIndex = 81;

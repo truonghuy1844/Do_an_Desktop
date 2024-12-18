@@ -61,18 +61,11 @@
             this.dataGridViewDSKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSKho.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewDSKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSKho.Location = new System.Drawing.Point(44, 129);
-            this.dataGridViewDSKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridViewDSKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewDSKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewDSKho.ColumnHeadersHeight = 29;
-            this.dataGridViewDSKho.Location = new System.Drawing.Point(0, 96);
+            this.dataGridViewDSKho.Location = new System.Drawing.Point(29, 83);
             this.dataGridViewDSKho.Name = "dataGridViewDSKho";
             this.dataGridViewDSKho.RowHeadersWidth = 51;
             this.dataGridViewDSKho.RowTemplate.Height = 24;
-            this.dataGridViewDSKho.Size = new System.Drawing.Size(1700, 676);
-            this.dataGridViewDSKho.Size = new System.Drawing.Size(997, 344);
+            this.dataGridViewDSKho.Size = new System.Drawing.Size(1133, 433);
             this.dataGridViewDSKho.TabIndex = 0;
             this.dataGridViewDSKho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSKho_CellContentClick);
             // 
@@ -91,34 +84,17 @@
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.txtTim);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(335, 851);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Location = new System.Drawing.Point(223, 545);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1143, 345);
+            this.groupBox1.Size = new System.Drawing.Size(762, 221);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            this.btnResetFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetFilter.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnResetFilter.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.btnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetFilter.ForeColor = System.Drawing.Color.White;
-            this.btnResetFilter.Location = new System.Drawing.Point(702, 116);
-            this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(186, 35);
-            this.btnResetFilter.TabIndex = 33;
-            this.btnResetFilter.Text = "Reset bộ lọc";
-            this.btnResetFilter.UseVisualStyleBackColor = false;
-            this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(904, 144);
-            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnResetFilter.Location = new System.Drawing.Point(603, 92);
             this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(195, 66);
+            this.btnResetFilter.Size = new System.Drawing.Size(130, 42);
             this.btnResetFilter.TabIndex = 33;
             this.btnResetFilter.Text = "Reset bộ lọc";
             this.btnResetFilter.UseVisualStyleBackColor = true;
@@ -129,13 +105,9 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(588, 116);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(60, 131);
+            this.label3.Location = new System.Drawing.Point(392, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 25);
-            this.label3.Size = new System.Drawing.Size(95, 25);
+            this.label3.Size = new System.Drawing.Size(65, 16);
             this.label3.TabIndex = 32;
             this.label3.Text = "Sức chứa";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -145,12 +117,9 @@
             this.comboBoxSucChua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSucChua.FormattingEnabled = true;
-            this.comboBoxSucChua.Location = new System.Drawing.Point(592, 159);
-            this.comboBoxSucChua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxSucChua.Location = new System.Drawing.Point(225, 125);
+            this.comboBoxSucChua.Location = new System.Drawing.Point(395, 102);
             this.comboBoxSucChua.Name = "comboBoxSucChua";
-            this.comboBoxSucChua.Size = new System.Drawing.Size(274, 33);
-            this.comboBoxSucChua.Size = new System.Drawing.Size(259, 33);
+            this.comboBoxSucChua.Size = new System.Drawing.Size(184, 24);
             this.comboBoxSucChua.TabIndex = 31;
             // 
             // label2
@@ -158,23 +127,18 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(189, 116);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(60, 80);
+            this.label2.Location = new System.Drawing.Point(126, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 25);
-            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 30;
             this.label2.Text = "Loại kho";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 116);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(16, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 25);
+            this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 29;
             this.label1.Text = "Hiển thị:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -184,12 +148,9 @@
             this.comboBoxLoaiKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxLoaiKho.FormattingEnabled = true;
-            this.comboBoxLoaiKho.Location = new System.Drawing.Point(194, 159);
-            this.comboBoxLoaiKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxLoaiKho.Location = new System.Drawing.Point(225, 74);
+            this.comboBoxLoaiKho.Location = new System.Drawing.Point(129, 102);
             this.comboBoxLoaiKho.Name = "comboBoxLoaiKho";
-            this.comboBoxLoaiKho.Size = new System.Drawing.Size(274, 33);
-            this.comboBoxLoaiKho.Size = new System.Drawing.Size(259, 33);
+            this.comboBoxLoaiKho.Size = new System.Drawing.Size(184, 24);
             this.comboBoxLoaiKho.TabIndex = 28;
             this.comboBoxLoaiKho.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoaiKho_SelectedIndexChanged);
             // 
@@ -240,12 +201,9 @@
             this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.ForeColor = System.Drawing.Color.White;
-            this.btnLoad.Location = new System.Drawing.Point(867, 236);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLoad.Location = new System.Drawing.Point(764, 36);
+            this.btnLoad.Location = new System.Drawing.Point(578, 151);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(228, 66);
-            this.btnLoad.Size = new System.Drawing.Size(175, 42);
+            this.btnLoad.Size = new System.Drawing.Size(152, 42);
             this.btnLoad.TabIndex = 27;
             this.btnLoad.Text = "Load/ Refresh";
             this.btnLoad.UseVisualStyleBackColor = false;
@@ -258,12 +216,9 @@
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(592, 236);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnXoa.Location = new System.Drawing.Point(531, 36);
+            this.btnXoa.Location = new System.Drawing.Point(395, 151);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(228, 66);
-            this.btnXoa.Size = new System.Drawing.Size(175, 42);
+            this.btnXoa.Size = new System.Drawing.Size(152, 42);
             this.btnXoa.TabIndex = 26;
             this.btnXoa.Text = "- Xóa kho";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -276,12 +231,9 @@
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.Location = new System.Drawing.Point(310, 236);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSua.Location = new System.Drawing.Point(298, 36);
+            this.btnSua.Location = new System.Drawing.Point(207, 151);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(248, 66);
-            this.btnSua.Size = new System.Drawing.Size(175, 42);
+            this.btnSua.Size = new System.Drawing.Size(165, 42);
             this.btnSua.TabIndex = 25;
             this.btnSua.Text = "Sửa thông tin kho";
             this.btnSua.UseVisualStyleBackColor = false;
@@ -294,12 +246,9 @@
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(15, 236);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnThem.Location = new System.Drawing.Point(65, 36);
+            this.btnThem.Location = new System.Drawing.Point(10, 151);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(248, 66);
-            this.btnThem.Size = new System.Drawing.Size(175, 42);
+            this.btnThem.Size = new System.Drawing.Size(165, 42);
             this.btnThem.TabIndex = 24;
             this.btnThem.Text = "+ Thêm kho";
             this.btnThem.UseVisualStyleBackColor = false;
@@ -307,10 +256,9 @@
             // 
             // panel1
             // 
-            this.btnTim.Location = new System.Drawing.Point(904, 50);
-            this.btnTim.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTim.Location = new System.Drawing.Point(603, 32);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(190, 52);
+            this.btnTim.Size = new System.Drawing.Size(127, 33);
             this.btnTim.TabIndex = 20;
             this.btnTim.Text = "Tìm kiếm";
             this.btnTim.UseVisualStyleBackColor = true;
@@ -335,10 +283,9 @@
             // 
             // label4
             // 
-            this.txtTim.Location = new System.Drawing.Point(28, 58);
-            this.txtTim.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTim.Location = new System.Drawing.Point(19, 37);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(835, 31);
+            this.txtTim.Size = new System.Drawing.Size(558, 22);
             this.txtTim.TabIndex = 21;
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -353,10 +300,9 @@
             // panel2
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 28);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(16, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(255, 25);
+            this.label9.Size = new System.Drawing.Size(157, 16);
             this.label9.TabIndex = 20;
             this.label9.Text = "Nhập từ khóa để tìm kiếm";
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -385,18 +331,15 @@
             // 
             // QLKho
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridViewDSKho);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QLKho";
-            this.Size = new System.Drawing.Size(1800, 1330);
-            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Size = new System.Drawing.Size(1000, 800);
+            this.Size = new System.Drawing.Size(1200, 851);
             this.Load += new System.EventHandler(this.QLKho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSKho)).EndInit();
             this.panel1.ResumeLayout(false);

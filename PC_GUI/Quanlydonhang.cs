@@ -454,7 +454,7 @@ namespace PC_GUI
         {
             if (dataGridView1.CurrentRow != null)    //gồm đưa dữ liệu vào ô và chỉnh sửa 
             {
-                MessageBox.Show("Đơn hàng đã được chọn, hãy thực hiện các thay đổi!");
+                
                 txtMaDMH.Text = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
                 dateTime.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                 cbMaHD.SelectedValue = dataGridView1.CurrentRow.Cells["MaHDMH"].Value.ToString();
@@ -601,7 +601,7 @@ namespace PC_GUI
         {
             if (dataGridView1.SelectedRows.Count > 0 )
             {
-                string madonmua = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();    
+                string madonmua = txtMaDMH.Text;    
                 Chitietdonmua ctdonmua = new Chitietdonmua(madonmua);
                 ctdonmua.ShowDialog();
             }
@@ -660,6 +660,9 @@ namespace PC_GUI
 
         }
 
-        
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

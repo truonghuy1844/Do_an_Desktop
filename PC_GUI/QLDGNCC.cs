@@ -174,7 +174,5 @@ namespace PC_GUI
             ReportDGNCC reportDGNCC = new ReportDGNCC();
             reportDGNCC.ShowDialog();
         }
-
-        
     }
 }
