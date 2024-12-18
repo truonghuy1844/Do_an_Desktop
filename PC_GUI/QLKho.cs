@@ -24,16 +24,15 @@ namespace PC_GUI
 
             bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv);
             bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
-            if (KiemTraPhongBan)
+            if (!KiemTraPhongBan)
             {
-                this.Controls.Remove(btnXoa);
-                this.Controls.Remove(btnThem);
-                this.Controls.Remove(btnSua);
+                btnThem.Enabled = false;
+                btnXoa.Enabled = false;
+                btnSua.Enabled = false;
             }
-            else if (!KiemTraPhongBan && !KiemTraChucVu)
+            else if (!KiemTraChucVu)
             {
-                this.Controls.Remove(btnXoa);
-
+                btnXoa.Enabled = false;
             }
         }
 
@@ -54,6 +53,7 @@ namespace PC_GUI
             comboBoxSucChua.Items.Add("80 - 150 tấn");
             comboBoxSucChua.Items.Add("> 150 tấn");
             comboBoxSucChua.SelectedIndex = -1;
+            dataGridViewDSKho.ReadOnly = true;
         }
         private void ApplyFilters()
         {

@@ -235,9 +235,9 @@
             this.lbMaNV.Location = new System.Drawing.Point(58, 473);
             this.lbMaNV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbMaNV.Name = "lbMaNV";
-            this.lbMaNV.Size = new System.Drawing.Size(137, 20);
+            this.lbMaNV.Size = new System.Drawing.Size(186, 25);
             this.lbMaNV.TabIndex = 104;
-            this.lbMaNV.Text = "Mã nhà cung cấp";
+            this.lbMaNV.Text = "Mã nhà cung cấp*";
             // 
             // lbMaBG
             // 
@@ -245,9 +245,9 @@
             this.lbMaBG.Location = new System.Drawing.Point(82, 409);
             this.lbMaBG.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbMaBG.Name = "lbMaBG";
-            this.lbMaBG.Size = new System.Drawing.Size(91, 20);
+            this.lbMaBG.Size = new System.Drawing.Size(127, 25);
             this.lbMaBG.TabIndex = 103;
-            this.lbMaBG.Text = "Mã báo giá";
+            this.lbMaBG.Text = "Mã báo giá*";
             // 
             // cbSanPham
             // 

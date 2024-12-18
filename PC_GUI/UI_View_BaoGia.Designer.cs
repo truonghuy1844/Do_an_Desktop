@@ -62,13 +62,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 92);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(38, 415);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(998, 282);
+            this.dataGridView1.Size = new System.Drawing.Size(1759, 874);
             this.dataGridView1.TabIndex = 72;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -76,8 +75,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 131);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(359, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 71;
@@ -86,8 +84,7 @@
             // lb
             // 
             this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(36, 78);
-            this.lb.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb.Location = new System.Drawing.Point(359, 159);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(112, 20);
             this.lb.TabIndex = 70;
@@ -96,8 +93,7 @@
             // lbMaYC
             // 
             this.lbMaYC.AutoSize = true;
-            this.lbMaYC.Location = new System.Drawing.Point(36, 34);
-            this.lbMaYC.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbMaYC.Location = new System.Drawing.Point(359, 101);
             this.lbMaYC.Name = "lbMaYC";
             this.lbMaYC.Size = new System.Drawing.Size(91, 20);
             this.lbMaYC.TabIndex = 69;
@@ -139,7 +135,7 @@
             this.btnLoc.Location = new System.Drawing.Point(835, 28);
             this.btnLoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(146, 32);
+            this.btnLoc.Size = new System.Drawing.Size(205, 35);
             this.btnLoc.TabIndex = 21;
             this.btnLoc.Text = "Lọc";
             this.btnLoc.UseVisualStyleBackColor = false;
@@ -147,18 +143,16 @@
             // 
             // txtNgayBG
             // 
-            this.txtNgayBG.Location = new System.Drawing.Point(162, 125);
-            this.txtNgayBG.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNgayBG.Location = new System.Drawing.Point(539, 211);
             this.txtNgayBG.Name = "txtNgayBG";
-            this.txtNgayBG.Size = new System.Drawing.Size(478, 26);
+            this.txtNgayBG.Size = new System.Drawing.Size(629, 31);
             this.txtNgayBG.TabIndex = 76;
             // 
             // txtMaBG
             // 
-            this.txtMaBG.Location = new System.Drawing.Point(162, 34);
-            this.txtMaBG.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMaBG.Location = new System.Drawing.Point(539, 101);
             this.txtMaBG.Name = "txtMaBG";
-            this.txtMaBG.Size = new System.Drawing.Size(478, 26);
+            this.txtMaBG.Size = new System.Drawing.Size(629, 31);
             this.txtMaBG.TabIndex = 75;
             // 
             // cbLoc_NCC
@@ -222,13 +216,9 @@
             // 
             // btnHienThi
             // 
-            this.btnHienThi.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnHienThi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHienThi.ForeColor = System.Drawing.Color.White;
-            this.btnHienThi.Location = new System.Drawing.Point(772, 34);
-            this.btnHienThi.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHienThi.Location = new System.Drawing.Point(1244, 93);
             this.btnHienThi.Name = "btnHienThi";
-            this.btnHienThi.Size = new System.Drawing.Size(209, 41);
+            this.btnHienThi.Size = new System.Drawing.Size(271, 49);
             this.btnHienThi.TabIndex = 77;
             this.btnHienThi.Text = "Hiển thị";
             this.btnHienThi.UseVisualStyleBackColor = false;
@@ -247,11 +237,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.datetimepickerEnd);
             this.groupBox1.Controls.Add(this.datetimepickerStart);
-            this.groupBox1.Location = new System.Drawing.Point(2, 390);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(261, 260);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(998, 104);
+            this.groupBox1.Size = new System.Drawing.Size(1296, 129);
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             // 
@@ -264,7 +252,7 @@
             this.btnLocKoTG.Location = new System.Drawing.Point(835, 64);
             this.btnLocKoTG.Margin = new System.Windows.Forms.Padding(2);
             this.btnLocKoTG.Name = "btnLocKoTG";
-            this.btnLocKoTG.Size = new System.Drawing.Size(146, 32);
+            this.btnLocKoTG.Size = new System.Drawing.Size(205, 35);
             this.btnLocKoTG.TabIndex = 24;
             this.btnLocKoTG.Text = "Lọc bỏ thời gian";
             this.btnLocKoTG.UseVisualStyleBackColor = false;
@@ -272,21 +260,16 @@
             // 
             // txtNCC
             // 
-            this.txtNCC.Location = new System.Drawing.Point(162, 78);
-            this.txtNCC.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNCC.Location = new System.Drawing.Point(539, 156);
             this.txtNCC.Name = "txtNCC";
-            this.txtNCC.Size = new System.Drawing.Size(478, 26);
+            this.txtNCC.Size = new System.Drawing.Size(629, 31);
             this.txtNCC.TabIndex = 80;
             // 
             // btnTuyChinhBG
             // 
-            this.btnTuyChinhBG.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnTuyChinhBG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTuyChinhBG.ForeColor = System.Drawing.Color.White;
-            this.btnTuyChinhBG.Location = new System.Drawing.Point(772, 110);
-            this.btnTuyChinhBG.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTuyChinhBG.Location = new System.Drawing.Point(1244, 154);
             this.btnTuyChinhBG.Name = "btnTuyChinhBG";
-            this.btnTuyChinhBG.Size = new System.Drawing.Size(209, 41);
+            this.btnTuyChinhBG.Size = new System.Drawing.Size(271, 50);
             this.btnTuyChinhBG.TabIndex = 81;
             this.btnTuyChinhBG.Text = "Tùy chỉnh báo giá";
             this.btnTuyChinhBG.UseVisualStyleBackColor = false;
@@ -330,14 +313,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnTuyChinhBG);
+            this.Controls.Add(this.txtNCC);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UI_View_BaoGia";
-            this.Size = new System.Drawing.Size(1000, 800);
+            this.Size = new System.Drawing.Size(1800, 1330);
             this.Load += new System.EventHandler(this.UI_View_BaoGia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

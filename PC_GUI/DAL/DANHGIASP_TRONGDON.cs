@@ -14,15 +14,24 @@ namespace PC_GUI.DAL
     
     public partial class DANHGIASP_TRONGDON
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DANHGIASP_TRONGDON()
+        {
+            this.DanhGiaNCC_SPDMH = new HashSet<DanhGiaNCC_SPDMH>();
+        }
+    
         public string MaDGSP { get; set; }
         public Nullable<System.DateTime> NgayDG { get; set; }
         public string MaSP { get; set; }
         public string MaDMH { get; set; }
         public string MoTaDG { get; set; }
-        public Nullable<int> DiemDG { get; set; }
-        public string MucdoDG { get; set; }
+        public Nullable<int> DiemChatLuong { get; set; }
+        public Nullable<int> DiemHieuQua { get; set; }
+        public Nullable<int> DiemGiaCa { get; set; }
         public string GhiChu { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DanhGiaNCC_SPDMH> DanhGiaNCC_SPDMH { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
         public virtual DONMUAHANG DONMUAHANG { get; set; }
     }

@@ -16,8 +16,8 @@ namespace PC_GUI.DAL
     {
         public string MaTT { get; set; }
         public int MaHD { get; set; }
-        public System.DateTime NgayTT { get; set; }
-        public Nullable<decimal> SoTien { get; set; }
+        public Nullable<System.DateTime> NgayTT { get; set; }
+        public string TrangThai { get; set; }
     
         public virtual HOADON HOADON { get; set; }
     }

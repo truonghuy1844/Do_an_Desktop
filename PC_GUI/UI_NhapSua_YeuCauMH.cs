@@ -22,6 +22,7 @@ namespace PC_GUI
             InitializeComponent();
             nv.MaNV = nvien.MaNV;
             txtMaNV.Text = nvien.MaNV.ToString();
+            this.Size = new System.Drawing.Size(1000, 800);
         }
 
         private void btnSuaSP_Click(object sender, EventArgs e)
@@ -62,6 +63,8 @@ namespace PC_GUI
             btnXoaSP.Enabled = false;
             btnYeuCauDuyet.Enabled = false;
             btnXoaYC.Enabled = false;
+            txtMaNV.Enabled = false;
+            txtTinhTrang.Enabled = false;
             //ToolTIP
             toolTipMaYC.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
             toolTipMaYC.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây
@@ -412,7 +415,7 @@ namespace PC_GUI
            
         }
 
-        private void lbMaNV_Click(object sender, EventArgs e)
+        private void lb_Click(object sender, EventArgs e)
         {
 
         }

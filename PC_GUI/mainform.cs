@@ -22,6 +22,8 @@ namespace PC_GUI
         {
             InitializeComponent();
             nv_DN = nhanVien;
+            this.Size = new System.Drawing.Size(915, 720);
+            
         }
 
         #region Xử lý submenu
@@ -108,18 +110,10 @@ namespace PC_GUI
 
         }
 
-        #region Nguồn lực
-
-        
-
-        
-        #endregion
-
-        #region Yêu cầu mua hàng
-
-        #endregion
-
-
+        private void frmMainForm_Load(object sender, EventArgs e)
+        {
+            panel1.Size = new System.Drawing.Size(1200, 1000);
+        }
 
         private void btnFPhanCong_Click(object sender, EventArgs e)
         {
@@ -148,8 +142,10 @@ namespace PC_GUI
 
         private void btnFNhanVien_Click(object sender, EventArgs e)
         {
+            
             panel1.Controls.Clear();
-            QLNV ui = new QLNV(nv_DN);
+            
+            UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nv_DN);
             panel1.Controls.Add(ui);
             panel1.Dock = DockStyle.Fill;
         }
@@ -166,6 +162,116 @@ namespace PC_GUI
         {
             panel1.Controls.Clear();
             UI_YeuCauMH ui = new UI_YeuCauMH(nv_DN);
+            panel1.Controls.Add(ui);
+            panel1.Dock = DockStyle.Fill;
+        }
+
+        private void btnFTTDonHang_Click(object sender, EventArgs e)
+        {
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            bool checkNV = bll.Kiem_Tra_Chuc_Vu(nv_DN);
+            bool checkPhongBan = bll.Kiem_Tra_PhongBan(nv_DN);
+            if (checkNV && checkPhongBan) 
+            {
+                panel1.Controls.Clear();
+                Quanlydonhang ui = new Quanlydonhang();
+                panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel1.Controls.Clear();
+                Quanlydonhang ui = new Quanlydonhang();
+                panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+        }
+
+        private void btnFDGSP_Click(object sender, EventArgs e)
+        {
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            bool checkNV = bll.Kiem_Tra_Chuc_Vu(nv_DN);
+            bool checkPhongBan = bll.Kiem_Tra_PhongBan(nv_DN);
+            if (checkNV && checkPhongBan)
+            {
+                panel1.Controls.Clear();
+                //Danhgiadonhang ui = new Danhgiadonhang();
+                //panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel1.Controls.Clear();
+                //Danhgiadonhang_NV ui = new Danhgiadonhang_NV();
+                //panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+        }
+
+        private void btnFPhanCong_Click(object sender, EventArgs e)
+        {
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            bool checkNV = bll.Kiem_Tra_Chuc_Vu(nv_DN);
+            bool checkPhongBan = bll.Kiem_Tra_PhongBan(nv_DN);
+            if (checkNV && checkPhongBan)
+            {
+                panel1.Controls.Clear();
+                PCCV ui = new PCCV();
+                panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                panel1.Controls.Clear();
+                PCCV_NV ui = new PCCV_NV();
+                panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+        }
+
+        private void btnFThongTinNCC_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            QLNCC ui = new QLNCC();
+            panel1.Controls.Add(ui);
+            panel1.Dock = DockStyle.Fill;
+        }
+
+        private void btnFDanhGiaNCC_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            QLDGNCC ui = new QLDGNCC();
+            panel1.Controls.Add(ui);
+            panel1.Dock = DockStyle.Fill;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFThongTinNCC_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            QLNCC ui = new QLNCC(nv_DN);
+            panel1.Controls.Add(ui);
+            panel1.Dock = DockStyle.Fill;
+        }
+
+        private void btnFDanhGiaNCC_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            QLDGNCC ui = new QLDGNCC(nv_DN);
             panel1.Controls.Add(ui);
             panel1.Dock = DockStyle.Fill;
         }

@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,16 +38,39 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -66,16 +93,21 @@
     <Compile Include="BangCT_BG.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BangCT_BG.Designer.cs">
-      <DependentUpon>BangCT_BG.cs</DependentUpon>
+    <Compile Include="BLL\BLL_DonMuaHang.cs" />
+    <Compile Include="BLL\BLL_NCC.cs" />
+    <Compile Include="BLL\BLL_PhanCong.cs" />
+    <Compile Include="Chitietdonmua.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BLL\BLL_BaoGia.cs" />
-    <Compile Include="BLL\BLL_Kho.cs" />
-    <Compile Include="BLL\BLL_KiemTraTruyCap.cs" />
-    <Compile Include="BLL\BLL_NhanVien.cs" />
-    <Compile Include="BLL\BLL_SanPham.cs" />
-    <Compile Include="BLL\BLL_YeuCauMH.cs" />
-    <Compile Include="BLL\LoadCB.cs" />
+    <Compile Include="Chitietdonmua.Designer.cs">
+      <DependentUpon>Chitietdonmua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chitietdonmua_NV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chitietdonmua_NV.Designer.cs">
+      <DependentUpon>Chitietdonmua_NV.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\BAOGIA.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
@@ -88,11 +120,9 @@
     <Compile Include="DAL\CT_YEUCAU.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DAL_BaoGia.cs" />
-    <Compile Include="DAL\DAL_Kho.cs" />
-    <Compile Include="DAL\DAL_NhanVien.cs" />
-    <Compile Include="DAL\DAL_SanPham.cs" />
-    <Compile Include="DAL\DAL_YeuCauMH.cs" />
+    <Compile Include="DAL\DanhGiaNCC_SPDMH.cs">
+      <DependentUpon>EF.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DANHGIASP_TRONGDON.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
@@ -159,8 +189,6 @@
     <Compile Include="DAL\KHOHANG.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAL\KiemTraChucVu.cs" />
-    <Compile Include="DAL\LoadComboBox.cs" />
     <Compile Include="DAL\NHACUNGCAP.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
@@ -182,6 +210,73 @@
     <Compile Include="DAL\YEUCAU_MUAHANG.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
+    <Compile Include="Danhgiadonhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Danhgiadonhang.Designer.cs">
+      <DependentUpon>Danhgiadonhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Danhgiadonhang_NV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Danhgiadonhang_NV.Designer.cs">
+      <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BangCT_BG.Designer.cs">
+      <DependentUpon>BangCT_BG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BLL\BLL_BaoGia.cs" />
+    <Compile Include="BLL\BLL_Kho.cs" />
+    <Compile Include="BLL\BLL_KiemTraTruyCap.cs" />
+    <Compile Include="BLL\BLL_NhanVien.cs" />
+    <Compile Include="BLL\BLL_SanPham.cs" />
+    <Compile Include="BLL\BLL_YeuCauMH.cs" />
+    <Compile Include="BLL\LoadCB.cs" />
+    <Compile Include="DAL\DAL_BaoGia.cs" />
+    <Compile Include="DAL\DAL_Kho.cs" />
+    <Compile Include="DAL\DAL_NhanVien.cs" />
+    <Compile Include="DAL\DAL_SanPham.cs" />
+    <Compile Include="DAL\DAL_YeuCauMH.cs" />
+    <Compile Include="DangNhap.cs" />
+    <Compile Include="formDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDangNhap.Designer.cs">
+      <DependentUpon>formDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCao.Designer.cs">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainform.Designer.cs">
+      <DependentUpon>mainform.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="formDangNhap.resx">
+      <DependentUpon>formDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainform.resx">
+      <DependentUpon>mainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="DAL\ConectDB_Manual.cs" />
+    <Compile Include="DAL\KiemTraChucVu.cs" />
+    <Compile Include="DAL\LoadComboBox.cs" />
+    <Compile Include="DAL\DAL_DonMuaHang.cs" />
+    <Compile Include="DAL\DAL_NCC.cs" />
+    <Compile Include="DAL\DAL_PhanCong.cs" />
+    <Compile Include="AddDGNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DAL\KiemTraChucVu.cs" />
+    <Compile Include="DAL\LoadComboBox.cs" />
     <Compile Include="UI_NhapSua_BaoGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +289,15 @@
     <Compile Include="UI_NhapSua_YeuCauMH.Designer.cs">
       <DependentUpon>UI_NhapSua_YeuCauMH.cs</DependentUpon>
     </Compile>
+    <Compile Include="XoaKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaKho.Designer.cs">
+      <DependentUpon>XoaKho.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="XoaKho.resx">
+      <DependentUpon>XoaKho.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="UI_ThemSP.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,24 +334,56 @@
     <EmbeddedResource Include="UI_YeuCauMH.resx">
       <DependentUpon>UI_YeuCauMH.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="DAL\EF.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EF.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DAL\EF.edmx.diagram">
-      <DependentUpon>EF.edmx</DependentUpon>
-    </None>
     <Compile Include="AddKho.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddKho.Designer.cs">
       <DependentUpon>AddKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNV.cs">
+    <EmbeddedResource Include="AddKho.resx">
+      <DependentUpon>AddKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="AddDGNCC.Designer.cs">
+      <DependentUpon>AddDGNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNCC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNV.Designer.cs">
-      <DependentUpon>AddNV.cs</DependentUpon>
+    <Compile Include="AddNCC.Designer.cs">
+      <DependentUpon>AddNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DSDG_SPDMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuaKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuaKho.Designer.cs">
+      <DependentUpon>SuaKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DSDG_SPDMH.Designer.cs">
+      <DependentUpon>DSDG_SPDMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCCV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PCCV.Designer.cs">
+      <DependentUpon>PCCV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PCCV_NV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PCCV_NV.Designer.cs">
+      <DependentUpon>PCCV_NV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLDGNCC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QLDGNCC.Designer.cs">
+      <DependentUpon>QLDGNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QLNCC.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="QLKho.cs">
@@ -262,65 +398,154 @@
     <Compile Include="QLNV.Designer.cs">
       <DependentUpon>QLNV.cs</DependentUpon>
     </Compile>
-    <Compile Include="SuaKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SuaKho.Designer.cs">
-      <DependentUpon>SuaKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SuaNV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SuaNV.Designer.cs">
-      <DependentUpon>SuaNV.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XoaKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XoaKho.Designer.cs">
-      <DependentUpon>XoaKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="XoaNV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XoaNV.Designer.cs">
-      <DependentUpon>XoaNV.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddKho.resx">
-      <DependentUpon>AddKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddNV.resx">
-      <DependentUpon>AddNV.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="QLKho.resx">
       <DependentUpon>QLKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QLNV.resx">
       <DependentUpon>QLNV.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="AddNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNV.Designer.cs">
+      <DependentUpon>AddNV.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddNV.resx">
+      <DependentUpon>AddNV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SuaKho.resx">
       <DependentUpon>SuaKho.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="SuaNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuaNV.Designer.cs">
+      <DependentUpon>SuaNV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="SuaNV.resx">
       <DependentUpon>SuaNV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XoaKho.resx">
-      <DependentUpon>XoaKho.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="XoaNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaNV.Designer.cs">
+      <DependentUpon>XoaNV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="XoaNV.resx">
       <DependentUpon>XoaNV.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="QLNCC.Designer.cs">
+      <DependentUpon>QLNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDGNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDGNCC.Designer.cs">
+      <DependentUpon>ReportDGNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuaNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuaNCC.Designer.cs">
+      <DependentUpon>SuaNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XoaDGNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaDGNCC.Designer.cs">
+      <DependentUpon>XoaDGNCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XoaNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaNCC.Designer.cs">
+      <DependentUpon>XoaNCC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddDGNCC.resx">
+      <DependentUpon>AddDGNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNCC.resx">
+      <DependentUpon>AddNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DSDG_SPDMH.resx">
+      <DependentUpon>DSDG_SPDMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Quanlydonhang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quanlydonhang.Designer.cs">
+      <DependentUpon>Quanlydonhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Quanlydonhang_NV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Quanlydonhang_NV.Designer.cs">
+      <DependentUpon>Quanlydonhang_NV.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Chitietdonmua.resx">
+      <DependentUpon>Chitietdonmua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chitietdonmua_NV.resx">
+      <DependentUpon>Chitietdonmua_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhgiadonhang.resx">
+      <DependentUpon>Danhgiadonhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Danhgiadonhang_NV.resx">
+      <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCCV.resx">
+      <DependentUpon>PCCV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PCCV_NV.resx">
+      <DependentUpon>PCCV_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QLDGNCC.resx">
+      <DependentUpon>QLDGNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLNCC.resx">
+      <DependentUpon>QLNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportDGNCC.rdlc" />
+    <EmbeddedResource Include="ReportDGNCC.resx">
+      <DependentUpon>ReportDGNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuaNCC.resx">
+      <DependentUpon>SuaNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XoaDGNCC.resx">
+      <DependentUpon>XoaDGNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XoaNCC.resx">
+      <DependentUpon>XoaNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quanlydonhang.resx">
+      <DependentUpon>Quanlydonhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quanlydonhang_NV.resx">
+      <DependentUpon>Quanlydonhang_NV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DAL\EF.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EF.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\EF.edmx.diagram">
+      <DependentUpon>EF.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\PC_DTO.DTODGNCC.datasource" />
+    <None Include="Properties\DataSources\PC_DTO.DTODGNCCReport.datasource" />
+    <None Include="Properties\DataSources\XoaNCC.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -349,16 +574,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\EF.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EF.edmx</DependentUpon>
-      <LastGenOutput>EF.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DAL\EF.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EF.edmx</DependentUpon>
-      <LastGenOutput>EF.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\57.png" />
   </ItemGroup>
   <ItemGroup>
@@ -439,5 +654,29 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\EF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF.edmx</DependentUpon>
+      <LastGenOutput>EF.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\EF.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EF.edmx</DependentUpon>
+      <LastGenOutput>EF.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>

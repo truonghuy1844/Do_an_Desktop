@@ -148,6 +148,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnFormNCC
             // 
@@ -197,6 +198,7 @@
             this.btnFThongTinNCC.Text = "Thông tin NCC";
             this.btnFThongTinNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFThongTinNCC.UseVisualStyleBackColor = false;
+            this.btnFThongTinNCC.Click += new System.EventHandler(this.btnFThongTinNCC_Click);
             // 
             // btnFDanhGiaNCC
             // 
@@ -214,6 +216,7 @@
             this.btnFDanhGiaNCC.Text = "Đánh giá NCC";
             this.btnFDanhGiaNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDanhGiaNCC.UseVisualStyleBackColor = false;
+            this.btnFDanhGiaNCC.Click += new System.EventHandler(this.btnFDanhGiaNCC_Click);
             // 
             // btnSanPham
             // 
@@ -378,6 +381,7 @@
             this.btnFDGSP.Text = "Đánh giá sản phẩm";
             this.btnFDGSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDGSP.UseVisualStyleBackColor = false;
+            this.btnFDGSP.Click += new System.EventHandler(this.btnFDGSP_Click);
             // 
             // btnFormDonHang
             // 
@@ -415,6 +419,7 @@
             this.btnFTTDonHang.Text = "Thông tin đơn hàng";
             this.btnFTTDonHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFTTDonHang.UseVisualStyleBackColor = false;
+            this.btnFTTDonHang.Click += new System.EventHandler(this.btnFTTDonHang_Click);
             // 
             // btnFormHoaDon
             // 
@@ -461,6 +466,7 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // btnFPhanCong
             // 
@@ -581,6 +587,7 @@
             this.pnNguonLuc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

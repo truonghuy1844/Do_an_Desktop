@@ -11,7 +11,7 @@ namespace PC_GUI.DAL
     {
         public bool Kiem_Tra_QuanLy(DTONV nvien)
         {
-            QLMHEntities2 qlmh = new QLMHEntities2();
+            QLMHEntities3 qlmh = new QLMHEntities3();
             
             NHANVIEN check = qlmh.NHANVIENs.FirstOrDefault(s => s.MaNV == nvien.MaNV);
             if (check != null) 
@@ -21,7 +21,7 @@ namespace PC_GUI.DAL
         }
         public bool Kiem_Tra_PhongBan(DTONV nvien) 
         {
-            QLMHEntities2 qlmh = new QLMHEntities2();
+            QLMHEntities3 qlmh = new QLMHEntities3();
 
             NHANVIEN check = qlmh.NHANVIENs.FirstOrDefault(s => s.MaNV == nvien.MaNV);
             if (check != null)
