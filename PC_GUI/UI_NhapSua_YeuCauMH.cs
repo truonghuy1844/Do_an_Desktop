@@ -411,5 +411,10 @@ namespace PC_GUI
         {
            
         }
+
+        private void lb_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

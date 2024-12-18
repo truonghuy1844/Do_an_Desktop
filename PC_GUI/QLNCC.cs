@@ -12,7 +12,7 @@ using PC_DTO;
 
 namespace PC_GUI
 {
-    public partial class QLNCC : Form
+    public partial class QLNCC : UserControl
     {
         BLLNCC bLLNCC = new BLLNCC();
         public QLNCC()

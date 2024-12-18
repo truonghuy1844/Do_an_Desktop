@@ -333,25 +333,25 @@
       <DependentUpon>DSDG_SPDMH.cs</DependentUpon>
     </Compile>
     <Compile Include="PCCV.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PCCV.Designer.cs">
       <DependentUpon>PCCV.cs</DependentUpon>
     </Compile>
     <Compile Include="PCCV_NV.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PCCV_NV.Designer.cs">
       <DependentUpon>PCCV_NV.cs</DependentUpon>
     </Compile>
     <Compile Include="QLDGNCC.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="QLDGNCC.Designer.cs">
       <DependentUpon>QLDGNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="QLNCC.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="QLKho.cs">

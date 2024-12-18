@@ -226,6 +226,7 @@
             this.btnFThongTinNCC.Text = "Thông tin NCC";
             this.btnFThongTinNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFThongTinNCC.UseVisualStyleBackColor = false;
+            this.btnFThongTinNCC.Click += new System.EventHandler(this.btnFThongTinNCC_Click);
             // 
             // btnFDanhGiaNCC
             // 
@@ -244,6 +245,7 @@
             this.btnFDanhGiaNCC.Text = "Đánh giá NCC";
             this.btnFDanhGiaNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFDanhGiaNCC.UseVisualStyleBackColor = false;
+            this.btnFDanhGiaNCC.Click += new System.EventHandler(this.btnFDanhGiaNCC_Click);
             // 
             // btnSanPham
             // 
@@ -386,7 +388,7 @@
             this.pnDonHang.MaximumSize = new System.Drawing.Size(474, 262);
             this.pnDonHang.MinimumSize = new System.Drawing.Size(474, 112);
             this.pnDonHang.Name = "pnDonHang";
-            this.pnDonHang.Size = new System.Drawing.Size(474, 262);
+            this.pnDonHang.Size = new System.Drawing.Size(474, 112);
             this.pnDonHang.TabIndex = 7;
             // 
             // pictureBox2
@@ -470,7 +472,7 @@
             this.btnFormHoaDon.ForeColor = System.Drawing.Color.White;
             this.btnFormHoaDon.Image = global::PC_GUI.Properties.Resources.icons8_test_results_50;
             this.btnFormHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormHoaDon.Location = new System.Drawing.Point(4, 769);
+            this.btnFormHoaDon.Location = new System.Drawing.Point(4, 619);
             this.btnFormHoaDon.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnFormHoaDon.Name = "btnFormHoaDon";
             this.btnFormHoaDon.Size = new System.Drawing.Size(474, 109);
@@ -489,7 +491,7 @@
             this.pnNguonLuc.Controls.Add(this.btnFNhanVien);
             this.pnNguonLuc.Controls.Add(this.btnFormNguonLuc);
             this.pnNguonLuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(65)))), ((int)(((byte)(100)))));
-            this.pnNguonLuc.Location = new System.Drawing.Point(4, 888);
+            this.pnNguonLuc.Location = new System.Drawing.Point(4, 738);
             this.pnNguonLuc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnNguonLuc.MaximumSize = new System.Drawing.Size(474, 364);
             this.pnNguonLuc.MinimumSize = new System.Drawing.Size(474, 112);
@@ -526,6 +528,7 @@
             this.btnFPhanCong.Text = "Phân công";
             this.btnFPhanCong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFPhanCong.UseVisualStyleBackColor = false;
+            this.btnFPhanCong.Click += new System.EventHandler(this.btnFPhanCong_Click);
             // 
             // btnFKho
             // 
@@ -596,7 +599,7 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::PC_GUI.Properties.Resources.icons8_move_up_50;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(4, 1010);
+            this.btnLogOut.Location = new System.Drawing.Point(4, 860);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(474, 109);
@@ -611,8 +614,9 @@
             // 
             this.panel1.Location = new System.Drawing.Point(513, 75);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1620, 1461);
+            this.panel1.Size = new System.Drawing.Size(1800, 1600);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // frmMainForm
             // 

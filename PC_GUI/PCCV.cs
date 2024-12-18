@@ -14,7 +14,7 @@ using PC_GUI.DAL;
 
 namespace PC_GUI
 {
-    public partial class PCCV : Form
+    public partial class PCCV : UserControl
     {
         BLL_PhanCong bllphancong = new BLL_PhanCong();
         public PCCV()

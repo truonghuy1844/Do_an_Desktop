@@ -77,12 +77,13 @@
             this.dataGridViewDGNCC.Name = "dataGridViewDGNCC";
             this.dataGridViewDGNCC.RowHeadersWidth = 51;
             this.dataGridViewDGNCC.RowTemplate.Height = 24;
+            this.dataGridViewDGNCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDGNCC.Size = new System.Drawing.Size(813, 367);
             this.dataGridViewDGNCC.TabIndex = 2;
             this.dataGridViewDGNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDGNCC_CellClick);
             this.dataGridViewDGNCC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDGNCC_CellClick);
             this.dataGridViewDGNCC.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDGNCC_CellDoubleClick);
-            this.dataGridViewDGNCC.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDGNCC_CellClick);
+            this.dataGridViewDGNCC.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDGNCC_CellDoubleClick);
             // 
             // label1
             // 
@@ -328,7 +329,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1438, 931);
             this.Controls.Add(this.checkedListBoxTieuChi);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnReset);
@@ -351,7 +351,7 @@
             this.Controls.Add(this.dataGridViewDGNCC);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QLDGNCC";
-            this.Text = "QLDGNCC";
+            this.Size = new System.Drawing.Size(1438, 931);
             this.Load += new System.EventHandler(this.QLDGNCC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDGNCC)).EndInit();
             this.groupBox1.ResumeLayout(false);
