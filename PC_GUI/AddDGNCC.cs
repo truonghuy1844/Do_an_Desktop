@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PC_BLL;
+using PC_GUI.BLL;
 using PC_DTO;
 
 namespace PC_GUI
@@ -241,17 +241,17 @@ namespace PC_GUI
                     }
                 }
                 DateTime? frmDate = null, toDate = null;
-                if (comboBoxTieuChiDanhGia.SelectedValue?.ToString() == "Theo ngày tùy chọn")
-                {
-                    frmDate = dateTimePickerStart.Value;
-                    toDate = dateTimePickerEnd.Value;
-                }
-                bLLNCC.AddDGNCC(addDGNCC, maNCC, listDGSP, frmDate,toDate);
-                bLLNCC.AddDGNCC_SPDMH(maDGNCC, maNCC, listDGSP, frmDate, toDate);
+                //if (comboBoxTieuChiDanhGia.SelectedValue?.ToString() == "Theo ngày tùy chọn")
+                //{
+                //    frmDate = dateTimePickerStart.Value;
+                //    toDate = dateTimePickerEnd.Value;
+                //}
+                //bLLNCC.AddDGNCC(addDGNCC, maNCC, listDGSP, frmDate,toDate);
+                //bLLNCC.AddDGNCC_SPDMH(maDGNCC, maNCC, listDGSP, frmDate, toDate);
 
-                MessageBox.Show("Thêm đánh giá nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK);
-                ResetField();
-                HideDynamicControls();
+                //MessageBox.Show("Thêm đánh giá nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK);
+                //ResetField();
+                //HideDynamicControls();
             }
             catch (Exception ex)
             {

@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

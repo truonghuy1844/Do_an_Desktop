@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PC_BLL;
+using PC_GUI.BLL;
 using PC_DTO;
 
 namespace PC_GUI
@@ -143,11 +143,11 @@ namespace PC_GUI
 
             if (e.RowIndex >= 0)
             {
-                var selectedRow = dataGridViewDGNCC.Rows[e.RowIndex];
-                string maDGNCC = selectedRow.Cells["maDGNCC"].Value.ToString();
+                //var selectedRow = dataGridViewDGNCC.Rows[e.RowIndex];
+                //string maDGNCC = selectedRow.Cells["maDGNCC"].Value.ToString();
 
-                DSDG_SPDMH dSDG = new DSDG_SPDMH(maDGNCC);
-                dSDG.ShowDialog();
+                ////DSDG_SPDMH dSDG = new DSDG_SPDMH(maDGNCC);
+                //dSDG.ShowDialog();
             }
         }
 
@@ -156,5 +156,7 @@ namespace PC_GUI
             ReportDGNCC reportDGNCC = new ReportDGNCC();
             reportDGNCC.ShowDialog();
         }
+
+        
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PC_BLL;
+using PC_GUI.BLL;
 using PC_DTO;
 
 namespace PC_GUI
@@ -115,32 +115,32 @@ namespace PC_GUI
             }
             else
             {
-                DTODGNCC xoaDG = new DTODGNCC
-                {
-                    MaDGNCC = txtMaDGNCC.Text.Trim(),
-                    MaNV = txtMaNV.Text.Trim(),
-                    MaNCC = txtMaNCC.Text.Trim(),
-                    TieuChiDanhGia = txtTieuChiDanhGia.Text.Trim()
-                };
-                bLLNCC.XoaDGNCC(maDGNCC, listDGSP);
+                //DTODGNCC xoaDG = new DTODGNCC
+                //{
+                //    MaDGNCC = txtMaDGNCC.Text.Trim(),
+                //    MaNV = txtMaNV.Text.Trim(),
+                //    MaNCC = txtMaNCC.Text.Trim(),
+                //    TieuChiDanhGia = txtTieuChiDanhGia.Text.Trim()
+                //};
+                //bLLNCC.XoaDGNCC(maDGNCC, listDGSP);
                 
-                MessageBox.Show("Xóa đánh giá nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK);
-                ResetField();
+                //MessageBox.Show("Xóa đánh giá nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK);
+                //ResetField();
             }
         }
 
         private void txtTieuChiDanhGia_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                string maDGNCC = txtMaDGNCC.Text.Trim();
-                    dataGridViewDSDMH.DataSource = bLLNCC.LoadDMHChon(maDGNCC);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dataGridViewDSDMH.DataSource = null;
-            }
+            //try
+            //{
+            //    string maDGNCC = txtMaDGNCC.Text.Trim();
+            //        dataGridViewDSDMH.DataSource = bLLNCC.LoadDMHChon(maDGNCC);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    dataGridViewDSDMH.DataSource = null;
+            //}
         }
     }
 }

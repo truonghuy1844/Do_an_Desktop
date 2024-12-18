@@ -86,59 +86,59 @@ namespace PC_GUI
             // 
             // radioButtonNu
             // 
-            this.radioButtonNu.AutoSize = true;
-            this.radioButtonNu.Location = new System.Drawing.Point(212, 277);
-            this.radioButtonNu.Name = "radioButtonNu";
-            this.radioButtonNu.Size = new System.Drawing.Size(45, 20);
-            this.radioButtonNu.TabIndex = 50;
-            this.radioButtonNu.TabStop = true;
-            this.radioButtonNu.Text = "Nữ";
-            this.radioButtonNu.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonNam
-            // 
-            this.radioButtonNam.AutoSize = true;
-            this.radioButtonNam.Location = new System.Drawing.Point(149, 277);
-            this.radioButtonNam.Name = "radioButtonNam";
-            this.radioButtonNam.Size = new System.Drawing.Size(57, 20);
-            this.radioButtonNam.TabIndex = 49;
-            this.radioButtonNam.TabStop = true;
-            this.radioButtonNam.Text = "Nam";
-            this.radioButtonNam.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxPhongBan
-            // 
-            this.comboBoxPhongBan.FormattingEnabled = true;
-            this.comboBoxPhongBan.Location = new System.Drawing.Point(521, 237);
-            this.comboBoxPhongBan.Name = "comboBoxPhongBan";
-            this.comboBoxPhongBan.Size = new System.Drawing.Size(247, 24);
-            this.comboBoxPhongBan.TabIndex = 48;
-            // 
-            // comboBoxChucVu
-            // 
-            this.comboBoxChucVu.FormattingEnabled = true;
-            this.comboBoxChucVu.Location = new System.Drawing.Point(521, 197);
-            this.comboBoxChucVu.Name = "comboBoxChucVu";
-            this.comboBoxChucVu.Size = new System.Drawing.Size(247, 24);
-            this.comboBoxChucVu.TabIndex = 47;
+            //this.radioButtonNu.AutoSize = true;
+            //this.radioButtonNu.Location = new System.Drawing.Point(212, 277);
+            //this.radioButtonNu.Name = "radioButtonNu";
+            //this.radioButtonNu.Size = new System.Drawing.Size(45, 20);
+            //this.radioButtonNu.TabIndex = 50;
+            //this.radioButtonNu.TabStop = true;
+            //this.radioButtonNu.Text = "Nữ";
+            //this.radioButtonNu.UseVisualStyleBackColor = true;
+            //// 
+            //// radioButtonNam
+            //// 
+            //this.radioButtonNam.AutoSize = true;
+            //this.radioButtonNam.Location = new System.Drawing.Point(149, 277);
+            //this.radioButtonNam.Name = "radioButtonNam";
+            //this.radioButtonNam.Size = new System.Drawing.Size(57, 20);
+            //this.radioButtonNam.TabIndex = 49;
+            //this.radioButtonNam.TabStop = true;
+            //this.radioButtonNam.Text = "Nam";
+            //this.radioButtonNam.UseVisualStyleBackColor = true;
+            //// 
+            //// comboBoxPhongBan
+            //// 
+            //this.comboBoxPhongBan.FormattingEnabled = true;
+            //this.comboBoxPhongBan.Location = new System.Drawing.Point(521, 237);
+            //this.comboBoxPhongBan.Name = "comboBoxPhongBan";
+            //this.comboBoxPhongBan.Size = new System.Drawing.Size(247, 24);
+            //this.comboBoxPhongBan.TabIndex = 48;
+            //// 
+            //// comboBoxChucVu
+            //// 
+            //this.comboBoxChucVu.FormattingEnabled = true;
+            //this.comboBoxChucVu.Location = new System.Drawing.Point(521, 197);
+            //this.comboBoxChucVu.Name = "comboBoxChucVu";
+            //this.comboBoxChucVu.Size = new System.Drawing.Size(247, 24);
+            //this.comboBoxChucVu.TabIndex = 47;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(434, 240);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 16);
-            this.label6.TabIndex = 46;
-            this.label6.Text = "Phòng ban:";
+            //this.label6.AutoSize = true;
+            //this.label6.Location = new System.Drawing.Point(434, 240);
+            //this.label6.Name = "label6";
+            //this.label6.Size = new System.Drawing.Size(75, 16);
+            //this.label6.TabIndex = 46;
+            //this.label6.Text = "Phòng ban:";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(452, 197);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 16);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Chức vụ:";
+            ///this.label7.AutoSize = true;
+            ///this.label7.Location = new System.Drawing.Point(452, 197);
+           /// this.label7.Name = "label7";
+            //this.label7.Size = new System.Drawing.Size(57, 16);
+           // this.label7.TabIndex = 45;
+           /// this.label7.Text = "Chức vụ:";
             // 
             // txtSDT
             // 
@@ -184,10 +184,10 @@ namespace PC_GUI
             // 
             // txtTenNV
             // 
-            this.txtTenNV.Location = new System.Drawing.Point(149, 194);
-            this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(244, 22);
-            this.txtTenNV.TabIndex = 39;
+            //this.txtTenNV.Location = new System.Drawing.Point(149, 194);
+            //this.txtTenNV.Name = "txtTenNV";
+            //this.txtTenNV.Size = new System.Drawing.Size(244, 22);
+            //this.txtTenNV.TabIndex = 39;
             // 
             // label3
             // 
@@ -200,10 +200,10 @@ namespace PC_GUI
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(149, 151);
-            this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(244, 22);
-            this.txtMaNV.TabIndex = 37;
+            //this.txtMaNV.Location = new System.Drawing.Point(149, 151);
+            //this.txtMaNV.Name = "txtMaNV";
+            //this.txtMaNV.Size = new System.Drawing.Size(244, 22);
+            //this.txtMaNV.TabIndex = 37;
             // 
             // label2
             // 

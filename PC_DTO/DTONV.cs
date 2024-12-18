@@ -23,4 +23,14 @@ namespace PC_DTO
         public string ChucVu { get; set; }
         public string PhongBan { get; set; }
     }
+    public class DTOChucVu
+    {
+        private string chucVu;
+        public string ChucVu { get; set; }
+    }
+    public class DTOPhongBan
+    {
+        private string phongBan;
+        public string PhongBan { get; set; }
+    }
 }
