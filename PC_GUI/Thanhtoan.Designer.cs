@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,16 +39,8 @@
             this.txtTrangthai = new System.Windows.Forms.TextBox();
             this.btnThuchien = new System.Windows.Forms.Button();
             this.btnCapnhat = new System.Windows.Forms.Button();
+            this.txtNgayTT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(212, 237);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(6);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(396, 31);
-            this.dateTimePicker1.TabIndex = 49;
-            this.dateTimePicker1.Value = new System.DateTime(2024, 12, 9, 22, 17, 11, 0);
             // 
             // label3
             // 
@@ -158,11 +149,19 @@
             this.btnCapnhat.UseVisualStyleBackColor = true;
             this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
             // 
+            // txtNgayTT
+            // 
+            this.txtNgayTT.Location = new System.Drawing.Point(212, 234);
+            this.txtNgayTT.Name = "txtNgayTT";
+            this.txtNgayTT.Size = new System.Drawing.Size(275, 31);
+            this.txtNgayTT.TabIndex = 75;
+            // 
             // Thanhtoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1774, 1259);
+            this.Controls.Add(this.txtNgayTT);
             this.Controls.Add(this.btnThuchien);
             this.Controls.Add(this.txtTrangthai);
             this.Controls.Add(this.txtSotien);
@@ -171,7 +170,6 @@
             this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.txtMaTT);
             this.Controls.Add(this.btnCapnhat);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -185,7 +183,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -197,5 +194,6 @@
         private System.Windows.Forms.TextBox txtTrangthai;
         private System.Windows.Forms.Button btnThuchien;
         private System.Windows.Forms.Button btnCapnhat;
+        private System.Windows.Forms.TextBox txtNgayTT;
     }
 }

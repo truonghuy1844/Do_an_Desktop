@@ -12,15 +12,7 @@ namespace PC_BLL
     public class BLLThanhtoan
     {
         public DALThanhtoan dalThanhtoan = new DALThanhtoan();
-        public DataTable LoadData()
-        {
-            return dalThanhtoan.LoadData();
-        }
-        public bool Taothanhtoan(DTOThanhtoan tt)
-        {
-
-            return dalThanhtoan.Taothanhtoan (tt);
-        }
+       
         public bool Kiemtramatt(string matt)
         {
             return dalThanhtoan.Kiemtramatt(matt);
@@ -30,15 +22,7 @@ namespace PC_BLL
             return dalThanhtoan.Capnhatthanhtoan(tt);
         }
 
-        public bool Xoathanhtoan(DTOThanhtoan tt)
-        {
-            return dalThanhtoan.Xoathanhtoan(tt);
-        }
-
-        public DataTable Timthanhtoan(string tukhoa)
-        {
-            return dalThanhtoan.Timthanhtoan(tukhoa);
-        }
+       
         public DataTable Thuchien(string mahd)
         {
             return dalThanhtoan.Thuchien(mahd);

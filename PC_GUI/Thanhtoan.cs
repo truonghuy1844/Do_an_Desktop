@@ -29,13 +29,12 @@ namespace PC_GUI
         }
         private void Thanhtoan_Load(object sender, EventArgs e)
         {
-           ///// Truy vấn hóa đơn có mã hóa đơn là mahd => Gán DTOThanhToan
-           ///Từ DTO gán Gán text box
+            
 
             txtSotien.Enabled = false;
             txtTrangthai.Enabled = false;
             txtTrangthai.Enabled = false;
-            dateTimePicker1.Enabled = false;
+            txtNgayTT.Enabled = false;
             txtMaTT.Enabled = false;
             txtMaHD.Enabled = false;
 
@@ -43,9 +42,9 @@ namespace PC_GUI
             DataTable dt = bllThanhtoan.LoadThanhtoan(mahd);
 
             {
-                txtMaTT.Text= dt.Rows[0]["MaTT"].ToString();
-                txtTrangthai.Text= dt.Rows[0]["TrangThai"].ToString();
-                
+                txtMaTT.Text = dt.Rows[0]["MaTT"].ToString();
+                txtTrangthai.Text = dt.Rows[0]["TrangThai"].ToString();
+
 
             }
 
@@ -77,13 +76,15 @@ namespace PC_GUI
             {
                 bool okTao = true;
 
+                DateTime.TryParse(txtNgayTT.Text, out DateTime ngayThanhToan);
 
-
-                if (dateTimePicker1.Value > DateTime.Now)
+                if (ngayThanhToan>DateTime.Now)
+                    
+                      
                 {
                     okTao = false;
                     MessageBox.Show("Ngày không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
-                    dateTimePicker1.Focus();
+                    txtNgayTT.Focus();
                 }
                 if (!txtMaHD.Text.All(char.IsDigit))
                 {
@@ -102,7 +103,7 @@ namespace PC_GUI
                 {
                     DTOThanhtoan ttmoi = new DTOThanhtoan();
                     ttmoi.MaHD = txtMaHD.Text;
-                    ttmoi.NgayTT = dateTimePicker1.Value;
+                    ttmoi.NgayTT = ngayThanhToan;
                     ttmoi.MaTT = txtMaTT.Text;
                     ttmoi.TrangThai = txtTrangthai.Text;
                     if (bllThanhtoan.Capnhatthanhtoan(ttmoi))
