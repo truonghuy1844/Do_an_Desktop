@@ -12,13 +12,28 @@ using PC_DTO;
 
 namespace PC_GUI
 {
-    public partial class QLDGNCC : Form
+    public partial class QLDGNCC : UserControl
     {
 
         BLLNCC bLLNCC = new BLLNCC();
-        public QLDGNCC()
+        public DTONV nv_DN = new DTONV();
+        public QLDGNCC(DTONV nvien)
         {
             InitializeComponent();
+            nv_DN.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv_DN);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv_DN);
+            if (!KiemTraPhongBan)
+            {
+                btnThem.Enabled = false;
+                btnXoa.Enabled = false;
+            }
+            else if (!KiemTraChucVu)
+            {
+                btnXoa.Enabled = false;
+            }
         }
 
         private void QLDGNCC_Load(object sender, EventArgs e)

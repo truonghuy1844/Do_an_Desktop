@@ -345,13 +345,13 @@
       <DependentUpon>PCCV_NV.cs</DependentUpon>
     </Compile>
     <Compile Include="QLDGNCC.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="QLDGNCC.Designer.cs">
       <DependentUpon>QLDGNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="QLNCC.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="QLKho.cs">
