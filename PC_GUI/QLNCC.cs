@@ -23,6 +23,7 @@ namespace PC_GUI
         private void QLNCC_Load(object sender, EventArgs e)
         {
             dataGridViewDSNCC.DataSource = bLLNCC.LoadNCC();
+            dataGridViewDSNCC.ReadOnly = true;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)

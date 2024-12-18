@@ -55,16 +55,19 @@
             this.txtNgayDuyet = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtGiaTriUocTinh = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTuChoi
             // 
             this.btnTuChoi.AutoSize = true;
-            this.btnTuChoi.Location = new System.Drawing.Point(951, 219);
+            this.btnTuChoi.Location = new System.Drawing.Point(42, 180);
             this.btnTuChoi.Name = "btnTuChoi";
-            this.btnTuChoi.Size = new System.Drawing.Size(250, 35);
+            this.btnTuChoi.Size = new System.Drawing.Size(264, 48);
             this.btnTuChoi.TabIndex = 81;
             this.btnTuChoi.Text = "Từ chối";
             this.btnTuChoi.UseVisualStyleBackColor = true;
@@ -73,9 +76,9 @@
             // btnDuyet
             // 
             this.btnDuyet.AutoSize = true;
-            this.btnDuyet.Location = new System.Drawing.Point(951, 166);
+            this.btnDuyet.Location = new System.Drawing.Point(42, 116);
             this.btnDuyet.Name = "btnDuyet";
-            this.btnDuyet.Size = new System.Drawing.Size(250, 35);
+            this.btnDuyet.Size = new System.Drawing.Size(264, 41);
             this.btnDuyet.TabIndex = 80;
             this.btnDuyet.Text = "Duyệt";
             this.btnDuyet.UseVisualStyleBackColor = true;
@@ -83,16 +86,16 @@
             // 
             // txtSoSP
             // 
-            this.txtSoSP.Location = new System.Drawing.Point(263, 160);
+            this.txtSoSP.Location = new System.Drawing.Point(362, 221);
             this.txtSoSP.Name = "txtSoSP";
-            this.txtSoSP.Size = new System.Drawing.Size(237, 31);
+            this.txtSoSP.Size = new System.Drawing.Size(370, 31);
             this.txtSoSP.TabIndex = 87;
             // 
             // btnHienThi
             // 
-            this.btnHienThi.Location = new System.Drawing.Point(951, 103);
+            this.btnHienThi.Location = new System.Drawing.Point(42, 43);
             this.btnHienThi.Name = "btnHienThi";
-            this.btnHienThi.Size = new System.Drawing.Size(250, 40);
+            this.btnHienThi.Size = new System.Drawing.Size(264, 47);
             this.btnHienThi.TabIndex = 82;
             this.btnHienThi.Text = "Hiển thị";
             this.btnHienThi.UseVisualStyleBackColor = true;
@@ -101,7 +104,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(119, 166);
+            this.label8.Location = new System.Drawing.Point(218, 227);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(138, 25);
             this.label8.TabIndex = 86;
@@ -109,25 +112,25 @@
             // 
             // txtBoPhanYC
             // 
-            this.txtBoPhanYC.Location = new System.Drawing.Point(715, 108);
+            this.txtBoPhanYC.Location = new System.Drawing.Point(943, 172);
             this.txtBoPhanYC.Name = "txtBoPhanYC";
-            this.txtBoPhanYC.Size = new System.Drawing.Size(224, 31);
+            this.txtBoPhanYC.Size = new System.Drawing.Size(364, 31);
             this.txtBoPhanYC.TabIndex = 84;
             this.txtBoPhanYC.TextChanged += new System.EventHandler(this.txtBoPhanYC_TextChanged);
             // 
             // txtTinhTrang
             // 
-            this.txtTinhTrang.Location = new System.Drawing.Point(263, 218);
+            this.txtTinhTrang.Location = new System.Drawing.Point(362, 279);
             this.txtTinhTrang.Name = "txtTinhTrang";
-            this.txtTinhTrang.Size = new System.Drawing.Size(238, 31);
+            this.txtTinhTrang.Size = new System.Drawing.Size(371, 31);
             this.txtTinhTrang.TabIndex = 79;
             this.txtTinhTrang.TextChanged += new System.EventHandler(this.txtTinhTrang_TextChanged);
             // 
             // txtMaYC
             // 
-            this.txtMaYC.Location = new System.Drawing.Point(264, 108);
+            this.txtMaYC.Location = new System.Drawing.Point(363, 169);
             this.txtMaYC.Name = "txtMaYC";
-            this.txtMaYC.Size = new System.Drawing.Size(237, 31);
+            this.txtMaYC.Size = new System.Drawing.Size(370, 31);
             this.txtMaYC.TabIndex = 78;
             this.txtMaYC.TextChanged += new System.EventHandler(this.txtMaYC_TextChanged);
             // 
@@ -143,7 +146,7 @@
             this.groupBox1.Controls.Add(this.datetimepickerStart);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.datetimepickerEnd);
-            this.groupBox1.Location = new System.Drawing.Point(44, 270);
+            this.groupBox1.Location = new System.Drawing.Point(214, 343);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1214, 137);
             this.groupBox1.TabIndex = 77;
@@ -247,12 +250,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 434);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 533);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1279, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(1747, 748);
             this.dataGridView1.TabIndex = 76;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -262,7 +265,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 218);
+            this.label1.Location = new System.Drawing.Point(174, 279);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 25);
             this.label1.TabIndex = 75;
@@ -271,7 +274,7 @@
             // lb
             // 
             this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(526, 111);
+            this.lb.Location = new System.Drawing.Point(751, 172);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(174, 25);
             this.lb.TabIndex = 74;
@@ -280,7 +283,7 @@
             // lbMaYC
             // 
             this.lbMaYC.AutoSize = true;
-            this.lbMaYC.Location = new System.Drawing.Point(119, 111);
+            this.lbMaYC.Location = new System.Drawing.Point(218, 172);
             this.lbMaYC.Name = "lbMaYC";
             this.lbMaYC.Size = new System.Drawing.Size(124, 25);
             this.lbMaYC.TabIndex = 73;
@@ -289,7 +292,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(579, 221);
+            this.label6.Location = new System.Drawing.Point(804, 282);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 25);
             this.label6.TabIndex = 88;
@@ -297,15 +300,15 @@
             // 
             // txtNgayDuyet
             // 
-            this.txtNgayDuyet.Location = new System.Drawing.Point(715, 215);
+            this.txtNgayDuyet.Location = new System.Drawing.Point(943, 279);
             this.txtNgayDuyet.Name = "txtNgayDuyet";
-            this.txtNgayDuyet.Size = new System.Drawing.Size(224, 31);
+            this.txtNgayDuyet.Size = new System.Drawing.Size(364, 31);
             this.txtNgayDuyet.TabIndex = 89;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(549, 160);
+            this.label7.Location = new System.Drawing.Point(774, 221);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(151, 25);
             this.label7.TabIndex = 91;
@@ -313,23 +316,32 @@
             // 
             // txtGiaTriUocTinh
             // 
-            this.txtGiaTriUocTinh.Location = new System.Drawing.Point(715, 157);
+            this.txtGiaTriUocTinh.Location = new System.Drawing.Point(943, 221);
             this.txtGiaTriUocTinh.Name = "txtGiaTriUocTinh";
-            this.txtGiaTriUocTinh.Size = new System.Drawing.Size(224, 31);
+            this.txtGiaTriUocTinh.Size = new System.Drawing.Size(364, 31);
             this.txtGiaTriUocTinh.TabIndex = 92;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnHienThi);
+            this.groupBox2.Controls.Add(this.btnDuyet);
+            this.groupBox2.Controls.Add(this.btnTuChoi);
+            this.groupBox2.Location = new System.Drawing.Point(1334, 88);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(329, 240);
+            this.groupBox2.TabIndex = 93;
+            this.groupBox2.TabStop = false;
             // 
             // UI_YeuCauMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtGiaTriUocTinh);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtNgayDuyet);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnTuChoi);
-            this.Controls.Add(this.btnDuyet);
             this.Controls.Add(this.txtSoSP);
-            this.Controls.Add(this.btnHienThi);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtBoPhanYC);
             this.Controls.Add(this.txtTinhTrang);
@@ -340,11 +352,13 @@
             this.Controls.Add(this.lb);
             this.Controls.Add(this.lbMaYC);
             this.Name = "UI_YeuCauMH";
-            this.Size = new System.Drawing.Size(1303, 844);
+            this.Size = new System.Drawing.Size(1800, 1330);
             this.Load += new System.EventHandler(this.UI_YeuCauMH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +393,7 @@
         private System.Windows.Forms.TextBox txtNgayDuyet;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtGiaTriUocTinh;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

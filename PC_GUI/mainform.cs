@@ -22,6 +22,8 @@ namespace PC_GUI
             InitializeComponent();
             pnMenuDoc.Size = pnMenuDoc.MinimumSize;
             nv_DN = nhanVien;
+            this.Size = new System.Drawing.Size(915, 720);
+            
         }
 
         #region Xử lý submenu
@@ -101,7 +103,7 @@ namespace PC_GUI
 
         private void frmMainForm_Load(object sender, EventArgs e)
         {
-
+            panel1.Size = new System.Drawing.Size(1200, 1000);
         }
 
         private void btnFormBG_Click(object sender, EventArgs e)
@@ -131,7 +133,9 @@ namespace PC_GUI
 
         private void btnFDieuChinhYCM_Click(object sender, EventArgs e)
         {
+            
             panel1.Controls.Clear();
+            
             UI_NhapSua_YeuCauMH ui = new UI_NhapSua_YeuCauMH(nv_DN);
             panel1.Controls.Add(ui);
             panel1.Dock = DockStyle.Fill;

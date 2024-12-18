@@ -53,6 +53,7 @@ namespace PC_GUI
             comboBoxSucChua.Items.Add("80 - 150 tấn");
             comboBoxSucChua.Items.Add("> 150 tấn");
             comboBoxSucChua.SelectedIndex = -1;
+            dataGridViewDSKho.ReadOnly = true;
         }
         private void ApplyFilters()
         {

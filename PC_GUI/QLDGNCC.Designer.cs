@@ -61,7 +61,7 @@
             // lbTT
             // 
             this.lbTT.AutoSize = true;
-            this.lbTT.Location = new System.Drawing.Point(32, 31);
+            this.lbTT.Location = new System.Drawing.Point(38, 111);
             this.lbTT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTT.Name = "lbTT";
             this.lbTT.Size = new System.Drawing.Size(327, 25);
@@ -71,14 +71,16 @@
             // 
             // dataGridViewDGNCC
             // 
+            this.dataGridViewDGNCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDGNCC.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewDGNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDGNCC.Location = new System.Drawing.Point(36, 77);
+            this.dataGridViewDGNCC.Location = new System.Drawing.Point(42, 157);
             this.dataGridViewDGNCC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewDGNCC.Name = "dataGridViewDGNCC";
             this.dataGridViewDGNCC.RowHeadersWidth = 51;
             this.dataGridViewDGNCC.RowTemplate.Height = 24;
             this.dataGridViewDGNCC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDGNCC.Size = new System.Drawing.Size(813, 367);
+            this.dataGridViewDGNCC.Size = new System.Drawing.Size(881, 446);
             this.dataGridViewDGNCC.TabIndex = 2;
             this.dataGridViewDGNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDGNCC_CellClick);
             this.dataGridViewDGNCC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDGNCC_CellClick);
@@ -88,7 +90,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 467);
+            this.label1.Location = new System.Drawing.Point(202, 687);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 25);
@@ -97,7 +99,7 @@
             // 
             // dateTimePickerFrom
             // 
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(1060, 492);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(1234, 723);
             this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(336, 31);
@@ -106,7 +108,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1064, 461);
+            this.label5.Location = new System.Drawing.Point(1238, 681);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 25);
@@ -119,7 +121,7 @@
             this.groupBox1.Controls.Add(this.btnLoad);
             this.groupBox1.Controls.Add(this.btnXoa);
             this.groupBox1.Controls.Add(this.btnThem);
-            this.groupBox1.Location = new System.Drawing.Point(36, 719);
+            this.groupBox1.Location = new System.Drawing.Point(264, 1025);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -186,7 +188,7 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(1119, 670);
+            this.btnTim.Location = new System.Drawing.Point(1293, 901);
             this.btnTim.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(177, 36);
@@ -197,7 +199,7 @@
             // 
             // txtTim
             // 
-            this.txtTim.Location = new System.Drawing.Point(105, 672);
+            this.txtTim.Location = new System.Drawing.Point(279, 903);
             this.txtTim.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(966, 31);
@@ -206,7 +208,7 @@
             // comboBoxMucDo
             // 
             this.comboBoxMucDo.FormattingEnabled = true;
-            this.comboBoxMucDo.Location = new System.Drawing.Point(812, 498);
+            this.comboBoxMucDo.Location = new System.Drawing.Point(986, 729);
             this.comboBoxMucDo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxMucDo.Name = "comboBoxMucDo";
             this.comboBoxMucDo.Size = new System.Drawing.Size(157, 33);
@@ -215,7 +217,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(807, 467);
+            this.label6.Location = new System.Drawing.Point(981, 687);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(178, 25);
@@ -225,7 +227,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(105, 641);
+            this.label7.Location = new System.Drawing.Point(279, 872);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(670, 25);
@@ -235,7 +237,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(884, 31);
+            this.label8.Location = new System.Drawing.Point(1005, 111);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(238, 25);
@@ -246,18 +248,18 @@
             // dataGridViewNCC
             // 
             this.dataGridViewNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewNCC.Location = new System.Drawing.Point(884, 77);
+            this.dataGridViewNCC.Location = new System.Drawing.Point(1005, 157);
             this.dataGridViewNCC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewNCC.Name = "dataGridViewNCC";
             this.dataGridViewNCC.RowHeadersWidth = 51;
             this.dataGridViewNCC.RowTemplate.Height = 24;
-            this.dataGridViewNCC.Size = new System.Drawing.Size(537, 141);
+            this.dataGridViewNCC.Size = new System.Drawing.Size(739, 181);
             this.dataGridViewNCC.TabIndex = 37;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(884, 259);
+            this.label9.Location = new System.Drawing.Point(1004, 379);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(291, 25);
@@ -268,18 +270,18 @@
             // dataGridViewNVDG
             // 
             this.dataGridViewNVDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewNVDG.Location = new System.Drawing.Point(884, 303);
+            this.dataGridViewNVDG.Location = new System.Drawing.Point(1005, 409);
             this.dataGridViewNVDG.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewNVDG.Name = "dataGridViewNVDG";
             this.dataGridViewNVDG.RowHeadersWidth = 51;
             this.dataGridViewNVDG.RowTemplate.Height = 24;
-            this.dataGridViewNVDG.Size = new System.Drawing.Size(537, 141);
+            this.dataGridViewNVDG.Size = new System.Drawing.Size(739, 194);
             this.dataGridViewNVDG.TabIndex = 39;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(1064, 541);
+            this.label10.Location = new System.Drawing.Point(1238, 772);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 25);
@@ -288,7 +290,7 @@
             // 
             // dateTimePickerTo
             // 
-            this.dateTimePickerTo.Location = new System.Drawing.Point(1060, 572);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(1234, 803);
             this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(336, 31);
@@ -296,7 +298,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(33, 498);
+            this.btnReset.Location = new System.Drawing.Point(207, 729);
             this.btnReset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(120, 88);
@@ -308,7 +310,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(168, 467);
+            this.label11.Location = new System.Drawing.Point(342, 687);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(183, 25);
@@ -318,7 +320,7 @@
             // checkedListBoxTieuChi
             // 
             this.checkedListBoxTieuChi.FormattingEnabled = true;
-            this.checkedListBoxTieuChi.Location = new System.Drawing.Point(380, 467);
+            this.checkedListBoxTieuChi.Location = new System.Drawing.Point(554, 698);
             this.checkedListBoxTieuChi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkedListBoxTieuChi.Name = "checkedListBoxTieuChi";
             this.checkedListBoxTieuChi.Size = new System.Drawing.Size(391, 116);
@@ -351,7 +353,7 @@
             this.Controls.Add(this.dataGridViewDGNCC);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QLDGNCC";
-            this.Size = new System.Drawing.Size(1438, 931);
+            this.Size = new System.Drawing.Size(1800, 1330);
             this.Load += new System.EventHandler(this.QLDGNCC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDGNCC)).EndInit();
             this.groupBox1.ResumeLayout(false);

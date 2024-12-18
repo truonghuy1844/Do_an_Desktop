@@ -49,13 +49,15 @@
             // 
             // dataGridViewDSKho
             // 
+            this.dataGridViewDSKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewDSKho.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewDSKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSKho.Location = new System.Drawing.Point(45, 19);
+            this.dataGridViewDSKho.Location = new System.Drawing.Point(44, 129);
             this.dataGridViewDSKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewDSKho.Name = "dataGridViewDSKho";
             this.dataGridViewDSKho.RowHeadersWidth = 51;
             this.dataGridViewDSKho.RowTemplate.Height = 24;
-            this.dataGridViewDSKho.Size = new System.Drawing.Size(1143, 417);
+            this.dataGridViewDSKho.Size = new System.Drawing.Size(1700, 676);
             this.dataGridViewDSKho.TabIndex = 0;
             // 
             // groupBox1
@@ -73,7 +75,7 @@
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.txtTim);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(45, 466);
+            this.groupBox1.Location = new System.Drawing.Point(335, 851);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -234,7 +236,7 @@
             this.Controls.Add(this.dataGridViewDSKho);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QLKho";
-            this.Size = new System.Drawing.Size(1221, 872);
+            this.Size = new System.Drawing.Size(1800, 1330);
             this.Load += new System.EventHandler(this.QLKho_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSKho)).EndInit();
             this.groupBox1.ResumeLayout(false);

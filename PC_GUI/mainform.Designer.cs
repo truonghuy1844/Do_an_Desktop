@@ -85,7 +85,7 @@
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(2133, 78);
+            this.pnTop.Size = new System.Drawing.Size(974, 78);
             this.pnTop.TabIndex = 0;
             this.pnTop.Paint += new System.Windows.Forms.PaintEventHandler(this.pnTop_Paint);
             // 
@@ -612,9 +612,11 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(513, 75);
+            this.panel1.AutoSize = true;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1800, 1600);
+            this.panel1.Size = new System.Drawing.Size(974, 729);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -623,10 +625,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(2133, 1527);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(974, 729);
             this.Controls.Add(this.pnMenuDoc);
             this.Controls.Add(this.pnTop);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -647,6 +649,7 @@
             this.pnNguonLuc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

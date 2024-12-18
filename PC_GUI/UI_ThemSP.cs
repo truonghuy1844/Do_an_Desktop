@@ -78,6 +78,7 @@ namespace PC_GUI
         private void UI_ThemSP_Load(object sender, EventArgs e)
         {
             Load_DGV_SP();
+            dataGridView1.ReadOnly = true;
             //ToolTIP
             toolTip1.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
             toolTip1.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây

@@ -27,6 +27,7 @@ namespace PC_GUI
             // Loại bỏ lựa chọn hàng mặc định
             dataGridViewPhancong.ClearSelection();
             dataGridViewPhancong.CurrentCell = null;
+            dataGridViewPhancong.ReadOnly = true;
 
             cbTenNV.DataSource = bllPhancong.loadtennv();
             cbTenNV.DisplayMember = "TenNV";
