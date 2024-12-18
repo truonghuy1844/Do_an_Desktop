@@ -15,7 +15,7 @@ using PC_GUI.DAL;
 
 namespace PC_GUI
 {
-    public partial class Danhgiadonhang : Form
+    public partial class Danhgiadonhang : UserControl
     {
         public string madm;
         public string masp;

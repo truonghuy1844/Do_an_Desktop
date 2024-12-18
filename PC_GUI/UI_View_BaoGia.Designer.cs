@@ -57,12 +57,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 414);
+            this.dataGridView1.Location = new System.Drawing.Point(38, 415);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1334, 470);
+            this.dataGridView1.Size = new System.Drawing.Size(1759, 874);
             this.dataGridView1.TabIndex = 72;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -70,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(180, 223);
+            this.label1.Location = new System.Drawing.Point(359, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 25);
             this.label1.TabIndex = 71;
@@ -79,7 +79,7 @@
             // lb
             // 
             this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(180, 165);
+            this.lb.Location = new System.Drawing.Point(359, 159);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(145, 25);
             this.lb.TabIndex = 70;
@@ -88,7 +88,7 @@
             // lbMaYC
             // 
             this.lbMaYC.AutoSize = true;
-            this.lbMaYC.Location = new System.Drawing.Point(180, 107);
+            this.lbMaYC.Location = new System.Drawing.Point(359, 101);
             this.lbMaYC.Name = "lbMaYC";
             this.lbMaYC.Size = new System.Drawing.Size(119, 25);
             this.lbMaYC.TabIndex = 69;
@@ -124,7 +124,7 @@
             this.btnLoc.AutoSize = true;
             this.btnLoc.Location = new System.Drawing.Point(1030, 36);
             this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(175, 35);
+            this.btnLoc.Size = new System.Drawing.Size(205, 35);
             this.btnLoc.TabIndex = 21;
             this.btnLoc.Text = "Lọc";
             this.btnLoc.UseVisualStyleBackColor = true;
@@ -132,16 +132,16 @@
             // 
             // txtNgayBG
             // 
-            this.txtNgayBG.Location = new System.Drawing.Point(360, 217);
+            this.txtNgayBG.Location = new System.Drawing.Point(539, 211);
             this.txtNgayBG.Name = "txtNgayBG";
-            this.txtNgayBG.Size = new System.Drawing.Size(573, 31);
+            this.txtNgayBG.Size = new System.Drawing.Size(629, 31);
             this.txtNgayBG.TabIndex = 76;
             // 
             // txtMaBG
             // 
-            this.txtMaBG.Location = new System.Drawing.Point(360, 107);
+            this.txtMaBG.Location = new System.Drawing.Point(539, 101);
             this.txtMaBG.Name = "txtMaBG";
-            this.txtMaBG.Size = new System.Drawing.Size(573, 31);
+            this.txtMaBG.Size = new System.Drawing.Size(629, 31);
             this.txtMaBG.TabIndex = 75;
             // 
             // cbLoc_NCC
@@ -199,9 +199,9 @@
             // 
             // btnHienThi
             // 
-            this.btnHienThi.Location = new System.Drawing.Point(979, 107);
+            this.btnHienThi.Location = new System.Drawing.Point(1244, 93);
             this.btnHienThi.Name = "btnHienThi";
-            this.btnHienThi.Size = new System.Drawing.Size(250, 40);
+            this.btnHienThi.Size = new System.Drawing.Size(271, 49);
             this.btnHienThi.TabIndex = 77;
             this.btnHienThi.Text = "Hiển thị";
             this.btnHienThi.UseVisualStyleBackColor = true;
@@ -219,9 +219,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.datetimepickerEnd);
             this.groupBox1.Controls.Add(this.datetimepickerStart);
-            this.groupBox1.Location = new System.Drawing.Point(82, 266);
+            this.groupBox1.Location = new System.Drawing.Point(261, 260);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1233, 129);
+            this.groupBox1.Size = new System.Drawing.Size(1296, 129);
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             // 
@@ -230,7 +230,7 @@
             this.btnLocKoTG.AutoSize = true;
             this.btnLocKoTG.Location = new System.Drawing.Point(1030, 80);
             this.btnLocKoTG.Name = "btnLocKoTG";
-            this.btnLocKoTG.Size = new System.Drawing.Size(175, 35);
+            this.btnLocKoTG.Size = new System.Drawing.Size(205, 35);
             this.btnLocKoTG.TabIndex = 24;
             this.btnLocKoTG.Text = "Lọc bỏ thời gian";
             this.btnLocKoTG.UseVisualStyleBackColor = true;
@@ -238,16 +238,16 @@
             // 
             // txtNCC
             // 
-            this.txtNCC.Location = new System.Drawing.Point(360, 166);
+            this.txtNCC.Location = new System.Drawing.Point(539, 156);
             this.txtNCC.Name = "txtNCC";
-            this.txtNCC.Size = new System.Drawing.Size(573, 31);
+            this.txtNCC.Size = new System.Drawing.Size(629, 31);
             this.txtNCC.TabIndex = 80;
             // 
             // btnTuyChinhBG
             // 
-            this.btnTuyChinhBG.Location = new System.Drawing.Point(979, 166);
+            this.btnTuyChinhBG.Location = new System.Drawing.Point(1244, 154);
             this.btnTuyChinhBG.Name = "btnTuyChinhBG";
-            this.btnTuyChinhBG.Size = new System.Drawing.Size(250, 40);
+            this.btnTuyChinhBG.Size = new System.Drawing.Size(271, 50);
             this.btnTuyChinhBG.TabIndex = 81;
             this.btnTuyChinhBG.Text = "Tùy chỉnh báo giá";
             this.btnTuyChinhBG.UseVisualStyleBackColor = true;
@@ -257,7 +257,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1358, 896);
             this.Controls.Add(this.btnTuyChinhBG);
             this.Controls.Add(this.txtNCC);
             this.Controls.Add(this.dataGridView1);
@@ -269,7 +268,7 @@
             this.Controls.Add(this.btnHienThi);
             this.Controls.Add(this.groupBox1);
             this.Name = "UI_View_BaoGia";
-            this.Text = "UI_View_BaoGia";
+            this.Size = new System.Drawing.Size(1800, 1330);
             this.Load += new System.EventHandler(this.UI_View_BaoGia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

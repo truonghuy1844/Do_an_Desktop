@@ -179,13 +179,13 @@
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
     <Compile Include="Danhgiadonhang.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Danhgiadonhang.Designer.cs">
       <DependentUpon>Danhgiadonhang.cs</DependentUpon>
     </Compile>
     <Compile Include="Danhgiadonhang_NV.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Danhgiadonhang_NV.Designer.cs">
       <DependentUpon>Danhgiadonhang_NV.cs</DependentUpon>
@@ -333,13 +333,13 @@
       <DependentUpon>DSDG_SPDMH.cs</DependentUpon>
     </Compile>
     <Compile Include="PCCV.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PCCV.Designer.cs">
       <DependentUpon>PCCV.cs</DependentUpon>
     </Compile>
     <Compile Include="PCCV_NV.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PCCV_NV.Designer.cs">
       <DependentUpon>PCCV_NV.cs</DependentUpon>

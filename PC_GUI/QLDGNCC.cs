@@ -40,6 +40,9 @@ namespace PC_GUI
         {
             dataGridViewDGNCC.DataSource = bLLNCC.LoadDGNCC();
             LoadCombobox();
+            dataGridViewDGNCC.ReadOnly = true;
+            dataGridViewNCC.ReadOnly = true;
+            dataGridViewNVDG.ReadOnly = true;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)

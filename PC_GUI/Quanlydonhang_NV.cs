@@ -115,6 +115,7 @@ namespace PC_GUI
             cbMaNCC.DataSource = loadnhacc();
             cbMaNCC.DisplayMember = "TenNCC";
             cbMaNCC.ValueMember = "MaNCC";
+            dataGridView2.ReadOnly = true;
 
             cbLoc.SelectedIndex = -1;
             btnLuu.Enabled = false;
@@ -564,5 +565,9 @@ namespace PC_GUI
             toolTip3.Hide(txtChietkhau);
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

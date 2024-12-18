@@ -118,6 +118,7 @@ namespace PC_GUI
             cbTrangThai.SelectedIndex = -1;
             cbLoc.SelectedIndex = -1;
             btnLuu.Enabled = false;
+            dataGridView1.ReadOnly = true;
 
             //load đơn hoàn tất và chờ xử lý 
             txtDonht.Text = bllDonmua.donhoantat().ToString();

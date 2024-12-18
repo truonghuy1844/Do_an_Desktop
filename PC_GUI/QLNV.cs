@@ -41,6 +41,7 @@ namespace PC_GUI
         {
             LoadComboBox();
             dataGridViewDSNV.DataSource = bLLNV.LoadNVBlL();
+            dataGridViewDSNV.ReadOnly = true;
         }
         private void LoadComboBox()
         {

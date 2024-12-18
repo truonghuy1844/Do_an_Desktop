@@ -14,7 +14,7 @@ using PC_GUI.DAL;
 
 namespace PC_GUI
 {
-    public partial class PCCV : Form
+    public partial class PCCV : UserControl
     {
         BLL_PhanCong bllphancong = new BLL_PhanCong();
         public PCCV()
@@ -37,6 +37,7 @@ namespace PC_GUI
             // Loại bỏ lựa chọn hàng mặc định
             dataGridViewPhancong.ClearSelection();
             dataGridViewPhancong.CurrentCell = null;
+            dataGridViewPhancong.ReadOnly = true;
 
             cbTenNV.DataSource = bllphancong.loadtennv();
             cbTenNV.DisplayMember = "TenNV";
