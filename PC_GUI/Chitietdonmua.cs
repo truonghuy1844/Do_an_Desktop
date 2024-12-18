@@ -339,17 +339,17 @@ namespace PC_GUI
         //Nút đánh giá sản phẩm chuyển sang form Đánh giá 
         private void btnDanhgiasp_Click(object sender, EventArgs e)
         {
-            if (dataGridViewChitiet.SelectedRows.Count > 0)
-            {
-                string madm = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
-                string masp = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
-                Danhgiadonhang danhgia = new Danhgiadonhang(madm, masp);
-                danhgia.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Hãy chọn 1 sản phẩm để đánh giá");
-            }
+            //if (dataGridViewChitiet.SelectedRows.Count > 0)
+            //{
+            //    string madm = dataGridViewChitiet.CurrentRow.Cells["MaDMH"].Value.ToString();
+            //    string masp = dataGridViewChitiet.CurrentRow.Cells["MaSP"].Value.ToString();
+            //    Danhgiadonhang danhgia = new Danhgiadonhang(madm, masp);
+            //    danhgia.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Hãy chọn 1 sản phẩm để đánh giá");
+            //}
         }
         //Nút tìm chi tiết đơn mua 
         private void btnTim_Click(object sender, EventArgs e)

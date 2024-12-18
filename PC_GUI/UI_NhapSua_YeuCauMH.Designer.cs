@@ -95,7 +95,7 @@
             this.dgvCT_YC.RowHeadersWidth = 82;
             this.dgvCT_YC.RowTemplate.Height = 33;
             this.dgvCT_YC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCT_YC.Size = new System.Drawing.Size(1181, 712);
+            this.dgvCT_YC.Size = new System.Drawing.Size(1181, 733);
             this.dgvCT_YC.TabIndex = 107;
             this.dgvCT_YC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
             this.dgvCT_YC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
@@ -147,7 +147,7 @@
             this.dgvYCMH.RowHeadersWidth = 20;
             this.dgvYCMH.RowTemplate.Height = 33;
             this.dgvYCMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvYCMH.Size = new System.Drawing.Size(607, 712);
+            this.dgvYCMH.Size = new System.Drawing.Size(607, 733);
             this.dgvYCMH.TabIndex = 97;
             this.dgvYCMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYCMH_CellContentClick);
             this.dgvYCMH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYCMH_CellContentClick);

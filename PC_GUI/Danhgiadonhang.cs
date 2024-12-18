@@ -17,22 +17,38 @@ namespace PC_GUI
 {
     public partial class Danhgiadonhang : UserControl
     {
-        public string madm;
-        public string masp;
-        public Danhgiadonhang(string madm, string masp)
+        
+        public Danhgiadonhang()
         {
             InitializeComponent();
-            this.madm = madm;
-            this.masp = masp;
+            
         }
         BLL_DonMuaHang bllDonmmua = new BLL_DonMuaHang();
 
+        //Load danh sách đơn mua
+        void load_DS_DMH()
+        {
+            QLMHEntities3 db = new QLMHEntities3();
+            var ctdg = from ds in db.DONMUAHANGs
+                       join ncc in db.NHACUNGCAPs
+                       on ds.MaNCC equals ncc.MaNCC                       
+                       select new
+                       {
+                           MaDMH = ds.MaDMH,
+                           MaNCC = ds.MaNCC,
+                           TenNCC = ncc.TenNCC,
+                           MoTa = ds.MoTa,
+                           TrangThai = ds.TThai
+                       };
+            dataGridViewChitiet.DataSource = ctdg.ToList();
+        }
+
         //Load đánh giá theo chi tiết đơn mua 
-        void loaddgtheodonmua()
+        void loaddgtheodonmua(string maDMH, string maSP)
         {
             QLMHEntities3 db = new QLMHEntities3();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
-                       where ls.MaDMH == madm && ls.MaSP == masp
+                       where ls.MaDMH == maDMH && ls.MaSP == maSP
                        select new
                        {
                            ls.MaDGSP,
@@ -47,10 +63,11 @@ namespace PC_GUI
                        };
             dataGridViewChitiet.DataSource = ctdg.ToList();
         }
-        void LoadChitietdon() // load danh sách đơn hàng vào datagridview 
+        void LoadChitietdon(string maDMH) // load danh sách đơn hàng vào datagridview 
         {
             QLMHEntities3 db = new QLMHEntities3();
             var listchitiet = from dm in db.CT_DONMUAHANG
+                              where dm.MaDMH == maDMH
                               select new
                               {
                                   dm.MaDMH,
@@ -110,7 +127,7 @@ namespace PC_GUI
         private void Danhgiadonhang_Load(object sender, EventArgs e)
         {
             loadlichsudg();
-            loaddgtheodonmua();
+            //loaddgtheodonmua();
             loaddiemdg();
             txtMaDGSP.Enabled = false; 
             datetimedanhgia.Value = DateTime.Now;
@@ -129,8 +146,8 @@ namespace PC_GUI
 
         private void btnChitietdon_Click(object sender, EventArgs e)
         {
-            HideAllTooltips();
-            LoadChitietdon();
+            //HideAllTooltips();
+            //LoadChitietdon();
         }
 
 
