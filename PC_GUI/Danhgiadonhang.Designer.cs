@@ -71,7 +71,7 @@
             // cbMaDH
             // 
             this.cbMaDH.FormattingEnabled = true;
-            this.cbMaDH.Location = new System.Drawing.Point(292, 202);
+            this.cbMaDH.Location = new System.Drawing.Point(310, 210);
             this.cbMaDH.Margin = new System.Windows.Forms.Padding(6);
             this.cbMaDH.Name = "cbMaDH";
             this.cbMaDH.Size = new System.Drawing.Size(437, 33);
@@ -81,7 +81,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1112, 207);
+            this.label7.Location = new System.Drawing.Point(1130, 215);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 25);
@@ -91,7 +91,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(109, 206);
+            this.label6.Location = new System.Drawing.Point(127, 214);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(160, 25);
@@ -101,7 +101,7 @@
             // cbTensp
             // 
             this.cbTensp.FormattingEnabled = true;
-            this.cbTensp.Location = new System.Drawing.Point(292, 281);
+            this.cbTensp.Location = new System.Drawing.Point(310, 289);
             this.cbTensp.Margin = new System.Windows.Forms.Padding(6);
             this.cbTensp.Name = "cbTensp";
             this.cbTensp.Size = new System.Drawing.Size(437, 33);
@@ -111,7 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(98, 284);
+            this.label5.Location = new System.Drawing.Point(116, 292);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(171, 25);
@@ -121,7 +121,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(82, 128);
+            this.label3.Location = new System.Drawing.Point(100, 136);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(187, 25);
@@ -130,7 +130,7 @@
             // 
             // txtDanhgia
             // 
-            this.txtDanhgia.Location = new System.Drawing.Point(1266, 206);
+            this.txtDanhgia.Location = new System.Drawing.Point(1284, 214);
             this.txtDanhgia.Margin = new System.Windows.Forms.Padding(6);
             this.txtDanhgia.Name = "txtDanhgia";
             this.txtDanhgia.Size = new System.Drawing.Size(396, 31);
@@ -138,7 +138,7 @@
             // 
             // txtMaDGSP
             // 
-            this.txtMaDGSP.Location = new System.Drawing.Point(292, 125);
+            this.txtMaDGSP.Location = new System.Drawing.Point(310, 133);
             this.txtMaDGSP.Margin = new System.Windows.Forms.Padding(6);
             this.txtMaDGSP.Name = "txtMaDGSP";
             this.txtMaDGSP.Size = new System.Drawing.Size(441, 31);
@@ -150,7 +150,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1149, 287);
+            this.label1.Location = new System.Drawing.Point(1167, 295);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 25);
@@ -159,7 +159,7 @@
             // 
             // txtGhichu
             // 
-            this.txtGhichu.Location = new System.Drawing.Point(1266, 284);
+            this.txtGhichu.Location = new System.Drawing.Point(1284, 292);
             this.txtGhichu.Margin = new System.Windows.Forms.Padding(6);
             this.txtGhichu.Name = "txtGhichu";
             this.txtGhichu.Size = new System.Drawing.Size(396, 31);
@@ -167,11 +167,14 @@
             // 
             // dataGridViewChitiet
             // 
+            this.dataGridViewChitiet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewChitiet.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewChitiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewChitiet.Location = new System.Drawing.Point(48, 616);
             this.dataGridViewChitiet.Margin = new System.Windows.Forms.Padding(6);
             this.dataGridViewChitiet.Name = "dataGridViewChitiet";
             this.dataGridViewChitiet.RowHeadersWidth = 82;
+            this.dataGridViewChitiet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewChitiet.Size = new System.Drawing.Size(1692, 628);
             this.dataGridViewChitiet.TabIndex = 70;
             this.dataGridViewChitiet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChitiet_CellClick);
@@ -189,10 +192,10 @@
             // 
             // btnLichsu
             // 
-            this.btnLichsu.Location = new System.Drawing.Point(1521, 564);
+            this.btnLichsu.Location = new System.Drawing.Point(1458, 564);
             this.btnLichsu.Margin = new System.Windows.Forms.Padding(6);
             this.btnLichsu.Name = "btnLichsu";
-            this.btnLichsu.Size = new System.Drawing.Size(219, 40);
+            this.btnLichsu.Size = new System.Drawing.Size(282, 40);
             this.btnLichsu.TabIndex = 74;
             this.btnLichsu.Text = "Lịch sử đánh giá";
             this.btnLichsu.UseVisualStyleBackColor = true;
@@ -201,7 +204,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(760, 129);
+            this.label2.Location = new System.Drawing.Point(778, 137);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(167, 25);
@@ -211,7 +214,7 @@
             // cbChatluong
             // 
             this.cbChatluong.FormattingEnabled = true;
-            this.cbChatluong.Location = new System.Drawing.Point(963, 126);
+            this.cbChatluong.Location = new System.Drawing.Point(981, 134);
             this.cbChatluong.Margin = new System.Windows.Forms.Padding(6);
             this.cbChatluong.Name = "cbChatluong";
             this.cbChatluong.Size = new System.Drawing.Size(120, 33);
@@ -220,7 +223,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(687, 366);
+            this.btnLuu.Location = new System.Drawing.Point(705, 374);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(6);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(149, 44);
@@ -231,7 +234,7 @@
             // 
             // btnTaodg
             // 
-            this.btnTaodg.Location = new System.Drawing.Point(113, 366);
+            this.btnTaodg.Location = new System.Drawing.Point(131, 374);
             this.btnTaodg.Margin = new System.Windows.Forms.Padding(6);
             this.btnTaodg.Name = "btnTaodg";
             this.btnTaodg.Size = new System.Drawing.Size(209, 44);
@@ -242,7 +245,7 @@
             // 
             // datetimedanhgia
             // 
-            this.datetimedanhgia.Location = new System.Drawing.Point(1266, 128);
+            this.datetimedanhgia.Location = new System.Drawing.Point(1284, 136);
             this.datetimedanhgia.Margin = new System.Windows.Forms.Padding(6);
             this.datetimedanhgia.Name = "datetimedanhgia";
             this.datetimedanhgia.Size = new System.Drawing.Size(396, 31);
@@ -251,7 +254,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(525, 366);
+            this.btnXoa.Location = new System.Drawing.Point(543, 374);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(6);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(145, 44);
@@ -262,7 +265,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(339, 366);
+            this.btnCapNhat.Location = new System.Drawing.Point(357, 374);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(6);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(169, 44);
@@ -274,7 +277,7 @@
             // txtTim
             // 
             this.txtTim.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.txtTim.Location = new System.Drawing.Point(18, 40);
+            this.txtTim.Location = new System.Drawing.Point(18, 35);
             this.txtTim.Margin = new System.Windows.Forms.Padding(6);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(669, 31);
@@ -284,7 +287,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(777, 205);
+            this.label4.Location = new System.Drawing.Point(795, 213);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 25);
@@ -294,7 +297,7 @@
             // cBHieuqua
             // 
             this.cBHieuqua.FormattingEnabled = true;
-            this.cBHieuqua.Location = new System.Drawing.Point(963, 202);
+            this.cBHieuqua.Location = new System.Drawing.Point(981, 210);
             this.cBHieuqua.Margin = new System.Windows.Forms.Padding(6);
             this.cBHieuqua.Name = "cBHieuqua";
             this.cBHieuqua.Size = new System.Drawing.Size(120, 33);
@@ -304,7 +307,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(796, 281);
+            this.label8.Location = new System.Drawing.Point(814, 289);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 25);
@@ -314,7 +317,7 @@
             // cbGiaca
             // 
             this.cbGiaca.FormattingEnabled = true;
-            this.cbGiaca.Location = new System.Drawing.Point(963, 278);
+            this.cbGiaca.Location = new System.Drawing.Point(981, 286);
             this.cbGiaca.Margin = new System.Windows.Forms.Padding(6);
             this.cbGiaca.Name = "cbGiaca";
             this.cbGiaca.Size = new System.Drawing.Size(120, 33);
@@ -337,7 +340,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.dateTimebatdau);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(942, 366);
+            this.groupBox1.Location = new System.Drawing.Point(960, 379);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
@@ -378,7 +381,7 @@
             // 
             // btnTim
             // 
-            this.btnTim.Location = new System.Drawing.Point(1440, 489);
+            this.btnTim.Location = new System.Drawing.Point(1458, 497);
             this.btnTim.Margin = new System.Windows.Forms.Padding(6);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(180, 44);
@@ -400,7 +403,7 @@
             // 
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtTim);
-            this.groupBox2.Location = new System.Drawing.Point(162, 450);
+            this.groupBox2.Location = new System.Drawing.Point(180, 458);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
