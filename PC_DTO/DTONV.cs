@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +12,7 @@ namespace PC_DTO
         private string tenNV;
         private string diaChi;
         private string gioiTinh;
-        private string sdt;
+        private string sDT;
         private string chucVu;
         private string phongBan;
         public string MaNV { get; set; }
@@ -24,15 +23,4 @@ namespace PC_DTO
         public string ChucVu { get; set; }
         public string PhongBan { get; set; }
     }
-    public class DTOChucVu
-    {
-        private string chucVu;
-        public string ChucVu { get; set; }
-    }
-    public class DTOPhongBan
-    {
-        private string phongBan;
-        public string PhongBan { get; set; }
-    }
-    
 }

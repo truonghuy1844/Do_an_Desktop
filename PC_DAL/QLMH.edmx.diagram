@@ -4,47 +4,50 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="131874315d90447e9e2a508b4205e83d" Name="Diagram1">
-        <EntityTypeShape EntityType="QLMHModel.BAOGIA" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.CT_BAOGIA" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.CT_DONMUAHANG" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.CT_YEUCAU" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.DANHGIA_NCC" Width="1.5" PointX="5.75" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.DANHGIASP_TRONGDON" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.DONMUAHANG" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.HANGHOA_VANCHUYEN" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.HOADON" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.HOPDONGMH" Width="1.5" PointX="1.5" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.KHOHANG" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.NHACUNGCAP" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.NHANVIEN" Width="1.5" PointX="1.5" PointY="31.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.PHANCONG_CONGVIEC" Width="1.5" PointX="3.75" PointY="35.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.SANPHAM" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.SANPHAM_XUATKHO" Width="1.5" PointX="8" PointY="21.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.THANHTOAN" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.YEUCAU_MUAHANG" Width="1.5" PointX="0.75" PointY="19" IsExpanded="true" />
-        <AssociationConnector Association="QLMHModel.FK__BAOGIA__MaNCC__02084FDA" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__CT_BAOGIA__MaBG__04E4BC85" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__CT_DONMUAH__MaBG__1332DBDC" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__CT_BAOGIA__MaSP__05D8E0BE" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__CT_DONMUA__MaDMH__114A936A" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__CT_DONMUAH__MaSP__123EB7A3" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__CT_YEUCAU__MaSP__2180FB33" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__CT_YEUCAU__MaYC__208CD6FA" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__DANHGIA_N__MaNCC__7A672E12" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__DANHGIA_NC__MaNV__797309D9" ManuallyRouted="false" />
+      <Diagram DiagramId="ea4406c4271647d9a11c955ee180c0fc" Name="Diagram1">
+        <EntityTypeShape EntityType="QLMHModel.BAOGIA" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.CT_BAOGIA" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.CT_DONMUAHANG" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.CT_YEUCAU" Width="1.5" PointX="5.25" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.DANHGIA_NCC" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.DanhGiaNCC_SPDMH" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.DANHGIASP_TRONGDON" Width="1.5" PointX="10.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.DONMUAHANG" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.HANGHOA_VANCHUYEN" Width="1.5" PointX="10.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.HOADON" Width="1.5" PointX="7.5" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.HOPDONGMH" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.KHOHANG" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.PHANCONG_CONGVIEC" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.SANPHAM" Width="1.5" PointX="8.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.SANPHAM_XUATKHO" Width="1.5" PointX="10.5" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.THANHTOAN" Width="1.5" PointX="9.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.YEUCAU_MUAHANG" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
+        <AssociationConnector Association="QLMHModel.FK__BAOGIA__MaNCC__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__CT_BAOGIA__MaBG__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__CT_DONMUAH__MaBG__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__CT_BAOGIA__MaSP__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__CT_DONMUA__MaDMH__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__CT_DONMUAH__MaSP__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__CT_YEUCAU__MaSP__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__CT_YEUCAU__MaYC__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__DANHGIA_N__MaNCC__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__DANHGIA_NC__MaNV__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK_DanhGiaNCC_SPDMH_MaDGNCC" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK_DanhGiaNCC_SPDMH_MaDGSP" ManuallyRouted="false" />
         <AssociationConnector Association="QLMHModel.FK__DANHGIASP___MaSP__2645B050" ManuallyRouted="false" />
         <AssociationConnector Association="QLMHModel.FK__DANHGIASP__MaDMH__2739D489" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__DONMUAHAN__MaHDM__0E6E26BF" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__DONMUAHAN__MaNCC__0D7A0286" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__DONMUAHANG__MaNV__0C85DE4D" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__HOADON__MaDMH__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__DONMUAHAN__MaHDM__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__DONMUAHAN__MaNCC__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__DONMUAHANG__MaNV__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__DONMUAHANG__MaYC__151B244E" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__HOADON__MaDMH__1CBC4616" ManuallyRouted="false" />
         <AssociationConnector Association="QLMHModel.FK__HANGHOA_VA__MaSP__2A164134" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__THANHTOAN__MaHD__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__THANHTOAN__MaHD__1F98B2C1" ManuallyRouted="false" />
         <AssociationConnector Association="QLMHModel.FK_HOPDONG_NV" ManuallyRouted="false" />
         <AssociationConnector Association="QLMHModel.FK__PHANCONG_C__MaNV__73BA3083" ManuallyRouted="false" />
-        <AssociationConnector Association="QLMHModel.FK__YEUCAU_MUA__MaNV__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMHModel.FK__YEUCAU_MUA__MaNV__0A9D95DB" ManuallyRouted="false" />
         <AssociationConnector Association="QLMHModel.FK__SANPHAM_XU__MaSP__2CF2ADDF" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
