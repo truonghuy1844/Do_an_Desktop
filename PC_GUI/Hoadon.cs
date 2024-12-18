@@ -29,7 +29,6 @@ namespace PC_GUI
             txtSoluong.Enabled = false;
             txtDongia.Enabled = false;
             txtMaHD.Enabled = false;
-            btnLuu.Enabled = false;
             dataGridView1.ReadOnly = true;
 
             txtThanhtien.Enabled = false;
@@ -147,7 +146,7 @@ namespace PC_GUI
             txtSoluong.Text = string.Empty;
             txtDongia.Text = string.Empty;
             cbSP.SelectedIndex = -1;
-            btnLuu.Enabled = true;
+            
             
         }
 
@@ -157,7 +156,7 @@ namespace PC_GUI
             {
                 
                 string maHD = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
-                decimal  tongTien = Convert.ToDecimal( dataGridView1.CurrentRow.Cells["TongTien"].Value.ToString());
+                decimal  tongTien = Convert.ToDecimal( dataGridView1.CurrentRow.Cells["Tonghoadon"].Value.ToString());
 
                 
                 DTOThanhtoan dto = new DTOThanhtoan
@@ -189,8 +188,8 @@ namespace PC_GUI
                 txtMaHD.Text = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
                 cbMaDH.SelectedValue = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
                 txtGhichu.Text = dataGridView1.CurrentRow.Cells["GhiChu"].Value.ToString();
-                cbSP.SelectedValue = dataGridView1.CurrentRow.Cells["MaSP"].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
+                cbSP.SelectedValue = dataGridView1.CurrentRow.Cells["MaSP"].Value.ToString();
                 txtSoluong.Text = dataGridView1.CurrentRow.Cells["SoLuong"].Value.ToString();
                 txtDongia.Text = dataGridView1.CurrentRow.Cells["DonGia"].Value.ToString();
                 txtThanhtien.Text = dataGridView1.CurrentRow.Cells["Tonghoadon"].Value.ToString();
@@ -317,7 +316,9 @@ namespace PC_GUI
         }
 
         private void btnCapnhat_Click_1(object sender, EventArgs e)
-        {
+                    {
+            dateTimePicker1.Enabled  = true;  
+            txtGhichu.Enabled = true;
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 bool okTao = true;
@@ -329,18 +330,8 @@ namespace PC_GUI
                     MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
                     dateTimePicker1.Focus();
                 }
-                if (!txtMaHD.Text.All(char.IsDigit))
-                {
-                    okTao = false;
-                    MessageBox.Show("Mã hóa đơn chỉ chứa ký tự số ", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                    txtMaHD.Focus();
-                }
-                if ((txtMaHD.Text.Length < 1) || (txtMaHD.Text.Length > 10))
-                {
-                    okTao = false;
-                    MessageBox.Show("Mã hóa đơn tối thiểu 1 ký tự và không quá 10 ký tự");
-                    txtMaHD.Focus();
-                }
+              
+              
 
                 if (okTao)
                 {
@@ -372,17 +363,13 @@ namespace PC_GUI
 
         private void btnTim_Click_1(object sender, EventArgs e)
         {
+            txtMaHD.Enabled = true;
             string tukhoa = txtMaHD.Text;
             DataTable dt = bllHoadon.TimHoadon(tukhoa);
             if (dt == null || dt.Rows.Count == 0)
             {
                 MessageBox.Show("Không tìm thấy kết quả, hãy thử lại!", "Thông báo", MessageBoxButtons.OK);
                 dataGridView1.DataSource = null;
-            }
-            else
-            {
-                MessageBox.Show("Tìm thấy kết quả", "Thông báo", MessageBoxButtons.OK);
-                dataGridView1.DataSource = dt;
             }
         }
 

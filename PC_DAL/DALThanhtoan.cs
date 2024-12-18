@@ -16,7 +16,7 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                string query = "SELECT    THANHTOAN.MaTT ,HOADON.Matt,    THANHTOAN.NgayTT , THANHTOAN.TrangThai       FROM HOADON JOIN THANHTOAN  ON HOADON.MaHD =  THANHTOAN.MaHD ;";
+                string query = "SELECT    THANHTOAN.MaTT ,HOADON.MaHD,    THANHTOAN.NgayTT , THANHTOAN.TrangThai       FROM HOADON JOIN THANHTOAN  ON HOADON.MaHD =  THANHTOAN.MaHD";
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                 {
                     DataTable dt = new DataTable();
