@@ -12,7 +12,7 @@ using PC_GUI.BLL;
 
 namespace PC_GUI
 {
-    public partial class QLNV : frmMainForm
+    public partial class QLNV : UserControl
     {
         public QLNV(DTONV nvien)
         {

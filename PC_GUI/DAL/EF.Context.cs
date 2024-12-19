@@ -16,7 +16,7 @@ namespace PC_GUI.DAL
     public partial class QLMHEntities3 : DbContext
     {
         public QLMHEntities3()
-            : base("name=QLMHEntities4")
+            : base("name=QLMHEntities3")
         {
         }
     

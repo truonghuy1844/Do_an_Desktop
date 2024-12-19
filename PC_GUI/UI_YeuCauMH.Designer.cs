@@ -373,7 +373,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lb);
             this.Controls.Add(this.lbMaYC);
-            this.Controls.Add(this.panel1);
+            //this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UI_YeuCauMH";
             this.Size = new System.Drawing.Size(1800, 1330);

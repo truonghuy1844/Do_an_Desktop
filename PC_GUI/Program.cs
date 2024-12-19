@@ -16,10 +16,10 @@ namespace PC_GUI
         [STAThread]
         static void Main()
         {
-            DTONV nv = new DTONV();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMainForm(nv));
+            Application.Run(new frmdangNhap());
         }
     }
 }

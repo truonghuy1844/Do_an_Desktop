@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridViewDSKho = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            //this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,13 +37,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxLoaiKho = new System.Windows.Forms.ComboBox();
             this.btnTim = new System.Windows.Forms.Button();
-            this.txtTim = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            
+            
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.btnTim = new System.Windows.Forms.Button();
+            
             this.txtTim = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -67,29 +67,29 @@
             this.dataGridViewDSKho.RowTemplate.Height = 24;
             this.dataGridViewDSKho.Size = new System.Drawing.Size(1133, 433);
             this.dataGridViewDSKho.TabIndex = 0;
-            this.dataGridViewDSKho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSKho_CellContentClick);
+            //this.dataGridViewDSKho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDSKho_CellContentClick);
             // 
             // btnResetFilter
             // 
-            this.groupBox1.Controls.Add(this.btnResetFilter);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBoxSucChua);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBoxLoaiKho);
-            this.groupBox1.Controls.Add(this.btnLoad);
-            this.groupBox1.Controls.Add(this.btnXoa);
-            this.groupBox1.Controls.Add(this.btnSua);
-            this.groupBox1.Controls.Add(this.btnThem);
-            this.groupBox1.Controls.Add(this.btnTim);
-            this.groupBox1.Controls.Add(this.txtTim);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(223, 545);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 221);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            // 
+            //this.groupBox1.Controls.Add(this.btnResetFilter);
+            //this.groupBox1.Controls.Add(this.label3);
+            //this.groupBox1.Controls.Add(this.comboBoxSucChua);
+            //this.groupBox1.Controls.Add(this.label2);
+            //this.groupBox1.Controls.Add(this.label1);
+            //this.groupBox1.Controls.Add(this.comboBoxLoaiKho);
+            //this.groupBox1.Controls.Add(this.btnLoad);
+            //this.groupBox1.Controls.Add(this.btnXoa);
+            //this.groupBox1.Controls.Add(this.btnSua);
+            //this.groupBox1.Controls.Add(this.btnThem);
+            //this.groupBox1.Controls.Add(this.btnTim);
+            //this.groupBox1.Controls.Add(this.txtTim);
+            //this.groupBox1.Controls.Add(this.label9);
+            //this.groupBox1.Location = new System.Drawing.Point(223, 545);
+            //this.groupBox1.Name = "groupBox1";
+            //this.groupBox1.Size = new System.Drawing.Size(762, 221);
+            //this.groupBox1.TabIndex = 21;
+            //this.groupBox1.TabStop = false;
+            //// 
             // btnResetFilter
             // 
             this.btnResetFilter.Location = new System.Drawing.Point(603, 92);
@@ -110,7 +110,7 @@
             this.label3.Size = new System.Drawing.Size(65, 16);
             this.label3.TabIndex = 32;
             this.label3.Text = "Sức chứa";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            //this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // comboBoxSucChua
             // 
@@ -135,13 +135,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Hiển thị:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            //this.label1.AutoSize = true;
+            //this.label1.Location = new System.Drawing.Point(16, 74);
+            //this.label1.Name = "label1";
+            //this.label1.Size = new System.Drawing.Size(54, 16);
+            //this.label1.TabIndex = 29;
+            //this.label1.Text = "Hiển thị:";
+            //this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // comboBoxLoaiKho
             // 
@@ -152,7 +152,7 @@
             this.comboBoxLoaiKho.Name = "comboBoxLoaiKho";
             this.comboBoxLoaiKho.Size = new System.Drawing.Size(184, 24);
             this.comboBoxLoaiKho.TabIndex = 28;
-            this.comboBoxLoaiKho.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoaiKho_SelectedIndexChanged);
+            //this.comboBoxLoaiKho.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoaiKho_SelectedIndexChanged);
             // 
             // btnTim
             // 
@@ -178,7 +178,7 @@
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(259, 30);
             this.txtTim.TabIndex = 21;
-            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
+            //this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // label9
             // 
@@ -191,7 +191,7 @@
             this.label9.Size = new System.Drawing.Size(91, 25);
             this.label9.TabIndex = 20;
             this.label9.Text = "Tìm kiếm";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+            //this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // btnLoad
             // 
@@ -279,7 +279,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(997, 182);
             this.panel1.TabIndex = 34;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label4
             // 
@@ -295,7 +295,7 @@
             this.label4.Size = new System.Drawing.Size(469, 49);
             this.label4.TabIndex = 20;
             this.label4.Text = "QUẢN LÝ KHO HÀNG";
-            this.label4.Click += new System.EventHandler(this.label9_Click);
+            //this.label4.Click += new System.EventHandler(this.label9_Click);
             // 
             // panel2
             // 
@@ -333,7 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            //this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

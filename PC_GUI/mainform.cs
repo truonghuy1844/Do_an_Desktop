@@ -115,14 +115,6 @@ namespace PC_GUI
             panel1.Size = new System.Drawing.Size(1200, 1000);
         }
 
-        private void btnFPhanCong_Click(object sender, EventArgs e)
-        {
-            //panel1.Controls.Clear();
-            ////UI_View_BaoGia ui_BG = new UI_View_BaoGia(nv_DN);
-            //panel1.Controls.Add(ui_BG);
-            //panel1.Dock = DockStyle.Fill;
-
-        }
 
         private void btnSanPham_Click(object sender, EventArgs e)
         {

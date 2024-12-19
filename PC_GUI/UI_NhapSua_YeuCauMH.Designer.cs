@@ -223,7 +223,7 @@
             this.lbMaNV.Size = new System.Drawing.Size(117, 22);
             this.lbMaNV.TabIndex = 90;
             this.lbMaNV.Text = "Mã nhân viên";
-            this.lbMaNV.Click += new System.EventHandler(this.lbMaNV_Click);
+            
             // 
             // lbMaYC
             // 
