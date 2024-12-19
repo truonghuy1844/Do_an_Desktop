@@ -36,7 +36,7 @@ namespace PC_GUI
         //Load combobox lọc theo trạng thái 
         void loadloctt()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var dstt = (from dm in db.DONMUAHANGs
                         select dm.TThai).Distinct().ToList();
             cbLoc.DataSource = dstt;
@@ -44,7 +44,7 @@ namespace PC_GUI
         //Load đơn mua 
         void loaddonmua()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var donMua = from dm in db.DONMUAHANGs
                          orderby dm.NgayLap descending
                          select new
@@ -64,7 +64,7 @@ namespace PC_GUI
         //Load mã hợp đồng 
         void loadhopdong()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             cbMaHD.DataSource = db.HOPDONGMHs.ToList();
             cbMaHD.DisplayMember = "MaHDMH";
             cbMaHD.ValueMember = "MaHDMH";
@@ -72,7 +72,7 @@ namespace PC_GUI
         //Load nhà cung cấp 
         List<NHACUNGCAP> loadnhacc()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             
             var listncc = from ncc in db.NHACUNGCAPs
                           select ncc;
@@ -109,7 +109,7 @@ namespace PC_GUI
         //Load combobox yêu cầu mua hàng 
         void loadycmh()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ycmh = from yc in db.YEUCAU_MUAHANG
                        select yc;
             cbYcmh.DataSource = ycmh.ToList();
@@ -150,7 +150,7 @@ namespace PC_GUI
         private void btnThongtin_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
 
             var listdonmua = from dm in db.DONMUAHANGs
                              orderby dm.NgayLap descending
@@ -172,7 +172,7 @@ namespace PC_GUI
         private void btnTheodoi_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listtheodoi = from dm in db.DONMUAHANGs
                               orderby dm.NgayLap descending
                               select new
@@ -187,7 +187,7 @@ namespace PC_GUI
         private void btnLoc_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listloc = from dm in db.DONMUAHANGs
                           where dm.TThai == cbLoc.SelectedValue.ToString()
                           select new
@@ -208,7 +208,7 @@ namespace PC_GUI
         private void btnTim_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             
             var listtim = from dm in db.DONMUAHANGs
                           where dm.MaDMH.Contains(txtTimKiem.Text)
@@ -467,7 +467,7 @@ namespace PC_GUI
                 donmua.MoTa = txtMoTa.Text;
                 donmua.TThai = cbTrangThai.SelectedValue.ToString();
 
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 
                 
                 try
@@ -525,7 +525,7 @@ namespace PC_GUI
             }
             if (okSua)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 
                 try
                 {

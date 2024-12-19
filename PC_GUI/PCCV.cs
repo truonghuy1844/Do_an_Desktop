@@ -33,7 +33,7 @@ namespace PC_GUI
         //Load combobox trạng thái
         void Loadtrangthai()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var dstt = (from dm in db.PHANCONG_CONGVIEC
                         select dm.TThai).Distinct().ToList();
             cbTrangthai.DataSource = dstt;
@@ -398,7 +398,7 @@ namespace PC_GUI
             HideAllTooltips();
             if (cbTrangthai.SelectedIndex != -1)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listloc = from dm in db.PHANCONG_CONGVIEC
                               where dm.TThai == cbTrangthai.SelectedValue.ToString()
                               select new

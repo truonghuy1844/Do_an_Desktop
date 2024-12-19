@@ -38,7 +38,7 @@ namespace PC_GUI
         //Load danh sách đơn mua
         void load_DS_DMH()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ds in db.DONMUAHANGs
                        join ncc in db.NHACUNGCAPs
                        on ds.MaNCC equals ncc.MaNCC                       
@@ -56,7 +56,7 @@ namespace PC_GUI
         //Load đánh giá theo chi tiết đơn mua 
         void loaddgtheodonmua(string maDMH, string maSP)
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
                        where ls.MaDMH == maDMH && ls.MaSP == maSP
                        select new
@@ -75,7 +75,7 @@ namespace PC_GUI
         }
         void LoadChitietdon(string maDMH) // load danh sách chi tiêt đơn hàng vào datagridview 
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listchitiet = from dm in db.CT_DONMUAHANG
                               where dm.MaDMH == maDMH.Trim()
                               select new
@@ -91,7 +91,7 @@ namespace PC_GUI
 
         void loadlichsudg()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var lichsu = from ls in db.DANHGIASP_TRONGDON
                          orderby ls.NgayDG descending 
                          select new
@@ -301,7 +301,7 @@ namespace PC_GUI
                 dgsp.DiemHieuQua = Convert.ToInt32(cBHieuqua.SelectedValue);
                 dgsp.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
                 dgsp.GhiChu = txtGhichu.Text;
-                QLMHEntities3 da = new QLMHEntities3();
+                QLMHEntities4 da = new QLMHEntities4();
                 
                 try
                 {
@@ -341,7 +341,7 @@ namespace PC_GUI
             }
             if (okSua)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
@@ -372,7 +372,7 @@ namespace PC_GUI
             DialogResult rs = MessageBox.Show("Bạn chắc chắn xóa đánh giá này không?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (rs == DialogResult.Yes)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
@@ -432,7 +432,7 @@ namespace PC_GUI
         //Cbtensp tự động hiển thị theo cbMaDH 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             if (cbMaDH.SelectedIndex != -1)
             {
                 string madhchon = cbMaDH.SelectedValue.ToString();
@@ -518,7 +518,7 @@ namespace PC_GUI
         {
             if (string.IsNullOrEmpty(txtTim.Text))
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listtim = from dg in db.DANHGIASP_TRONGDON
                               where dg.NgayDG >= dateTimebatdau.Value && dg.NgayDG <= dateTimeketthuc.Value
                               select new
@@ -547,7 +547,7 @@ namespace PC_GUI
             }
             else
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listtimp = from dg in db.DANHGIASP_TRONGDON
                                where dg.SANPHAM.TenSP.Contains(txtTim.Text.Trim())
                                && dg.NgayDG >= dateTimebatdau.Value
