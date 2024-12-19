@@ -1,6 +1,5 @@
 ﻿using PC_DTO;
 using PC_GUI.BLL;
-using PC_GUI.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

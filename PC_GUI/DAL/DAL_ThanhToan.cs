@@ -11,34 +11,22 @@ namespace PC_GUI.DAL
 {
     public class DAL_ThanhToan : ConectDB_Manual
     {
-        public DTOThanhtoan LoadThanhtoan(string maHD)
+        public DTOThanhtoan LoadThanhtoan(int maHD)
         {
 
-            DTOThanhtoan dTOThanhtoan = null;
-
-            string query = "SELECT MaTT, NgayTT,TrangThai FROM THANHTOAN WHERE MaHD=@mahd";
-            using (SqlCommand cmd = new SqlCommand(query, conn))
+            QLMHEntities4 qlmh = new QLMHEntities4();
+            var tt = qlmh.THANHTOANs.FirstOrDefault(a => a.MaHD == maHD);
+            DTOThanhtoan dto = new DTOThanhtoan();
+            if (tt != null) 
             {
-                cmd.Parameters.AddWithValue("@mahd", maHD);
-                try
-                {
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            dTOThanhtoan = new DTOThanhtoan();
-                            dTOThanhtoan.MaTT = reader["MaTT"].ToString();
-                            dTOThanhtoan.NgayTT = Convert.ToDateTime(reader["NgayTT"]);
-                            dTOThanhtoan.TrangThai = reader["TrangThai"].ToString();
-                        }
-
-                    }
-                }
-                catch (SqlException ex) { return dTOThanhtoan = null; }
-                finally { conn.Close(); }
-                return dTOThanhtoan;
+                dto.MaTT = tt.MaTT;
+                dto.TrangThai = tt.TrangThai;
+                if (tt.NgayTT == null) dto.NgayTT = DateTime.MinValue;
+                else dto.NgayTT = (DateTime)tt.NgayTT;
+                return dto;
             }
+            else
+            return null;
 
         }
 

@@ -31,5 +31,17 @@ namespace PC_GUI.DAL
             }
             return false;
         }
+        public bool Kiem_Tra_KeToan(DTONV nvien)
+        {
+            QLMHEntities4 qlmh = new QLMHEntities4();
+
+            NHANVIEN check = qlmh.NHANVIENs.FirstOrDefault(s => s.MaNV == nvien.MaNV);
+            if (check != null)
+            {
+
+                if (check.PhongBan == "Kế toán") return true;
+            }
+            return false;
+        }
     }
 }

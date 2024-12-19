@@ -12,6 +12,10 @@ namespace PC_GUI.BLL
     public class BLL_HoaDon
     {
             DAL_HoaDon dalHoadon = new DAL_HoaDon();
+        public bool XoaThanhToan(DTOHoadon hdon)
+        {
+            return dalHoadon.XoaThanhToan(hdon);
+        }
             public DataTable LoadData()
             {
                 return dalHoadon.LoadData();

@@ -27,7 +27,7 @@ namespace PC_GUI.BLL
         {
             return dalThanhtoan.Thuchien(mahd);
         }
-        public DTOThanhtoan LoadThanhtoan(string mahd)
+        public DTOThanhtoan LoadThanhtoan(int mahd)
         {
             return dalThanhtoan.LoadThanhtoan(mahd);
         }

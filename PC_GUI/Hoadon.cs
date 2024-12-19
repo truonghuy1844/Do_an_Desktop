@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 
 namespace PC_GUI
 {
-    public partial class Hoadon : Form
+    public partial class Hoadon : UserControl
     {
         public Hoadon()
         {
@@ -25,7 +25,17 @@ namespace PC_GUI
         {
 
             dataGridView1.DataSource = bllHoadon.LoadData();
+
+            dataGridView1.Columns["MaSP"].Visible = false;
+            dataGridView1.Columns["DonGia"].Visible = false;
+            dataGridView1.Columns["Tonghoadon"].Visible = false;
+            dataGridView1.Columns["SoLuong"].Visible = false;
             
+
+
+
+
+
             txtSoluong.ReadOnly = true;
             txtDongia.ReadOnly = true;
             txtMaHD.ReadOnly = true;
@@ -93,7 +103,7 @@ namespace PC_GUI
                 if (okTao)
                 {
                     DTOHoadon dhmoi = new DTOHoadon();
-                    dhmoi.MaHD = txtMaHD.Text;
+                    dhmoi.MaHD = int.Parse(txtMaHD.Text);
                     dhmoi.Ngaylap = dateTimePicker1.Value;
                     dhmoi.MaDMH = cbMaDH.SelectedValue.ToString();
                     dhmoi.GhiChu = txtGhichu.Text;
@@ -152,20 +162,22 @@ namespace PC_GUI
 
         private void btnThanhtoan_Click_1(object sender, EventArgs e)
         {
-            if (txtMaHD.Text != "" || txtMaHD != null)
+            int a = int.Parse(txtMaHD.Text);
+            int b = int.Parse(txtThanhtien.Text);
+            if ((txtMaHD != null && txtMaHD.Text != "") &&( txtThanhtien != null && txtThanhtien.Text != "" ))
             {
 
-                Thanhtoan tt = new Thanhtoan(txtMaHD.Text, txtThanhtien.Text);
-                
+
+                Thanhtoan tt = new Thanhtoan(a,b);
+
+
                 tt.ShowDialog();
 
                 dataGridView1.DataSource = bllHoadon.LoadData();
-                dataGridView1.Columns["MaSP"].Visible = false;
+
             }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn hóa đơn để thanh toán.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            else MessageBox.Show("Vui lòng chọn hóa đơn để thanh toán.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
         
     }
 
@@ -289,15 +301,17 @@ namespace PC_GUI
                 if (rs == DialogResult.Yes)
                 {
                     DTOHoadon dhxoa = new DTOHoadon();
-                    dhxoa.MaHD = dataGridView1.CurrentRow.Cells["MaHD"].Value.ToString();
-                    if (bllHoadon.Xoahoadon(dhxoa))
+                    dhxoa.MaHD = int.Parse(txtMaHD.Text.Trim());
+                    if (bllHoadon.XoaThanhToan(dhxoa))
                     {
-                        MessageBox.Show("Xóa đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
-                        dataGridView1.DataSource = bllHoadon.LoadData();
-                    }
+                        if (bllHoadon.Xoahoadon(dhxoa))
+                        {
+                            dataGridView1.DataSource = bllHoadon.LoadData();
+                        }
+                    }     
                     else
                     {
-                        MessageBox.Show("Xóa đơn hàng thất bại, kiểm tra dữ liệu", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Xóa đơn hàng thất bại\nHóa đơn đã thanh toán hoặc dữ liệu lỗi\n\nVui lòng kiểm tra", "Thông báo", MessageBoxButtons.OK);
                     }
                     txtMaHD.Clear();
                     txtGhichu.Clear();
@@ -332,7 +346,7 @@ namespace PC_GUI
                 if (okTao)
                 {
                     DTOHoadon dhmoi = new DTOHoadon();
-                    dhmoi.MaHD = txtMaHD.Text;
+                    dhmoi.MaHD = int.Parse(txtMaHD.Text);
                     dhmoi.Ngaylap = dateTimePicker1.Value;
                     dhmoi.MaDMH = cbMaDH.SelectedValue.ToString();
                     dhmoi.GhiChu = txtGhichu.Text;
@@ -360,18 +374,21 @@ namespace PC_GUI
         private void btnTim_Click_1(object sender, EventArgs e)
         {
             txtMaHD.Enabled = true;
-            string tukhoa = txtMaHD.Text;
-            DataTable dt = bllHoadon.TimHoadon(tukhoa);
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                MessageBox.Show("Không tìm thấy kết quả, hãy thử lại!", "Thông báo", MessageBoxButtons.OK);
-                dataGridView1.DataSource = null;
-            }
+            string tukhoa = txtTim.Text.Trim();
+            dataGridView1.DataSource = bllHoadon.TimHoadon(tukhoa);
+            
+                
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = bllHoadon.LoadData();
         }
     }
 }

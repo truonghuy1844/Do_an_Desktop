@@ -350,7 +350,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Hoadon.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Hoadon.Designer.cs">
       <DependentUpon>Hoadon.cs</DependentUpon>
