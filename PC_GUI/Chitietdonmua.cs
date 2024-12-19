@@ -141,15 +141,16 @@ namespace PC_GUI
         {
             if (cbMaSP.SelectedIndex != -1)
             {
+                string selectedValue = cbMaSP.SelectedValue.ToString();
                 QLMHEntities3 db = new QLMHEntities3();
                 var tenSP = (from sp in db.SANPHAMs
-                             where sp.MaSP == cbMaSP.SelectedValue.ToString()
+                             where sp.MaSP == selectedValue
                              select sp.TenSP).FirstOrDefault();
                 txtTensp.Text = tenSP;
                 var mabg = from bg in db.CT_BAOGIA
-                           where bg.MaSP == cbMaSP.SelectedValue.ToString()
+                           where bg.MaSP == selectedValue
                            select bg;
-                cbMabaogia.DataSource = mabg;
+                cbMabaogia.DataSource = mabg.ToList();
                 cbMabaogia.DisplayMember = "MaBG";
                 cbMabaogia.ValueMember = "MaBG";
             }
@@ -171,6 +172,7 @@ namespace PC_GUI
         //Nút tạo mới chi tiết đơn mua 
         private void btnTaoctmua_Click(object sender, EventArgs e)
         {
+            HideAllTooltips();
             btnLuu.Enabled = true;
             loadmadhtao();
             txtSoluong.Enabled = true;
@@ -276,6 +278,14 @@ namespace PC_GUI
                     txtSoluong.Focus();
                     return;
                 }
+                if (cbMabaogia.SelectedIndex == -1)
+                {
+                    okSua = false;
+                    MessageBox.Show("Không được bỏ trống mã báo giá", "Thông báo", MessageBoxButtons.OK);
+                    cbMabaogia.Focus();
+                    return;
+
+                }    
                 if (okSua)
                 {
                     QLMHEntities3 db = new QLMHEntities3();
@@ -288,8 +298,7 @@ namespace PC_GUI
                                                   select ct).Single<CT_DONMUAHANG>();
                         ctiet.MaBG = cbMabaogia.SelectedValue.ToString();
                         ctiet.SoLuong = Convert.ToInt32(txtSoluong.Text);
-
-                        
+                        db.SaveChanges(); 
                         MessageBox.Show("Cập nhật chi tiết đơn mua thành công", "Thông báo", MessageBoxButtons.OK);
                     }
                     catch (Exception ex) { MessageBox.Show("Cập nhật chi tiết đơn mua thất bại", ex.Message); }

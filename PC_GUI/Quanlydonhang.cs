@@ -19,10 +19,23 @@ namespace PC_GUI
     public partial class Quanlydonhang : UserControl
     {
         BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
-        public Quanlydonhang()
+        public DTONV nv = new DTONV();
+        public Quanlydonhang(DTONV nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnTao);
+                this.Controls.Remove(btnCapNhat);
+                this.Controls.Remove(btnLuu);
+                this.Controls.Remove(btnXoa);
+                this.Controls.Remove(btnHuy);
+            }
         }
+
         //I.Load dữ liệu 
         void LoadDonmua()
         {
@@ -104,6 +117,7 @@ namespace PC_GUI
         }
         private void Quanlydonhang_Load(object sender, EventArgs e)
         {
+            LoadDonmua();
             cbMaHD.DataSource = loadMaHDMH();
             cbMaHD.DisplayMember = "MaHDMH";
             cbMaHD.ValueMember = "MaHDMH";
