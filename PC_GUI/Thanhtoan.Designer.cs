@@ -38,14 +38,13 @@
             this.txtSotien = new System.Windows.Forms.TextBox();
             this.txtTrangthai = new System.Windows.Forms.TextBox();
             this.btnThuchien = new System.Windows.Forms.Button();
-            this.btnCapnhat = new System.Windows.Forms.Button();
             this.txtNgayTT = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 240);
+            this.label3.Location = new System.Drawing.Point(42, 298);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 25);
@@ -55,7 +54,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 154);
+            this.label2.Location = new System.Drawing.Point(42, 212);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 25);
@@ -66,7 +65,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 58);
+            this.label1.Location = new System.Drawing.Point(42, 116);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 25);
@@ -75,7 +74,7 @@
             // 
             // txtMaTT
             // 
-            this.txtMaTT.Location = new System.Drawing.Point(212, 58);
+            this.txtMaTT.Location = new System.Drawing.Point(222, 116);
             this.txtMaTT.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaTT.Name = "txtMaTT";
             this.txtMaTT.Size = new System.Drawing.Size(274, 31);
@@ -84,7 +83,7 @@
             // 
             // txtMaHD
             // 
-            this.txtMaHD.Location = new System.Drawing.Point(212, 154);
+            this.txtMaHD.Location = new System.Drawing.Point(222, 212);
             this.txtMaHD.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaHD.Name = "txtMaHD";
             this.txtMaHD.Size = new System.Drawing.Size(274, 31);
@@ -93,7 +92,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(628, 60);
+            this.label4.Location = new System.Drawing.Point(638, 118);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(210, 25);
@@ -104,7 +103,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(628, 154);
+            this.label5.Location = new System.Drawing.Point(638, 212);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(115, 25);
@@ -113,7 +112,7 @@
             // 
             // txtSotien
             // 
-            this.txtSotien.Location = new System.Drawing.Point(868, 60);
+            this.txtSotien.Location = new System.Drawing.Point(878, 118);
             this.txtSotien.Margin = new System.Windows.Forms.Padding(4);
             this.txtSotien.Name = "txtSotien";
             this.txtSotien.Size = new System.Drawing.Size(274, 31);
@@ -121,7 +120,7 @@
             // 
             // txtTrangthai
             // 
-            this.txtTrangthai.Location = new System.Drawing.Point(868, 146);
+            this.txtTrangthai.Location = new System.Drawing.Point(878, 204);
             this.txtTrangthai.Margin = new System.Windows.Forms.Padding(4);
             this.txtTrangthai.Name = "txtTrangthai";
             this.txtTrangthai.Size = new System.Drawing.Size(274, 31);
@@ -129,29 +128,18 @@
             // 
             // btnThuchien
             // 
-            this.btnThuchien.Location = new System.Drawing.Point(868, 252);
+            this.btnThuchien.Location = new System.Drawing.Point(643, 283);
             this.btnThuchien.Margin = new System.Windows.Forms.Padding(4);
             this.btnThuchien.Name = "btnThuchien";
-            this.btnThuchien.Size = new System.Drawing.Size(256, 40);
+            this.btnThuchien.Size = new System.Drawing.Size(509, 40);
             this.btnThuchien.TabIndex = 74;
             this.btnThuchien.Text = "Thực hiện thanh toán";
             this.btnThuchien.UseVisualStyleBackColor = true;
             this.btnThuchien.Click += new System.EventHandler(this.btnThuchien_Click);
             // 
-            // btnCapnhat
-            // 
-            this.btnCapnhat.Location = new System.Drawing.Point(676, 252);
-            this.btnCapnhat.Margin = new System.Windows.Forms.Padding(6);
-            this.btnCapnhat.Name = "btnCapnhat";
-            this.btnCapnhat.Size = new System.Drawing.Size(150, 44);
-            this.btnCapnhat.TabIndex = 61;
-            this.btnCapnhat.Text = "Cập nhật ";
-            this.btnCapnhat.UseVisualStyleBackColor = true;
-            this.btnCapnhat.Click += new System.EventHandler(this.btnCapnhat_Click);
-            // 
             // txtNgayTT
             // 
-            this.txtNgayTT.Location = new System.Drawing.Point(212, 234);
+            this.txtNgayTT.Location = new System.Drawing.Point(222, 292);
             this.txtNgayTT.Name = "txtNgayTT";
             this.txtNgayTT.Size = new System.Drawing.Size(275, 31);
             this.txtNgayTT.TabIndex = 75;
@@ -160,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1774, 1259);
+            this.ClientSize = new System.Drawing.Size(1222, 481);
             this.Controls.Add(this.txtNgayTT);
             this.Controls.Add(this.btnThuchien);
             this.Controls.Add(this.txtTrangthai);
@@ -169,7 +157,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.txtMaTT);
-            this.Controls.Add(this.btnCapnhat);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -193,7 +180,6 @@
         private System.Windows.Forms.TextBox txtSotien;
         private System.Windows.Forms.TextBox txtTrangthai;
         private System.Windows.Forms.Button btnThuchien;
-        private System.Windows.Forms.Button btnCapnhat;
         private System.Windows.Forms.TextBox txtNgayTT;
     }
 }

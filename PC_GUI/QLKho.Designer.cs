@@ -31,7 +31,6 @@
             this.dataGridViewDSKho = new System.Windows.Forms.DataGridView();
             //this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnResetFilter = new System.Windows.Forms.Button();
-            this.btnResetFilter = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxSucChua = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();

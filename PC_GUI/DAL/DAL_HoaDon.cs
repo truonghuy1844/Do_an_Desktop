@@ -13,6 +13,27 @@ namespace PC_GUI.DAL
     public class DAL_HoaDon : ConectDB_Manual
     {
 
+        public DataTable TimKiem(string tukhoa)
+        {
+            try
+            {
+                conn.Open();
+                string query = "SELECT Distinct HOADON.MaHD,  HOADON.MaDMH,  HOADON.NgayLap,SANPHAM.MaSP ,SANPHAM.TenSP, CAST(CT_BAOGIA.DonGia AS INT) as DonGia,  " +
+                    "CT_DONMUAHANG.SoLuong,   CAST((CT_BAOGIA.DonGia * CT_DONMUAHANG.SoLuong) AS INT) AS ThanhTien, SUM(CAST((CT_DONMUAHANG.SoLuong * CT_BAOGIA.DonGia) AS INT)) OVER (PARTITION BY HOADON.MaHD) " +
+                    "as Tonghoadon,     HOADON.GhiChu, THANHTOAN.TrangThai FROM HOADON JOIN CT_DONMUAHANG ON HOADON.MaDMH =  CT_DONMUAHANG.MaDMH " +
+                    "JOIN CT_BAOGIA ON CT_DONMUAHANG.MaBG = CT_BAOGIA.MaBG JOIN SANPHAM ON CT_DONMUAHANG.MaSP = CT_BAOGIA.MaSP JOIN THANHTOAN ON HOADON.MaHD=THANHTOAN.MaHD " +
+                    "WHERE CT_DONMUAHANG.MaSP=CT_BAOGIA.MaSP and CT_BAOGIA.MaSP = SANPHAM.MaSP       ";
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+            catch (Exception) { return null; }
+            finally { conn.Close(); }
+
+        }
         public DataTable LoadData()
         {
             try
@@ -32,6 +53,7 @@ namespace PC_GUI.DAL
             }
             catch (Exception) { return null; }
             finally { conn.Close(); }
+
         }
         public bool Taohoadon(DTOHoadon hd)
         {
@@ -98,43 +120,75 @@ namespace PC_GUI.DAL
             catch (SqlException) { return false; }
             finally { conn.Close(); }
         }
-        public bool Xoahoadon(DTOHoadon hd)
+       public bool XoaThanhToan(DTOHoadon hd)
         {
+            QLMHEntities4 qLMHEntities4 = new QLMHEntities4();
             try
             {
-                conn.Open();
-                string myQuery = "Delete from HOADON where MaHD = @maHD";
-                SqlCommand cmd = new SqlCommand(myQuery, conn);
-                cmd.Parameters.AddWithValue("@mahd", hd.MaHD);
 
-                return cmd.ExecuteNonQuery() > 0 ? true : false;
+                THANHTOAN tt = qLMHEntities4.THANHTOANs.FirstOrDefault(a => a.MaHD == hd.MaHD);
+                if (tt.TrangThai == "Đã thanh toán") return false;
+                qLMHEntities4.THANHTOANs.Remove(tt);
+                qLMHEntities4.SaveChanges();
+                return true;
+
             }
-            catch (SqlException) { return false; }
-            finally { conn.Close(); }
+            catch (Exception) { return false; }
+        }
+            
+        public bool Xoahoadon(DTOHoadon hd)
+        {
+            QLMHEntities4 qLMHEntities4 = new QLMHEntities4();
+            
+            try
+            {
+
+                
+                HOADON hdon = qLMHEntities4.HOADONs.FirstOrDefault(a => a.MaHD == hd.MaHD);
+                qLMHEntities4.HOADONs.Remove(hdon);
+                qLMHEntities4.SaveChanges();
+                return true;
+
+            }
+            catch (Exception) { return false; }
+           
         }
         public DataTable TimHoadon(string tukhoa)
         {
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                if (string.IsNullOrWhiteSpace(tukhoa))
+                string keyword = tukhoa; // Chuỗi tìm kiếm
+                string query = @"
+                                 SELECT Distinct HOADON.MaHD, HOADON.MaDMH, HOADON.NgayLap, SANPHAM.MaSP, SANPHAM.TenSP, 
+                                 CAST(CT_BAOGIA.DonGia AS INT) as DonGia, CT_DONMUAHANG.SoLuong,  
+                                 CAST((CT_BAOGIA.DonGia * CT_DONMUAHANG.SoLuong) AS INT) AS ThanhTien, 
+                                 SUM(CAST((CT_DONMUAHANG.SoLuong * CT_BAOGIA.DonGia) AS INT)) 
+                                 OVER (PARTITION BY HOADON.MaHD) as Tonghoadon, 
+                                 HOADON.GhiChu, THANHTOAN.TrangThai 
+                                 FROM HOADON 
+                                 JOIN CT_DONMUAHANG ON HOADON.MaDMH = CT_DONMUAHANG.MaDMH 
+                                 JOIN CT_BAOGIA ON CT_DONMUAHANG.MaBG = CT_BAOGIA.MaBG 
+                                 JOIN SANPHAM ON CT_DONMUAHANG.MaSP = CT_BAOGIA.MaSP 
+                                 JOIN THANHTOAN ON HOADON.MaHD = THANHTOAN.MaHD 
+                                 WHERE CT_DONMUAHANG.MaSP = CT_BAOGIA.MaSP 
+                                 AND CT_BAOGIA.MaSP = SANPHAM.MaSP 
+                                 AND (LOWER(HOADON.MaHD) LIKE @keyword 
+                                 OR LOWER(HOADON.MaDMH) LIKE @keyword 
+                                 OR THANHTOAN.TrangThai LIKE @keyword 
+                                 OR HOADON.GhiChu LIKE @keyword)";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd = new SqlCommand("Select * from HOADON", conn);
+                    cmd.Parameters.AddWithValue("@keyword", "%" + keyword.ToLower() + "%");
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
                 }
-                else
-                {
-                    cmd = new SqlCommand("Select * from HOADON where MaHD LIKE @mahd", conn);
-                    cmd.Parameters.AddWithValue("@mahd", "%" + tukhoa + "%");
-                }
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                return dt;
             }
-            catch (SqlException)
-            { return null; }
+            catch (Exception) { return null; }
             finally { conn.Close(); }
         }
         public DataTable loadmadmh()

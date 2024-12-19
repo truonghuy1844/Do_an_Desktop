@@ -454,6 +454,7 @@
             this.btnFormHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFormHoaDon.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFormHoaDon.UseVisualStyleBackColor = false;
+            this.btnFormHoaDon.Click += new System.EventHandler(this.btnFormHoaDon_Click);
             // 
             // pnNguonLuc
             // 

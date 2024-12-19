@@ -254,5 +254,23 @@ namespace PC_GUI
         {
 
         }
+
+        private void btnFormHoaDon_Click(object sender, EventArgs e)
+        {
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            bool checkmuaHang = bll.Kiem_Tra_PhongBan(nv_DN);
+            bool checkKeToan = bll.Kiem_Tra_KeToan(nv_DN);
+            if (checkKeToan || checkmuaHang)
+            {
+                panel1.Controls.Clear();
+                Hoadon ui = new Hoadon();
+                panel1.Controls.Add(ui);
+                panel1.Dock = DockStyle.Fill;
+            }
+            else
+            {
+                MessageBox.Show("Nhân sự thuộc kế toán hoặc phòng mua hàng mới có quyền truy cập", "Thông báo quyền truy cập", MessageBoxButtons.OK);
+            }
+        }
     }
 }

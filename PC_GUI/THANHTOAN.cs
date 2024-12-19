@@ -9,42 +9,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Policy;
 
 namespace PC_GUI
 {
     public partial class Thanhtoan : Form
     {
         BLL_ThanhToan bllThanhtoan = new BLL_ThanhToan();
-        public DTOHoadon dto = new DTOHoadon();
-        public decimal tien;
-        
-        public Thanhtoan(string maHD, string thanhTien)
+        public int maHoaDon;
+        public Thanhtoan(int maHD, int tongTien)
         {
             InitializeComponent();
 
-            txtMaHD.Text = maHD;
-            txtSotien.Text = thanhTien;
+            txtMaHD.Text = maHD.ToString();
+            txtSotien.Text = tongTien.ToString();
+            maHoaDon = maHD;
+            DTOThanhtoan result = bllThanhtoan.LoadThanhtoan(maHoaDon);
 
+            txtMaTT.Text = result.MaTT.ToString();
+            txtNgayTT.Text = result.NgayTT.ToString();
+            txtTrangthai.Text = result.TrangThai.ToString();
+            if (txtTrangthai.Text == "Đã thanh toán")
+            {
+
+                btnThuchien.Enabled = false;
+
+            }
+            else
+            {
+                btnThuchien.Enabled = true;
+
+            }
 
         }
         private void Thanhtoan_Load(object sender, EventArgs e)
         {
+            txtTrangthai.ReadOnly = true;
+            txtMaHD.ReadOnly = true;
+            txtSotien.ReadOnly = true;
+            txtNgayTT.ReadOnly = true;
             
-
-            txtSotien.Enabled = false;
-            txtTrangthai.Enabled = false;
-            txtTrangthai.Enabled = false;
-            txtNgayTT.Enabled = false;
-            txtMaTT.Enabled = false;
-            txtMaHD.Enabled = false;
-
-            string mahd = txtMaHD.Text;
-            DTOThanhtoan result = bllThanhtoan.LoadThanhtoan(mahd);
-             txtMaTT.Text= result.MaTT.ToString();
-            txtNgayTT.Text= result.NgayTT.ToString();
-            txtTrangthai.Text=result.TrangThai.ToString();
-
-
+            
 
         }
         private void label2_Click(object sender, EventArgs e)
@@ -98,7 +103,7 @@ namespace PC_GUI
                 if (okTao)
                 {
                     DTOThanhtoan ttmoi = new DTOThanhtoan();
-                    ttmoi.MaHD = txtMaHD.Text;
+                    ttmoi.MaHD = int.Parse(txtMaHD.Text);
                     ttmoi.NgayTT = ngayThanhToan;
                     ttmoi.MaTT = txtMaTT.Text;
                     ttmoi.TrangThai = txtTrangthai.Text;
@@ -126,10 +131,15 @@ namespace PC_GUI
 
         private void btnThuchien_Click(object sender, EventArgs e)
         {
+            
             string mahd = txtMaHD.Text;
             DataTable dt = bllThanhtoan.Thuchien(mahd);
-            MessageBox.Show("Thanh toán thành công");
+            this.Close();
+
             
+
+
+
         }
 
         private void Thanhtoan_Load_1(object sender, EventArgs e)
