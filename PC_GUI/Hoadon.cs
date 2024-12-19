@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using PC_DTO;
-using PC_BLL;
+using PC_GUI.BLL;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+
 namespace PC_GUI
 {
     public partial class Hoadon : Form
@@ -20,12 +20,12 @@ namespace PC_GUI
         {
             InitializeComponent();
         }
-        BLLHoadon bllHoadon = new BLLHoadon();
+        public BLL_HoaDon bllHoadon = new BLL_HoaDon();
         private void Hoadon_Load(object sender, EventArgs e)
         {
+
             dataGridView1.DataSource = bllHoadon.LoadData();
             
-
             txtSoluong.ReadOnly = true;
             txtDongia.ReadOnly = true;
             txtMaHD.ReadOnly = true;
@@ -283,7 +283,7 @@ namespace PC_GUI
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 
-                BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
+                BLL_ThanhToan bllThanhtoan = new BLL_ThanhToan();
 
                 DialogResult rs = MessageBox.Show("Bạn chắc chắn muốn xóa đơn hàng này?", "Cảnh báo", MessageBoxButtons.YesNo);
                 if (rs == DialogResult.Yes)

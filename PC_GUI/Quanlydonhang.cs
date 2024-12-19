@@ -39,7 +39,7 @@ namespace PC_GUI
         //I.Load dữ liệu 
         void LoadDonmua()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
              
             var listdonmua = from dm in db.DONMUAHANGs
                              orderby dm.NgayLap descending
@@ -59,14 +59,14 @@ namespace PC_GUI
         }
         List<HOPDONGMH> loadMaHDMH()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listmahd = from hd in db.HOPDONGMHs
                            select hd;
             return listmahd.ToList();
         }
         void loadNhaCC()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listNhaCC = from ncc in db.NHACUNGCAPs
                             select ncc;
             cbMaNCC.DataSource = listNhaCC.ToList();
@@ -101,7 +101,7 @@ namespace PC_GUI
         //Load combobox yêu cầu mua hàng 
         void loadycmh()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ycmh = from yc in db.YEUCAU_MUAHANG
                        select yc;
             cbYcmh.DataSource = ycmh.ToList();
@@ -350,7 +350,7 @@ namespace PC_GUI
                     dhmoi.TThai = cbTrangThai.SelectedValue.ToString();
                     dhmoi.MoTa = txtMoTa.Text;
                     
-                    QLMHEntities3 db = new QLMHEntities3();
+                    QLMHEntities4 db = new QLMHEntities4();
                     db.DONMUAHANGs.Add(dhmoi);
                     db.SaveChanges();
                     MessageBox.Show("Tạo đơn hàng mới thành công", "Thông báo", MessageBoxButtons.OK);
@@ -544,7 +544,7 @@ namespace PC_GUI
             HideAllTooltips(); //ẩn tooltip 
             try
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var trangthaidon = from dm in db.DONMUAHANGs
                                    orderby dm.NgayLap descending 
                                    select new
@@ -563,7 +563,7 @@ namespace PC_GUI
             HideAllTooltips(); //ẩn tooltip 
             try
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var ttloc = from dm in db.DONMUAHANGs
                             where dm.TThai.Contains(cbLoc.SelectedValue.ToString())
                             select new 
@@ -588,7 +588,7 @@ namespace PC_GUI
             DialogResult rs = MessageBox.Show("Bạn có chắc chắn hủy đơn mua hàng này không", "Thông báo", MessageBoxButtons.YesNo);
             if (rs == DialogResult.Yes)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 DONMUAHANG donmua = db.DONMUAHANGs.Find(txtMaDMH.Text);
                 if (donmua != null)
                 {

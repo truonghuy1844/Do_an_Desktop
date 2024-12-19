@@ -39,7 +39,7 @@ namespace PC_GUI
 
         void load_DS_DMH()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ds in db.DONMUAHANGs
                        join ncc in db.NHACUNGCAPs
                        on ds.MaNCC equals ncc.MaNCC
@@ -55,7 +55,7 @@ namespace PC_GUI
         }
         void loaddgtheodonmua(string maDM, string maSP)
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
                        where ls.MaDMH == maDM && ls.MaSP == maSP
                        select new
@@ -74,7 +74,7 @@ namespace PC_GUI
         }
         void loadlichsudg()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var lichsu = from ls in db.DANHGIASP_TRONGDON
                          select new
                          {
@@ -93,7 +93,7 @@ namespace PC_GUI
         // load danh sách đơn hàng vào datagridview 
         void LoadChitietdon(string maDMH) 
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listchitiet = from dm in db.CT_DONMUAHANG
                               where dm.MaDMH == maDMH
                               select new
@@ -300,7 +300,7 @@ namespace PC_GUI
                 dgsp.DiemHieuQua = Convert.ToInt32(cBHieuqua.SelectedValue);
                 dgsp.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
                 dgsp.GhiChu = txtGhichu.Text;
-                QLMHEntities3 da = new  QLMHEntities3();
+                QLMHEntities4 da = new  QLMHEntities4();
                 
                 try
                 {
@@ -428,7 +428,7 @@ namespace PC_GUI
         {
             if (string.IsNullOrEmpty(txtTim.Text))
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listtim = from dg in db.DANHGIASP_TRONGDON
                               where dg.NgayDG >= dateTimebatdau.Value && dg.NgayDG <= dateTimeketthuc.Value
                               select new
@@ -457,7 +457,7 @@ namespace PC_GUI
             }
             else
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listtimp = from dg in db.DANHGIASP_TRONGDON
                                where dg.SANPHAM.TenSP.Contains(txtTim.Text.Trim())
                                && dg.NgayDG >= dateTimebatdau.Value
@@ -493,7 +493,7 @@ namespace PC_GUI
 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             if (cbMaDH.SelectedIndex != -1)
             {
                 string madhchon = cbMaDH.SelectedValue.ToString();

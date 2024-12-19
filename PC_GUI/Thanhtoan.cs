@@ -1,4 +1,4 @@
-﻿using PC_BLL;
+﻿using PC_GUI.BLL;
 using PC_DTO;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace PC_GUI
 {
     public partial class Thanhtoan : Form
     {
-        BLLThanhtoan bllThanhtoan = new BLLThanhtoan();
+        BLL_ThanhToan bllThanhtoan = new BLL_ThanhToan();
         public DTOHoadon dto = new DTOHoadon();
         public decimal tien;
         

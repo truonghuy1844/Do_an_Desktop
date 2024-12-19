@@ -1,25 +1,23 @@
-﻿using System;
+﻿using PC_DTO;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PC_DTO;
-using System.Linq.Expressions;
 
-namespace PC_DAL
+namespace PC_GUI.DAL
 {
-    public class DALThanhtoan : DBConnect
+    public class DAL_ThanhToan : ConectDB_Manual
     {
-        
-        public DTOThanhtoan  LoadThanhtoan(string maHD)
+        public DTOThanhtoan LoadThanhtoan(string maHD)
         {
 
             DTOThanhtoan dTOThanhtoan = null;
-        
+
             string query = "SELECT MaTT, NgayTT,TrangThai FROM THANHTOAN WHERE MaHD=@mahd";
-            using (SqlCommand cmd = new SqlCommand(query, conn)) 
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 cmd.Parameters.AddWithValue("@mahd", maHD);
                 try
@@ -28,7 +26,8 @@ namespace PC_DAL
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
-                        { dTOThanhtoan = new DTOThanhtoan();
+                        {
+                            dTOThanhtoan = new DTOThanhtoan();
                             dTOThanhtoan.MaTT = reader["MaTT"].ToString();
                             dTOThanhtoan.NgayTT = Convert.ToDateTime(reader["NgayTT"]);
                             dTOThanhtoan.TrangThai = reader["TrangThai"].ToString();
@@ -42,7 +41,7 @@ namespace PC_DAL
             }
 
         }
-        
+
         public bool Kiemtramatt(string matt)
         {
             try
@@ -75,8 +74,8 @@ namespace PC_DAL
             catch (SqlException) { return false; }
             finally { conn.Close(); }
         }
-       
-       
+
+
         public DataTable Thuchien(string mahd)
         {
             try
@@ -96,5 +95,4 @@ namespace PC_DAL
 
         }
     }
-    
 }

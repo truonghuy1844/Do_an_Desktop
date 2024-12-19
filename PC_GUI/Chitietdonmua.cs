@@ -25,7 +25,7 @@ namespace PC_GUI
         }
         void loadmadh()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             cbMaDH.DataSource = db.DONMUAHANGs.ToList();
             cbMaDH.DisplayMember = "MaDMH";
             cbMaDH.ValueMember = "MaDMH";
@@ -33,7 +33,7 @@ namespace PC_GUI
         //Load mã đơn hàng mới 
         void loadmadhtao()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var mactdm = db.CT_DONMUAHANG.Select(ct => ct.MaDMH).ToList();
             var ctdonmoi = from dm in db.DONMUAHANGs
                            select dm;
@@ -43,7 +43,7 @@ namespace PC_GUI
         }
         void loadmasp()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             cbMaSP.DataSource = db.CT_BAOGIA.ToList();
             cbMaSP.DisplayMember = "MaSP";
             cbMaSP.ValueMember = "MaSP";
@@ -51,7 +51,7 @@ namespace PC_GUI
         //Load chi tiết đơn mua theo đơn mua ở QUANLYDONHANG
         void loadctdm()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             
             var ctdm = from dm in db.CT_DONMUAHANG
                        join sp in db.SANPHAMs on dm.MaSP equals sp.MaSP
@@ -72,7 +72,7 @@ namespace PC_GUI
         //Load chi tiết đơn mua 
         void loadchitietdm()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             
             var listdm = from dm in db.CT_DONMUAHANG
                          join dmh in db.DONMUAHANGs on dm.MaDMH equals dmh.MaDMH
@@ -118,7 +118,7 @@ namespace PC_GUI
         private void btnChitietdon_Click(object sender, EventArgs e)
         {
             HideAllTooltips();
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listdm = from dm in db.CT_DONMUAHANG
                          join dmh in db.DONMUAHANGs on dm.MaDMH equals dmh.MaDMH
                          join sp in db.SANPHAMs on dm.MaSP equals sp.MaSP
@@ -142,7 +142,7 @@ namespace PC_GUI
             if (cbMaSP.SelectedIndex != -1)
             {
                 string selectedValue = cbMaSP.SelectedValue.ToString();
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var tenSP = (from sp in db.SANPHAMs
                              where sp.MaSP == selectedValue
                              select sp.TenSP).FirstOrDefault();
@@ -162,7 +162,7 @@ namespace PC_GUI
             {
                 string masp = cbMaSP.SelectedValue.ToString();  
                 string mabg = cbMabaogia.SelectedValue.ToString();
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var dongia = (from bg in db.CT_BAOGIA
                               where bg.MaBG == mabg && bg.MaSP == masp  
                               select bg.DonGia).FirstOrDefault();
@@ -229,7 +229,7 @@ namespace PC_GUI
                 ctiet.MaBG = cbMabaogia.SelectedValue.ToString();
                 ctiet.SoLuong = Convert.ToInt32(txtSoluong.Text);
 
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 
                 try
                 {
@@ -288,7 +288,7 @@ namespace PC_GUI
                 }    
                 if (okSua)
                 {
-                    QLMHEntities3 db = new QLMHEntities3();
+                    QLMHEntities4 db = new QLMHEntities4();
                     
                     try
                     {
@@ -320,7 +320,7 @@ namespace PC_GUI
                 DialogResult rs = MessageBox.Show("Bạn chắc chắn xóa không?", "Thông báo", MessageBoxButtons.YesNo);
                 if (rs == DialogResult.Yes)
                 {
-                    QLMHEntities3 db = new QLMHEntities3();
+                    QLMHEntities4 db = new QLMHEntities4();
                     
                     try
                     {
@@ -364,7 +364,7 @@ namespace PC_GUI
         private void btnTim_Click(object sender, EventArgs e)
         {
             HideAllTooltips();
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             
             try
             {

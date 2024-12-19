@@ -13,13 +13,13 @@ namespace PC_GUI.DAL
         public List<NHANVIEN> DangNhap()
         {
 
-            using (QLMHEntities3 data = new QLMHEntities3())
+            using (QLMHEntities4 data = new QLMHEntities4())
             {
                 return data.NHANVIENs.ToList();
             }
         }
 
-        QLMHEntities3 db = new QLMHEntities3();
+        QLMHEntities4 db = new QLMHEntities4();
         public List<DTONV> LoadNV()
         {
             var listNV = from nv in db.NHANVIENs
@@ -76,7 +76,7 @@ namespace PC_GUI.DAL
                     ChucVu = dTONV.ChucVu,
                     PhongBan = dTONV.PhongBan
                 };
-                using (var db = new QLMHEntities3())
+                using (var db = new QLMHEntities4())
                 {
                     var existingNV = db.NHANVIENs.Find(dTONV.MaNV);
                     if (existingNV != null)
