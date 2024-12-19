@@ -358,7 +358,9 @@
       <DependentUpon>Hoadon.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Thanhtoan.cs" />
+    <Compile Include="Thanhtoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Thanhtoan.Designer.cs">
       <DependentUpon>Thanhtoan.cs</DependentUpon>
     </Compile>
