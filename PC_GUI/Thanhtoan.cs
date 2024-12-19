@@ -39,14 +39,10 @@ namespace PC_GUI
             txtMaHD.Enabled = false;
 
             string mahd = txtMaHD.Text;
-            DataTable dt = bllThanhtoan.LoadThanhtoan(mahd);
-
-            {
-                txtMaTT.Text = dt.Rows[0]["MaTT"].ToString();
-                txtTrangthai.Text = dt.Rows[0]["TrangThai"].ToString();
-
-
-            }
+            DTOThanhtoan result = bllThanhtoan.LoadThanhtoan(mahd);
+             txtMaTT.Text= result.MaTT.ToString();
+            txtNgayTT.Text= result.NgayTT.ToString();
+            txtTrangthai.Text=result.TrangThai.ToString();
 
 
 

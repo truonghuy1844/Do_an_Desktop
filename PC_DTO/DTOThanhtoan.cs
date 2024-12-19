@@ -8,11 +8,11 @@ namespace PC_DTO
 {
     public class DTOThanhtoan
     {
-        public string maTT;
-        public DateTime ngayTT;
-        public string maHD;
+        private  string maTT;
+        private  DateTime ngayTT;
+        private  string maHD;
        
-        public string  trangthai;
+        private string  trangthai;
         public string MaTT { get => maTT; set => maTT = value; }
         public DateTime NgayTT { get => ngayTT;set => ngayTT = value; }
         public string MaHD { get => maHD; set => maHD = value; }

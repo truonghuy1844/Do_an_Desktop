@@ -27,7 +27,7 @@ namespace PC_BLL
         {
             return dalThanhtoan.Thuchien(mahd);
         }
-        public DataTable LoadThanhtoan (string mahd)
+        public DTOThanhtoan  LoadThanhtoan (string mahd)
         {
             return dalThanhtoan.LoadThanhtoan(mahd);
         }

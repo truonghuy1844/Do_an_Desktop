@@ -6,29 +6,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PC_DTO;
+using System.Linq.Expressions;
 
 namespace PC_DAL
 {
     public class DALThanhtoan : DBConnect
     {
         
-        public DataTable LoadThanhtoan(string mahd)
+        public DTOThanhtoan  LoadThanhtoan(string maHD)
         {
-            try
+
+            DTOThanhtoan dTOThanhtoan = null;
+        
+            string query = "SELECT MaTT, NgayTT,TrangThai FROM THANHTOAN WHERE MaHD=@mahd";
+            using (SqlCommand cmd = new SqlCommand(query, conn)) 
             {
+                cmd.Parameters.AddWithValue("@mahd", maHD);
+                try
+                {
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        { dTOThanhtoan = new DTOThanhtoan();
+                            dTOThanhtoan.MaTT = reader["MaTT"].ToString();
+                            dTOThanhtoan.NgayTT = Convert.ToDateTime(reader["NgayTT"]);
+                            dTOThanhtoan.TrangThai = reader["TrangThai"].ToString();
+                        }
 
-                conn.Open();
-                string myQuery = "Select * from THANHTOAN where MaHD=@mahd";
-                SqlDataAdapter adapter = new SqlDataAdapter(myQuery, conn);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                return dt;
+                    }
+                }
+                catch (SqlException ex) { return dTOThanhtoan = null; }
+                finally { conn.Close(); }
+                return dTOThanhtoan;
             }
-            catch (Exception ex) { return null; }
-            finally { conn.Close(); }
 
-
-            }
+        }
         
         public bool Kiemtramatt(string matt)
         {
