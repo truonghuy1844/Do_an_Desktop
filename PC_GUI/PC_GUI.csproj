@@ -94,8 +94,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL\BLL_DonMuaHang.cs" />
+    <Compile Include="BLL\BLL_HoaDon.cs" />
     <Compile Include="BLL\BLL_NCC.cs" />
     <Compile Include="BLL\BLL_PhanCong.cs" />
+    <Compile Include="BLL\BLL_ThanhToan.cs" />
     <Compile Include="Chitietdonmua.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +122,8 @@
     <Compile Include="DAL\CT_YEUCAU.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DAL_HoaDon.cs" />
+    <Compile Include="DAL\DAL_ThanhToan.cs" />
     <Compile Include="DAL\DanhGiaNCC_SPDMH.cs">
       <DependentUpon>EF.tt</DependentUpon>
     </Compile>
@@ -354,16 +358,14 @@
       <DependentUpon>Hoadon.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Thanhtoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Thanhtoan.cs" />
     <Compile Include="Thanhtoan.Designer.cs">
       <DependentUpon>Thanhtoan.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Hoadon.resx">
       <DependentUpon>Hoadon.cs</DependentUpon>
     </EmbeddedResource>
-      <EmbeddedResource Include="Thanhtoan.resx">
+    <EmbeddedResource Include="Thanhtoan.resx">
       <DependentUpon>Thanhtoan.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="QLKho.cs">
@@ -540,14 +542,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PC_BLL\PC_BLL.csproj">
-      <Project>{2d765e26-b02b-4910-97c6-7cebadf60441}</Project>
-      <Name>PC_BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PC_DAL\PC_DAL.csproj">
-      <Project>{E30D283E-E4D5-4BA8-AB7B-4BCDA0E00497}</Project>
-      <Name>PC_DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PC_DTO\PC_DTO.csproj">
       <Project>{a1aee8a6-7605-43b0-be8b-27dcf33b7d75}</Project>
       <Name>PC_DTO</Name>

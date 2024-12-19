@@ -1,4 +1,4 @@
-﻿using PC_DTO;
+﻿using PC_GUI.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,11 +6,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PC_DTO;
 
-namespace PC_DAL
+namespace PC_GUI.DAL
 {
-    public class DALHoadon : DBConnect //nó kế thừa cái connect ở đây
+    public class DAL_HoaDon : ConectDB_Manual
     {
+
         public DataTable LoadData()
         {
             try
@@ -140,7 +142,7 @@ namespace PC_DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from DONMUAHANG",conn);
+                SqlCommand cmd = new SqlCommand("Select * from DONMUAHANG", conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -173,7 +175,7 @@ namespace PC_DAL
         {
 
             try
-            {   
+            {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select * from SANPHAM join CT_DONMUAHANG" +
                 "on SANPHAM.MaSP = CT_DONMUAHANG.MaSP" + "join CT_BAOGIA on CT_DONMUAHANG.MaBG=CT_BAOGIA.MaBG " +
