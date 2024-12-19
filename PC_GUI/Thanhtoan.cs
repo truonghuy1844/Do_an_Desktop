@@ -18,19 +18,12 @@ namespace PC_GUI
         public DTOHoadon dto = new DTOHoadon();
         public decimal tien;
         
-        public Thanhtoan(string maHD, string thanhTien)
+        public Thanhtoan(int maHD, int thanhTien)
         {
             InitializeComponent();
 
-            txtMaHD.Text = maHD;
-            txtSotien.Text = thanhTien;
-
-
-        }
-        private void Thanhtoan_Load(object sender, EventArgs e)
-        {
-            
-
+            txtMaHD.Text = maHD.ToString();
+            txtSotien.Text = thanhTien.ToString();
             txtSotien.Enabled = false;
             txtTrangthai.Enabled = false;
             txtTrangthai.Enabled = false;
@@ -39,10 +32,20 @@ namespace PC_GUI
             txtMaHD.Enabled = false;
 
             string mahd = txtMaHD.Text;
-            DTOThanhtoan result = bllThanhtoan.LoadThanhtoan(mahd);
-             txtMaTT.Text= result.MaTT.ToString();
-            txtNgayTT.Text= result.NgayTT.ToString();
-            txtTrangthai.Text=result.TrangThai.ToString();
+            DTOThanhtoan result = bllThanhtoan.LoadThanhtoan(int.Parse(mahd));
+            txtMaTT.Text = result.MaTT.ToString();
+            txtNgayTT.Text = result.NgayTT.ToString();
+            txtTrangthai.Text = result.TrangThai.ToString();
+            if (result.TrangThai.ToString() == "Đã thanh toán") btnThuchien.Enabled = false;
+
+
+        }
+        private void Thanhtoan_Load(object sender, EventArgs e)
+        {
+            
+
+            
+            
 
 
 
@@ -98,7 +101,7 @@ namespace PC_GUI
                 if (okTao)
                 {
                     DTOThanhtoan ttmoi = new DTOThanhtoan();
-                    ttmoi.MaHD = txtMaHD.Text;
+                    ttmoi.MaHD = int.Parse(txtMaHD.Text);
                     ttmoi.NgayTT = ngayThanhToan;
                     ttmoi.MaTT = txtMaTT.Text;
                     ttmoi.TrangThai = txtTrangthai.Text;
@@ -129,6 +132,7 @@ namespace PC_GUI
             string mahd = txtMaHD.Text;
             DataTable dt = bllThanhtoan.Thuchien(mahd);
             MessageBox.Show("Thanh toán thành công");
+            this.Close();
             
         }
 
