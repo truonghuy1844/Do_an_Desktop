@@ -347,7 +347,25 @@
     <Compile Include="QLNCC.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Hoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hoadon.Designer.cs">
+      <DependentUpon>Hoadon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Thanhtoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Thanhtoan.Designer.cs">
+      <DependentUpon>Thanhtoan.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Hoadon.resx">
+      <DependentUpon>Hoadon.cs</DependentUpon>
+    </EmbeddedResource>
+      <EmbeddedResource Include="Thanhtoan.resx">
+      <DependentUpon>Thanhtoan.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="QLKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
