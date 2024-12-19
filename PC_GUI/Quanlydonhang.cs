@@ -316,12 +316,12 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự","Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Focus();
             }
-            //3.Trường mã yêu cầu mua hàng 
-            if (cbYcmh.SelectedIndex == -1)
+            //3.
+            if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
             {
                 okTao = false;
-                MessageBox.Show("Mã yêu cầu mua hàng không được để trống", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                cbYcmh.Focus();
+                MessageBox.Show("Không được để trống các trường bắt buộc");
+                return;
             }
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau = 0;
@@ -414,12 +414,12 @@ namespace PC_GUI
                     MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
                     dateTime.Focus();
                 }
-                //Trường mã yêu cầu mua hàng
-                if (cbYcmh.SelectedIndex == -1)
+                //3.3
+                if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
                 {
                     okTao = false;
-                    MessageBox.Show("Mã yêu cầu mua hàng không được để trống", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                    cbYcmh.Focus();
+                    MessageBox.Show("Không được để trống các trường bắt buộc");
+                    return;
                 }
                 //4.Chiết khấu là số thực và > 0 
                 decimal chietkhau = 0;

@@ -39,16 +39,14 @@ namespace PC_GUI
         void load_DS_DMH()
         {
             QLMHEntities4 db = new QLMHEntities4();
-            var ctdg = from ds in db.DONMUAHANGs
-                       join ncc in db.NHACUNGCAPs
-                       on ds.MaNCC equals ncc.MaNCC                       
+            var ctdg = from ds in db.DONMUAHANGs                      
                        select new
                        {
-                           MaDMH = ds.MaDMH,
-                           MaNCC = ds.MaNCC,
-                           TenNCC = ncc.TenNCC,
-                           MoTa = ds.MoTa,
-                           TrangThai = ds.TThai
+                           ds.MaDMH,
+                           ds.MaNCC,
+                           ds.NHACUNGCAP.TenNCC,
+                           ds.MoTa,
+                           ds.TThai
                        };
             dataGridViewChitiet.DataSource = ctdg.ToList();
         }

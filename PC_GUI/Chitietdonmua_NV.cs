@@ -143,14 +143,15 @@ namespace PC_GUI
             if (cbMaSP.SelectedIndex != -1)
             {
                 QLMHEntities4 db = new QLMHEntities4();
+                string selectedvalue = cbMaSP.SelectedValue.ToString();
                 var tenSP = (from sp in db.SANPHAMs
-                             where sp.MaSP == cbMaSP.SelectedValue.ToString()
+                             where sp.MaSP == selectedvalue
                              select sp.TenSP).FirstOrDefault();
                 txtTensp.Text = tenSP;
                 var mabg = from bg in db.CT_BAOGIA
-                           where bg.MaSP == cbMaSP.SelectedValue.ToString()
+                           where bg.MaSP == selectedvalue
                            select bg;
-                cbMabaogia.DataSource = mabg;
+                cbMabaogia.DataSource = mabg.ToList();
                 cbMabaogia.DisplayMember = "MaBG";
                 cbMabaogia.ValueMember = "MaBG";
             }

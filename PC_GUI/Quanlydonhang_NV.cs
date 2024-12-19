@@ -251,7 +251,7 @@ namespace PC_GUI
                 cbTrangThai.SelectedValue = dataGridView2.CurrentRow.Cells["TThai"].Value.ToString();
 
                 txtMaDMH.Enabled = false;
-                if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất")
+                if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất" || cbTrangThai.SelectedValue.ToString() == "Đã hủy")
                 {
                     cbTrangThai.Enabled = false;
                 }
@@ -435,12 +435,12 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Focus();
             }
-            //3.Trường mã yêu cầu mua hàng 
-            if (cbYcmh.SelectedIndex == -1)
+            //3.
+            if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
             {
                 okTao = false;
-                MessageBox.Show("Mã yêu cầu mua hàng không được để trống", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                cbYcmh.Focus();
+                MessageBox.Show("Không được để trống các trường bắt buộc");
+                return;
             }
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau = 0;
@@ -510,6 +510,20 @@ namespace PC_GUI
                 okSua = false;
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Focus();
+            }
+            //3.NV không thể cập nhật trạng thái "Chờ xử lý" -> "Đã hủy" 
+            if (cbTrangThai.SelectedValue.ToString() == "Đã hủy" && dataGridView2.CurrentRow.Cells["TThai"].Value.ToString() == "Chờ xử lý")
+            {
+                okSua = false;
+                MessageBox.Show("Nhân viên không thể hủy đơn hàng"); 
+                return;
+            }
+            //3.Không để trống các combobox 
+            if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
+            {
+                okSua = false;
+                MessageBox.Show("Không được để trống các trường bắt buộc");
+                return;
             }
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau = 0;

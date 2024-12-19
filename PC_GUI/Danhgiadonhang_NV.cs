@@ -31,8 +31,6 @@ namespace PC_GUI
             }
         }
         public BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
-        //Load combobox tên sản phẩm 
-
         //Load đánh giá theo chi tiết đơn mua 
         public string madm, masp;
         public bool trangThai = true;
@@ -41,23 +39,21 @@ namespace PC_GUI
         {
             QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ds in db.DONMUAHANGs
-                       join ncc in db.NHACUNGCAPs
-                       on ds.MaNCC equals ncc.MaNCC
                        select new
                        {
-                           MaDMH = ds.MaDMH,
-                           MaNCC = ds.MaNCC,
-                           TenNCC = ncc.TenNCC,
-                           MoTa = ds.MoTa,
-                           TrangThai = ds.TThai
+                           ds.MaDMH,
+                           ds.MaNCC,
+                           ds.NHACUNGCAP.TenNCC,
+                           ds.MoTa,
+                           ds.TThai
                        };
             dataGridViewChitiet.DataSource = ctdg.ToList();
         }
-        void loaddgtheodonmua(string maDM, string maSP)
+        void loaddgtheodonmua(string maDM)
         {
             QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
-                       where ls.MaDMH == maDM && ls.MaSP == maSP
+                       where ls.MaDMH == maDM 
                        select new
                        {
                            ls.MaDGSP,
@@ -181,7 +177,8 @@ namespace PC_GUI
                 {
                     if (chitiet)
                     {
-                        if (cbTensp.SelectedIndex != -1) loaddgtheodonmua(cbMaDH.SelectedValue.ToString(), cbTensp.SelectedValue.ToString());
+                        if (cbTensp.SelectedIndex != -1) 
+                            loaddgtheodonmua(cbMaDH.SelectedValue.ToString());
                         else return;
                         HideAllTooltips();
                         btnChitietdon.Text = "Chi tiết đơn mua";
@@ -196,9 +193,6 @@ namespace PC_GUI
                         btnChitietdon.Text = "Đánh giá của đơn mua";
                         chitiet = true;
                     }
-                    
-
-
                 }
                 catch (Exception) { return; }
             }
