@@ -111,7 +111,7 @@ namespace PC_GUI
         //loaddiemdanhgia
         void loaddiemdg()
         {
-            List<DTODiemDG> diemdg = new List<DTODiemDG>
+            List<DTODiemDG> diemdg1 = new List<DTODiemDG>
             {
                 new DTODiemDG { Thutu = 1, Diemdg = 1},
                 new DTODiemDG { Thutu = 2, Diemdg = 2},
@@ -119,16 +119,17 @@ namespace PC_GUI
                 new DTODiemDG { Thutu = 4, Diemdg = 4},
                 new DTODiemDG { Thutu = 5, Diemdg = 5},
             };
-
-            cbChatluong.DataSource = diemdg;
+            List<DTODiemDG> diemdg2 = new List<DTODiemDG>(diemdg1);
+            List<DTODiemDG> diemdg3 = new List<DTODiemDG>(diemdg1);
+            cbChatluong.DataSource = diemdg1;
             cbChatluong.DisplayMember = "Diemdg";
             cbChatluong.ValueMember = "Thutu";
 
-            cBHieuqua.DataSource = diemdg;
+            cBHieuqua.DataSource = diemdg2;
             cBHieuqua.DisplayMember = "Diemdg";
             cBHieuqua.ValueMember = "Thutu";
 
-            cbGiaca.DataSource = diemdg;
+            cbGiaca.DataSource = diemdg3;
             cbGiaca.DisplayMember = "Diemdg";
             cbGiaca.ValueMember = "Thutu";
         }

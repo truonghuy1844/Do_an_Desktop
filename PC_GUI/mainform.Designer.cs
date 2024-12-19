@@ -87,7 +87,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(827, 800);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.pa_Paint);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnMenuDoc
             // 
@@ -656,7 +656,7 @@
             this.Name = "frmMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";
-            this.Load += new System.EventHandler(this.frmMainForm_Load_1);
+            this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.pnMenuDoc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptLogo)).EndInit();
             this.pnButton.ResumeLayout(false);

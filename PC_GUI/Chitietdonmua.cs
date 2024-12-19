@@ -34,7 +34,6 @@ namespace PC_GUI
         void loadmadhtao()
         {
             QLMHEntities4 db = new QLMHEntities4();
-            var mactdm = db.CT_DONMUAHANG.Select(ct => ct.MaDMH).ToList();
             var ctdonmoi = from dm in db.DONMUAHANGs
                            select dm;
             cbMaDH.DataSource = ctdonmoi.ToList();

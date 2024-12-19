@@ -52,11 +52,11 @@ namespace PC_GUI
         }
 
         //Load đánh giá theo chi tiết đơn mua 
-        void loaddgtheodonmua(string maDMH, string maSP)
+        void loaddgtheodonmua(string maDMH)
         {
             QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
-                       where ls.MaDMH == maDMH && ls.MaSP == maSP
+                       where ls.MaDMH == maDMH
                        select new
                        {
                            ls.MaDGSP,
@@ -109,7 +109,7 @@ namespace PC_GUI
         //loaddiemdanhgia
         void loaddiemdg()
         {
-            List<DTODiemDG> diemdg = new List<DTODiemDG>
+            List<DTODiemDG> diemdg1 = new List<DTODiemDG>
             {
                 new DTODiemDG { Thutu = 1, Diemdg = 1},
                 new DTODiemDG { Thutu = 2, Diemdg = 2},
@@ -117,15 +117,17 @@ namespace PC_GUI
                 new DTODiemDG { Thutu = 4, Diemdg = 4},
                 new DTODiemDG { Thutu = 5, Diemdg = 5},
             };
-            cbChatluong.DataSource = diemdg;
+            List<DTODiemDG> diemdg2 = new List<DTODiemDG>(diemdg1); 
+            List<DTODiemDG> diemdg3 = new List<DTODiemDG>(diemdg1); 
+            cbChatluong.DataSource = diemdg1;
             cbChatluong.DisplayMember = "Diemdg";
             cbChatluong.ValueMember = "Thutu";
 
-            cBHieuqua.DataSource = diemdg;
+            cBHieuqua.DataSource = diemdg2;
             cBHieuqua.DisplayMember = "Diemdg";
             cBHieuqua.ValueMember = "Thutu";
 
-            cbGiaca.DataSource = diemdg;
+            cbGiaca.DataSource = diemdg3;
             cbGiaca.DisplayMember = "Diemdg";
             cbGiaca.ValueMember = "Thutu";
 
@@ -161,7 +163,8 @@ namespace PC_GUI
                 {
                     if (chitiet)
                     {
-                        if (cbTensp.SelectedIndex != -1) loaddgtheodonmua(cbMaDH.SelectedValue.ToString(), cbTensp.SelectedValue.ToString());
+                        if (cbTensp.SelectedIndex != -1) 
+                            loaddgtheodonmua(cbMaDH.SelectedValue.ToString());
                         else return;
                         HideAllTooltips();
                         btnChitietdon.Text = "Chi tiết đơn mua";
@@ -274,10 +277,10 @@ namespace PC_GUI
                 txtMaDGSP.Focus();
             }
             //2.Mã đơn mua hàng không được trống 
-            if (cbMaDH.SelectedIndex == -1)
+            if (cbMaDH.SelectedIndex == -1 || cbTensp.SelectedIndex ==-1)
             {
                 kiemtra = false;
-                MessageBox.Show("Mã đơn mua hàng không được để trống", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Mã đơn mua hàng / mã sản phẩm không được để trống", "Thông báo", MessageBoxButtons.OK);
                 cbMaDH.Focus();
 
             }
@@ -309,17 +312,11 @@ namespace PC_GUI
                 }
                 catch (Exception ex)
                 { MessageBox.Show("Lỗi", ex.Message); }
-                
-
                 loadlichsudg();
                 btnLuu.Enabled = false;
             }
         }
 
-        private void cb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         //Nút cập nhật 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {

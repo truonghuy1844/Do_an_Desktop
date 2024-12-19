@@ -17,7 +17,7 @@ namespace PC_GUI.DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from PHANCONG_CONGVIEC", conn);
+                SqlCommand cmd = new SqlCommand("Select * from PHANCONG_CONGVIEC order by NgayGiao desc", conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -121,7 +121,7 @@ namespace PC_GUI.DAL
                 SqlCommand cmd = new SqlCommand();
                 if (string.IsNullOrEmpty(tukhoa))
                 {
-                    cmd = new SqlCommand("Select * from PHANCONG_CONGVIEC");
+                    cmd = new SqlCommand("Select * from PHANCONG_CONGVIEC order by NgayGiao desc");
                 }
                 else
                 {
@@ -163,7 +163,7 @@ namespace PC_GUI.DAL
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from PHANCONG_CONGVIEC" +
+                SqlCommand cmd = new SqlCommand("Select * from PHANCONG_CONGVIEC order by NgayGiao desc" +
                     "where TThai = @tthai", conn);
                 cmd.Parameters.AddWithValue("@tthai", trangthai);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);

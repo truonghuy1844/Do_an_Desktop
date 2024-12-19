@@ -381,7 +381,7 @@ namespace PC_GUI
             if (ktra)
             {
                 DataTable tim = bllphancong.Timphancong(txtTim.Text);
-                if (tim == null)
+                if (tim == null || tim.Rows.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy kết quả");
                 }

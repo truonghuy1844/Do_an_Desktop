@@ -83,26 +83,26 @@ namespace PC_GUI
         //Load combobox trạng thái 
         void loadcbTrangthai()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai1 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbTrangThai.DataSource = dstrangthai;
+            cbTrangThai.DataSource = dstrangthai1;
             cbTrangThai.DisplayMember = "Hienthi";
             cbTrangThai.ValueMember = "Luu";
         }
         //Load cb lọc 
         void loadcbLoc()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai2 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbLoc.DataSource = dstrangthai;
+            cbLoc.DataSource = dstrangthai2;
             cbLoc.DisplayMember = "Hienthi";
             cbLoc.ValueMember = "Luu";
         }
@@ -211,7 +211,8 @@ namespace PC_GUI
             QLMHEntities4 db = new QLMHEntities4();
             
             var listtim = from dm in db.DONMUAHANGs
-                          where dm.MaDMH.Contains(txtTimKiem.Text)
+                          where dm.MaDMH.Contains(txtTimKiem.Text) || dm.MoTa.Contains(txtTimKiem.Text)
+                          orderby dm.NgayLap descending
                           select new
                           {
                               dm.MaDMH,
@@ -230,7 +231,7 @@ namespace PC_GUI
             }
             else
             {
-                dataGridView2.DataSource = listtim;
+                dataGridView2.DataSource = listtim.ToList();
             }
             
             
@@ -528,7 +529,7 @@ namespace PC_GUI
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau = 0;
             string input = txtChietkhau.Text.Replace(",",".");
-            if (String.IsNullOrEmpty(txtChietkhau.Text))
+            if (!string.IsNullOrEmpty(txtChietkhau.Text))
             {
                 if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
                 {
@@ -543,20 +544,24 @@ namespace PC_GUI
                 
                 try
                 {
-                    DONMUAHANG donmua = (from dm in db.DONMUAHANGs
-                                            where dm.MaDMH == txtMaDMH.Text
-                                            select dm).Single<DONMUAHANG>();
-                    donmua.NgayLap = dateTime2.Value;
-                    donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
-                    donmua.MaNV = txtMaNV.Text;
-                    donmua.MaNCC = cbMaNCC.SelectedValue.ToString();
-                    donmua.MaYC = cbYcmh.SelectedValue.ToString();
-                    donmua.Chietkhau = chietkhau;
-                    donmua.TThai = cbTrangThai.SelectedValue.ToString();
-                    donmua.MoTa = txtMoTa.Text;
+                    //DONMUAHANG donmua = (from dm in db.DONMUAHANGs
+                    //                        where dm.MaDMH == txtMaDMH.Text
+                    //                        select dm).Single<DONMUAHANG>();
+                    DONMUAHANG donmua = db.DONMUAHANGs.Find(txtMaDMH.Text.Trim());
+                    if (donmua != null)
+                    {
+                        donmua.NgayLap = dateTime2.Value;
+                        donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
+                        donmua.MaNV = txtMaNV.Text;
+                        donmua.MaNCC = cbMaNCC.SelectedValue.ToString();
+                        donmua.MaYC = cbYcmh.SelectedValue.ToString();
+                        donmua.Chietkhau = chietkhau;
+                        donmua.TThai = cbTrangThai.SelectedValue.ToString();
+                        donmua.MoTa = txtMoTa.Text;
 
-                    db.SaveChanges();
-                    MessageBox.Show("Cập nhật đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                        db.SaveChanges();
+                        MessageBox.Show("Cập nhật đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                    }
 
                 }
                 catch (Exception ex) { MessageBox.Show("Cập nhật đơn hàng thất bại", ex.Message); }

@@ -76,25 +76,25 @@ namespace PC_GUI
         //Load combobox trạng thái 
         void loadcbTrangthai()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai1 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbTrangThai.DataSource = dstrangthai;
+            cbTrangThai.DataSource = dstrangthai1;
             cbTrangThai.DisplayMember = "Hienthi";
             cbTrangThai.ValueMember = "Luu";
         }
         void loadcbLoc()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai2 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbLoc.DataSource = dstrangthai;
+            cbLoc.DataSource = dstrangthai2;
             cbLoc.DisplayMember = "Hienthi";
             cbLoc.ValueMember = "Luu";
         }
