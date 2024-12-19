@@ -16,10 +16,18 @@ namespace PC_GUI
 {
     public partial class PCCV : UserControl
     {
+        public DTONV nv = new DTONV();
         BLL_PhanCong bllphancong = new BLL_PhanCong();
-        public PCCV()
+        public PCCV(DTONV nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnXoa);
+            }
         }
 
         //Load combobox trạng thái

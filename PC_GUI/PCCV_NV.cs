@@ -16,7 +16,8 @@ namespace PC_GUI
 {
     public partial class PCCV_NV : UserControl
     {
-        public PCCV_NV()
+        public DTONV nv = new DTONV();
+        public PCCV_NV(DTONV nvien)
         {
             InitializeComponent();
         }

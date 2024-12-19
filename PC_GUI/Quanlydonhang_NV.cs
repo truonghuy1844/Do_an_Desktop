@@ -16,10 +16,22 @@ namespace PC_GUI
     public partial class Quanlydonhang_NV : UserControl
     {
         BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
-        public Quanlydonhang_NV()
+        public DTONV nv = new DTONV();
+        public Quanlydonhang_NV(DTONV nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnTao);
+                this.Controls.Remove(btnCapNhat);
+                this.Controls.Remove(btnLuu);
+                this.Controls.Remove(btnXoa);
+            }
         }
+
         //I.Load dữ liệu 
         //Load combobox lọc theo trạng thái 
         void loadloctt()
@@ -106,6 +118,7 @@ namespace PC_GUI
         }
         private void Quanlydonhang_NV_Load(object sender, EventArgs e)
         {
+            loaddonmua();
             loadloctt();
             loadhopdong();
             loadcbTrangthai();

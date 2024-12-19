@@ -17,11 +17,21 @@ namespace PC_GUI
 {
     public partial class Danhgiadonhang : UserControl
     {
-        
-        public Danhgiadonhang()
+
+        public DTONV nv = new DTONV();
+        public Danhgiadonhang(DTONV nvien)
         {
             InitializeComponent();
-            
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraChucVu || !KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnCapNhat);
+                this.Controls.Remove(btnXoa);
+            }
         }
         public BLL_DonMuaHang bllDonmmua = new BLL_DonMuaHang();
 
