@@ -1,4 +1,4 @@
-﻿namespace PC_GUI
+namespace PC_GUI
 {
     partial class frmMainForm
     {
@@ -107,10 +107,10 @@
             this.pnButton.Controls.Add(this.btnFormHoaDon);
             this.pnButton.Controls.Add(this.pnNguonLuc);
             this.pnButton.Controls.Add(this.btnLogOut);
-            this.pnButton.Location = new System.Drawing.Point(3, 140);
-            this.pnButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnButton.Location = new System.Drawing.Point(4, 219);
+            this.pnButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pnButton.Name = "pnButton";
-            this.pnButton.Size = new System.Drawing.Size(307, 1200);
+            this.pnButton.Size = new System.Drawing.Size(460, 1875);
             this.pnButton.TabIndex = 9;
             // 
             // pnContainerNCC
@@ -126,7 +126,7 @@
             this.pnContainerNCC.MaximumSize = new System.Drawing.Size(474, 265);
             this.pnContainerNCC.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnContainerNCC.Name = "pnContainerNCC";
-            this.pnContainerNCC.Size = new System.Drawing.Size(316, 75);
+            this.pnContainerNCC.Size = new System.Drawing.Size(474, 117);
             this.pnContainerNCC.TabIndex = 7;
             this.pnContainerNCC.Click += new System.EventHandler(this.pnContainerNCC_Click);
             // 
@@ -134,10 +134,10 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(256, 36);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(384, 56);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(17, 11);
+            this.pictureBox1.Size = new System.Drawing.Size(26, 17);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -153,10 +153,10 @@
             this.btnFormNCC.ForeColor = System.Drawing.Color.White;
             this.btnFormNCC.Image = global::PC_GUI.Properties.Resources.icons8_supplier_50;
             this.btnFormNCC.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormNCC.Location = new System.Drawing.Point(0, -8);
-            this.btnFormNCC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFormNCC.Location = new System.Drawing.Point(0, -13);
+            this.btnFormNCC.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFormNCC.Name = "btnFormNCC";
-            this.btnFormNCC.Size = new System.Drawing.Size(313, 84);
+            this.btnFormNCC.Size = new System.Drawing.Size(470, 131);
             this.btnFormNCC.TabIndex = 4;
             this.btnFormNCC.Text = "&Nhà cung cấp";
             this.btnFormNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,7 +171,7 @@
             this.pictureBox10.Location = new System.Drawing.Point(276, -13);
             this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(17, 11);
+            this.pictureBox10.Size = new System.Drawing.Size(26, 17);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 6;
             this.pictureBox10.TabStop = false;
@@ -185,10 +185,10 @@
             this.btnFThongTinNCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFThongTinNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFThongTinNCC.ForeColor = System.Drawing.Color.White;
-            this.btnFThongTinNCC.Location = new System.Drawing.Point(-3, 79);
-            this.btnFThongTinNCC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFThongTinNCC.Location = new System.Drawing.Point(-4, 123);
+            this.btnFThongTinNCC.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFThongTinNCC.Name = "btnFThongTinNCC";
-            this.btnFThongTinNCC.Size = new System.Drawing.Size(316, 42);
+            this.btnFThongTinNCC.Size = new System.Drawing.Size(474, 65);
             this.btnFThongTinNCC.TabIndex = 4;
             this.btnFThongTinNCC.Text = "Thông tin NCC";
             this.btnFThongTinNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -204,10 +204,10 @@
             this.btnFDanhGiaNCC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFDanhGiaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFDanhGiaNCC.ForeColor = System.Drawing.Color.White;
-            this.btnFDanhGiaNCC.Location = new System.Drawing.Point(-3, 127);
-            this.btnFDanhGiaNCC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFDanhGiaNCC.Location = new System.Drawing.Point(-4, 198);
+            this.btnFDanhGiaNCC.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFDanhGiaNCC.Name = "btnFDanhGiaNCC";
-            this.btnFDanhGiaNCC.Size = new System.Drawing.Size(316, 45);
+            this.btnFDanhGiaNCC.Size = new System.Drawing.Size(474, 71);
             this.btnFDanhGiaNCC.TabIndex = 4;
             this.btnFDanhGiaNCC.Text = "Đánh giá NCC";
             this.btnFDanhGiaNCC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,7 +229,7 @@
             this.btnSanPham.MaximumSize = new System.Drawing.Size(474, 269);
             this.btnSanPham.MinimumSize = new System.Drawing.Size(474, 117);
             this.btnSanPham.Name = "btnSanPham";
-            this.btnSanPham.Size = new System.Drawing.Size(316, 75);
+            this.btnSanPham.Size = new System.Drawing.Size(474, 117);
             this.btnSanPham.TabIndex = 4;
             this.btnSanPham.Text = "&Sản phẩm";
             this.btnSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,7 +249,7 @@
             this.pnYeuCauMua.MaximumSize = new System.Drawing.Size(474, 269);
             this.pnYeuCauMua.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnYeuCauMua.Name = "pnYeuCauMua";
-            this.pnYeuCauMua.Size = new System.Drawing.Size(316, 75);
+            this.pnYeuCauMua.Size = new System.Drawing.Size(474, 117);
             this.pnYeuCauMua.TabIndex = 7;
             this.pnYeuCauMua.Click += new System.EventHandler(this.pnYeuCauMua_Click);
             // 
@@ -274,10 +274,10 @@
             this.btnFDuyetYCM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFDuyetYCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFDuyetYCM.ForeColor = System.Drawing.Color.White;
-            this.btnFDuyetYCM.Location = new System.Drawing.Point(-3, 79);
-            this.btnFDuyetYCM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFDuyetYCM.Location = new System.Drawing.Point(-4, 123);
+            this.btnFDuyetYCM.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFDuyetYCM.Name = "btnFDuyetYCM";
-            this.btnFDuyetYCM.Size = new System.Drawing.Size(316, 42);
+            this.btnFDuyetYCM.Size = new System.Drawing.Size(474, 65);
             this.btnFDuyetYCM.TabIndex = 4;
             this.btnFDuyetYCM.Text = "Duyệt YC";
             this.btnFDuyetYCM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -295,11 +295,11 @@
             this.btnFormYeuCauMua.ForeColor = System.Drawing.Color.White;
             this.btnFormYeuCauMua.Image = global::PC_GUI.Properties.Resources.icons8_purchase_order_50;
             this.btnFormYeuCauMua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormYeuCauMua.Location = new System.Drawing.Point(-3, 0);
-            this.btnFormYeuCauMua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFormYeuCauMua.MaximumSize = new System.Drawing.Size(316, 172);
+            this.btnFormYeuCauMua.Location = new System.Drawing.Point(-4, 0);
+            this.btnFormYeuCauMua.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnFormYeuCauMua.MaximumSize = new System.Drawing.Size(474, 269);
             this.btnFormYeuCauMua.Name = "btnFormYeuCauMua";
-            this.btnFormYeuCauMua.Size = new System.Drawing.Size(316, 75);
+            this.btnFormYeuCauMua.Size = new System.Drawing.Size(474, 117);
             this.btnFormYeuCauMua.TabIndex = 4;
             this.btnFormYeuCauMua.Text = "&Yêu cầu mua";
             this.btnFormYeuCauMua.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -316,10 +316,10 @@
             this.btnFDieuChinhYCM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFDieuChinhYCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFDieuChinhYCM.ForeColor = System.Drawing.Color.White;
-            this.btnFDieuChinhYCM.Location = new System.Drawing.Point(-3, 127);
-            this.btnFDieuChinhYCM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFDieuChinhYCM.Location = new System.Drawing.Point(-4, 198);
+            this.btnFDieuChinhYCM.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFDieuChinhYCM.Name = "btnFDieuChinhYCM";
-            this.btnFDieuChinhYCM.Size = new System.Drawing.Size(316, 45);
+            this.btnFDieuChinhYCM.Size = new System.Drawing.Size(474, 71);
             this.btnFDieuChinhYCM.TabIndex = 4;
             this.btnFDieuChinhYCM.Text = "Điều chỉnh YC";
             this.btnFDieuChinhYCM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -341,7 +341,7 @@
             this.btnFormBG.MaximumSize = new System.Drawing.Size(474, 269);
             this.btnFormBG.MinimumSize = new System.Drawing.Size(474, 117);
             this.btnFormBG.Name = "btnFormBG";
-            this.btnFormBG.Size = new System.Drawing.Size(316, 75);
+            this.btnFormBG.Size = new System.Drawing.Size(474, 117);
             this.btnFormBG.TabIndex = 4;
             this.btnFormBG.Text = "&Báo giá";
             this.btnFormBG.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -361,7 +361,7 @@
             this.pnDonHang.MaximumSize = new System.Drawing.Size(474, 270);
             this.pnDonHang.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnDonHang.Name = "pnDonHang";
-            this.pnDonHang.Size = new System.Drawing.Size(316, 75);
+            this.pnDonHang.Size = new System.Drawing.Size(474, 117);
             this.pnDonHang.TabIndex = 7;
             this.pnDonHang.Click += new System.EventHandler(this.pnDonHang_Click);
             // 
@@ -386,10 +386,10 @@
             this.btnFDGSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFDGSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFDGSP.ForeColor = System.Drawing.Color.White;
-            this.btnFDGSP.Location = new System.Drawing.Point(0, 124);
-            this.btnFDGSP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFDGSP.Location = new System.Drawing.Point(0, 194);
+            this.btnFDGSP.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFDGSP.Name = "btnFDGSP";
-            this.btnFDGSP.Size = new System.Drawing.Size(313, 42);
+            this.btnFDGSP.Size = new System.Drawing.Size(470, 65);
             this.btnFDGSP.TabIndex = 4;
             this.btnFDGSP.Text = "Đánh giá sản phẩm";
             this.btnFDGSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -426,10 +426,10 @@
             this.btnFTTDonHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFTTDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFTTDonHang.ForeColor = System.Drawing.Color.White;
-            this.btnFTTDonHang.Location = new System.Drawing.Point(-5, 76);
-            this.btnFTTDonHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFTTDonHang.Location = new System.Drawing.Point(-8, 119);
+            this.btnFTTDonHang.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFTTDonHang.Name = "btnFTTDonHang";
-            this.btnFTTDonHang.Size = new System.Drawing.Size(313, 42);
+            this.btnFTTDonHang.Size = new System.Drawing.Size(470, 65);
             this.btnFTTDonHang.TabIndex = 4;
             this.btnFTTDonHang.Text = "Thông tin đơn hàng";
             this.btnFTTDonHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -449,7 +449,7 @@
             this.btnFormHoaDon.Location = new System.Drawing.Point(4, 633);
             this.btnFormHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormHoaDon.Name = "btnFormHoaDon";
-            this.btnFormHoaDon.Size = new System.Drawing.Size(316, 75);
+            this.btnFormHoaDon.Size = new System.Drawing.Size(474, 117);
             this.btnFormHoaDon.TabIndex = 4;
             this.btnFormHoaDon.Text = "&Hóa đơn";
             this.btnFormHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -487,18 +487,6 @@
             this.pictureBox4.TabIndex = 7;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(256, 33);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(17, 11);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
             // btnFPhanCong
             // 
             this.btnFPhanCong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(65)))), ((int)(((byte)(100)))));
@@ -508,10 +496,10 @@
             this.btnFPhanCong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFPhanCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFPhanCong.ForeColor = System.Drawing.Color.White;
-            this.btnFPhanCong.Location = new System.Drawing.Point(0, 172);
-            this.btnFPhanCong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFPhanCong.Location = new System.Drawing.Point(0, 269);
+            this.btnFPhanCong.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFPhanCong.Name = "btnFPhanCong";
-            this.btnFPhanCong.Size = new System.Drawing.Size(313, 47);
+            this.btnFPhanCong.Size = new System.Drawing.Size(470, 73);
             this.btnFPhanCong.TabIndex = 4;
             this.btnFPhanCong.Text = "Phân công";
             this.btnFPhanCong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -527,10 +515,10 @@
             this.btnFKho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFKho.ForeColor = System.Drawing.Color.White;
-            this.btnFKho.Location = new System.Drawing.Point(0, 124);
-            this.btnFKho.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFKho.Location = new System.Drawing.Point(0, 194);
+            this.btnFKho.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFKho.Name = "btnFKho";
-            this.btnFKho.Size = new System.Drawing.Size(313, 42);
+            this.btnFKho.Size = new System.Drawing.Size(470, 65);
             this.btnFKho.TabIndex = 4;
             this.btnFKho.Text = "Kho hàng";
             this.btnFKho.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -546,10 +534,10 @@
             this.btnFNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnFNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnFNhanVien.Location = new System.Drawing.Point(0, 76);
-            this.btnFNhanVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFNhanVien.Location = new System.Drawing.Point(0, 119);
+            this.btnFNhanVien.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFNhanVien.Name = "btnFNhanVien";
-            this.btnFNhanVien.Size = new System.Drawing.Size(313, 42);
+            this.btnFNhanVien.Size = new System.Drawing.Size(470, 65);
             this.btnFNhanVien.TabIndex = 4;
             this.btnFNhanVien.Text = "Nhân viên";
             this.btnFNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -566,10 +554,10 @@
             this.btnFormNguonLuc.ForeColor = System.Drawing.Color.White;
             this.btnFormNguonLuc.Image = global::PC_GUI.Properties.Resources.icons8_user_50;
             this.btnFormNguonLuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormNguonLuc.Location = new System.Drawing.Point(-3, 0);
-            this.btnFormNguonLuc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFormNguonLuc.Location = new System.Drawing.Point(-4, 0);
+            this.btnFormNguonLuc.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFormNguonLuc.Name = "btnFormNguonLuc";
-            this.btnFormNguonLuc.Size = new System.Drawing.Size(307, 74);
+            this.btnFormNguonLuc.Size = new System.Drawing.Size(460, 115);
             this.btnFormNguonLuc.TabIndex = 4;
             this.btnFormNguonLuc.Text = "N&guồn lực";
             this.btnFormNguonLuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -590,7 +578,7 @@
             this.btnLogOut.Location = new System.Drawing.Point(4, 878);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(304, 72);
+            this.btnLogOut.Size = new System.Drawing.Size(456, 112);
             this.btnLogOut.TabIndex = 4;
             this.btnLogOut.Text = "&Đăng xuất";
             this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -603,18 +591,18 @@
             this.ptLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ptLogo.Image = ((System.Drawing.Image)(resources.GetObject("ptLogo.Image")));
             this.ptLogo.Location = new System.Drawing.Point(0, 0);
-            this.ptLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ptLogo.MaximumSize = new System.Drawing.Size(309, 134);
-            this.ptLogo.MinimumSize = new System.Drawing.Size(80, 134);
+            this.ptLogo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.ptLogo.MaximumSize = new System.Drawing.Size(464, 210);
+            this.ptLogo.MinimumSize = new System.Drawing.Size(120, 210);
             this.ptLogo.Name = "ptLogo";
-            this.ptLogo.Size = new System.Drawing.Size(309, 134);
+            this.ptLogo.Size = new System.Drawing.Size(464, 210);
             this.ptLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptLogo.TabIndex = 4;
             this.ptLogo.TabStop = false;
             // 
             // frmMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(2174, 1209);
