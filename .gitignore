@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/PC_GUI/DAL/ConectDB_Manual.cs
+/.gitignore
