@@ -261,6 +261,7 @@ namespace PC_GUI
                     cbTrangThai.Enabled = true;
                 }
                 cbLoc.SelectedIndex = -1;
+                HideAllTooltips();
             }
         }
 
@@ -496,6 +497,7 @@ namespace PC_GUI
             {
                 okSua = false;
                 MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                txtMaNV.Text = dataGridView2.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtMaNV.Focus();
             }
             //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
@@ -503,6 +505,7 @@ namespace PC_GUI
             {
                 okSua = false;
                 MessageBox.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                txtMaNV.Text = dataGridView2.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtMaNV.Focus();
             }
             //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
@@ -510,6 +513,7 @@ namespace PC_GUI
             {
                 okSua = false;
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
+                txtMaNV.Text = dataGridView2.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtMaNV.Focus();
             }
             //3.NV không thể cập nhật trạng thái "Chờ xử lý" -> "Đã hủy" 

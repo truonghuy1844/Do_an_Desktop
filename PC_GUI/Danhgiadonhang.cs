@@ -326,13 +326,17 @@ namespace PC_GUI
             {
                 okSua = false;
                 MessageBox.Show("Mô tả đánh giá không được bỏ trống", "Thông báo", MessageBoxButtons.OK);
-                cbMaDH.Focus();
+                txtDanhgia.Text = dataGridViewChitiet.CurrentRow.Cells["MoTaDG"].Value.ToString();
+                txtDanhgia.Focus();
             }
             //3.Điểm đánh giá 
             if (cbChatluong.SelectedIndex == -1 && cBHieuqua.SelectedIndex == -1 && cbGiaca.SelectedIndex == -1)
             {
                 okSua = false;
                 MessageBox.Show("Đánh giá tối thiểu một tiêu chí", "Thông báo", MessageBoxButtons.OK);
+                cbChatluong.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemChatLuong"].Value);
+                cBHieuqua.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemHieuQua"].Value);
+                cbGiaca.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemGiaCa"].Value);
             }
             if (okSua)
             {
