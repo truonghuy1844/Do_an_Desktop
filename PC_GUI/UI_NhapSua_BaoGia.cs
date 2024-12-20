@@ -25,15 +25,22 @@ namespace PC_GUI
             bool kiemtraPhongBan = kt.Kiem_Tra_PhongBan(nvien);
             if (!kiemtraPhongBan)
             {
-                this.Controls.Remove(groupBox1);
-                this.Controls.Remove(groupBox2);
-                
+                this.Controls.Remove(btnSuaBG);
+                this.Controls.Remove(btnSuaSP);
+                this.Controls.Remove(btnXoaBG);
+                this.Controls.Remove(btnXoaSP);
+                this.Controls.Remove(btnThemBG);
+                this.Controls.Remove(btnThemSP);
+
             }
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
-
+            tooltipMaBG.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
+            tooltipMaBG.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây
+            tooltipMaBG.IsBalloon = true; // Hiển thị Tooltip dạng bong bóng
+            tooltipMaBG.ToolTipTitle = "Mã báo giá bắt đầu bằng BG";
         }
 
         //Kiểm tra mã báo giá
@@ -42,14 +49,10 @@ namespace PC_GUI
             BLL_BaoGia bll = new BLL_BaoGia();
             DTO_BaoGia dto  = new DTO_BaoGia();
             dto.MaBG = txtMaBG.Text.Trim();
-            tooltipMaBG.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
-            tooltipMaBG.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây
-            tooltipMaBG.IsBalloon = true; // Hiển thị Tooltip dạng bong bóng
-            tooltipMaBG.ToolTipTitle = "Mã báo giá bắt đầu bằng BG";
             dtgCT_BG.DataSource = null;
             if (dto.MaBG.Length > 0) 
             {
-                if (bll.KiemTraMaBG(dto))
+                if (bll.KiemTraMaBG(dto)) /// kiểm tra mã bg đã tồn tại
                 {
                     btnSuaBG.Enabled = false;
                     btnXoaSP.Enabled = false;
@@ -74,7 +77,6 @@ namespace PC_GUI
                         tooltipMaBG.ToolTipIcon = ToolTipIcon.Error;
                         btnThemBG.Enabled = false;
                     }
-
                 }
                 else
                 {
@@ -97,17 +99,15 @@ namespace PC_GUI
                 btnXoaSP.Enabled = false;
                 btnThemSP.Enabled = false;
                 btnSuaSP.Enabled = false;
-                btnXoaBG.Enabled = false;
-                
+                btnXoaBG.Enabled = false;   
                 btnThemBG.Enabled = false;
                 txtDonGia.Text = "";
                 txtMota.Text = "";
                 cbSanPham.SelectedValue = 0;
                 cbNCC.SelectedValue = 0;
-            }
-            
-            
+            }    
         }
+
         //Load Forrm
         private void UI_NhapSua_BaoGia_Load(object sender, EventArgs e)
         {

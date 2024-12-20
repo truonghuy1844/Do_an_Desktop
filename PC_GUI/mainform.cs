@@ -22,8 +22,8 @@ namespace PC_GUI
         {
             InitializeComponent();
             nv_DN = nhanVien;
-            this.Size = new System.Drawing.Size(915, 720);
-            
+           
+
         }
 
         #region Xử lý submenu
@@ -34,7 +34,7 @@ namespace PC_GUI
             {
                 pnContainerNCC.Size = pnContainerNCC.MaximumSize;
             }
-            else pnContainerNCC.Size = MinimumSize;
+            else pnContainerNCC.Size = pnContainerNCC.MinimumSize;
         }
 
         private void btnFormDonHang_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace PC_GUI
             {
                 pnDonHang.Size = pnDonHang.MaximumSize;
             }
-            else pnDonHang.Size = MinimumSize;
+            else pnDonHang.Size = pnDonHang.MinimumSize;
 
         }
 
@@ -102,9 +102,7 @@ namespace PC_GUI
         private void btnFormBG_Click(object sender, EventArgs e)
         {
             panelHienThi.Controls.Clear();
-            DTONV nvien = new DTONV();
-            nvien.MaNV = "NV020";
-            UI_View_BaoGia ui_BG = new UI_View_BaoGia(nvien);
+            UI_View_BaoGia ui_BG = new UI_View_BaoGia(nv_DN);
             panelHienThi.Controls.Add(ui_BG);
             panelHienThi.Dock = DockStyle.Fill;
 
@@ -112,7 +110,7 @@ namespace PC_GUI
 
         private void frmMainForm_Load(object sender, EventArgs e)
         {
-            panelHienThi.Size = new System.Drawing.Size(1200, 1000);
+            
         }
 
 
@@ -218,20 +216,14 @@ namespace PC_GUI
             }
 
         }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnFThongTinNCC_Click(object sender, EventArgs e)
         {
@@ -249,10 +241,7 @@ namespace PC_GUI
             panelHienThi.Dock = DockStyle.Fill;
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void btnFormHoaDon_Click(object sender, EventArgs e)
         {
@@ -270,6 +259,42 @@ namespace PC_GUI
             {
                 MessageBox.Show("Nhân sự thuộc kế toán hoặc phòng mua hàng mới có quyền truy cập", "Thông báo quyền truy cập", MessageBoxButtons.OK);
             }
+        }
+
+        private void pnYeuCauMua_Click(object sender, EventArgs e)
+        {
+            if (pnYeuCauMua.Size == pnYeuCauMua.MinimumSize)
+            {
+                pnYeuCauMua.Size = pnYeuCauMua.MaximumSize;
+            }
+            else pnYeuCauMua.Size = pnYeuCauMua.MinimumSize;
+        }
+
+        private void pnDonHang_Click(object sender, EventArgs e)
+        {
+            if (pnDonHang.Size == pnDonHang.MinimumSize)
+            {
+                pnDonHang.Size = pnDonHang.MaximumSize;
+            }
+            else pnDonHang.Size = MinimumSize;
+        }
+
+        private void pnNguonLuc_Click(object sender, EventArgs e)
+        {
+            if (pnNguonLuc.Size == pnNguonLuc.MinimumSize)
+            {
+                pnNguonLuc.Size = pnNguonLuc.MaximumSize;
+            }
+            else pnNguonLuc.Size = pnNguonLuc.MinimumSize;
+        }
+
+        private void pnContainerNCC_Click(object sender, EventArgs e)
+        {
+            if (pnContainerNCC.Size == pnContainerNCC.MinimumSize)
+            {
+                pnContainerNCC.Size = pnContainerNCC.MaximumSize;
+            }
+            else pnContainerNCC.Size = MinimumSize;
         }
     }
 }

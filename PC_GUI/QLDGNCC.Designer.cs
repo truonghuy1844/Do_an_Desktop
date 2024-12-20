@@ -49,7 +49,6 @@
             this.txtTim = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewDGNCC = new System.Windows.Forms.DataGridView();
             this.lbTT = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNVDG)).BeginInit();
@@ -62,10 +61,10 @@
             // 
             this.checkedListBoxTieuChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxTieuChi.FormattingEnabled = true;
-            this.checkedListBoxTieuChi.Location = new System.Drawing.Point(283, 503);
+            this.checkedListBoxTieuChi.Location = new System.Drawing.Point(283, 484);
             this.checkedListBoxTieuChi.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.checkedListBoxTieuChi.Name = "checkedListBoxTieuChi";
-            this.checkedListBoxTieuChi.Size = new System.Drawing.Size(295, 99);
+            this.checkedListBoxTieuChi.Size = new System.Drawing.Size(295, 118);
             this.checkedListBoxTieuChi.TabIndex = 65;
             this.checkedListBoxTieuChi.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxTieuChi_ItemCheck);
             // 
@@ -73,7 +72,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(159, 503);
+            this.label11.Location = new System.Drawing.Point(128, 484);
             this.label11.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(122, 18);
@@ -83,7 +82,7 @@
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(50, 534);
+            this.btnReset.Location = new System.Drawing.Point(131, 525);
             this.btnReset.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(105, 58);
@@ -96,7 +95,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(740, 556);
+            this.label10.Location = new System.Drawing.Point(740, 531);
             this.label10.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 18);
@@ -106,7 +105,7 @@
             // dateTimePickerTo
             // 
             this.dateTimePickerTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerTo.Location = new System.Drawing.Point(804, 550);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(804, 525);
             this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(244, 24);
@@ -172,7 +171,7 @@
             // comboBoxMucDo
             // 
             this.comboBoxMucDo.FormattingEnabled = true;
-            this.comboBoxMucDo.Location = new System.Drawing.Point(595, 534);
+            this.comboBoxMucDo.Location = new System.Drawing.Point(596, 509);
             this.comboBoxMucDo.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.comboBoxMucDo.Name = "comboBoxMucDo";
             this.comboBoxMucDo.Size = new System.Drawing.Size(120, 24);
@@ -182,7 +181,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(592, 506);
+            this.label6.Location = new System.Drawing.Point(593, 481);
             this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 18);
@@ -285,7 +284,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(740, 508);
+            this.label5.Location = new System.Drawing.Point(740, 483);
             this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 18);
@@ -295,22 +294,11 @@
             // dateTimePickerFrom
             // 
             this.dateTimePickerFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(804, 505);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(804, 480);
             this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(244, 24);
             this.dateTimePickerFrom.TabIndex = 49;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 503);
-            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 18);
-            this.label1.TabIndex = 48;
-            this.label1.Text = "Hiển thị theo:";
             // 
             // dataGridViewDGNCC
             // 
@@ -358,7 +346,6 @@
             this.Controls.Add(this.txtTim);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePickerFrom);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewDGNCC);
             this.Controls.Add(this.lbTT);
             this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
@@ -397,7 +384,6 @@
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewDGNCC;
         private System.Windows.Forms.Label lbTT;
     }

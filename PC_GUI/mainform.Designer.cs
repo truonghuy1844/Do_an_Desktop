@@ -76,11 +76,11 @@
             // panelHienThi
             // 
             this.panelHienThi.BackColor = System.Drawing.SystemColors.Control;
-            this.panelHienThi.Location = new System.Drawing.Point(340, 1);
+            this.panelHienThi.Location = new System.Drawing.Point(501, 9);
+            this.panelHienThi.Margin = new System.Windows.Forms.Padding(4);
             this.panelHienThi.Name = "panelHienThi";
-            this.panelHienThi.Size = new System.Drawing.Size(1103, 984);
+            this.panelHienThi.Size = new System.Drawing.Size(1660, 1215);
             this.panelHienThi.TabIndex = 2;
-            this.panelHienThi.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnMenuDoc
             // 
@@ -90,9 +90,10 @@
             this.pnMenuDoc.Controls.Add(this.ptLogo);
             this.pnMenuDoc.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnMenuDoc.Location = new System.Drawing.Point(0, 0);
-            this.pnMenuDoc.MaximumSize = new System.Drawing.Size(335, 984);
+            this.pnMenuDoc.Margin = new System.Windows.Forms.Padding(4);
+            this.pnMenuDoc.MaximumSize = new System.Drawing.Size(502, 1538);
             this.pnMenuDoc.Name = "pnMenuDoc";
-            this.pnMenuDoc.Size = new System.Drawing.Size(335, 675);
+            this.pnMenuDoc.Size = new System.Drawing.Size(502, 1209);
             this.pnMenuDoc.TabIndex = 1;
             // 
             // pnButton
@@ -120,13 +121,14 @@
             this.pnContainerNCC.Controls.Add(this.pictureBox10);
             this.pnContainerNCC.Controls.Add(this.btnFThongTinNCC);
             this.pnContainerNCC.Controls.Add(this.btnFDanhGiaNCC);
-            this.pnContainerNCC.Location = new System.Drawing.Point(3, 4);
-            this.pnContainerNCC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnContainerNCC.MaximumSize = new System.Drawing.Size(316, 172);
-            this.pnContainerNCC.MinimumSize = new System.Drawing.Size(316, 75);
+            this.pnContainerNCC.Location = new System.Drawing.Point(4, 6);
+            this.pnContainerNCC.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pnContainerNCC.MaximumSize = new System.Drawing.Size(474, 265);
+            this.pnContainerNCC.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnContainerNCC.Name = "pnContainerNCC";
             this.pnContainerNCC.Size = new System.Drawing.Size(316, 75);
             this.pnContainerNCC.TabIndex = 7;
+            this.pnContainerNCC.Click += new System.EventHandler(this.pnContainerNCC_Click);
             // 
             // pictureBox1
             // 
@@ -139,7 +141,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnFormNCC
             // 
@@ -167,7 +168,8 @@
             // 
             this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(184, -8);
+            this.pictureBox10.Location = new System.Drawing.Point(276, -13);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(17, 11);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -222,9 +224,10 @@
             this.btnSanPham.ForeColor = System.Drawing.Color.White;
             this.btnSanPham.Image = global::PC_GUI.Properties.Resources.icons8_report_50;
             this.btnSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSanPham.Location = new System.Drawing.Point(3, 86);
-            this.btnSanPham.MaximumSize = new System.Drawing.Size(316, 172);
-            this.btnSanPham.MinimumSize = new System.Drawing.Size(316, 75);
+            this.btnSanPham.Location = new System.Drawing.Point(4, 133);
+            this.btnSanPham.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSanPham.MaximumSize = new System.Drawing.Size(474, 269);
+            this.btnSanPham.MinimumSize = new System.Drawing.Size(474, 117);
             this.btnSanPham.Name = "btnSanPham";
             this.btnSanPham.Size = new System.Drawing.Size(316, 75);
             this.btnSanPham.TabIndex = 4;
@@ -241,21 +244,23 @@
             this.pnYeuCauMua.Controls.Add(this.btnFDuyetYCM);
             this.pnYeuCauMua.Controls.Add(this.btnFormYeuCauMua);
             this.pnYeuCauMua.Controls.Add(this.btnFDieuChinhYCM);
-            this.pnYeuCauMua.Location = new System.Drawing.Point(3, 167);
-            this.pnYeuCauMua.MaximumSize = new System.Drawing.Size(316, 172);
-            this.pnYeuCauMua.MinimumSize = new System.Drawing.Size(316, 75);
+            this.pnYeuCauMua.Location = new System.Drawing.Point(4, 258);
+            this.pnYeuCauMua.Margin = new System.Windows.Forms.Padding(4);
+            this.pnYeuCauMua.MaximumSize = new System.Drawing.Size(474, 269);
+            this.pnYeuCauMua.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnYeuCauMua.Name = "pnYeuCauMua";
             this.pnYeuCauMua.Size = new System.Drawing.Size(316, 75);
             this.pnYeuCauMua.TabIndex = 7;
+            this.pnYeuCauMua.Click += new System.EventHandler(this.pnYeuCauMua_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(256, 32);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(384, 50);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(17, 11);
+            this.pictureBox2.Size = new System.Drawing.Size(26, 17);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -331,9 +336,10 @@
             this.btnFormBG.ForeColor = System.Drawing.Color.White;
             this.btnFormBG.Image = global::PC_GUI.Properties.Resources.icons8_dollar_coin_50;
             this.btnFormBG.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnFormBG.Location = new System.Drawing.Point(3, 248);
-            this.btnFormBG.MaximumSize = new System.Drawing.Size(316, 172);
-            this.btnFormBG.MinimumSize = new System.Drawing.Size(316, 75);
+            this.btnFormBG.Location = new System.Drawing.Point(4, 383);
+            this.btnFormBG.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormBG.MaximumSize = new System.Drawing.Size(474, 269);
+            this.btnFormBG.MinimumSize = new System.Drawing.Size(474, 117);
             this.btnFormBG.Name = "btnFormBG";
             this.btnFormBG.Size = new System.Drawing.Size(316, 75);
             this.btnFormBG.TabIndex = 4;
@@ -350,21 +356,23 @@
             this.pnDonHang.Controls.Add(this.btnFormDonHang);
             this.pnDonHang.Controls.Add(this.btnFTTDonHang);
             this.pnDonHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(65)))), ((int)(((byte)(100)))));
-            this.pnDonHang.Location = new System.Drawing.Point(3, 329);
-            this.pnDonHang.MaximumSize = new System.Drawing.Size(316, 172);
-            this.pnDonHang.MinimumSize = new System.Drawing.Size(316, 75);
+            this.pnDonHang.Location = new System.Drawing.Point(4, 508);
+            this.pnDonHang.Margin = new System.Windows.Forms.Padding(4);
+            this.pnDonHang.MaximumSize = new System.Drawing.Size(474, 270);
+            this.pnDonHang.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnDonHang.Name = "pnDonHang";
             this.pnDonHang.Size = new System.Drawing.Size(316, 75);
             this.pnDonHang.TabIndex = 7;
+            this.pnDonHang.Click += new System.EventHandler(this.pnDonHang_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(256, 31);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(384, 48);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(17, 11);
+            this.pictureBox3.Size = new System.Drawing.Size(26, 17);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
@@ -398,10 +406,10 @@
             this.btnFormDonHang.ForeColor = System.Drawing.Color.White;
             this.btnFormDonHang.Image = global::PC_GUI.Properties.Resources.icons8_shopping_cart_50;
             this.btnFormDonHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormDonHang.Location = new System.Drawing.Point(-3, 0);
-            this.btnFormDonHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnFormDonHang.Location = new System.Drawing.Point(0, 0);
+            this.btnFormDonHang.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFormDonHang.Name = "btnFormDonHang";
-            this.btnFormDonHang.Size = new System.Drawing.Size(316, 75);
+            this.btnFormDonHang.Size = new System.Drawing.Size(470, 117);
             this.btnFormDonHang.TabIndex = 4;
             this.btnFormDonHang.Text = "&Đơn hàng";
             this.btnFormDonHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -438,7 +446,8 @@
             this.btnFormHoaDon.ForeColor = System.Drawing.Color.White;
             this.btnFormHoaDon.Image = global::PC_GUI.Properties.Resources.icons8_test_results_50;
             this.btnFormHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormHoaDon.Location = new System.Drawing.Point(3, 410);
+            this.btnFormHoaDon.Location = new System.Drawing.Point(4, 633);
+            this.btnFormHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormHoaDon.Name = "btnFormHoaDon";
             this.btnFormHoaDon.Size = new System.Drawing.Size(316, 75);
             this.btnFormHoaDon.TabIndex = 4;
@@ -457,12 +466,26 @@
             this.pnNguonLuc.Controls.Add(this.btnFNhanVien);
             this.pnNguonLuc.Controls.Add(this.btnFormNguonLuc);
             this.pnNguonLuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(65)))), ((int)(((byte)(100)))));
-            this.pnNguonLuc.Location = new System.Drawing.Point(3, 491);
-            this.pnNguonLuc.MaximumSize = new System.Drawing.Size(316, 223);
-            this.pnNguonLuc.MinimumSize = new System.Drawing.Size(316, 70);
+            this.pnNguonLuc.Location = new System.Drawing.Point(4, 758);
+            this.pnNguonLuc.Margin = new System.Windows.Forms.Padding(4);
+            this.pnNguonLuc.MaximumSize = new System.Drawing.Size(474, 348);
+            this.pnNguonLuc.MinimumSize = new System.Drawing.Size(474, 110);
             this.pnNguonLuc.Name = "pnNguonLuc";
-            this.pnNguonLuc.Size = new System.Drawing.Size(316, 166);
+            this.pnNguonLuc.Size = new System.Drawing.Size(474, 110);
             this.pnNguonLuc.TabIndex = 7;
+            this.pnNguonLuc.Click += new System.EventHandler(this.pnNguonLuc_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(384, 51);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(26, 17);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -564,8 +587,8 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::PC_GUI.Properties.Resources.icons8_move_up_50;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(3, 664);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLogOut.Location = new System.Drawing.Point(4, 878);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(304, 72);
             this.btnLogOut.TabIndex = 4;
@@ -594,13 +617,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1283, 675);
+            this.ClientSize = new System.Drawing.Size(2174, 1209);
             this.Controls.Add(this.panelHienThi);
             this.Controls.Add(this.pnMenuDoc);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(2200, 1280);
+            this.MinimumSize = new System.Drawing.Size(2200, 1280);
             this.Name = "frmMainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.pnMenuDoc.ResumeLayout(false);
             this.pnButton.ResumeLayout(false);

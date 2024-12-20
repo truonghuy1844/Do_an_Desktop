@@ -48,8 +48,23 @@ namespace PC_GUI
             cbLoaiSP.MaxDropDownItems = 5;
             cbLoaiSP.DropDownHeight = cbLoaiSP.ItemHeight * 5;
 
+            List<string> comboBox_TK_LoaiSP = new List<string>
+            {
+                "",
+                "Nguyên liệu",
+                "Bao bì",
+                "Hàng tiêu dùng",
+                "Thiết bị - máy móc",
+                "Hóa chất"
+            };
+
+            cbTK_LoaiSP.DataSource = comboBox_TK_LoaiSP;
+            cbTK_LoaiSP.MaxDropDownItems = 5;
+            cbTK_LoaiSP.DropDownHeight = cbTK_LoaiSP.ItemHeight * 5;
+
             // Thiết lập giá trị mặc định (nếu cần)
             cbLoaiSP.SelectedIndex = 0; // Chọn mục đầu tiên
+            cbTK_LoaiSP.SelectedIndex = 0;
 
 
             List<string> comboBox_DVT = new List<string>
@@ -78,6 +93,7 @@ namespace PC_GUI
         {
             Load_DGV_SP();
             dataGridView1.ReadOnly = true;
+            
             //ToolTIP
             toolTip1.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
             toolTip1.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây
@@ -91,7 +107,7 @@ namespace PC_GUI
         }
         private void Load_DGV_SP()
         {
-            dataGridView1.Rows.Clear();
+           
             BLL_SanPham bll = new BLL_SanPham();
             dataGridView1.DataSource = bll.Load_SP();
         }
@@ -233,6 +249,39 @@ namespace PC_GUI
 
             }
             catch { return; }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            BLL_SanPham bll = new BLL_SanPham();
+            string timKiem = txtTimKiem.Text.ToLower();
+            string loaiSP = cbTK_LoaiSP.SelectedItem.ToString().ToLower();
+             dataGridView1.DataSource = bll.TimKiem_SanPham(timKiem, loaiSP);
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            Load_DGV_SP();
+        }
+
+        private void cbTK_LoaiSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbLoaiSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
