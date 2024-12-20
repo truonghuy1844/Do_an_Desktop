@@ -2,52 +2,82 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PC_GUI.DAL
 {
-    public class DAL_SanPham
+    public class DAL_SanPham : ConectDB_Manual
     {
         //Tìm kiếm sản phẩm
         public DataTable TimKiemSP( string timKiem, string loaiSP)
         {
             QLMHEntities4 cnn = new QLMHEntities4();
-            
+
             try
             {
-                DataTable dt = new DataTable();
-                dt.Columns.Add("MaSP", typeof(string));
-                dt.Columns.Add("TenSP", typeof(string));
-                dt.Columns.Add("LoaiSP", typeof(string));
-                dt.Columns.Add("DVT", typeof(string));
-                var list_SP = cnn.SANPHAMs
-                                    .Where(sp =>
-                                    (sp.TenSP.ToLower().Contains(timKiem)) ||
-                                    (sp.MaSP.ToLower().Contains(timKiem)) ||
-                                    (sp.LoaiSP != null && sp.LoaiSP.ToLower().Contains(loaiSP)))
-                                    .Select(sp => new
-                                    {
-                                        MaSP = sp.MaSP,
-                                        TenSP = sp.TenSP,
-                                        LoaiSP = sp.LoaiSP, 
-                                        DVT = sp.DVT
-                                    })
-                                    .Distinct().ToList();
-                //Thêm vào bảng
-                foreach (var bg in list_SP)
+                conn.Open();
+                if (timKiem != null && timKiem != "" && loaiSP != null && loaiSP != "")
                 {
-                    DataRow dr = dt.NewRow();
-                    dr["MaSP"] = bg.MaSP ?? string.Empty;
-                    dr["TenSP"] = bg.TenSP ?? string.Empty;
-                    dr["LoaiSP"] = bg.LoaiSP ?? string.Empty;
+                    string query = " Select * from SanPham where lower(TenSP) like @timkiem or lower(MaSP) like @timkiem and lower(loaiSP) like @loaiSP ";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Gán giá trị cho tham số @timkiem và @loaiSP
+                        cmd.Parameters.AddWithValue("@timkiem", $"%{timKiem.ToLower()}%");
+                        cmd.Parameters.AddWithValue("@loaiSP", $"%{loaiSP.ToLower()}%");
 
-                    dr["DVT"] = bg.DVT ?? string.Empty;
-                    dt.Rows.Add(dr);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            return dt;
+                        }
+                    }
                 }
-                dt.DefaultView.Sort = "MaSP";
-                return dt;
+                if (timKiem != null && timKiem != "" && (loaiSP == null || loaiSP == ""))
+                {
+                    string query = " Select * from SanPham where lower(TenSP) like @timkiem or lower(MaSP) like @timkiem ";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Gán giá trị cho tham số @timkiem
+                        cmd.Parameters.AddWithValue("@timkiem", $"%{timKiem.ToLower()}%");
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+                if ((timKiem == null || timKiem == "") && (loaiSP != null && loaiSP != ""))
+                {
+                    string query = " Select * from SanPham where  lower(loaiSP) like @loaiSP ";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        // Gán giá trị cho tham số @loaiSP
+                       ;
+                        cmd.Parameters.AddWithValue("@loaiSP", $"%{loaiSP.ToLower()}%");
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            return dt;
+                        }
+                    }
+                }
+                string a = " Select * from SanPham ";
+                using (SqlCommand cmd = new SqlCommand(a, conn))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+
             }
             catch (Exception ex)
             {
