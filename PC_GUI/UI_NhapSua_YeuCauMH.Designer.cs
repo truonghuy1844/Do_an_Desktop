@@ -93,13 +93,13 @@
             this.dgvCT_YC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCT_YC.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvCT_YC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCT_YC.Location = new System.Drawing.Point(681, 522);
+            this.dgvCT_YC.Location = new System.Drawing.Point(681, 489);
             this.dgvCT_YC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvCT_YC.Name = "dgvCT_YC";
             this.dgvCT_YC.RowHeadersWidth = 82;
             this.dgvCT_YC.RowTemplate.Height = 33;
             this.dgvCT_YC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCT_YC.Size = new System.Drawing.Size(975, 688);
+            this.dgvCT_YC.Size = new System.Drawing.Size(975, 721);
             this.dgvCT_YC.TabIndex = 107;
             this.dgvCT_YC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
             this.dgvCT_YC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
@@ -151,13 +151,13 @@
             this.dgvYCMH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvYCMH.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvYCMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvYCMH.Location = new System.Drawing.Point(4, 522);
+            this.dgvYCMH.Location = new System.Drawing.Point(4, 489);
             this.dgvYCMH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvYCMH.Name = "dgvYCMH";
             this.dgvYCMH.RowHeadersWidth = 20;
             this.dgvYCMH.RowTemplate.Height = 33;
             this.dgvYCMH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvYCMH.Size = new System.Drawing.Size(669, 688);
+            this.dgvYCMH.Size = new System.Drawing.Size(669, 721);
             this.dgvYCMH.TabIndex = 97;
             this.dgvYCMH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYCMH_CellContentClick);
             this.dgvYCMH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvYCMH_CellContentClick);
@@ -165,7 +165,7 @@
             // btnYeuCauDuyet
             // 
             this.btnYeuCauDuyet.AutoSize = true;
-            this.btnYeuCauDuyet.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnYeuCauDuyet.BackColor = System.Drawing.Color.Transparent;
             this.btnYeuCauDuyet.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
             this.btnYeuCauDuyet.Location = new System.Drawing.Point(24, 27);
             this.btnYeuCauDuyet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -180,7 +180,7 @@
             // 
             this.cbBoPhanYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoPhanYC.FormattingEnabled = true;
-            this.cbBoPhanYC.Location = new System.Drawing.Point(340, 169);
+            this.cbBoPhanYC.Location = new System.Drawing.Point(369, 169);
             this.cbBoPhanYC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbBoPhanYC.Name = "cbBoPhanYC";
             this.cbBoPhanYC.Size = new System.Drawing.Size(326, 37);
@@ -190,7 +190,7 @@
             // txtMaNV
             // 
             this.txtMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNV.Location = new System.Drawing.Point(862, 77);
+            this.txtMaNV.Location = new System.Drawing.Point(891, 77);
             this.txtMaNV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(279, 35);
@@ -199,7 +199,7 @@
             // txtMaYC
             // 
             this.txtMaYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaYC.Location = new System.Drawing.Point(339, 77);
+            this.txtMaYC.Location = new System.Drawing.Point(368, 77);
             this.txtMaYC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaYC.Name = "txtMaYC";
             this.txtMaYC.Size = new System.Drawing.Size(327, 35);
@@ -221,7 +221,7 @@
             // 
             this.lb.AutoSize = true;
             this.lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb.Location = new System.Drawing.Point(132, 172);
+            this.lb.Location = new System.Drawing.Point(161, 172);
             this.lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(200, 29);
@@ -233,7 +233,7 @@
             // 
             this.lbMaNV.AutoSize = true;
             this.lbMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaNV.Location = new System.Drawing.Point(692, 80);
+            this.lbMaNV.Location = new System.Drawing.Point(721, 80);
             this.lbMaNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMaNV.Name = "lbMaNV";
             this.lbMaNV.Size = new System.Drawing.Size(154, 29);
@@ -244,7 +244,7 @@
             // 
             this.lbMaYC.AutoSize = true;
             this.lbMaYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaYC.Location = new System.Drawing.Point(132, 80);
+            this.lbMaYC.Location = new System.Drawing.Point(161, 80);
             this.lbMaYC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMaYC.Name = "lbMaYC";
             this.lbMaYC.Size = new System.Drawing.Size(144, 29);
@@ -265,7 +265,7 @@
             // btnCapNhat
             // 
             this.btnCapNhat.AutoSize = true;
-            this.btnCapNhat.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCapNhat.BackColor = System.Drawing.Color.Transparent;
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
             this.btnCapNhat.Location = new System.Drawing.Point(24, 80);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -279,7 +279,7 @@
             // btnXoaYC
             // 
             this.btnXoaYC.AutoSize = true;
-            this.btnXoaYC.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnXoaYC.BackColor = System.Drawing.Color.Transparent;
             this.btnXoaYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
             this.btnXoaYC.Location = new System.Drawing.Point(24, 132);
             this.btnXoaYC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -301,7 +301,7 @@
             this.groupBox1.Controls.Add(this.txtSoLuong);
             this.groupBox1.Controls.Add(this.lbSanPham);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(101, 258);
+            this.groupBox1.Location = new System.Drawing.Point(130, 216);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -314,7 +314,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(692, 172);
+            this.label3.Location = new System.Drawing.Point(721, 172);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 29);
@@ -324,7 +324,7 @@
             // txtTinhTrang
             // 
             this.txtTinhTrang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTinhTrang.Location = new System.Drawing.Point(862, 169);
+            this.txtTinhTrang.Location = new System.Drawing.Point(891, 169);
             this.txtTinhTrang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTinhTrang.Name = "txtTinhTrang";
             this.txtTinhTrang.Size = new System.Drawing.Size(279, 35);
@@ -336,7 +336,7 @@
             this.groupBox2.Controls.Add(this.btnCapNhat);
             this.groupBox2.Controls.Add(this.btnXoaYC);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.groupBox2.Location = new System.Drawing.Point(1195, 39);
+            this.groupBox2.Location = new System.Drawing.Point(1228, 54);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -348,7 +348,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(46, 489);
+            this.label4.Location = new System.Drawing.Point(47, 455);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(324, 29);
             this.label4.TabIndex = 117;
@@ -358,7 +358,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(731, 489);
+            this.label5.Location = new System.Drawing.Point(729, 455);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(286, 29);
             this.label5.TabIndex = 118;

@@ -62,12 +62,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 649);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 466);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1272, 305);
+            this.dataGridView1.Size = new System.Drawing.Size(1654, 737);
             this.dataGridView1.TabIndex = 72;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -76,7 +76,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 175);
+            this.label1.Location = new System.Drawing.Point(244, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 29);
             this.label1.TabIndex = 71;
@@ -86,7 +86,7 @@
             // 
             this.lb.AutoSize = true;
             this.lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb.Location = new System.Drawing.Point(74, 101);
+            this.lb.Location = new System.Drawing.Point(244, 123);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(160, 29);
             this.lb.TabIndex = 70;
@@ -96,7 +96,7 @@
             // 
             this.lbMaYC.AutoSize = true;
             this.lbMaYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaYC.Location = new System.Drawing.Point(82, 31);
+            this.lbMaYC.Location = new System.Drawing.Point(252, 53);
             this.lbMaYC.Name = "lbMaYC";
             this.lbMaYC.Size = new System.Drawing.Size(132, 29);
             this.lbMaYC.TabIndex = 69;
@@ -135,7 +135,7 @@
             this.btnLoc.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoc.ForeColor = System.Drawing.Color.White;
-            this.btnLoc.Location = new System.Drawing.Point(191, 140);
+            this.btnLoc.Location = new System.Drawing.Point(670, 140);
             this.btnLoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(238, 43);
@@ -147,7 +147,7 @@
             // txtNgayBG
             // 
             this.txtNgayBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayBG.Location = new System.Drawing.Point(289, 168);
+            this.txtNgayBG.Location = new System.Drawing.Point(459, 190);
             this.txtNgayBG.Name = "txtNgayBG";
             this.txtNgayBG.Size = new System.Drawing.Size(629, 35);
             this.txtNgayBG.TabIndex = 76;
@@ -155,7 +155,7 @@
             // txtMaBG
             // 
             this.txtMaBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaBG.Location = new System.Drawing.Point(289, 28);
+            this.txtMaBG.Location = new System.Drawing.Point(459, 50);
             this.txtMaBG.Name = "txtMaBG";
             this.txtMaBG.Size = new System.Drawing.Size(629, 35);
             this.txtMaBG.TabIndex = 75;
@@ -222,9 +222,9 @@
             // btnHienThi
             // 
             this.btnHienThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHienThi.Location = new System.Drawing.Point(951, 31);
+            this.btnHienThi.Location = new System.Drawing.Point(1149, 53);
             this.btnHienThi.Name = "btnHienThi";
-            this.btnHienThi.Size = new System.Drawing.Size(271, 49);
+            this.btnHienThi.Size = new System.Drawing.Size(271, 45);
             this.btnHienThi.TabIndex = 77;
             this.btnHienThi.Text = "Hiển thị";
             this.btnHienThi.UseVisualStyleBackColor = false;
@@ -244,9 +244,9 @@
             this.groupBox1.Controls.Add(this.datetimepickerEnd);
             this.groupBox1.Controls.Add(this.datetimepickerStart);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(62, 263);
+            this.groupBox1.Location = new System.Drawing.Point(232, 263);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1188, 188);
+            this.groupBox1.Size = new System.Drawing.Size(1188, 197);
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lọc danh sách báo giá";
@@ -257,7 +257,7 @@
             this.btnLocKoTG.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnLocKoTG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLocKoTG.ForeColor = System.Drawing.Color.White;
-            this.btnLocKoTG.Location = new System.Drawing.Point(571, 140);
+            this.btnLocKoTG.Location = new System.Drawing.Point(922, 140);
             this.btnLocKoTG.Margin = new System.Windows.Forms.Padding(2);
             this.btnLocKoTG.Name = "btnLocKoTG";
             this.btnLocKoTG.Size = new System.Drawing.Size(238, 43);
@@ -269,9 +269,9 @@
             // btnTuyChinhBG
             // 
             this.btnTuyChinhBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTuyChinhBG.Location = new System.Drawing.Point(968, 101);
+            this.btnTuyChinhBG.Location = new System.Drawing.Point(1149, 123);
             this.btnTuyChinhBG.Name = "btnTuyChinhBG";
-            this.btnTuyChinhBG.Size = new System.Drawing.Size(271, 50);
+            this.btnTuyChinhBG.Size = new System.Drawing.Size(271, 45);
             this.btnTuyChinhBG.TabIndex = 81;
             this.btnTuyChinhBG.Text = "Tùy chỉnh báo giá";
             this.btnTuyChinhBG.UseVisualStyleBackColor = false;
@@ -289,16 +289,16 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbMaYC);
             this.panel1.Controls.Add(this.txtMaBG);
-            this.panel1.Location = new System.Drawing.Point(20, 160);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1288, 483);
+            this.panel1.Size = new System.Drawing.Size(1660, 472);
             this.panel1.TabIndex = 82;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtNCC
             // 
             this.txtNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNCC.Location = new System.Drawing.Point(289, 101);
+            this.txtNCC.Location = new System.Drawing.Point(459, 123);
             this.txtNCC.Name = "txtNCC";
             this.txtNCC.Size = new System.Drawing.Size(629, 35);
             this.txtNCC.TabIndex = 78;

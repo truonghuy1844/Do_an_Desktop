@@ -93,7 +93,7 @@
             this.pnMenuDoc.Margin = new System.Windows.Forms.Padding(4);
             this.pnMenuDoc.MaximumSize = new System.Drawing.Size(502, 1538);
             this.pnMenuDoc.Name = "pnMenuDoc";
-            this.pnMenuDoc.Size = new System.Drawing.Size(502, 1229);
+            this.pnMenuDoc.Size = new System.Drawing.Size(502, 1209);
             this.pnMenuDoc.TabIndex = 1;
             // 
             // pnButton
@@ -123,11 +123,12 @@
             this.pnContainerNCC.Controls.Add(this.btnFDanhGiaNCC);
             this.pnContainerNCC.Location = new System.Drawing.Point(4, 6);
             this.pnContainerNCC.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.pnContainerNCC.MaximumSize = new System.Drawing.Size(474, 269);
+            this.pnContainerNCC.MaximumSize = new System.Drawing.Size(474, 265);
             this.pnContainerNCC.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnContainerNCC.Name = "pnContainerNCC";
             this.pnContainerNCC.Size = new System.Drawing.Size(474, 117);
             this.pnContainerNCC.TabIndex = 7;
+            this.pnContainerNCC.Click += new System.EventHandler(this.pnContainerNCC_Click);
             // 
             // pictureBox1
             // 
@@ -250,6 +251,7 @@
             this.pnYeuCauMua.Name = "pnYeuCauMua";
             this.pnYeuCauMua.Size = new System.Drawing.Size(474, 117);
             this.pnYeuCauMua.TabIndex = 7;
+            this.pnYeuCauMua.Click += new System.EventHandler(this.pnYeuCauMua_Click);
             // 
             // pictureBox2
             // 
@@ -356,11 +358,12 @@
             this.pnDonHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(65)))), ((int)(((byte)(100)))));
             this.pnDonHang.Location = new System.Drawing.Point(4, 508);
             this.pnDonHang.Margin = new System.Windows.Forms.Padding(4);
-            this.pnDonHang.MaximumSize = new System.Drawing.Size(474, 269);
+            this.pnDonHang.MaximumSize = new System.Drawing.Size(474, 270);
             this.pnDonHang.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnDonHang.Name = "pnDonHang";
             this.pnDonHang.Size = new System.Drawing.Size(474, 117);
             this.pnDonHang.TabIndex = 7;
+            this.pnDonHang.Click += new System.EventHandler(this.pnDonHang_Click);
             // 
             // pictureBox3
             // 
@@ -403,10 +406,10 @@
             this.btnFormDonHang.ForeColor = System.Drawing.Color.White;
             this.btnFormDonHang.Image = global::PC_GUI.Properties.Resources.icons8_shopping_cart_50;
             this.btnFormDonHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFormDonHang.Location = new System.Drawing.Point(-4, 0);
+            this.btnFormDonHang.Location = new System.Drawing.Point(0, 0);
             this.btnFormDonHang.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnFormDonHang.Name = "btnFormDonHang";
-            this.btnFormDonHang.Size = new System.Drawing.Size(474, 117);
+            this.btnFormDonHang.Size = new System.Drawing.Size(470, 117);
             this.btnFormDonHang.TabIndex = 4;
             this.btnFormDonHang.Text = "&Đơn hàng";
             this.btnFormDonHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -470,6 +473,7 @@
             this.pnNguonLuc.Name = "pnNguonLuc";
             this.pnNguonLuc.Size = new System.Drawing.Size(474, 110);
             this.pnNguonLuc.TabIndex = 7;
+            this.pnNguonLuc.Click += new System.EventHandler(this.pnNguonLuc_Click);
             // 
             // pictureBox4
             // 
@@ -601,12 +605,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(2174, 1229);
+            this.ClientSize = new System.Drawing.Size(2174, 1209);
             this.Controls.Add(this.panelHienThi);
             this.Controls.Add(this.pnMenuDoc);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(2200, 1300);
-            this.MinimumSize = new System.Drawing.Size(2200, 1300);
+            this.MaximumSize = new System.Drawing.Size(2200, 1280);
+            this.MinimumSize = new System.Drawing.Size(2200, 1280);
             this.Name = "frmMainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
