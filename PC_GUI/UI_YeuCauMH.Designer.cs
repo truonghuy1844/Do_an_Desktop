@@ -1,4 +1,4 @@
-﻿namespace PC_GUI
+namespace PC_GUI
 {
     partial class UI_YeuCauMH
     {
