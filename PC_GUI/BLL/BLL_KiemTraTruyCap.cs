@@ -22,6 +22,13 @@ namespace PC_GUI.BLL
             KiemTraChucVu kt = new KiemTraChucVu();
             return kt.Kiem_Tra_PhongBan(dTO_NhanVien);
         }
+        public bool Kiem_Tra_KeToan(DTONV dTO_NhanVien)
+        {
+            if (dTO_NhanVien == null && dTO_NhanVien.MaNV == "" && dTO_NhanVien.MaNV == null) return false;
+            KiemTraChucVu kt = new KiemTraChucVu();
+            return kt.Kiem_Tra_KeToan(dTO_NhanVien);
+        }
+
 
     }
 }

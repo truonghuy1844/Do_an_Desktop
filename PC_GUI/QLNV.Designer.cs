@@ -34,67 +34,66 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLoad1 = new System.Windows.Forms.Button();
+            this.btnXoaNV1 = new System.Windows.Forms.Button();
+            this.btnThemNV1 = new System.Windows.Forms.Button();
+            this.btnSuaNV1 = new System.Windows.Forms.Button();
+            this.comboBoxChucVu1 = new System.Windows.Forms.ComboBox();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.comboBoxPhongBan = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThemNV = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSNV)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(611, 118);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(213, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(593, 64);
+            this.label1.Size = new System.Drawing.Size(759, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "QUẢN LÝ NHÂN VIÊN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridViewDSNV
             // 
             this.dataGridViewDSNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSNV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewDSNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSNV.Location = new System.Drawing.Point(19, 636);
-            this.dataGridViewDSNV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridViewDSNV.Location = new System.Drawing.Point(13, 407);
             this.dataGridViewDSNV.Name = "dataGridViewDSNV";
             this.dataGridViewDSNV.RowHeadersWidth = 51;
             this.dataGridViewDSNV.RowTemplate.Height = 24;
-            this.dataGridViewDSNV.Size = new System.Drawing.Size(1738, 661);
+            this.dataGridViewDSNV.Size = new System.Drawing.Size(1159, 423);
             this.dataGridViewDSNV.TabIndex = 20;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(68, 61);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(45, 39);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(148, 25);
+            this.label9.Size = new System.Drawing.Size(89, 16);
             this.label9.TabIndex = 20;
             this.label9.Text = "Mã nhân viên:";
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(266, 52);
-            this.txtMaNV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaNV.Location = new System.Drawing.Point(177, 33);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(618, 31);
+            this.txtMaNV.Size = new System.Drawing.Size(413, 22);
             this.txtMaNV.TabIndex = 21;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(909, 52);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSearch.Location = new System.Drawing.Point(606, 33);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(195, 66);
+            this.btnSearch.Size = new System.Drawing.Size(130, 42);
             this.btnSearch.TabIndex = 20;
             this.btnSearch.Text = "Tìm kiếm nhân viên";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -103,28 +102,89 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.btnLoad1);
+            this.groupBox1.Controls.Add(this.btnXoaNV1);
+            this.groupBox1.Controls.Add(this.btnThemNV1);
+            this.groupBox1.Controls.Add(this.btnSuaNV1);
+            this.groupBox1.Controls.Add(this.comboBoxChucVu1);
             this.groupBox1.Controls.Add(this.btnResetFilter);
             this.groupBox1.Controls.Add(this.comboBoxPhongBan);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBoxChucVu);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtMaNV);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(320, 228);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Location = new System.Drawing.Point(213, 146);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(1138, 316);
+            this.groupBox1.Size = new System.Drawing.Size(759, 231);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
+            // btnLoad1
+            // 
+            this.btnLoad1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnLoad1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad1.ForeColor = System.Drawing.Color.White;
+            this.btnLoad1.Location = new System.Drawing.Point(579, 158);
+            this.btnLoad1.Name = "btnLoad1";
+            this.btnLoad1.Size = new System.Drawing.Size(169, 42);
+            this.btnLoad1.TabIndex = 35;
+            this.btnLoad1.Text = "Load/ Refresh";
+            this.btnLoad1.UseVisualStyleBackColor = false;
+            this.btnLoad1.Click += new System.EventHandler(this.btnLoad1_Click);
+            // 
+            // btnXoaNV1
+            // 
+            this.btnXoaNV1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnXoaNV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaNV1.ForeColor = System.Drawing.Color.White;
+            this.btnXoaNV1.Location = new System.Drawing.Point(398, 158);
+            this.btnXoaNV1.Name = "btnXoaNV1";
+            this.btnXoaNV1.Size = new System.Drawing.Size(169, 42);
+            this.btnXoaNV1.TabIndex = 34;
+            this.btnXoaNV1.Text = "- Xóa nhân viên";
+            this.btnXoaNV1.UseVisualStyleBackColor = false;
+            this.btnXoaNV1.Click += new System.EventHandler(this.btnXoaNV1_Click);
+            // 
+            // btnThemNV1
+            // 
+            this.btnThemNV1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnThemNV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemNV1.ForeColor = System.Drawing.Color.White;
+            this.btnThemNV1.Location = new System.Drawing.Point(19, 158);
+            this.btnThemNV1.Name = "btnThemNV1";
+            this.btnThemNV1.Size = new System.Drawing.Size(182, 42);
+            this.btnThemNV1.TabIndex = 32;
+            this.btnThemNV1.Text = "+ Thêm nhân viên";
+            this.btnThemNV1.UseVisualStyleBackColor = false;
+            this.btnThemNV1.Click += new System.EventHandler(this.btnThemNV1_Click);
+            // 
+            // btnSuaNV1
+            // 
+            this.btnSuaNV1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnSuaNV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaNV1.ForeColor = System.Drawing.Color.White;
+            this.btnSuaNV1.Location = new System.Drawing.Point(210, 158);
+            this.btnSuaNV1.Name = "btnSuaNV1";
+            this.btnSuaNV1.Size = new System.Drawing.Size(182, 42);
+            this.btnSuaNV1.TabIndex = 33;
+            this.btnSuaNV1.Text = "Sửa thông tin";
+            this.btnSuaNV1.UseVisualStyleBackColor = false;
+            this.btnSuaNV1.Click += new System.EventHandler(this.btnSuaNV1_Click);
+            // 
+            // comboBoxChucVu1
+            // 
+            this.comboBoxChucVu1.FormattingEnabled = true;
+            this.comboBoxChucVu1.Location = new System.Drawing.Point(177, 70);
+            this.comboBoxChucVu1.Name = "comboBoxChucVu1";
+            this.comboBoxChucVu1.Size = new System.Drawing.Size(412, 24);
+            this.comboBoxChucVu1.TabIndex = 31;
+            // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(909, 142);
-            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnResetFilter.Location = new System.Drawing.Point(606, 91);
             this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(195, 66);
+            this.btnResetFilter.Size = new System.Drawing.Size(130, 42);
             this.btnResetFilter.TabIndex = 30;
             this.btnResetFilter.Text = "Reset bộ lọc";
             this.btnResetFilter.UseVisualStyleBackColor = true;
@@ -133,21 +193,28 @@
             // comboBoxPhongBan
             // 
             this.comboBoxPhongBan.FormattingEnabled = true;
-            this.comboBoxPhongBan.Location = new System.Drawing.Point(266, 170);
-            this.comboBoxPhongBan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxPhongBan.Location = new System.Drawing.Point(177, 109);
             this.comboBoxPhongBan.Name = "comboBoxPhongBan";
-            this.comboBoxPhongBan.Size = new System.Drawing.Size(618, 33);
+            this.comboBoxPhongBan.Size = new System.Drawing.Size(413, 24);
             this.comboBoxPhongBan.TabIndex = 29;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 175);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(6, 112);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 25);
+            this.label3.Size = new System.Drawing.Size(128, 16);
             this.label3.TabIndex = 28;
             this.label3.Text = "Lọc theo phòng ban:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 16);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Lọc theo chức vụ:";
             // 
             // btnLoad
             // 
@@ -191,14 +258,6 @@
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // comboBoxChucVu
-            // 
-            this.comboBoxChucVu.FormattingEnabled = true;
-            this.comboBoxChucVu.Location = new System.Drawing.Point(177, 70);
-            this.comboBoxChucVu.Name = "comboBoxChucVu";
-            this.comboBoxChucVu.Size = new System.Drawing.Size(413, 24);
-            this.comboBoxChucVu.TabIndex = 23;
-            // 
             // btnThemNV
             // 
             this.btnThemNV.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -213,33 +272,19 @@
             this.btnThemNV.UseVisualStyleBackColor = false;
             this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 122);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 25);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Lọc theo chức vụ:";
-            // 
             // QLNV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 638);
             this.Controls.Add(this.dataGridViewDSNV);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QLNV";
-            this.Size = new System.Drawing.Size(1800, 1330);
+            this.Size = new System.Drawing.Size(1200, 851);
             this.Load += new System.EventHandler(this.QLNV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSNV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -263,5 +308,10 @@
         private System.Windows.Forms.Button btnResetFilter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ComboBox comboBoxChucVu1;
+        private System.Windows.Forms.Button btnLoad1;
+        private System.Windows.Forms.Button btnXoaNV1;
+        private System.Windows.Forms.Button btnThemNV1;
+        private System.Windows.Forms.Button btnSuaNV1;
     }
 }

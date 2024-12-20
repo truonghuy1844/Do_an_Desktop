@@ -16,16 +16,24 @@ namespace PC_GUI
 {
     public partial class PCCV : UserControl
     {
+        public DTONV nv = new DTONV();
         BLL_PhanCong bllphancong = new BLL_PhanCong();
-        public PCCV()
+        public PCCV(DTONV nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnXoa);
+            }
         }
 
         //Load combobox trạng thái
         void Loadtrangthai()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var dstt = (from dm in db.PHANCONG_CONGVIEC
                         select dm.TThai).Distinct().ToList();
             cbTrangthai.DataSource = dstt;
@@ -373,7 +381,7 @@ namespace PC_GUI
             if (ktra)
             {
                 DataTable tim = bllphancong.Timphancong(txtTim.Text);
-                if (tim == null)
+                if (tim == null || tim.Rows.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy kết quả");
                 }
@@ -390,7 +398,7 @@ namespace PC_GUI
             HideAllTooltips();
             if (cbTrangthai.SelectedIndex != -1)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listloc = from dm in db.PHANCONG_CONGVIEC
                               where dm.TThai == cbTrangthai.SelectedValue.ToString()
                               select new

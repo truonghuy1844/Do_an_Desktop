@@ -19,14 +19,27 @@ namespace PC_GUI
     public partial class Quanlydonhang : UserControl
     {
         BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
-        public Quanlydonhang()
+        public DTONV nv = new DTONV();
+        public Quanlydonhang(DTONV nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnTao);
+                this.Controls.Remove(btnCapNhat);
+                this.Controls.Remove(btnLuu);
+                this.Controls.Remove(btnXoa);
+                this.Controls.Remove(btnHuy);
+            }
         }
+
         //I.Load dữ liệu 
         void LoadDonmua()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
              
             var listdonmua = from dm in db.DONMUAHANGs
                              orderby dm.NgayLap descending
@@ -46,14 +59,14 @@ namespace PC_GUI
         }
         List<HOPDONGMH> loadMaHDMH()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listmahd = from hd in db.HOPDONGMHs
                            select hd;
             return listmahd.ToList();
         }
         void loadNhaCC()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listNhaCC = from ncc in db.NHACUNGCAPs
                             select ncc;
             cbMaNCC.DataSource = listNhaCC.ToList();
@@ -63,32 +76,32 @@ namespace PC_GUI
         //Load combobox trạng thái 
         void loadcbTrangthai()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai1 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbTrangThai.DataSource = dstrangthai;
+            cbTrangThai.DataSource = dstrangthai1;
             cbTrangThai.DisplayMember = "Hienthi";
             cbTrangThai.ValueMember = "Luu";
         }
         void loadcbLoc()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai2 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbLoc.DataSource = dstrangthai;
+            cbLoc.DataSource = dstrangthai2;
             cbLoc.DisplayMember = "Hienthi";
             cbLoc.ValueMember = "Luu";
         }
         //Load combobox yêu cầu mua hàng 
         void loadycmh()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ycmh = from yc in db.YEUCAU_MUAHANG
                        select yc;
             cbYcmh.DataSource = ycmh.ToList();
@@ -104,6 +117,7 @@ namespace PC_GUI
         }
         private void Quanlydonhang_Load(object sender, EventArgs e)
         {
+            LoadDonmua();
             cbMaHD.DataSource = loadMaHDMH();
             cbMaHD.DisplayMember = "MaHDMH";
             cbMaHD.ValueMember = "MaHDMH";
@@ -302,12 +316,12 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự","Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Focus();
             }
-            //3.Trường mã yêu cầu mua hàng 
-            if (cbYcmh.SelectedIndex == -1)
+            //3.
+            if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
             {
                 okTao = false;
-                MessageBox.Show("Mã yêu cầu mua hàng không được để trống", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                cbYcmh.Focus();
+                MessageBox.Show("Không được để trống các trường bắt buộc");
+                return;
             }
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau = 0;
@@ -336,7 +350,7 @@ namespace PC_GUI
                     dhmoi.TThai = cbTrangThai.SelectedValue.ToString();
                     dhmoi.MoTa = txtMoTa.Text;
                     
-                    QLMHEntities3 db = new QLMHEntities3();
+                    QLMHEntities4 db = new QLMHEntities4();
                     db.DONMUAHANGs.Add(dhmoi);
                     db.SaveChanges();
                     MessageBox.Show("Tạo đơn hàng mới thành công", "Thông báo", MessageBoxButtons.OK);
@@ -400,12 +414,12 @@ namespace PC_GUI
                     MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
                     dateTime.Focus();
                 }
-                //Trường mã yêu cầu mua hàng
-                if (cbYcmh.SelectedIndex == -1)
+                //3.3
+                if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
                 {
                     okTao = false;
-                    MessageBox.Show("Mã yêu cầu mua hàng không được để trống", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                    cbYcmh.Focus();
+                    MessageBox.Show("Không được để trống các trường bắt buộc");
+                    return;
                 }
                 //4.Chiết khấu là số thực và > 0 
                 decimal chietkhau = 0;
@@ -530,7 +544,7 @@ namespace PC_GUI
             HideAllTooltips(); //ẩn tooltip 
             try
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var trangthaidon = from dm in db.DONMUAHANGs
                                    orderby dm.NgayLap descending 
                                    select new
@@ -549,7 +563,7 @@ namespace PC_GUI
             HideAllTooltips(); //ẩn tooltip 
             try
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var ttloc = from dm in db.DONMUAHANGs
                             where dm.TThai.Contains(cbLoc.SelectedValue.ToString())
                             select new 
@@ -574,7 +588,7 @@ namespace PC_GUI
             DialogResult rs = MessageBox.Show("Bạn có chắc chắn hủy đơn mua hàng này không", "Thông báo", MessageBoxButtons.YesNo);
             if (rs == DialogResult.Yes)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 DONMUAHANG donmua = db.DONMUAHANGs.Find(txtMaDMH.Text);
                 if (donmua != null)
                 {

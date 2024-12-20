@@ -24,13 +24,13 @@ namespace PC_GUI
             bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv_DN);
             if (!KiemTraPhongBan)
             {
-                btnThemNV.Enabled = false;
-                btnXoa.Enabled = false;
-                btnSua.Enabled = false;
+                btnThemNV1.Enabled = false;
+                btnXoaNV1.Enabled = false;
+                btnSuaNV1.Enabled = false;
             }
             else if (!KiemTraChucVu) 
             { 
-                btnXoa.Enabled = false ;
+                btnXoaNV1.Enabled = false ;
             }
                
         }
@@ -45,10 +45,10 @@ namespace PC_GUI
         }
         private void LoadComboBox()
         {
-            comboBoxChucVu.DataSource = bLLNV.LoadChucVu();
-            comboBoxChucVu.DisplayMember = "ChucVu";
-            comboBoxChucVu.ValueMember = "ChucVu";
-            comboBoxChucVu.SelectedIndex = -1;
+            comboBoxChucVu1.DataSource = bLLNV.LoadChucVu();
+            comboBoxChucVu1.DisplayMember = "ChucVu";
+            comboBoxChucVu1.ValueMember = "ChucVu";
+            comboBoxChucVu1.SelectedIndex = -1;
 
             comboBoxPhongBan.DataSource = bLLNV.LoadPhongBan();
             comboBoxPhongBan.DisplayMember = "PhongBan";
@@ -58,25 +58,22 @@ namespace PC_GUI
 
         private void btnThemNV_Click(object sender, EventArgs e)
         {
-            AddNV addNV = new AddNV();
-            addNV.ShowDialog();
+            
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            SuaNV suaNV = new SuaNV();
-            suaNV.ShowDialog();
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            XoaNV xoaNV = new XoaNV();
-            xoaNV.ShowDialog();
+            
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            dataGridViewDSNV.DataSource = bLLNV.LoadNVBlL();
+            
         }
 
         private void btnResetFilter_Click(object sender, EventArgs e)
@@ -90,7 +87,7 @@ namespace PC_GUI
             try
             {
                 string maNV = txtMaNV.Text.Trim();
-                string chucVu = comboBoxChucVu.SelectedValue?.ToString();
+                string chucVu = comboBoxChucVu1.SelectedValue?.ToString();
                 string phongBan = comboBoxPhongBan.SelectedValue?.ToString();
                 if (string.IsNullOrEmpty(maNV) && string.IsNullOrEmpty(chucVu) && string.IsNullOrEmpty(phongBan))
                 {
@@ -144,6 +141,29 @@ namespace PC_GUI
             {
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnThemNV1_Click(object sender, EventArgs e)
+        {
+            AddNV addNV = new AddNV();
+            addNV.ShowDialog();
+        }
+
+        private void btnSuaNV1_Click(object sender, EventArgs e)
+        {
+            SuaNV suaNV = new SuaNV();
+            suaNV.ShowDialog();
+        }
+
+        private void btnXoaNV1_Click(object sender, EventArgs e)
+        {
+            XoaNV xoaNV = new XoaNV();
+            xoaNV.ShowDialog();
+        }
+
+        private void btnLoad1_Click(object sender, EventArgs e)
+        {
+            dataGridViewDSNV.DataSource = bLLNV.LoadNVBlL();
         }
     }
 }

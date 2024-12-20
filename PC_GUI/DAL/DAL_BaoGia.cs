@@ -14,7 +14,7 @@ namespace PC_GUI.DAL
         public DataTable Load_BaoGia()
         {
 
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
             try
             {
                 var list_BG = (from bg in cnn.BAOGIAs
@@ -65,7 +65,7 @@ namespace PC_GUI.DAL
         //Thêm báo giá
         public bool Them_BG(DTO_BaoGia dto_BaoGia)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             try
             {
                 BAOGIA baoGia = new BAOGIA();
@@ -86,7 +86,7 @@ namespace PC_GUI.DAL
         //Xóa báo giá
         public bool Xoa_BG(DTO_BaoGia dto_BG)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             BAOGIA baoGia = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
             if (baoGia != null)
             {
@@ -108,7 +108,7 @@ namespace PC_GUI.DAL
         //Sửa báo giá
         public bool Sua_BG(DTO_BaoGia dto_BG)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             BAOGIA baoGia = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
 
             if (baoGia != null)
@@ -130,7 +130,7 @@ namespace PC_GUI.DAL
         ///
         public bool KiemTraMaBG(DTO_BaoGia dto_BG)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             BAOGIA bg = conn.BAOGIAs.Find(dto_BG.MaBG.Trim());
             if (bg != null) return false;
             return true;
@@ -152,7 +152,7 @@ namespace PC_GUI.DAL
             dTO.MaBG = bgia.MaBG;
             try
             {
-                QLMHEntities3 cnn = new QLMHEntities3();
+                QLMHEntities4 cnn = new QLMHEntities4();
                 var list_BG = (from ct_bg in cnn.CT_BAOGIA
                                join bg in cnn.BAOGIAs
                                on ct_bg.MaBG equals bg.MaBG
@@ -208,7 +208,7 @@ namespace PC_GUI.DAL
         //Thêm chi tiết báo giá
         public bool Them_CT_BaoGia(DTO_CT_BaoGia dto_CT_BG)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             try
             {
                 CT_BAOGIA ct = new CT_BAOGIA();
@@ -230,7 +230,7 @@ namespace PC_GUI.DAL
         //Sửa chi tiết báo giá
         public bool Sua_CT_BG(DTO_CT_BaoGia dto_CT_BG)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             CT_BAOGIA ctbg = conn.CT_BAOGIA.SingleOrDefault(item => item.MaBG == dto_CT_BG.MaBG && item.MaSP == dto_CT_BG.MaSP);
 
             if (ctbg != null)
@@ -253,7 +253,7 @@ namespace PC_GUI.DAL
         //Xóa 1 chi tiết báo giá trong 1 mã báo giá
         public bool Xoa_SP_CT_BG(DTO_CT_BaoGia cT_BaoGia)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             CT_BAOGIA ct = conn.CT_BAOGIA.SingleOrDefault(item => item.MaBG == cT_BaoGia.MaBG && item.MaSP == cT_BaoGia.MaSP);
             if (ct != null)
             {
@@ -274,7 +274,7 @@ namespace PC_GUI.DAL
         //Xóa toàn bộ sản phẩm có mã BG
         public bool Xoa_CT_BG(DTO_CT_BaoGia baoGia)
         {
-            QLMHEntities3 conn = new QLMHEntities3();
+            QLMHEntities4 conn = new QLMHEntities4();
             var ct = conn.CT_BAOGIA.Where(item => item.MaBG == baoGia.MaBG).ToList();
             if (ct != null)
             {
@@ -303,7 +303,7 @@ namespace PC_GUI.DAL
         ///Lọc theo sản phẩm có trong báo giá
         public DataTable Load_Loc_SP(DTO_CT_BaoGia ctiet, DateTime start, DateTime end)
         {
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
             cT_BaoGia.MaSP = ctiet.MaSP;
             try
@@ -359,7 +359,7 @@ namespace PC_GUI.DAL
         //Lọc theo NCC
         public DataTable Load_Loc_NCC(DTO_BaoGia bgia, DateTime start, DateTime end)
         {
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
             DTO_BaoGia dto = new DTO_BaoGia();
             dto.MaNCC = bgia.MaNCC;
             try
@@ -412,7 +412,7 @@ namespace PC_GUI.DAL
         //Lọc bỏ thời gian, theo SP
         public DataTable Load_BoTG_SP_BG(DTO_CT_BaoGia ctiet)
         {
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
             cT_BaoGia.MaSP = ctiet.MaSP;
             try
@@ -467,7 +467,7 @@ namespace PC_GUI.DAL
         //Lọc bỏ thời gian theo NCC
         public DataTable Load_Loc_BoTG_NCC_BG(DTO_BaoGia bgia)
         {
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
             DTO_BaoGia dto = new DTO_BaoGia();
             dto.MaNCC = bgia.MaNCC;
             try
@@ -521,7 +521,7 @@ namespace PC_GUI.DAL
 
         public DataTable Loc_BoTG_BG(DTO_CT_BaoGia ctiet, DTO_BaoGia bgia)
         {
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
             DTO_BaoGia dto = new DTO_BaoGia();
             dto.MaNCC = bgia.MaNCC;
@@ -579,7 +579,7 @@ namespace PC_GUI.DAL
         /// 
         public DataTable Load_Loc_SP_NCC(DTO_CT_BaoGia ctiet, DTO_BaoGia bgia, DateTime start, DateTime end)
         {
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
             DTO_CT_BaoGia cT_BaoGia = new DTO_CT_BaoGia();
             DTO_BaoGia dto = new DTO_BaoGia();
             dto.MaNCC = bgia.MaNCC;
@@ -637,7 +637,7 @@ namespace PC_GUI.DAL
         //Lọc theo ngày tháng
         public DataTable Load_Loc_NT(DateTime start, DateTime end)
         {
-            QLMHEntities3 cnn = new QLMHEntities3();
+            QLMHEntities4 cnn = new QLMHEntities4();
 
             try
             {
@@ -695,7 +695,7 @@ namespace PC_GUI.DAL
             dTO.MaSP = ctietBG.MaSP;
             try
             {
-                QLMHEntities3 cnn = new QLMHEntities3();
+                QLMHEntities4 cnn = new QLMHEntities4();
                 var list_BG = (from ct_bg in cnn.CT_BAOGIA
                                join bg in cnn.BAOGIAs
                                on ct_bg.MaBG equals bg.MaBG

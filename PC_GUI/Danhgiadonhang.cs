@@ -17,38 +17,46 @@ namespace PC_GUI
 {
     public partial class Danhgiadonhang : UserControl
     {
-        
-        public Danhgiadonhang()
+
+        public DTONV nv = new DTONV();
+        public Danhgiadonhang(DTONV nvien)
         {
             InitializeComponent();
-            
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+
+            bool KiemTraChucVu = kt.Kiem_Tra_Chuc_Vu(nv);
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraChucVu || !KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnCapNhat);
+                this.Controls.Remove(btnXoa);
+            }
         }
         public BLL_DonMuaHang bllDonmmua = new BLL_DonMuaHang();
 
         //Load danh sách đơn mua
         void load_DS_DMH()
         {
-            QLMHEntities3 db = new QLMHEntities3();
-            var ctdg = from ds in db.DONMUAHANGs
-                       join ncc in db.NHACUNGCAPs
-                       on ds.MaNCC equals ncc.MaNCC                       
+            QLMHEntities4 db = new QLMHEntities4();
+            var ctdg = from ds in db.DONMUAHANGs                      
                        select new
                        {
-                           MaDMH = ds.MaDMH,
-                           MaNCC = ds.MaNCC,
-                           TenNCC = ncc.TenNCC,
-                           MoTa = ds.MoTa,
-                           TrangThai = ds.TThai
+                           ds.MaDMH,
+                           ds.MaNCC,
+                           ds.NHACUNGCAP.TenNCC,
+                           ds.MoTa,
+                           ds.TThai
                        };
             dataGridViewChitiet.DataSource = ctdg.ToList();
         }
 
         //Load đánh giá theo chi tiết đơn mua 
-        void loaddgtheodonmua(string maDMH, string maSP)
+        void loaddgtheodonmua(string maDMH)
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ctdg = from ls in db.DANHGIASP_TRONGDON
-                       where ls.MaDMH == maDMH && ls.MaSP == maSP
+                       where ls.MaDMH == maDMH
                        select new
                        {
                            ls.MaDGSP,
@@ -65,7 +73,7 @@ namespace PC_GUI
         }
         void LoadChitietdon(string maDMH) // load danh sách chi tiêt đơn hàng vào datagridview 
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listchitiet = from dm in db.CT_DONMUAHANG
                               where dm.MaDMH == maDMH.Trim()
                               select new
@@ -81,7 +89,7 @@ namespace PC_GUI
 
         void loadlichsudg()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var lichsu = from ls in db.DANHGIASP_TRONGDON
                          orderby ls.NgayDG descending 
                          select new
@@ -101,7 +109,7 @@ namespace PC_GUI
         //loaddiemdanhgia
         void loaddiemdg()
         {
-            List<DTODiemDG> diemdg = new List<DTODiemDG>
+            List<DTODiemDG> diemdg1 = new List<DTODiemDG>
             {
                 new DTODiemDG { Thutu = 1, Diemdg = 1},
                 new DTODiemDG { Thutu = 2, Diemdg = 2},
@@ -109,15 +117,17 @@ namespace PC_GUI
                 new DTODiemDG { Thutu = 4, Diemdg = 4},
                 new DTODiemDG { Thutu = 5, Diemdg = 5},
             };
-            cbChatluong.DataSource = diemdg;
+            List<DTODiemDG> diemdg2 = new List<DTODiemDG>(diemdg1); 
+            List<DTODiemDG> diemdg3 = new List<DTODiemDG>(diemdg1); 
+            cbChatluong.DataSource = diemdg1;
             cbChatluong.DisplayMember = "Diemdg";
             cbChatluong.ValueMember = "Thutu";
 
-            cBHieuqua.DataSource = diemdg;
+            cBHieuqua.DataSource = diemdg2;
             cBHieuqua.DisplayMember = "Diemdg";
             cBHieuqua.ValueMember = "Thutu";
 
-            cbGiaca.DataSource = diemdg;
+            cbGiaca.DataSource = diemdg3;
             cbGiaca.DisplayMember = "Diemdg";
             cbGiaca.ValueMember = "Thutu";
 
@@ -153,7 +163,8 @@ namespace PC_GUI
                 {
                     if (chitiet)
                     {
-                        if (cbTensp.SelectedIndex != -1) loaddgtheodonmua(cbMaDH.SelectedValue.ToString(), cbTensp.SelectedValue.ToString());
+                        if (cbTensp.SelectedIndex != -1) 
+                            loaddgtheodonmua(cbMaDH.SelectedValue.ToString());
                         else return;
                         HideAllTooltips();
                         btnChitietdon.Text = "Chi tiết đơn mua";
@@ -266,10 +277,10 @@ namespace PC_GUI
                 txtMaDGSP.Focus();
             }
             //2.Mã đơn mua hàng không được trống 
-            if (cbMaDH.SelectedIndex == -1)
+            if (cbMaDH.SelectedIndex == -1 || cbTensp.SelectedIndex ==-1)
             {
                 kiemtra = false;
-                MessageBox.Show("Mã đơn mua hàng không được để trống", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Mã đơn mua hàng / mã sản phẩm không được để trống", "Thông báo", MessageBoxButtons.OK);
                 cbMaDH.Focus();
 
             }
@@ -291,7 +302,7 @@ namespace PC_GUI
                 dgsp.DiemHieuQua = Convert.ToInt32(cBHieuqua.SelectedValue);
                 dgsp.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
                 dgsp.GhiChu = txtGhichu.Text;
-                QLMHEntities3 da = new QLMHEntities3();
+                QLMHEntities4 da = new QLMHEntities4();
                 
                 try
                 {
@@ -301,17 +312,11 @@ namespace PC_GUI
                 }
                 catch (Exception ex)
                 { MessageBox.Show("Lỗi", ex.Message); }
-                
-
                 loadlichsudg();
                 btnLuu.Enabled = false;
             }
         }
 
-        private void cb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         //Nút cập nhật 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
@@ -331,7 +336,7 @@ namespace PC_GUI
             }
             if (okSua)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
@@ -362,7 +367,7 @@ namespace PC_GUI
             DialogResult rs = MessageBox.Show("Bạn chắc chắn xóa đánh giá này không?", "Cảnh báo", MessageBoxButtons.YesNo);
             if (rs == DialogResult.Yes)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
@@ -422,7 +427,7 @@ namespace PC_GUI
         //Cbtensp tự động hiển thị theo cbMaDH 
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             if (cbMaDH.SelectedIndex != -1)
             {
                 string madhchon = cbMaDH.SelectedValue.ToString();
@@ -508,7 +513,7 @@ namespace PC_GUI
         {
             if (string.IsNullOrEmpty(txtTim.Text))
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listtim = from dg in db.DANHGIASP_TRONGDON
                               where dg.NgayDG >= dateTimebatdau.Value && dg.NgayDG <= dateTimeketthuc.Value
                               select new
@@ -537,7 +542,7 @@ namespace PC_GUI
             }
             else
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 var listtimp = from dg in db.DANHGIASP_TRONGDON
                                where dg.SANPHAM.TenSP.Contains(txtTim.Text.Trim())
                                && dg.NgayDG >= dateTimebatdau.Value

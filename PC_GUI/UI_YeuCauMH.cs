@@ -206,41 +206,52 @@ namespace PC_GUI
 
         private void btnDuyet_Click(object sender, EventArgs e)
         {
-            
-            DTO_YeuCauMH dto = new DTO_YeuCauMH();
-            dto.MaYC = txtMaYC.Text;
-            dto.NgayDuyet = DateTime.Now;
-            dto.TinhTrang = "Đã duyệt";
-            BLL_YeuCauMH bll = new BLL_YeuCauMH();
-            if (txtTinhTrang.Text != "Chờ duyệt")
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn duyệt yêu cầu mua hàng này", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Yêu cầu đã được duyệt/ từ chối");
-                return;
+                DTO_YeuCauMH dto = new DTO_YeuCauMH();
+                dto.MaYC = txtMaYC.Text;
+                dto.NgayDuyet = DateTime.Now;
+                dto.TinhTrang = "Đã duyệt";
+                BLL_YeuCauMH bll = new BLL_YeuCauMH();
+                if (txtTinhTrang.Text != "Chờ duyệt")
+                {
+                    MessageBox.Show("Yêu cầu đã được duyệt/ từ chối");
+                    return;
+                }
+                if (bll.Duyet_YCMH(dto))
+                {
+                    Load_Yeu_Cau_MH();
+                    txtTinhTrang.Text = "Đã duyệt";
+                }
+                else { MessageBox.Show("Xảy ra lỗi khi duyệt", "Duyệt yêu cầu chưa thành công"); }
             }
-            if (bll.Duyet_YCMH(dto))
-            {
-                Load_Yeu_Cau_MH();
-            }
-            else { MessageBox.Show("Xảy ra lỗi khi duyệt", "Duyệt yêu cầu chưa thành công"); }
+                
         }
 
         private void btnTuChoi_Click(object sender, EventArgs e)
         {
-            DTO_YeuCauMH dto = new DTO_YeuCauMH();
-            dto.MaYC = txtMaYC.Text;
-            dto.NgayDuyet = DateTime.Now;
-            dto.TinhTrang = "Hủy yêu cầu";
-            BLL_YeuCauMH bll = new BLL_YeuCauMH();
-            if (txtTinhTrang.Text != "Chờ duyệt")
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối/hủy yêu cầu mua hàng này", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Yêu cầu đã được duyệt/ từ chối");
-                return;
+                DTO_YeuCauMH dto = new DTO_YeuCauMH();
+                dto.MaYC = txtMaYC.Text;
+                dto.NgayDuyet = DateTime.Now;
+                dto.TinhTrang = "Hủy yêu cầu";
+                BLL_YeuCauMH bll = new BLL_YeuCauMH();
+                if (txtTinhTrang.Text != "Chờ duyệt")
+                {
+                    MessageBox.Show("Yêu cầu đã được duyệt/ từ chối");
+                    return;
+                }
+                if (bll.Duyet_YCMH(dto))
+                {
+                    Load_Yeu_Cau_MH();
+                    txtTinhTrang.Text = "Hủy yêu cầu";
+                }
+                else { MessageBox.Show("Xảy ra lỗi khi duyệt", "Duyệt yêu cầu chưa thành công"); }
             }
-            if (bll.Duyet_YCMH(dto))
-            {
-                Load_Yeu_Cau_MH();
-            }
-            else { MessageBox.Show("Xảy ra lỗi khi duyệt", "Duyệt yêu cầu chưa thành công"); }
+                
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -346,6 +357,7 @@ namespace PC_GUI
             }
             catch { return; }
         }
+
 
         ///Chuyển trạng thái
         ///

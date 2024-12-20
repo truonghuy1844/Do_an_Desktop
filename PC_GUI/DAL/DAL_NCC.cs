@@ -9,7 +9,7 @@ namespace PC_GUI.DAL
 {
     public class DAL_NCC
     {
-        QLMHEntities3 db = new QLMHEntities3();
+        QLMHEntities4 db = new QLMHEntities4();
         public List<DTONCC> LoadNCC()
         {
             var listNCC = from ncc in db.NHACUNGCAPs
@@ -35,7 +35,7 @@ namespace PC_GUI.DAL
                     SDT = dTONCC.SDT,
                     Email = dTONCC.Email
                 };
-                using (var db = new QLMHEntities3())
+                using (var db = new QLMHEntities4())
                 {
                     var existingNCC = db.NHACUNGCAPs.Find(dTONCC.MaNCC);
                     if (existingNCC != null)
@@ -168,7 +168,7 @@ namespace PC_GUI.DAL
         {
             try
             {
-                using (var db = new QLMHEntities3())
+                using (var db = new QLMHEntities4())
                 {
                     if (!db.NHANVIENs.Any(nv => nv.MaNV == dTODGNCC.MaNV))
                     {

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4407f55aff5e4e04961fa793fc73af02" Name="Diagram1">
+      <Diagram DiagramId="4407f55aff5e4e04961fa793fc73af02" Name="Diagram1" ZoomLevel="49">
         <EntityTypeShape EntityType="QLMHModel.BAOGIA" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QLMHModel.CT_BAOGIA" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLMHModel.CT_DONMUAHANG" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="QLMHModel.HANGHOA_VANCHUYEN" Width="1.5" PointX="10.5" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLMHModel.HOADON" Width="1.5" PointX="7.5" PointY="25.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLMHModel.HOPDONGMH" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLMHModel.KHOHANG" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMHModel.KHOHANG" Width="1.5" PointX="4.875" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QLMHModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLMHModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLMHModel.PHANCONG_CONGVIEC" Width="1.5" PointX="3" PointY="21.5" IsExpanded="true" />

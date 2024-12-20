@@ -16,7 +16,8 @@ namespace PC_GUI
 {
     public partial class PCCV_NV : UserControl
     {
-        public PCCV_NV()
+        public DTONV nv = new DTONV();
+        public PCCV_NV(DTONV nvien)
         {
             InitializeComponent();
         }
@@ -100,7 +101,7 @@ namespace PC_GUI
             if (ktra)
             {
                 DataTable tim = bllPhancong.Timphancong(txtTim.Text);
-                if (tim == null)
+                if (tim == null || tim.Rows.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy kết quả");
                 }

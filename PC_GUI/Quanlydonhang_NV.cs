@@ -16,15 +16,27 @@ namespace PC_GUI
     public partial class Quanlydonhang_NV : UserControl
     {
         BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
-        public Quanlydonhang_NV()
+        public DTONV nv = new DTONV();
+        public Quanlydonhang_NV(DTONV nvien)
         {
             InitializeComponent();
+            nv.MaNV = nvien.MaNV;
+            BLL_KiemTraTruyCap kt = new BLL_KiemTraTruyCap();
+            bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
+            if (!KiemTraPhongBan)
+            {
+                this.Controls.Remove(btnTao);
+                this.Controls.Remove(btnCapNhat);
+                this.Controls.Remove(btnLuu);
+                this.Controls.Remove(btnXoa);
+            }
         }
+
         //I.Load dữ liệu 
         //Load combobox lọc theo trạng thái 
         void loadloctt()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var dstt = (from dm in db.DONMUAHANGs
                         select dm.TThai).Distinct().ToList();
             cbLoc.DataSource = dstt;
@@ -32,7 +44,7 @@ namespace PC_GUI
         //Load đơn mua 
         void loaddonmua()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var donMua = from dm in db.DONMUAHANGs
                          orderby dm.NgayLap descending
                          select new
@@ -52,7 +64,7 @@ namespace PC_GUI
         //Load mã hợp đồng 
         void loadhopdong()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             cbMaHD.DataSource = db.HOPDONGMHs.ToList();
             cbMaHD.DisplayMember = "MaHDMH";
             cbMaHD.ValueMember = "MaHDMH";
@@ -60,7 +72,7 @@ namespace PC_GUI
         //Load nhà cung cấp 
         List<NHACUNGCAP> loadnhacc()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             
             var listncc = from ncc in db.NHACUNGCAPs
                           select ncc;
@@ -71,33 +83,33 @@ namespace PC_GUI
         //Load combobox trạng thái 
         void loadcbTrangthai()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai1 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbTrangThai.DataSource = dstrangthai;
+            cbTrangThai.DataSource = dstrangthai1;
             cbTrangThai.DisplayMember = "Hienthi";
             cbTrangThai.ValueMember = "Luu";
         }
         //Load cb lọc 
         void loadcbLoc()
         {
-            List<DTOTrangthai> dstrangthai = new List<DTOTrangthai>
+            List<DTOTrangthai> dstrangthai2 = new List<DTOTrangthai>
             {
                 new DTOTrangthai{ Luu = "Hoàn tất", Hienthi = "Hoàn tất"},
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbLoc.DataSource = dstrangthai;
+            cbLoc.DataSource = dstrangthai2;
             cbLoc.DisplayMember = "Hienthi";
             cbLoc.ValueMember = "Luu";
         }
         //Load combobox yêu cầu mua hàng 
         void loadycmh()
         {
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var ycmh = from yc in db.YEUCAU_MUAHANG
                        select yc;
             cbYcmh.DataSource = ycmh.ToList();
@@ -106,6 +118,7 @@ namespace PC_GUI
         }
         private void Quanlydonhang_NV_Load(object sender, EventArgs e)
         {
+            loaddonmua();
             loadloctt();
             loadhopdong();
             loadcbTrangthai();
@@ -137,7 +150,7 @@ namespace PC_GUI
         private void btnThongtin_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
 
             var listdonmua = from dm in db.DONMUAHANGs
                              orderby dm.NgayLap descending
@@ -159,7 +172,7 @@ namespace PC_GUI
         private void btnTheodoi_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listtheodoi = from dm in db.DONMUAHANGs
                               orderby dm.NgayLap descending
                               select new
@@ -174,7 +187,7 @@ namespace PC_GUI
         private void btnLoc_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             var listloc = from dm in db.DONMUAHANGs
                           where dm.TThai == cbLoc.SelectedValue.ToString()
                           select new
@@ -195,10 +208,11 @@ namespace PC_GUI
         private void btnTim_Click(object sender, EventArgs e)
         {
             HideAllTooltips(); //ẩn tooltip 
-            QLMHEntities3 db = new QLMHEntities3();
+            QLMHEntities4 db = new QLMHEntities4();
             
             var listtim = from dm in db.DONMUAHANGs
-                          where dm.MaDMH.Contains(txtTimKiem.Text)
+                          where dm.MaDMH.Contains(txtTimKiem.Text) || dm.MoTa.Contains(txtTimKiem.Text)
+                          orderby dm.NgayLap descending
                           select new
                           {
                               dm.MaDMH,
@@ -217,7 +231,7 @@ namespace PC_GUI
             }
             else
             {
-                dataGridView2.DataSource = listtim;
+                dataGridView2.DataSource = listtim.ToList();
             }
             
             
@@ -238,7 +252,7 @@ namespace PC_GUI
                 cbTrangThai.SelectedValue = dataGridView2.CurrentRow.Cells["TThai"].Value.ToString();
 
                 txtMaDMH.Enabled = false;
-                if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất")
+                if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất" || cbTrangThai.SelectedValue.ToString() == "Đã hủy")
                 {
                     cbTrangThai.Enabled = false;
                 }
@@ -422,12 +436,12 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Focus();
             }
-            //3.Trường mã yêu cầu mua hàng 
-            if (cbYcmh.SelectedIndex == -1)
+            //3.
+            if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
             {
                 okTao = false;
-                MessageBox.Show("Mã yêu cầu mua hàng không được để trống", "Lỗi dữ liệu", MessageBoxButtons.OK);
-                cbYcmh.Focus();
+                MessageBox.Show("Không được để trống các trường bắt buộc");
+                return;
             }
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau = 0;
@@ -454,7 +468,7 @@ namespace PC_GUI
                 donmua.MoTa = txtMoTa.Text;
                 donmua.TThai = cbTrangThai.SelectedValue.ToString();
 
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 
                 
                 try
@@ -498,10 +512,24 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Focus();
             }
+            //3.NV không thể cập nhật trạng thái "Chờ xử lý" -> "Đã hủy" 
+            if (cbTrangThai.SelectedValue.ToString() == "Đã hủy" && dataGridView2.CurrentRow.Cells["TThai"].Value.ToString() == "Chờ xử lý")
+            {
+                okSua = false;
+                MessageBox.Show("Nhân viên không thể hủy đơn hàng"); 
+                return;
+            }
+            //3.Không để trống các combobox 
+            if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
+            {
+                okSua = false;
+                MessageBox.Show("Không được để trống các trường bắt buộc");
+                return;
+            }
             //4.Chiết khấu là số thực và > 0 
             decimal chietkhau = 0;
             string input = txtChietkhau.Text.Replace(",",".");
-            if (String.IsNullOrEmpty(txtChietkhau.Text))
+            if (!string.IsNullOrEmpty(txtChietkhau.Text))
             {
                 if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000)
                 {
@@ -512,24 +540,28 @@ namespace PC_GUI
             }
             if (okSua)
             {
-                QLMHEntities3 db = new QLMHEntities3();
+                QLMHEntities4 db = new QLMHEntities4();
                 
                 try
                 {
-                    DONMUAHANG donmua = (from dm in db.DONMUAHANGs
-                                            where dm.MaDMH == txtMaDMH.Text
-                                            select dm).Single<DONMUAHANG>();
-                    donmua.NgayLap = dateTime2.Value;
-                    donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
-                    donmua.MaNV = txtMaNV.Text;
-                    donmua.MaNCC = cbMaNCC.SelectedValue.ToString();
-                    donmua.MaYC = cbYcmh.SelectedValue.ToString();
-                    donmua.Chietkhau = chietkhau;
-                    donmua.TThai = cbTrangThai.SelectedValue.ToString();
-                    donmua.MoTa = txtMoTa.Text;
+                    //DONMUAHANG donmua = (from dm in db.DONMUAHANGs
+                    //                        where dm.MaDMH == txtMaDMH.Text
+                    //                        select dm).Single<DONMUAHANG>();
+                    DONMUAHANG donmua = db.DONMUAHANGs.Find(txtMaDMH.Text.Trim());
+                    if (donmua != null)
+                    {
+                        donmua.NgayLap = dateTime2.Value;
+                        donmua.MaHDMH = cbMaHD.SelectedValue.ToString();
+                        donmua.MaNV = txtMaNV.Text;
+                        donmua.MaNCC = cbMaNCC.SelectedValue.ToString();
+                        donmua.MaYC = cbYcmh.SelectedValue.ToString();
+                        donmua.Chietkhau = chietkhau;
+                        donmua.TThai = cbTrangThai.SelectedValue.ToString();
+                        donmua.MoTa = txtMoTa.Text;
 
-                    db.SaveChanges();
-                    MessageBox.Show("Cập nhật đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                        db.SaveChanges();
+                        MessageBox.Show("Cập nhật đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
+                    }
 
                 }
                 catch (Exception ex) { MessageBox.Show("Cập nhật đơn hàng thất bại", ex.Message); }

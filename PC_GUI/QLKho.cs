@@ -26,13 +26,13 @@ namespace PC_GUI
             bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
             if (!KiemTraPhongBan)
             {
-                btnThem.Enabled = false;
-                btnXoa.Enabled = false;
-                btnSua.Enabled = false;
+                btnThem1.Enabled = false;
+                btnXoa1.Enabled = false;
+                btnSua1.Enabled = false;
             }
             else if (!KiemTraChucVu)
             {
-                btnXoa.Enabled = false;
+                btnXoa1.Enabled = false;
             }
         }
 
@@ -75,25 +75,22 @@ namespace PC_GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            AddKho addKho = new AddKho();
-            addKho.ShowDialog();
+            
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            SuaKho suaKho = new SuaKho();
-            suaKho.ShowDialog();
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            XoaKho xoaKho = new XoaKho();
-            xoaKho.ShowDialog();
+            
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            dataGridViewDSKho.DataSource = bLLKho.LoadKho();
+            
         }
 
         private void btnTim_Click(object sender, EventArgs e)
@@ -123,6 +120,29 @@ namespace PC_GUI
             comboBoxLoaiKho.SelectedIndex = -1;
             comboBoxSucChua.SelectedIndex = -1;
 
+            dataGridViewDSKho.DataSource = bLLKho.LoadKho();
+        }
+
+        private void btnThem1_Click(object sender, EventArgs e)
+        {
+            AddKho addKho = new AddKho();
+            addKho.ShowDialog();
+        }
+
+        private void btnSua1_Click(object sender, EventArgs e)
+        {
+            SuaKho suaKho = new SuaKho();
+            suaKho.ShowDialog();
+        }
+
+        private void btnXoa1_Click(object sender, EventArgs e)
+        {
+            XoaKho xoaKho = new XoaKho();
+            xoaKho.ShowDialog();
+        }
+
+        private void btnLoad1_Click(object sender, EventArgs e)
+        {
             dataGridViewDSKho.DataSource = bLLKho.LoadKho();
         }
     }
