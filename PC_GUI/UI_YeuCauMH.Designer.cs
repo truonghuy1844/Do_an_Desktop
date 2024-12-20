@@ -133,7 +133,7 @@
             this.groupBox1.Location = new System.Drawing.Point(154, 280);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1334, 279);
+            this.groupBox1.Size = new System.Drawing.Size(1395, 279);
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lọc danh sách yêu cầu";
@@ -182,7 +182,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.Location = new System.Drawing.Point(126, 119);
+            this.label5.Location = new System.Drawing.Point(62, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 29);
             this.label5.TabIndex = 11;
@@ -202,7 +202,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(106, 54);
+            this.label4.Location = new System.Drawing.Point(55, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 29);
             this.label4.TabIndex = 9;
@@ -258,7 +258,7 @@
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1652, 614);
+            this.dataGridView1.Size = new System.Drawing.Size(1629, 614);
             this.dataGridView1.TabIndex = 76;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

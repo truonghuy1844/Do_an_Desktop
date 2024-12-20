@@ -102,9 +102,7 @@ namespace PC_GUI
         private void btnFormBG_Click(object sender, EventArgs e)
         {
             panelHienThi.Controls.Clear();
-            DTONV nvien = new DTONV();
-            nvien.MaNV = "NV020";
-            UI_View_BaoGia ui_BG = new UI_View_BaoGia(nvien);
+            UI_View_BaoGia ui_BG = new UI_View_BaoGia(nv_DN);
             panelHienThi.Controls.Add(ui_BG);
             panelHienThi.Dock = DockStyle.Fill;
 
