@@ -22,8 +22,8 @@ namespace PC_GUI
         {
             InitializeComponent();
             nv_DN = nhanVien;
-            this.Size = new System.Drawing.Size(915, 720);
-            
+           
+
         }
 
         #region Xử lý submenu
@@ -218,20 +218,14 @@ namespace PC_GUI
             }
 
         }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnFThongTinNCC_Click(object sender, EventArgs e)
         {
@@ -249,10 +243,7 @@ namespace PC_GUI
             panelHienThi.Dock = DockStyle.Fill;
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void btnFormHoaDon_Click(object sender, EventArgs e)
         {

@@ -40,48 +40,47 @@
             this.btnFDanhGiaNCC = new System.Windows.Forms.Button();
             this.btnSanPham = new System.Windows.Forms.Button();
             this.pnYeuCauMua = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnFDuyetYCM = new System.Windows.Forms.Button();
             this.btnFormYeuCauMua = new System.Windows.Forms.Button();
             this.btnFDieuChinhYCM = new System.Windows.Forms.Button();
             this.btnFormBG = new System.Windows.Forms.Button();
             this.pnDonHang = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnFDGSP = new System.Windows.Forms.Button();
             this.btnFormDonHang = new System.Windows.Forms.Button();
             this.btnFTTDonHang = new System.Windows.Forms.Button();
             this.btnFormHoaDon = new System.Windows.Forms.Button();
             this.pnNguonLuc = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnFPhanCong = new System.Windows.Forms.Button();
             this.btnFKho = new System.Windows.Forms.Button();
             this.btnFNhanVien = new System.Windows.Forms.Button();
             this.btnFormNguonLuc = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.ptLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnMenuDoc.SuspendLayout();
             this.pnButton.SuspendLayout();
             this.pnContainerNCC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.pnYeuCauMua.SuspendLayout();
-            this.pnDonHang.SuspendLayout();
-            this.pnNguonLuc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnDonHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.pnNguonLuc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHienThi
             // 
             this.panelHienThi.BackColor = System.Drawing.SystemColors.Control;
-            this.panelHienThi.Location = new System.Drawing.Point(510, 2);
-            this.panelHienThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelHienThi.Location = new System.Drawing.Point(501, 9);
+            this.panelHienThi.Margin = new System.Windows.Forms.Padding(4);
             this.panelHienThi.Name = "panelHienThi";
-            this.panelHienThi.Size = new System.Drawing.Size(1654, 1538);
+            this.panelHienThi.Size = new System.Drawing.Size(1660, 1215);
             this.panelHienThi.TabIndex = 2;
-            this.panelHienThi.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pnMenuDoc
             // 
@@ -91,10 +90,10 @@
             this.pnMenuDoc.Controls.Add(this.ptLogo);
             this.pnMenuDoc.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnMenuDoc.Location = new System.Drawing.Point(0, 0);
-            this.pnMenuDoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnMenuDoc.Margin = new System.Windows.Forms.Padding(4);
             this.pnMenuDoc.MaximumSize = new System.Drawing.Size(502, 1538);
             this.pnMenuDoc.Name = "pnMenuDoc";
-            this.pnMenuDoc.Size = new System.Drawing.Size(502, 1440);
+            this.pnMenuDoc.Size = new System.Drawing.Size(502, 1229);
             this.pnMenuDoc.TabIndex = 1;
             // 
             // pnButton
@@ -141,7 +140,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnFormNCC
             // 
@@ -170,7 +168,7 @@
             this.pictureBox10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(276, -13);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(26, 17);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -226,7 +224,7 @@
             this.btnSanPham.Image = global::PC_GUI.Properties.Resources.icons8_report_50;
             this.btnSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSanPham.Location = new System.Drawing.Point(4, 133);
-            this.btnSanPham.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSanPham.Margin = new System.Windows.Forms.Padding(4);
             this.btnSanPham.MaximumSize = new System.Drawing.Size(474, 269);
             this.btnSanPham.MinimumSize = new System.Drawing.Size(474, 117);
             this.btnSanPham.Name = "btnSanPham";
@@ -246,12 +244,24 @@
             this.pnYeuCauMua.Controls.Add(this.btnFormYeuCauMua);
             this.pnYeuCauMua.Controls.Add(this.btnFDieuChinhYCM);
             this.pnYeuCauMua.Location = new System.Drawing.Point(4, 258);
-            this.pnYeuCauMua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnYeuCauMua.Margin = new System.Windows.Forms.Padding(4);
             this.pnYeuCauMua.MaximumSize = new System.Drawing.Size(474, 269);
             this.pnYeuCauMua.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnYeuCauMua.Name = "pnYeuCauMua";
             this.pnYeuCauMua.Size = new System.Drawing.Size(474, 117);
             this.pnYeuCauMua.TabIndex = 7;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(384, 50);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 17);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // btnFDuyetYCM
             // 
@@ -325,7 +335,7 @@
             this.btnFormBG.Image = global::PC_GUI.Properties.Resources.icons8_dollar_coin_50;
             this.btnFormBG.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnFormBG.Location = new System.Drawing.Point(4, 383);
-            this.btnFormBG.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFormBG.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormBG.MaximumSize = new System.Drawing.Size(474, 269);
             this.btnFormBG.MinimumSize = new System.Drawing.Size(474, 117);
             this.btnFormBG.Name = "btnFormBG";
@@ -345,12 +355,24 @@
             this.pnDonHang.Controls.Add(this.btnFTTDonHang);
             this.pnDonHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(65)))), ((int)(((byte)(100)))));
             this.pnDonHang.Location = new System.Drawing.Point(4, 508);
-            this.pnDonHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnDonHang.Margin = new System.Windows.Forms.Padding(4);
             this.pnDonHang.MaximumSize = new System.Drawing.Size(474, 269);
             this.pnDonHang.MinimumSize = new System.Drawing.Size(474, 117);
             this.pnDonHang.Name = "pnDonHang";
             this.pnDonHang.Size = new System.Drawing.Size(474, 117);
             this.pnDonHang.TabIndex = 7;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(384, 48);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 17);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 8;
+            this.pictureBox3.TabStop = false;
             // 
             // btnFDGSP
             // 
@@ -422,7 +444,7 @@
             this.btnFormHoaDon.Image = global::PC_GUI.Properties.Resources.icons8_test_results_50;
             this.btnFormHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFormHoaDon.Location = new System.Drawing.Point(4, 633);
-            this.btnFormHoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFormHoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.btnFormHoaDon.Name = "btnFormHoaDon";
             this.btnFormHoaDon.Size = new System.Drawing.Size(474, 117);
             this.btnFormHoaDon.TabIndex = 4;
@@ -442,12 +464,24 @@
             this.pnNguonLuc.Controls.Add(this.btnFormNguonLuc);
             this.pnNguonLuc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(65)))), ((int)(((byte)(100)))));
             this.pnNguonLuc.Location = new System.Drawing.Point(4, 758);
-            this.pnNguonLuc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnNguonLuc.Margin = new System.Windows.Forms.Padding(4);
             this.pnNguonLuc.MaximumSize = new System.Drawing.Size(474, 348);
             this.pnNguonLuc.MinimumSize = new System.Drawing.Size(474, 110);
             this.pnNguonLuc.Name = "pnNguonLuc";
-            this.pnNguonLuc.Size = new System.Drawing.Size(474, 260);
+            this.pnNguonLuc.Size = new System.Drawing.Size(474, 110);
             this.pnNguonLuc.TabIndex = 7;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(384, 51);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(26, 17);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
             // 
             // btnFPhanCong
             // 
@@ -537,7 +571,7 @@
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
             this.btnLogOut.Image = global::PC_GUI.Properties.Resources.icons8_move_up_50;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(4, 1028);
+            this.btnLogOut.Location = new System.Drawing.Point(4, 878);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(456, 112);
@@ -562,55 +596,22 @@
             this.ptLogo.TabIndex = 4;
             this.ptLogo.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(384, 50);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(26, 17);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(384, 48);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(26, 17);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(384, 51);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(26, 17);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1968, 1440);
+            this.ClientSize = new System.Drawing.Size(2174, 1229);
             this.Controls.Add(this.panelHienThi);
             this.Controls.Add(this.pnMenuDoc);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(2200, 1300);
+            this.MinimumSize = new System.Drawing.Size(2200, 1300);
             this.Name = "frmMainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.pnMenuDoc.ResumeLayout(false);
             this.pnButton.ResumeLayout(false);
@@ -618,12 +619,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.pnYeuCauMua.ResumeLayout(false);
-            this.pnDonHang.ResumeLayout(false);
-            this.pnNguonLuc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ptLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnDonHang.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.pnNguonLuc.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
