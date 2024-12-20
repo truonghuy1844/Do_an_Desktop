@@ -98,6 +98,7 @@
             this.btnTuyChinhBG.TabIndex = 90;
             this.btnTuyChinhBG.Text = "Tùy chỉnh báo giá";
             this.btnTuyChinhBG.UseVisualStyleBackColor = false;
+            this.btnTuyChinhBG.Click += new System.EventHandler(this.btnTuyChinhBG_Click);
             // 
             // txtNCC
             // 
@@ -127,6 +128,7 @@
             this.btnHienThi.TabIndex = 88;
             this.btnHienThi.Text = "Hiển thị";
             this.btnHienThi.UseVisualStyleBackColor = false;
+            this.btnHienThi.Click += new System.EventHandler(this.btnHienThi_Click);
             // 
             // txtNgayBG
             // 

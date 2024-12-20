@@ -345,7 +345,7 @@
             // 
             // UI_NhapSua_BaoGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1416, 747);
             this.Controls.Add(this.label4);
@@ -364,7 +364,7 @@
             this.Controls.Add(this.lbSanPham);
             this.Controls.Add(this.lbMaNV);
             this.Controls.Add(this.lbMaBG);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UI_NhapSua_BaoGia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

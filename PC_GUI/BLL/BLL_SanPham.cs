@@ -11,6 +11,11 @@ namespace PC_GUI.BLL
 {
     public class BLL_SanPham
     {
+        public DataTable TimKiem_SanPham(string timKiem, string loaiSP)
+        {
+            DAL_SanPham dal = new DAL_SanPham();
+            return dal.TimKiemSP(timKiem, loaiSP);
+        }
         public DataTable Load_SP()
         {
             DAL_SanPham dal     = new DAL_SanPham();

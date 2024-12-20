@@ -62,25 +62,22 @@ namespace PC_GUI
         {
             BLL_BaoGia bll_bg = new BLL_BaoGia();
             BLL_CT_BaoGia bll_ct_bg = new BLL_CT_BaoGia();
-
             if (trangthaiHienThi == true)
             {
                 DTO_CT_BaoGia dto = new DTO_CT_BaoGia();
                 dto.MaBG = txtMaBG.Text;
                 btnHienThi.Text = "Quay lại";
                 trangthaiHienThi = false;
-
+                //Load chi tiết theo báo giá
                 dataGridView1.DataSource = bll_ct_bg.Load_CT_BG(dto);
                 dataGridView1.Columns["MaSP"].Visible = false;
-
             }
             else
             {
                 btnHienThi.Text = "Xem chi tiết báo giá";
                 trangthaiHienThi = true;
+                //Load danh sách báo giá
                 dataGridView1.DataSource = bll_bg.Load_BaoGia();
-                //Format cho Datagridview
-                
             }
         }
         
@@ -90,10 +87,7 @@ namespace PC_GUI
             ChuyenTrangThai();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -223,11 +217,6 @@ namespace PC_GUI
             };
             ui.ShowDialog();
             
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
     }

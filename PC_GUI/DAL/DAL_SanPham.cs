@@ -10,6 +10,58 @@ namespace PC_GUI.DAL
 {
     public class DAL_SanPham
     {
+        //Tìm kiếm sản phẩm
+        public DataTable TimKiemSP( string timKiem, string loaiSP)
+        {
+            QLMHEntities4 cnn = new QLMHEntities4();
+            
+            try
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("MaSP", typeof(string));
+                dt.Columns.Add("TenSP", typeof(string));
+                dt.Columns.Add("LoaiSP", typeof(string));
+                dt.Columns.Add("DVT", typeof(string));
+                var list_SP = cnn.SANPHAMs
+                                    .Where(sp =>
+                                    (sp.TenSP.ToLower().Contains(timKiem)) ||
+                                    (sp.MaSP.ToLower().Contains(timKiem)) ||
+                                    (sp.LoaiSP != null && sp.LoaiSP.ToLower().Contains(loaiSP)))
+                                    .Select(sp => new
+                                    {
+                                        MaSP = sp.MaSP,
+                                        TenSP = sp.TenSP,
+                                        LoaiSP = sp.LoaiSP, 
+                                        DVT = sp.DVT
+                                    })
+                                    .Distinct().ToList();
+                //Thêm vào bảng
+                foreach (var bg in list_SP)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["MaSP"] = bg.MaSP ?? string.Empty;
+                    dr["TenSP"] = bg.TenSP ?? string.Empty;
+                    dr["LoaiSP"] = bg.LoaiSP ?? string.Empty;
+
+                    dr["DVT"] = bg.DVT ?? string.Empty;
+                    dt.Rows.Add(dr);
+                }
+                dt.DefaultView.Sort = "MaSP";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Lỗi", typeof(string));
+                dt.Columns.Add("Chi tiết", typeof(string));
+                DataRow dr1 = dt.NewRow();
+                dr1["Lỗi"] = ex.Message;
+                dr1["Chi tiết"] = ex.InnerException?.Message;
+                dt.Rows.Add(dr1);
+                return dt;
+            }
+        }
+
 
         //Load danh sachs sanr phaamr
         public DataTable Load_SanPham()
