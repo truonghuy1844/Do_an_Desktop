@@ -106,7 +106,7 @@ namespace PC_GUI
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label8.Location = new System.Drawing.Point(178, 152);
+            this.label8.Location = new System.Drawing.Point(103, 152);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(153, 29);
@@ -116,7 +116,7 @@ namespace PC_GUI
             // txtBoPhanYC
             // 
             this.txtBoPhanYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtBoPhanYC.Location = new System.Drawing.Point(1003, 82);
+            this.txtBoPhanYC.Location = new System.Drawing.Point(928, 82);
             this.txtBoPhanYC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBoPhanYC.Name = "txtBoPhanYC";
             this.txtBoPhanYC.Size = new System.Drawing.Size(337, 35);
@@ -136,7 +136,7 @@ namespace PC_GUI
             this.groupBox1.Controls.Add(this.datetimepickerStart);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.datetimepickerEnd);
-            this.groupBox1.Location = new System.Drawing.Point(203, 284);
+            this.groupBox1.Location = new System.Drawing.Point(55, 280);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1310, 251);
@@ -275,7 +275,7 @@ namespace PC_GUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label1.Location = new System.Drawing.Point(178, 222);
+            this.label1.Location = new System.Drawing.Point(103, 222);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 29);
@@ -286,7 +286,7 @@ namespace PC_GUI
             // 
             this.lb.AutoSize = true;
             this.lb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lb.Location = new System.Drawing.Point(772, 85);
+            this.lb.Location = new System.Drawing.Point(697, 85);
             this.lb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(190, 29);
@@ -297,7 +297,7 @@ namespace PC_GUI
             // 
             this.lbMaYC.AutoSize = true;
             this.lbMaYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lbMaYC.Location = new System.Drawing.Point(178, 82);
+            this.lbMaYC.Location = new System.Drawing.Point(103, 82);
             this.lbMaYC.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMaYC.Name = "lbMaYC";
             this.lbMaYC.Size = new System.Drawing.Size(134, 29);
@@ -308,7 +308,7 @@ namespace PC_GUI
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label6.Location = new System.Drawing.Point(772, 225);
+            this.label6.Location = new System.Drawing.Point(697, 225);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(133, 29);
@@ -318,7 +318,7 @@ namespace PC_GUI
             // txtNgayDuyet
             // 
             this.txtNgayDuyet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtNgayDuyet.Location = new System.Drawing.Point(1003, 222);
+            this.txtNgayDuyet.Location = new System.Drawing.Point(928, 222);
             this.txtNgayDuyet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtNgayDuyet.Name = "txtNgayDuyet";
             this.txtNgayDuyet.Size = new System.Drawing.Size(337, 35);
@@ -328,7 +328,7 @@ namespace PC_GUI
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label7.Location = new System.Drawing.Point(772, 155);
+            this.label7.Location = new System.Drawing.Point(697, 155);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(165, 29);
@@ -338,7 +338,7 @@ namespace PC_GUI
             // txtGiaTriUocTinh
             // 
             this.txtGiaTriUocTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtGiaTriUocTinh.Location = new System.Drawing.Point(1003, 152);
+            this.txtGiaTriUocTinh.Location = new System.Drawing.Point(928, 152);
             this.txtGiaTriUocTinh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGiaTriUocTinh.Name = "txtGiaTriUocTinh";
             this.txtGiaTriUocTinh.Size = new System.Drawing.Size(337, 35);
@@ -349,7 +349,7 @@ namespace PC_GUI
             this.groupBox2.Controls.Add(this.btnHienThi);
             this.groupBox2.Controls.Add(this.btnDuyet);
             this.groupBox2.Controls.Add(this.btnTuChoi);
-            this.groupBox2.Location = new System.Drawing.Point(1368, 30);
+            this.groupBox2.Location = new System.Drawing.Point(1296, 37);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -360,7 +360,7 @@ namespace PC_GUI
             // txtSoSP
             // 
             this.txtSoSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtSoSP.Location = new System.Drawing.Point(385, 149);
+            this.txtSoSP.Location = new System.Drawing.Point(310, 149);
             this.txtSoSP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSoSP.Name = "txtSoSP";
             this.txtSoSP.Size = new System.Drawing.Size(352, 35);
@@ -369,7 +369,7 @@ namespace PC_GUI
             // txtTinhTrang
             // 
             this.txtTinhTrang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtTinhTrang.Location = new System.Drawing.Point(385, 220);
+            this.txtTinhTrang.Location = new System.Drawing.Point(310, 220);
             this.txtTinhTrang.Name = "txtTinhTrang";
             this.txtTinhTrang.Size = new System.Drawing.Size(352, 35);
             this.txtTinhTrang.TabIndex = 94;
@@ -377,7 +377,7 @@ namespace PC_GUI
             // txtMaYC
             // 
             this.txtMaYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.txtMaYC.Location = new System.Drawing.Point(385, 82);
+            this.txtMaYC.Location = new System.Drawing.Point(310, 82);
             this.txtMaYC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaYC.Name = "txtMaYC";
             this.txtMaYC.Size = new System.Drawing.Size(352, 35);
@@ -386,8 +386,7 @@ namespace PC_GUI
             // 
             // UI_YeuCauMH
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.txtMaYC);
             this.Controls.Add(this.txtTinhTrang);
             this.Controls.Add(this.groupBox2);
@@ -404,7 +403,7 @@ namespace PC_GUI
             this.Controls.Add(this.lb);
             this.Controls.Add(this.lbMaYC);
             this.Name = "UI_YeuCauMH";
-            this.Size = new System.Drawing.Size(1660, 1215);
+            this.Size = new System.Drawing.Size(1659, 700);
             this.Load += new System.EventHandler(this.UI_YeuCauMH_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -446,7 +445,7 @@ namespace PC_GUI
         private System.Windows.Forms.TextBox txtGiaTriUocTinh;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtSoSP;
-        private System.Windows.Forms.TextBox textBox1;
+        
         private System.Windows.Forms.TextBox txtTinhTrang;
         private System.Windows.Forms.TextBox txtMaYC;
     }

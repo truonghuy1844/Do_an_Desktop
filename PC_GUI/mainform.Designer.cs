@@ -93,7 +93,7 @@ namespace PC_GUI
             this.pnMenuDoc.Margin = new System.Windows.Forms.Padding(4);
             this.pnMenuDoc.MaximumSize = new System.Drawing.Size(502, 1538);
             this.pnMenuDoc.Name = "pnMenuDoc";
-            this.pnMenuDoc.Size = new System.Drawing.Size(502, 1209);
+            this.pnMenuDoc.Size = new System.Drawing.Size(502, 929);
             this.pnMenuDoc.TabIndex = 1;
             // 
             // pnButton
@@ -602,15 +602,14 @@ namespace PC_GUI
             // 
             // frmMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(2174, 1209);
+            this.ClientSize = new System.Drawing.Size(1200,800);
             this.Controls.Add(this.panelHienThi);
             this.Controls.Add(this.pnMenuDoc);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(2200, 1280);
-            this.MinimumSize = new System.Drawing.Size(2200, 1280);
+            this.MaximumSize = new System.Drawing.Size(1200, 800);
+            this.MinimumSize = new System.Drawing.Size(1200, 800);
             this.Name = "frmMainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
