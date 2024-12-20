@@ -390,6 +390,7 @@ namespace PC_GUI
 
                     okTao = false;
                     MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
                     txtMaNV.Focus();
                 }
                 //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
@@ -397,6 +398,7 @@ namespace PC_GUI
                 {
                     okTao = false;
                     MessageBox.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                    txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
                     txtMaNV.Focus();
                 }
                 //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
@@ -404,6 +406,7 @@ namespace PC_GUI
                 {
                     okTao = false;
                     MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
+                    txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
                     txtMaNV.Focus();
                 }
                 //3 Kiểm tra trường ngày lập
@@ -412,6 +415,7 @@ namespace PC_GUI
                 {
                     okTao = false;
                     MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
+                    dateTime.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                     dateTime.Focus();
                 }
                 //3.3
@@ -489,7 +493,7 @@ namespace PC_GUI
                 }
                 txtMaDMH.Enabled = false;
                 cbLoc.SelectedIndex = -1;
-
+                HideAllTooltips();
              }
         }
 

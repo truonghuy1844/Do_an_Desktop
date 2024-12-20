@@ -274,6 +274,7 @@ namespace PC_GUI
                 {
                     okSua = false;
                     MessageBox.Show("Hãy nhập số lượng, số lượng phải là số nguyên. Ví dụ: 13", "Thông báo", MessageBoxButtons.OK);
+                    txtSoluong.Text = dataGridViewChitiet.CurrentRow.Cells["SoLuong"].Value.ToString();
                     txtSoluong.Focus();
                     return;
                 }
@@ -281,6 +282,7 @@ namespace PC_GUI
                 {
                     okSua = false;
                     MessageBox.Show("Không được bỏ trống mã báo giá", "Thông báo", MessageBoxButtons.OK);
+                    cbMabaogia.SelectedValue = dataGridViewChitiet.CurrentRow.Cells["MaBG"].Value.ToString();
                     cbMabaogia.Focus();
                     return;
 

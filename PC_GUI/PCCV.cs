@@ -285,6 +285,12 @@ namespace PC_GUI
                     okPc = false;
                     MessageBox.Show("Đã quá hạn, không thể cập nhật");
                 }
+                if (dateTimengayht.Value < dateTimengaygiao.Value)
+                {
+                    okPc = false;
+                    MessageBox.Show("Ngày hoàn thành phải sau ngày giao");
+                    dateTimengayht.Value = Convert.ToDateTime(dataGridViewPhancong.CurrentRow.Cells["NgayHT"].Value);
+                }
                 //3.Kiểm tra trường công việc
                 if (string.IsNullOrWhiteSpace(txtKLCV.Text))
                 {
