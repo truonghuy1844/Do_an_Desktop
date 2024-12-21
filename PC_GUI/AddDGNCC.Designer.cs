@@ -48,7 +48,7 @@
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Location = new System.Drawing.Point(606, 208);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(215, 43);
             this.btnHuy.TabIndex = 66;
@@ -63,7 +63,7 @@
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Location = new System.Drawing.Point(151, 208);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(215, 43);
             this.btnLuu.TabIndex = 65;
@@ -95,7 +95,7 @@
             // txtMaNCC
             // 
             this.txtMaNCC.Location = new System.Drawing.Point(709, 98);
-            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaNCC.Name = "txtMaNCC";
             this.txtMaNCC.Size = new System.Drawing.Size(185, 26);
             this.txtMaNCC.TabIndex = 61;
@@ -114,7 +114,7 @@
             // txtMaNV
             // 
             this.txtMaNV.Location = new System.Drawing.Point(294, 153);
-            this.txtMaNV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaNV.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(185, 26);
             this.txtMaNV.TabIndex = 59;
@@ -133,7 +133,7 @@
             // txtMaDGNCC
             // 
             this.txtMaDGNCC.Location = new System.Drawing.Point(294, 101);
-            this.txtMaDGNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaDGNCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaDGNCC.Name = "txtMaDGNCC";
             this.txtMaDGNCC.Size = new System.Drawing.Size(185, 26);
             this.txtMaDGNCC.TabIndex = 57;
@@ -153,7 +153,7 @@
             // 
             this.comboBoxTieuChiDanhGia.FormattingEnabled = true;
             this.comboBoxTieuChiDanhGia.Location = new System.Drawing.Point(709, 147);
-            this.comboBoxTieuChiDanhGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxTieuChiDanhGia.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxTieuChiDanhGia.Name = "comboBoxTieuChiDanhGia";
             this.comboBoxTieuChiDanhGia.Size = new System.Drawing.Size(185, 28);
             this.comboBoxTieuChiDanhGia.TabIndex = 70;
@@ -176,8 +176,9 @@
             this.Controls.Add(this.txtMaDGNCC);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddDGNCC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddDGNCC";
             this.Load += new System.EventHandler(this.AddDGNCC_Load);
             this.ResumeLayout(false);

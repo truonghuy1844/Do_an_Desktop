@@ -49,8 +49,12 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThemNV = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSNV)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -70,10 +74,10 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(356, 40);
+            this.label1.Location = new System.Drawing.Point(350, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(427, 60);
+            this.label1.Size = new System.Drawing.Size(427, 49);
             this.label1.TabIndex = 0;
             this.label1.Text = "QUẢN LÝ NHÂN VIÊN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,19 +87,19 @@
             this.dataGridViewDSNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSNV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewDSNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSNV.Location = new System.Drawing.Point(69, 112);
+            this.dataGridViewDSNV.Location = new System.Drawing.Point(4, 64);
             this.dataGridViewDSNV.Margin = new System.Windows.Forms.Padding(1);
             this.dataGridViewDSNV.Name = "dataGridViewDSNV";
             this.dataGridViewDSNV.RowHeadersWidth = 51;
             this.dataGridViewDSNV.RowTemplate.Height = 24;
-            this.dataGridViewDSNV.Size = new System.Drawing.Size(979, 379);
+            this.dataGridViewDSNV.Size = new System.Drawing.Size(1104, 444);
             this.dataGridViewDSNV.TabIndex = 20;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(153, 33);
+            this.label9.Location = new System.Drawing.Point(29, 28);
             this.label9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 18);
@@ -105,7 +109,7 @@
             // txtMaNV
             // 
             this.txtMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNV.Location = new System.Drawing.Point(269, 29);
+            this.txtMaNV.Location = new System.Drawing.Point(216, 22);
             this.txtMaNV.Margin = new System.Windows.Forms.Padding(1);
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(260, 24);
@@ -113,8 +117,11 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(574, 51);
+            this.btnSearch.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
+            this.btnSearch.Location = new System.Drawing.Point(518, 22);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(1);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(142, 35);
@@ -125,11 +132,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.btnLoad1);
-            this.groupBox1.Controls.Add(this.btnXoaNV1);
-            this.groupBox1.Controls.Add(this.btnThemNV1);
-            this.groupBox1.Controls.Add(this.btnSuaNV1);
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.comboBoxChucVu1);
             this.groupBox1.Controls.Add(this.btnResetFilter);
             this.groupBox1.Controls.Add(this.comboBoxPhongBan);
@@ -138,23 +141,24 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtMaNV);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(157, 508);
+            this.groupBox1.Location = new System.Drawing.Point(3, 510);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(1);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.groupBox1.Size = new System.Drawing.Size(802, 246);
+            this.groupBox1.Size = new System.Drawing.Size(683, 160);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
             // btnLoad1
             // 
             this.btnLoad1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnLoad1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoad1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad1.ForeColor = System.Drawing.Color.White;
-            this.btnLoad1.Location = new System.Drawing.Point(608, 168);
+            this.btnLoad1.Location = new System.Drawing.Point(208, 79);
             this.btnLoad1.Margin = new System.Windows.Forms.Padding(1);
             this.btnLoad1.Name = "btnLoad1";
-            this.btnLoad1.Size = new System.Drawing.Size(163, 51);
+            this.btnLoad1.Size = new System.Drawing.Size(177, 36);
             this.btnLoad1.TabIndex = 35;
             this.btnLoad1.Text = "Load/ Refresh";
             this.btnLoad1.UseVisualStyleBackColor = false;
@@ -163,12 +167,13 @@
             // btnXoaNV1
             // 
             this.btnXoaNV1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnXoaNV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaNV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaNV1.ForeColor = System.Drawing.Color.White;
-            this.btnXoaNV1.Location = new System.Drawing.Point(420, 168);
+            this.btnXoaNV1.Location = new System.Drawing.Point(208, 11);
             this.btnXoaNV1.Margin = new System.Windows.Forms.Padding(1);
             this.btnXoaNV1.Name = "btnXoaNV1";
-            this.btnXoaNV1.Size = new System.Drawing.Size(163, 51);
+            this.btnXoaNV1.Size = new System.Drawing.Size(177, 36);
             this.btnXoaNV1.TabIndex = 34;
             this.btnXoaNV1.Text = "- Xóa nhân viên";
             this.btnXoaNV1.UseVisualStyleBackColor = false;
@@ -177,12 +182,13 @@
             // btnThemNV1
             // 
             this.btnThemNV1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnThemNV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemNV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemNV1.ForeColor = System.Drawing.Color.White;
-            this.btnThemNV1.Location = new System.Drawing.Point(33, 168);
+            this.btnThemNV1.Location = new System.Drawing.Point(13, 10);
             this.btnThemNV1.Margin = new System.Windows.Forms.Padding(1);
             this.btnThemNV1.Name = "btnThemNV1";
-            this.btnThemNV1.Size = new System.Drawing.Size(163, 51);
+            this.btnThemNV1.Size = new System.Drawing.Size(181, 36);
             this.btnThemNV1.TabIndex = 32;
             this.btnThemNV1.Text = "+ Thêm nhân viên";
             this.btnThemNV1.UseVisualStyleBackColor = false;
@@ -191,12 +197,13 @@
             // btnSuaNV1
             // 
             this.btnSuaNV1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnSuaNV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSuaNV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSuaNV1.ForeColor = System.Drawing.Color.White;
-            this.btnSuaNV1.Location = new System.Drawing.Point(228, 168);
+            this.btnSuaNV1.Location = new System.Drawing.Point(13, 79);
             this.btnSuaNV1.Margin = new System.Windows.Forms.Padding(1);
             this.btnSuaNV1.Name = "btnSuaNV1";
-            this.btnSuaNV1.Size = new System.Drawing.Size(163, 51);
+            this.btnSuaNV1.Size = new System.Drawing.Size(177, 36);
             this.btnSuaNV1.TabIndex = 33;
             this.btnSuaNV1.Text = "Sửa thông tin";
             this.btnSuaNV1.UseVisualStyleBackColor = false;
@@ -206,7 +213,7 @@
             // 
             this.comboBoxChucVu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChucVu1.FormattingEnabled = true;
-            this.comboBoxChucVu1.Location = new System.Drawing.Point(269, 74);
+            this.comboBoxChucVu1.Location = new System.Drawing.Point(216, 61);
             this.comboBoxChucVu1.Margin = new System.Windows.Forms.Padding(1);
             this.comboBoxChucVu1.Name = "comboBoxChucVu1";
             this.comboBoxChucVu1.Size = new System.Drawing.Size(260, 26);
@@ -214,21 +221,24 @@
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetFilter.Location = new System.Drawing.Point(574, 116);
+            this.btnResetFilter.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetFilter.ForeColor = System.Drawing.Color.White;
+            this.btnResetFilter.Location = new System.Drawing.Point(518, 91);
             this.btnResetFilter.Margin = new System.Windows.Forms.Padding(1);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(142, 35);
             this.btnResetFilter.TabIndex = 30;
             this.btnResetFilter.Text = "Reset bộ lọc";
-            this.btnResetFilter.UseVisualStyleBackColor = true;
+            this.btnResetFilter.UseVisualStyleBackColor = false;
             this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
             // 
             // comboBoxPhongBan
             // 
             this.comboBoxPhongBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPhongBan.FormattingEnabled = true;
-            this.comboBoxPhongBan.Location = new System.Drawing.Point(269, 122);
+            this.comboBoxPhongBan.Location = new System.Drawing.Point(216, 100);
             this.comboBoxPhongBan.Margin = new System.Windows.Forms.Padding(1);
             this.comboBoxPhongBan.Name = "comboBoxPhongBan";
             this.comboBoxPhongBan.Size = new System.Drawing.Size(260, 26);
@@ -238,7 +248,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(109, 123);
+            this.label3.Location = new System.Drawing.Point(29, 103);
             this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 18);
@@ -249,7 +259,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(127, 75);
+            this.label2.Location = new System.Drawing.Point(29, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 18);
@@ -312,13 +322,34 @@
             this.btnThemNV.UseVisualStyleBackColor = false;
             this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1105, 64);
+            this.panel4.TabIndex = 122;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnThemNV1);
+            this.panel2.Controls.Add(this.btnLoad1);
+            this.panel2.Controls.Add(this.btnXoaNV1);
+            this.panel2.Controls.Add(this.btnSuaNV1);
+            this.panel2.Location = new System.Drawing.Point(711, 521);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(395, 149);
+            this.panel2.TabIndex = 123;
+            // 
             // QLNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.dataGridViewDSNV);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "QLNV";
             this.Size = new System.Drawing.Size(1107, 778);
@@ -326,6 +357,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSNV)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -354,5 +387,7 @@
         private System.Windows.Forms.Button btnXoaNV1;
         private System.Windows.Forms.Button btnThemNV1;
         private System.Windows.Forms.Button btnSuaNV1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel2;
     }
 }

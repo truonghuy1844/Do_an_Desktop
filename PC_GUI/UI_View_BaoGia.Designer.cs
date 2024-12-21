@@ -84,7 +84,7 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(2, 72);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 33;
@@ -100,8 +100,8 @@
             this.btnTuyChinhBG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTuyChinhBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTuyChinhBG.ForeColor = System.Drawing.Color.White;
-            this.btnTuyChinhBG.Location = new System.Drawing.Point(814, 63);
-            this.btnTuyChinhBG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTuyChinhBG.Location = new System.Drawing.Point(814, 61);
+            this.btnTuyChinhBG.Margin = new System.Windows.Forms.Padding(2);
             this.btnTuyChinhBG.Name = "btnTuyChinhBG";
             this.btnTuyChinhBG.Size = new System.Drawing.Size(159, 29);
             this.btnTuyChinhBG.TabIndex = 90;
@@ -111,9 +111,10 @@
             // 
             // txtNCC
             // 
+            this.txtNCC.BackColor = System.Drawing.Color.White;
             this.txtNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNCC.Location = new System.Drawing.Point(292, 63);
-            this.txtNCC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNCC.Margin = new System.Windows.Forms.Padding(2);
             this.txtNCC.Name = "txtNCC";
             this.txtNCC.Size = new System.Drawing.Size(421, 24);
             this.txtNCC.TabIndex = 89;
@@ -135,8 +136,8 @@
             this.btnHienThi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHienThi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHienThi.ForeColor = System.Drawing.Color.White;
-            this.btnHienThi.Location = new System.Drawing.Point(814, 18);
-            this.btnHienThi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHienThi.Location = new System.Drawing.Point(814, 15);
+            this.btnHienThi.Margin = new System.Windows.Forms.Padding(2);
             this.btnHienThi.Name = "btnHienThi";
             this.btnHienThi.Size = new System.Drawing.Size(159, 29);
             this.btnHienThi.TabIndex = 88;
@@ -146,9 +147,10 @@
             // 
             // txtNgayBG
             // 
+            this.txtNgayBG.BackColor = System.Drawing.Color.White;
             this.txtNgayBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNgayBG.Location = new System.Drawing.Point(292, 106);
-            this.txtNgayBG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNgayBG.Margin = new System.Windows.Forms.Padding(2);
             this.txtNgayBG.Name = "txtNgayBG";
             this.txtNgayBG.Size = new System.Drawing.Size(421, 24);
             this.txtNgayBG.TabIndex = 87;
@@ -177,9 +179,10 @@
             // 
             // txtMaBG
             // 
+            this.txtMaBG.BackColor = System.Drawing.Color.White;
             this.txtMaBG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaBG.Location = new System.Drawing.Point(292, 17);
-            this.txtMaBG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMaBG.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaBG.Name = "txtMaBG";
             this.txtMaBG.Size = new System.Drawing.Size(421, 24);
             this.txtMaBG.TabIndex = 86;
@@ -198,10 +201,10 @@
             this.groupBox1.Controls.Add(this.datetimepickerStart);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 435);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1105, 121);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(1102, 121);
             this.groupBox1.TabIndex = 101;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lọc báo giá";
@@ -214,7 +217,7 @@
             this.btnLocKoTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLocKoTG.ForeColor = System.Drawing.Color.White;
             this.btnLocKoTG.Location = new System.Drawing.Point(616, 76);
-            this.btnLocKoTG.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnLocKoTG.Margin = new System.Windows.Forms.Padding(1);
             this.btnLocKoTG.Name = "btnLocKoTG";
             this.btnLocKoTG.Size = new System.Drawing.Size(159, 30);
             this.btnLocKoTG.TabIndex = 110;
@@ -224,13 +227,14 @@
             // cbbLocSP
             // 
             this.cbbLocSP.AllowDrop = true;
+            this.cbbLocSP.BackColor = System.Drawing.Color.White;
             this.cbbLocSP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLocSP.DropDownWidth = 150;
             this.cbbLocSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbLocSP.FormattingEnabled = true;
             this.cbbLocSP.ItemHeight = 18;
             this.cbbLocSP.Location = new System.Drawing.Point(290, 52);
-            this.cbbLocSP.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbbLocSP.Margin = new System.Windows.Forms.Padding(1);
             this.cbbLocSP.MaxDropDownItems = 5;
             this.cbbLocSP.Name = "cbbLocSP";
             this.cbbLocSP.Size = new System.Drawing.Size(242, 26);
@@ -256,7 +260,7 @@
             this.btnLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoc.ForeColor = System.Drawing.Color.White;
             this.btnLoc.Location = new System.Drawing.Point(814, 76);
-            this.btnLoc.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.btnLoc.Margin = new System.Windows.Forms.Padding(1);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.Size = new System.Drawing.Size(159, 30);
             this.btnLoc.TabIndex = 107;
@@ -268,7 +272,7 @@
             this.cbLoc_NCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLoc_NCC.FormattingEnabled = true;
             this.cbLoc_NCC.Location = new System.Drawing.Point(292, 18);
-            this.cbLoc_NCC.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.cbLoc_NCC.Margin = new System.Windows.Forms.Padding(1);
             this.cbLoc_NCC.Name = "cbLoc_NCC";
             this.cbLoc_NCC.Size = new System.Drawing.Size(240, 26);
             this.cbLoc_NCC.TabIndex = 106;
@@ -311,7 +315,7 @@
             this.datetimepickerEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datetimepickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datetimepickerEnd.Location = new System.Drawing.Point(814, 20);
-            this.datetimepickerEnd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.datetimepickerEnd.Margin = new System.Windows.Forms.Padding(1);
             this.datetimepickerEnd.Name = "datetimepickerEnd";
             this.datetimepickerEnd.Size = new System.Drawing.Size(127, 24);
             this.datetimepickerEnd.TabIndex = 102;
@@ -321,7 +325,7 @@
             this.datetimepickerStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datetimepickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datetimepickerStart.Location = new System.Drawing.Point(616, 21);
-            this.datetimepickerStart.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.datetimepickerStart.Margin = new System.Windows.Forms.Padding(1);
             this.datetimepickerStart.Name = "datetimepickerStart";
             this.datetimepickerStart.Size = new System.Drawing.Size(123, 24);
             this.datetimepickerStart.TabIndex = 101;
@@ -354,7 +358,7 @@
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(482, 10);
+            this.label9.Location = new System.Drawing.Point(463, 14);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(185, 40);
             this.label9.TabIndex = 0;

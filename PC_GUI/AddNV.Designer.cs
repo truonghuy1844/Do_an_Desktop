@@ -52,7 +52,7 @@
             // 
             this.radioButtonNu.AutoSize = true;
             this.radioButtonNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioButtonNu.Location = new System.Drawing.Point(274, 252);
+            this.radioButtonNu.Location = new System.Drawing.Point(275, 233);
             this.radioButtonNu.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonNu.Name = "radioButtonNu";
             this.radioButtonNu.Size = new System.Drawing.Size(51, 24);
@@ -65,7 +65,7 @@
             // 
             this.radioButtonNam.AutoSize = true;
             this.radioButtonNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.radioButtonNam.Location = new System.Drawing.Point(195, 252);
+            this.radioButtonNam.Location = new System.Drawing.Point(196, 233);
             this.radioButtonNam.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonNam.Name = "radioButtonNam";
             this.radioButtonNam.Size = new System.Drawing.Size(65, 24);
@@ -77,7 +77,7 @@
             // comboBoxPhongBan
             // 
             this.comboBoxPhongBan.FormattingEnabled = true;
-            this.comboBoxPhongBan.Location = new System.Drawing.Point(630, 202);
+            this.comboBoxPhongBan.Location = new System.Drawing.Point(630, 185);
             this.comboBoxPhongBan.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxPhongBan.Name = "comboBoxPhongBan";
             this.comboBoxPhongBan.Size = new System.Drawing.Size(215, 28);
@@ -86,7 +86,7 @@
             // comboBoxChucVu
             // 
             this.comboBoxChucVu.FormattingEnabled = true;
-            this.comboBoxChucVu.Location = new System.Drawing.Point(630, 152);
+            this.comboBoxChucVu.Location = new System.Drawing.Point(630, 140);
             this.comboBoxChucVu.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxChucVu.Name = "comboBoxChucVu";
             this.comboBoxChucVu.Size = new System.Drawing.Size(215, 28);
@@ -96,7 +96,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(496, 202);
+            this.label6.Location = new System.Drawing.Point(496, 185);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 20);
@@ -107,7 +107,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(496, 152);
+            this.label7.Location = new System.Drawing.Point(496, 140);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 20);
@@ -138,7 +138,7 @@
             // 
             this.lbGioiTinh.AutoSize = true;
             this.lbGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbGioiTinh.Location = new System.Drawing.Point(44, 252);
+            this.lbGioiTinh.Location = new System.Drawing.Point(45, 233);
             this.lbGioiTinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbGioiTinh.Name = "lbGioiTinh";
             this.lbGioiTinh.Size = new System.Drawing.Size(82, 20);
@@ -147,7 +147,7 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(195, 202);
+            this.txtDiaChi.Location = new System.Drawing.Point(195, 185);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(215, 26);
@@ -157,7 +157,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(44, 202);
+            this.label4.Location = new System.Drawing.Point(44, 185);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(142, 20);
@@ -166,7 +166,7 @@
             // 
             // txtTenNV
             // 
-            this.txtTenNV.Location = new System.Drawing.Point(195, 152);
+            this.txtTenNV.Location = new System.Drawing.Point(195, 140);
             this.txtTenNV.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(215, 26);
@@ -176,7 +176,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(44, 152);
+            this.label3.Location = new System.Drawing.Point(44, 140);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 20);
@@ -220,7 +220,7 @@
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(144, 318);
+            this.btnLuu.Location = new System.Drawing.Point(144, 285);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(215, 43);
@@ -235,7 +235,7 @@
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(573, 318);
+            this.btnHuy.Location = new System.Drawing.Point(573, 285);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(215, 43);
@@ -248,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 397);
+            this.ClientSize = new System.Drawing.Size(894, 361);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.label1);

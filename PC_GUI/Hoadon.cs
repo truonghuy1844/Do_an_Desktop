@@ -212,7 +212,7 @@ namespace PC_GUI
             if (txtMaHD.Text.Length == 0)
             {
                 okTao = false;
-                MessageBox.Show("Mã háo đơn không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
+                MessageBox.Show("Mã hóa đơn không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaHD.Focus();
             }
 

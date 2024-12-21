@@ -91,7 +91,7 @@
             this.pnMenuDoc.Location = new System.Drawing.Point(0, 0);
             this.pnMenuDoc.MaximumSize = new System.Drawing.Size(335, 984);
             this.pnMenuDoc.Name = "pnMenuDoc";
-            this.pnMenuDoc.Size = new System.Drawing.Size(335, 675);
+            this.pnMenuDoc.Size = new System.Drawing.Size(335, 789);
             this.pnMenuDoc.TabIndex = 1;
             // 
             // pnButton
@@ -596,16 +596,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1283, 675);
+            this.ClientSize = new System.Drawing.Size(1444, 789);
             this.Controls.Add(this.panelHienThi);
             this.Controls.Add(this.pnMenuDoc);
-            this.MaximumSize = new System.Drawing.Size(1473, 836);
+            this.MaximumSize = new System.Drawing.Size(1470, 836);
             this.MinimumSize = new System.Drawing.Size(1285, 675);
             this.Name = "frmMainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.pnMenuDoc.ResumeLayout(false);
             this.pnButton.ResumeLayout(false);

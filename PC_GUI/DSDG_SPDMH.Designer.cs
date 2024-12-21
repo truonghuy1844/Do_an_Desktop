@@ -49,6 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(695, 552);
             this.Controls.Add(this.dataGridViewDSDGSP);
+            this.MaximizeBox = false;
             this.Name = "DSDG_SPDMH";
             this.Text = "DSDG_SPDMH";
             this.Load += new System.EventHandler(this.DSDG_SPDMH_Load);

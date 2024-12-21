@@ -102,12 +102,12 @@ namespace PC_GUI
             this.dgvCT_YC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCT_YC.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvCT_YC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCT_YC.Location = new System.Drawing.Point(454, 91);
+            this.dgvCT_YC.Location = new System.Drawing.Point(455, 91);
             this.dgvCT_YC.Name = "dgvCT_YC";
             this.dgvCT_YC.RowHeadersWidth = 82;
             this.dgvCT_YC.RowTemplate.Height = 33;
             this.dgvCT_YC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCT_YC.Size = new System.Drawing.Size(650, 427);
+            this.dgvCT_YC.Size = new System.Drawing.Size(649, 427);
             this.dgvCT_YC.TabIndex = 107;
             this.dgvCT_YC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
             this.dgvCT_YC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCT_YC_CellContentClick);
@@ -189,26 +189,26 @@ namespace PC_GUI
             // 
             this.cbBoPhanYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoPhanYC.FormattingEnabled = true;
-            this.cbBoPhanYC.Location = new System.Drawing.Point(142, 52);
+            this.cbBoPhanYC.Location = new System.Drawing.Point(161, 52);
             this.cbBoPhanYC.Name = "cbBoPhanYC";
-            this.cbBoPhanYC.Size = new System.Drawing.Size(219, 26);
+            this.cbBoPhanYC.Size = new System.Drawing.Size(200, 26);
             this.cbBoPhanYC.TabIndex = 95;
             this.cbBoPhanYC.SelectedIndexChanged += new System.EventHandler(this.cbBoPhanYC_SelectedIndexChanged);
             // 
             // txtMaNV
             // 
             this.txtMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaNV.Location = new System.Drawing.Point(142, 90);
+            this.txtMaNV.Location = new System.Drawing.Point(161, 90);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(219, 24);
+            this.txtMaNV.Size = new System.Drawing.Size(200, 24);
             this.txtMaNV.TabIndex = 94;
             // 
             // txtMaYC
             // 
             this.txtMaYC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaYC.Location = new System.Drawing.Point(142, 21);
+            this.txtMaYC.Location = new System.Drawing.Point(161, 21);
             this.txtMaYC.Name = "txtMaYC";
-            this.txtMaYC.Size = new System.Drawing.Size(219, 24);
+            this.txtMaYC.Size = new System.Drawing.Size(200, 24);
             this.txtMaYC.TabIndex = 93;
             this.txtMaYC.TextChanged += new System.EventHandler(this.txtMaYC_TextChanged);
             // 
@@ -324,9 +324,9 @@ namespace PC_GUI
             // txtTinhTrang
             // 
             this.txtTinhTrang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTinhTrang.Location = new System.Drawing.Point(142, 124);
+            this.txtTinhTrang.Location = new System.Drawing.Point(161, 124);
             this.txtTinhTrang.Name = "txtTinhTrang";
-            this.txtTinhTrang.Size = new System.Drawing.Size(219, 24);
+            this.txtTinhTrang.Size = new System.Drawing.Size(200, 24);
             this.txtTinhTrang.TabIndex = 115;
             // 
             // groupBox2
@@ -356,7 +356,7 @@ namespace PC_GUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(930, 70);
+            this.label5.Location = new System.Drawing.Point(907, 70);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(177, 18);
@@ -369,17 +369,17 @@ namespace PC_GUI
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1105, 64);
+            this.panel2.Size = new System.Drawing.Size(1104, 64);
             this.panel2.TabIndex = 119;
             // 
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(399, 13);
+            this.label6.Location = new System.Drawing.Point(399, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(404, 40);
             this.label6.TabIndex = 0;
-            this.label6.Text = "QUẢN LÝ SẢN PHẨM";
+            this.label6.Text = "QUẢN LÝ YÊU CẦU";
             // 
             // groupBox3
             // 

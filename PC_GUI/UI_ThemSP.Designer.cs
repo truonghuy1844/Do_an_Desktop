@@ -202,7 +202,7 @@ namespace PC_GUI
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(399, 13);
+            this.label6.Location = new System.Drawing.Point(351, 13);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(404, 40);
             this.label6.TabIndex = 0;
@@ -216,9 +216,9 @@ namespace PC_GUI
             this.groupBox1.Controls.Add(this.cbTK_LoaiSP);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(112, 213);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(920, 72);
             this.groupBox1.TabIndex = 85;
             this.groupBox1.TabStop = false;
@@ -310,7 +310,7 @@ namespace PC_GUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UI_ThemSP";
             this.Size = new System.Drawing.Size(1107, 778);
             this.Load += new System.EventHandler(this.UI_ThemSP_Load);

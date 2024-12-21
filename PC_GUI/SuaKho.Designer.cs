@@ -212,6 +212,7 @@
             // 
             this.btnTim.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.ForeColor = System.Drawing.Color.White;
             this.btnTim.Location = new System.Drawing.Point(664, 31);
             this.btnTim.Margin = new System.Windows.Forms.Padding(4);

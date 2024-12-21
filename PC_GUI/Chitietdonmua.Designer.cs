@@ -63,12 +63,12 @@
             // 
             this.btnCapNhat.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhat.Location = new System.Drawing.Point(534, 4);
+            this.btnCapNhat.Location = new System.Drawing.Point(538, 13);
             this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btnCapNhat.Name = "btnCapNhat";
-            this.btnCapNhat.Size = new System.Drawing.Size(138, 44);
+            this.btnCapNhat.Size = new System.Drawing.Size(138, 31);
             this.btnCapNhat.TabIndex = 113;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = false;
@@ -78,12 +78,12 @@
             // 
             this.btnXoa.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(184, 4);
+            this.btnXoa.Location = new System.Drawing.Point(178, 13);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(138, 44);
+            this.btnXoa.Size = new System.Drawing.Size(138, 31);
             this.btnXoa.TabIndex = 112;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -93,12 +93,12 @@
             // 
             this.btnTaoctmua.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnTaoctmua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTaoctmua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaoctmua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoctmua.ForeColor = System.Drawing.Color.White;
-            this.btnTaoctmua.Location = new System.Drawing.Point(4, 4);
+            this.btnTaoctmua.Location = new System.Drawing.Point(4, 13);
             this.btnTaoctmua.Margin = new System.Windows.Forms.Padding(4);
             this.btnTaoctmua.Name = "btnTaoctmua";
-            this.btnTaoctmua.Size = new System.Drawing.Size(138, 44);
+            this.btnTaoctmua.Size = new System.Drawing.Size(138, 31);
             this.btnTaoctmua.TabIndex = 109;
             this.btnTaoctmua.Text = "Tạo mới";
             this.btnTaoctmua.UseVisualStyleBackColor = false;
@@ -108,12 +108,12 @@
             // 
             this.btnLuu.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(365, 4);
+            this.btnLuu.Location = new System.Drawing.Point(356, 13);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(138, 44);
+            this.btnLuu.Size = new System.Drawing.Size(138, 31);
             this.btnLuu.TabIndex = 108;
             this.btnLuu.Text = "Lưu ";
             this.btnLuu.UseVisualStyleBackColor = false;
@@ -144,9 +144,9 @@
             // 
             this.btnChitietdon.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnChitietdon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChitietdon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChitietdon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChitietdon.ForeColor = System.Drawing.Color.White;
-            this.btnChitietdon.Location = new System.Drawing.Point(869, 575);
+            this.btnChitietdon.Location = new System.Drawing.Point(869, 557);
             this.btnChitietdon.Margin = new System.Windows.Forms.Padding(4);
             this.btnChitietdon.Name = "btnChitietdon";
             this.btnChitietdon.Size = new System.Drawing.Size(184, 44);
@@ -337,16 +337,16 @@
             this.panel3.Controls.Add(this.btnTaoctmua);
             this.panel3.Controls.Add(this.btnLuu);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(33, 575);
+            this.panel3.Location = new System.Drawing.Point(22, 557);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(673, 50);
+            this.panel3.Size = new System.Drawing.Size(690, 50);
             this.panel3.TabIndex = 123;
             // 
             // Chitietdonmua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 658);
+            this.ClientSize = new System.Drawing.Size(1084, 634);
             this.Controls.Add(this.btnChitietdon);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label4);
