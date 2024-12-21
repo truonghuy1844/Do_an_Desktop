@@ -27,7 +27,7 @@ namespace PC_GUI
             if (!KiemTraChucVu || !KiemTraPhongBan)
             {
                 this.Controls.Remove(btnCapNhat);
-                this.Controls.Remove(btnXoa);
+                //this.Controls.Remove(btnXoa);
             }
         }
         public BLL_DonMuaHang bllDonmua = new BLL_DonMuaHang();
