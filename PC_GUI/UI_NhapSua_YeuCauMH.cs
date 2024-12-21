@@ -23,6 +23,10 @@ namespace PC_GUI
             nv.MaNV = nvien.MaNV;
             txtMaNV.Text = nvien.MaNV.ToString();
             this.Size = new System.Drawing.Size(1000, 800);
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            
+
+
         }
 
         private void btnSuaSP_Click(object sender, EventArgs e)
@@ -419,6 +423,11 @@ namespace PC_GUI
         }
 
         private void lb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

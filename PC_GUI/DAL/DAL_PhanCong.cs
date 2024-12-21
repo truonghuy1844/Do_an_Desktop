@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PC_GUI.DAL
 {
-    public class DAL_PhanCong : ConectDB_Manual
+    public class DAL_PhanCong : ConnectDB_Manual
     {
         //load phân công công việc vào datagridview 
         public DataTable loadphancong()

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PC_GUI.DAL
 {
-    public class DAL_SanPham : ConectDB_Manual
+    public class DAL_SanPham : ConnectDB_Manual
     {
         //Tìm kiếm sản phẩm
         public DataTable TimKiemSP( string timKiem, string loaiSP)

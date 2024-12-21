@@ -24,7 +24,7 @@ namespace PC_GUI
             bool kiemtraPhongBan = kt.Kiem_Tra_PhongBan(nvien);
             if (!kiemtraPhongBan) 
             { 
-                this.Controls.Remove(btnTuyChinhBG);
+                panel1.Controls.Remove(btnTuyChinhBG);
             }
         }
 
@@ -217,6 +217,11 @@ namespace PC_GUI
             };
             ui.ShowDialog();
             
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
