@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PC_GUI.DAL
 {
-    public class DAL_DonMuaHang : ConectDB_Manual
+    public class DAL_DonMuaHang : ConnectDB_Manual
     {
         public bool Taodonhang(DTODonhang dh)
         {

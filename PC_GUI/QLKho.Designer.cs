@@ -149,7 +149,7 @@
             this.btnLoad.TabIndex = 27;
             this.btnLoad.Text = "Load/ Refresh";
             this.btnLoad.UseVisualStyleBackColor = false;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+           
             // 
             // btnXoa
             // 
@@ -164,7 +164,7 @@
             this.btnXoa.TabIndex = 26;
             this.btnXoa.Text = "- Xóa kho";
             this.btnXoa.UseVisualStyleBackColor = false;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            
             // 
             // btnSua
             // 
@@ -179,7 +179,7 @@
             this.btnSua.TabIndex = 25;
             this.btnSua.Text = "Sửa thông tin kho";
             this.btnSua.UseVisualStyleBackColor = false;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+          
             // 
             // btnThem
             // 
@@ -194,7 +194,7 @@
             this.btnThem.TabIndex = 24;
             this.btnThem.Text = "+ Thêm kho";
             this.btnThem.UseVisualStyleBackColor = false;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+     
             // 
             // txtTim
             // 

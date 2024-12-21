@@ -470,7 +470,7 @@
         private System.Windows.Forms.TextBox txtGiaTriUocTinh;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtSoSP;
-        private System.Windows.Forms.TextBox textBox1;
+        
         private System.Windows.Forms.TextBox txtTinhTrang;
         private System.Windows.Forms.TextBox txtMaYC;
         private System.Windows.Forms.Panel panel2;
