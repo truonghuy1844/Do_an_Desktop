@@ -9,6 +9,6 @@ namespace PC_GUI.DAL
 {
     public class ConectDB_Manual
     {
-        protected SqlConnection conn = new SqlConnection("Data Source=LAPTOP-H76O771H\\MSSQLSERVER1;Initial Catalog=QLMH;Integrated Security=True;Encrypt=False");
+        protected SqlConnection conn = new SqlConnection("Data Source=LAPTOP-PF2TR661\\SQLEXPRESS;Initial Catalog=QLMH;Integrated Security=True;Encrypt=False");
     }
 }

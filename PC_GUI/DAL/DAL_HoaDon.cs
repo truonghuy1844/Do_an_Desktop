@@ -10,7 +10,7 @@ using PC_DTO;
 
 namespace PC_GUI.DAL
 {
-    public class DAL_HoaDon : ConnectDB_Manual
+    public class DAL_HoaDon : ConectDB_Manual
     {
 
         public DataTable TimKiem(string tukhoa)

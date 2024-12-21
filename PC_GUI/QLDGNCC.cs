@@ -43,6 +43,7 @@ namespace PC_GUI
             dataGridViewDGNCC.ReadOnly = true;
             dataGridViewNCC.ReadOnly = true;
             dataGridViewNVDG.ReadOnly = true;
+            dateTimePickerFrom.Value = new DateTime(2023, 01, 01);
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -140,18 +141,23 @@ namespace PC_GUI
             else
             {
                 bool allChecked = true;
+
                 for (int i = 1; i < checkedListBoxTieuChi.Items.Count; i++)
                 {
-                    if (!checkedListBoxTieuChi.GetItemChecked(i))
+                    if (i != e.Index && !checkedListBoxTieuChi.GetItemChecked(i))
                     {
                         allChecked = false;
                         break;
                     }
                 }
+                if (e.NewValue == CheckState.Unchecked)
+                {
+                    allChecked = false;
+                }
 
                 // Cập nhật trạng thái mục "Chọn tất cả"
-                checkedListBoxTieuChi.ItemCheck -= checkedListBoxTieuChi_ItemCheck; // Tránh đệ quy
-                checkedListBoxTieuChi.SetItemChecked(0, allChecked); // Cập nhật trạng thái "Chọn tất cả"
+                checkedListBoxTieuChi.ItemCheck -= checkedListBoxTieuChi_ItemCheck;
+                checkedListBoxTieuChi.SetItemChecked(0, allChecked);
                 checkedListBoxTieuChi.ItemCheck += checkedListBoxTieuChi_ItemCheck;
             }
         }
