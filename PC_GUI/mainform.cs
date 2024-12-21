@@ -251,7 +251,7 @@ namespace PC_GUI
             if (checkKeToan || checkmuaHang)
             {
                 panelHienThi.Controls.Clear();
-                Hoadon ui = new Hoadon();
+                Hoadon ui = new Hoadon(nv_DN);
                 panelHienThi.Controls.Add(ui);
                 panelHienThi.Dock = DockStyle.Fill;
             }

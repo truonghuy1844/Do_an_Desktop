@@ -16,9 +16,14 @@ namespace PC_GUI
 {
     public partial class Hoadon : UserControl
     {
-        public Hoadon()
+        public Hoadon(DTONV nvien)
         {
             InitializeComponent();
+            BLL_KiemTraTruyCap bll = new BLL_KiemTraTruyCap();
+            if (!bll.Kiem_Tra_Chuc_Vu(nvien))
+            {
+                panel1.Controls.Remove(btnThanhtoan);
+            }
         }
         public BLL_HoaDon bllHoadon = new BLL_HoaDon();
         private void Hoadon_Load(object sender, EventArgs e)
