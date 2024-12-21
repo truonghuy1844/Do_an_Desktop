@@ -37,8 +37,8 @@ namespace PC_GUI
             // DataGridView hiển thị đơn hàng
             dataGridViewDSDMH = new DataGridView
             {
-                Location = new System.Drawing.Point(390, 100),
-                Size = new System.Drawing.Size(360, 90),
+                Location = new System.Drawing.Point(280, 210),
+                Size = new System.Drawing.Size(380, 90),
                 Visible = false,
                 Name = "dataGridViewDSDMH",
                 AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
@@ -51,14 +51,14 @@ namespace PC_GUI
             labelStartDate = new Label
             {
                 Text = "Ngày bắt đầu:",
-                Location = new System.Drawing.Point(390, 110),
+                Location = new System.Drawing.Point(280, 210),
                 Visible = false
             };
             Controls.Add(labelStartDate);
 
             dateTimePickerStart = new DateTimePicker
             {
-                Location = new System.Drawing.Point(490, 110),
+                Location = new System.Drawing.Point(390, 210),
                 Visible = false
             };
             Controls.Add(dateTimePickerStart);
@@ -66,14 +66,14 @@ namespace PC_GUI
             labelEndDate = new Label
             {
                 Text = "Ngày kết thúc:",
-                Location = new System.Drawing.Point(390, 130),
+                Location = new System.Drawing.Point(280, 250),
                 Visible = false
             };
             Controls.Add(labelEndDate);
 
             dateTimePickerEnd = new DateTimePicker
             {
-                Location = new System.Drawing.Point(490, 130),
+                Location = new System.Drawing.Point(390, 250),
                 Visible = false
             };
             Controls.Add(dateTimePickerEnd);
@@ -206,7 +206,9 @@ namespace PC_GUI
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMaNCC.Text = string.Empty;
-                dataGridViewDSDMH.DataSource = null;
+                comboBoxTieuChiDanhGia.SelectedIndex = -1;
+                HideDynamicControls();
+                txtMaNCC.Focus();
             }
         }
         private void HideDynamicControls()

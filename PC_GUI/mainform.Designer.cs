@@ -610,11 +610,12 @@
             this.Controls.Add(this.pnMenuDoc);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximumSize = new System.Drawing.Size(2192, 1266);
-            this.MinimumSize = new System.Drawing.Size(1914, 1015);
+            this.MinimumSize = new System.Drawing.Size(2192, 1266);
             this.Name = "frmMainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMainForm_Load);
             this.pnMenuDoc.ResumeLayout(false);
             this.pnButton.ResumeLayout(false);

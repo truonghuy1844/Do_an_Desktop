@@ -50,18 +50,18 @@ namespace PC_GUI
         private void btnThemNCC_Click(object sender, EventArgs e)
         {
             AddNCC addNCC = new AddNCC();
-            addNCC.Show();
+            addNCC.ShowDialog();
         }
 
         private void btnSuaNCC_Click(object sender, EventArgs e)
         {
             SuaNCC suaNCC = new SuaNCC();
-            suaNCC.Show();
+            suaNCC.ShowDialog();
         }
         private void btnXoaNCC_Click(object sender, EventArgs e)
         {
             XoaNCC xoaNCC = new XoaNCC();
-            xoaNCC.Show();
+            xoaNCC.ShowDialog();
         }
 
         private void btnTim_Click(object sender, EventArgs e)

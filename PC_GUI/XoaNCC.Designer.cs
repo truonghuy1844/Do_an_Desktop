@@ -53,7 +53,7 @@
             this.txtEmail.Location = new System.Drawing.Point(644, 237);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(308, 26);
+            this.txtEmail.Size = new System.Drawing.Size(308, 38);
             this.txtEmail.TabIndex = 85;
             // 
             // label5
@@ -62,7 +62,7 @@
             this.label5.Location = new System.Drawing.Point(519, 240);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 20);
+            this.label5.Size = new System.Drawing.Size(89, 31);
             this.label5.TabIndex = 84;
             this.label5.Text = "Email:";
             // 
@@ -75,7 +75,7 @@
             this.btnHuy.Location = new System.Drawing.Point(644, 360);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(194, 38);
+            this.btnHuy.Size = new System.Drawing.Size(194, 53);
             this.btnHuy.TabIndex = 83;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
@@ -90,7 +90,7 @@
             this.btnXoa.Location = new System.Drawing.Point(205, 360);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(194, 38);
+            this.btnXoa.Size = new System.Drawing.Size(194, 53);
             this.btnXoa.TabIndex = 82;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@
             this.txtSDT.Location = new System.Drawing.Point(644, 182);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(308, 26);
+            this.txtSDT.Size = new System.Drawing.Size(308, 38);
             this.txtSDT.TabIndex = 81;
             // 
             // label8
@@ -110,16 +110,16 @@
             this.label8.Location = new System.Drawing.Point(519, 188);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 20);
+            this.label8.Size = new System.Drawing.Size(69, 31);
             this.label8.TabIndex = 80;
-            this.label8.Text = "Số điện thoại:*";
+            this.label8.Text = "SDT";
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.Location = new System.Drawing.Point(205, 290);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(747, 26);
+            this.txtDiaChi.Size = new System.Drawing.Size(747, 38);
             this.txtDiaChi.TabIndex = 79;
             // 
             // label4
@@ -128,7 +128,7 @@
             this.label4.Location = new System.Drawing.Point(33, 294);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(105, 31);
             this.label4.TabIndex = 78;
             this.label4.Text = "Địa chỉ:";
             // 
@@ -137,7 +137,7 @@
             this.txtTenNCC.Location = new System.Drawing.Point(205, 236);
             this.txtTenNCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenNCC.Name = "txtTenNCC";
-            this.txtTenNCC.Size = new System.Drawing.Size(224, 26);
+            this.txtTenNCC.Size = new System.Drawing.Size(256, 38);
             this.txtTenNCC.TabIndex = 77;
             // 
             // label3
@@ -146,16 +146,16 @@
             this.label3.Location = new System.Drawing.Point(33, 240);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 20);
+            this.label3.Size = new System.Drawing.Size(128, 31);
             this.label3.TabIndex = 76;
-            this.label3.Text = "Tên nhà cung cấp*:";
+            this.label3.Text = "Tên NCC";
             // 
             // txtMaNCC
             // 
             this.txtMaNCC.Location = new System.Drawing.Point(205, 182);
             this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Size = new System.Drawing.Size(224, 26);
+            this.txtMaNCC.Size = new System.Drawing.Size(256, 38);
             this.txtMaNCC.TabIndex = 75;
             // 
             // label2
@@ -164,9 +164,9 @@
             this.label2.Location = new System.Drawing.Point(33, 185);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 20);
+            this.label2.Size = new System.Drawing.Size(118, 31);
             this.label2.TabIndex = 74;
-            this.label2.Text = "Mã nhà cung cấp*:";
+            this.label2.Text = "Mã NCC";
             // 
             // groupBox1
             // 
@@ -183,10 +183,10 @@
             // 
             // txtTim
             // 
-            this.txtTim.Location = new System.Drawing.Point(298, 35);
+            this.txtTim.Location = new System.Drawing.Point(347, 35);
             this.txtTim.Margin = new System.Windows.Forms.Padding(4);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(436, 26);
+            this.txtTim.Size = new System.Drawing.Size(387, 38);
             this.txtTim.TabIndex = 55;
             // 
             // btnTim
@@ -198,7 +198,7 @@
             this.btnTim.Location = new System.Drawing.Point(760, 32);
             this.btnTim.Margin = new System.Windows.Forms.Padding(4);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(130, 32);
+            this.btnTim.Size = new System.Drawing.Size(130, 51);
             this.btnTim.TabIndex = 56;
             this.btnTim.Text = "Nhập";
             this.btnTim.UseVisualStyleBackColor = false;
@@ -210,24 +210,24 @@
             this.label9.Location = new System.Drawing.Point(28, 39);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(249, 20);
+            this.label9.Size = new System.Drawing.Size(292, 31);
             this.label9.TabIndex = 54;
-            this.label9.Text = "Nhập mã nhà cung cấp cần xóa:";
+            this.label9.Text = "Nhập mã nhà cung cấp";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(354, 23);
+            this.label1.Location = new System.Drawing.Point(236, 19);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(354, 40);
+            this.label1.Size = new System.Drawing.Size(566, 64);
             this.label1.TabIndex = 72;
             this.label1.Text = "XÓA NHÀ CUNG CẤP";
             // 
             // XoaNCC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 442);
             this.Controls.Add(this.txtEmail);

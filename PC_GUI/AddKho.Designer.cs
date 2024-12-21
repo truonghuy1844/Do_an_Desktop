@@ -49,7 +49,7 @@
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(484, 257);
+            this.btnHuy.Location = new System.Drawing.Point(623, 257);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(215, 43);
@@ -64,7 +64,7 @@
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(66, 257);
+            this.btnLuu.Location = new System.Drawing.Point(359, 257);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(215, 43);
@@ -77,20 +77,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(242, 22);
+            this.label1.Location = new System.Drawing.Point(250, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(277, 40);
+            this.label1.Size = new System.Drawing.Size(449, 64);
             this.label1.TabIndex = 51;
             this.label1.Text = "THÊM KHO MỚI";
             // 
             // comboBoxLoaiKho
             // 
             this.comboBoxLoaiKho.FormattingEnabled = true;
-            this.comboBoxLoaiKho.Location = new System.Drawing.Point(540, 141);
+            this.comboBoxLoaiKho.Location = new System.Drawing.Point(623, 140);
             this.comboBoxLoaiKho.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxLoaiKho.Name = "comboBoxLoaiKho";
-            this.comboBoxLoaiKho.Size = new System.Drawing.Size(159, 28);
+            this.comboBoxLoaiKho.Size = new System.Drawing.Size(220, 39);
             this.comboBoxLoaiKho.TabIndex = 48;
             // 
             // label6
@@ -99,7 +99,7 @@
             this.label6.Location = new System.Drawing.Point(389, 143);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 20);
+            this.label6.Size = new System.Drawing.Size(135, 31);
             this.label6.TabIndex = 46;
             this.label6.Text = "Loại kho*:";
             // 
@@ -109,16 +109,16 @@
             this.label7.Location = new System.Drawing.Point(389, 90);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 20);
+            this.label7.Size = new System.Drawing.Size(209, 31);
             this.label7.TabIndex = 45;
             this.label7.Text = "Sức chứa (tấn)*:";
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(151, 192);
+            this.txtDiaChi.Location = new System.Drawing.Point(191, 191);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(548, 26);
+            this.txtDiaChi.Size = new System.Drawing.Size(652, 38);
             this.txtDiaChi.TabIndex = 41;
             // 
             // label4
@@ -127,16 +127,16 @@
             this.label4.Location = new System.Drawing.Point(62, 194);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(105, 31);
             this.label4.TabIndex = 40;
             this.label4.Text = "Địa chỉ:";
             // 
             // txtTenKho
             // 
-            this.txtTenKho.Location = new System.Drawing.Point(151, 141);
+            this.txtTenKho.Location = new System.Drawing.Point(191, 140);
             this.txtTenKho.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenKho.Name = "txtTenKho";
-            this.txtTenKho.Size = new System.Drawing.Size(159, 26);
+            this.txtTenKho.Size = new System.Drawing.Size(159, 38);
             this.txtTenKho.TabIndex = 39;
             // 
             // label3
@@ -145,16 +145,16 @@
             this.label3.Location = new System.Drawing.Point(62, 141);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 20);
+            this.label3.Size = new System.Drawing.Size(131, 31);
             this.label3.TabIndex = 38;
             this.label3.Text = "Tên kho*:";
             // 
             // txtMaKho
             // 
-            this.txtMaKho.Location = new System.Drawing.Point(151, 88);
+            this.txtMaKho.Location = new System.Drawing.Point(191, 87);
             this.txtMaKho.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Size = new System.Drawing.Size(159, 26);
+            this.txtMaKho.Size = new System.Drawing.Size(159, 38);
             this.txtMaKho.TabIndex = 37;
             this.txtMaKho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaKho_KeyPress);
             // 
@@ -164,24 +164,24 @@
             this.label2.Location = new System.Drawing.Point(62, 88);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
+            this.label2.Size = new System.Drawing.Size(121, 31);
             this.label2.TabIndex = 36;
             this.label2.Text = "Mã kho*:";
             // 
             // txtSucChua
             // 
-            this.txtSucChua.Location = new System.Drawing.Point(540, 87);
+            this.txtSucChua.Location = new System.Drawing.Point(623, 88);
             this.txtSucChua.Margin = new System.Windows.Forms.Padding(4);
             this.txtSucChua.Name = "txtSucChua";
-            this.txtSucChua.Size = new System.Drawing.Size(159, 26);
+            this.txtSucChua.Size = new System.Drawing.Size(220, 38);
             this.txtSucChua.TabIndex = 54;
             this.txtSucChua.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSucChua_KeyPress);
             // 
             // AddKho
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 337);
+            this.ClientSize = new System.Drawing.Size(909, 337);
             this.Controls.Add(this.txtSucChua);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnLuu);
