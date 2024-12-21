@@ -35,8 +35,8 @@ namespace PC_GUI.BLL
             if (string.IsNullOrEmpty(maTim))
                 throw new ArgumentException("Vui lòng nhập mã nhà cung cấp để tìm kiếm.");
 
-            if (maTim.Length != 6)
-                throw new ArgumentException("Mã nhà cung cấp phải gồm đúng 6 ký tự.");
+            if (!maTim.StartsWith("NCC"))
+                throw new ArgumentException("Mã nhà cung cấp phải bắt đầu bằng 'NCC'.");
             try
             {
                 return dALNCC.TimNCC(maTim);

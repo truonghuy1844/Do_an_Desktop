@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PC_GUI.DAL
 {
-    public class DAL_ThanhToan : ConnectDB_Manual
+    public class DAL_ThanhToan : ConectDB_Manual
     {
         public DTOThanhtoan LoadThanhtoan(int maHD)
         {
