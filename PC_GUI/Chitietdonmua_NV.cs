@@ -205,7 +205,7 @@ namespace PC_GUI
                 return;
             }
             //2.Kiểm tra số lượng 
-            if (string.IsNullOrWhiteSpace(txtSoluong.Text) || !txtSoluong.Text.All(char.IsDigit))
+            if (string.IsNullOrWhiteSpace(txtSoluong.Text.Trim()) || !txtSoluong.Text.Trim().All(char.IsDigit))
             {
                 okTao = false;
                 MessageBox.Show("Hãy nhập số lượng, số lượng phải là số nguyên. Ví dụ: 13", "Thông báo", MessageBoxButtons.OK);
@@ -226,7 +226,7 @@ namespace PC_GUI
                 ctiet.MaDMH = cbMaDH.SelectedValue.ToString();
                 ctiet.MaSP = cbMaSP.SelectedValue.ToString();
                 ctiet.MaBG = cbMabaogia.SelectedValue.ToString();
-                ctiet.SoLuong = Convert.ToInt32(txtSoluong.Text);
+                ctiet.SoLuong = Convert.ToInt32(txtSoluong.Text.Trim());
 
                 QLMHEntities4 db = new QLMHEntities4();
                 
@@ -326,11 +326,11 @@ namespace PC_GUI
         {
             if (!txtSoluong.Focused) return;
             int Soluong;
-            if (string.IsNullOrWhiteSpace(txtSoluong.Text))
+            if (string.IsNullOrWhiteSpace(txtSoluong.Text.Trim()))
             {
                 toolTip1.Show("Số lượng không được để trống!", txtSoluong, 0, txtSoluong.Height);
             }
-            else if (!int.TryParse(txtSoluong.Text, out Soluong) || Soluong <= 0)
+            else if (!int.TryParse(txtSoluong.Text.Trim(), out Soluong) || Soluong <= 0)
             {
                 toolTip1.Show("Số lượng phải là số nguyên dương. Ví dụ: 13", txtSoluong, 0, txtSoluong.Height);
             }

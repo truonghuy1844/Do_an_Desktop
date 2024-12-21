@@ -30,7 +30,6 @@ namespace PC_GUI
             if (!KiemTraChucVu || !KiemTraPhongBan)
             {
                 this.Controls.Remove(btnCapNhat);
-                this.Controls.Remove(btnXoa);
             }
         }
         public BLL_DonMuaHang bllDonmmua = new BLL_DonMuaHang();
@@ -277,7 +276,7 @@ namespace PC_GUI
                 txtMaDGSP.Focus();
             }
             //2.Mã đơn mua hàng không được trống 
-            if (cbMaDH.SelectedIndex == -1 || cbTensp.SelectedIndex ==-1)
+            if (cbMaDH.SelectedIndex == -1 || cbTensp.SelectedIndex == -1)
             {
                 kiemtra = false;
                 MessageBox.Show("Mã đơn mua hàng / mã sản phẩm không được để trống", "Thông báo", MessageBoxButtons.OK);
@@ -290,6 +289,18 @@ namespace PC_GUI
                 kiemtra = false;
                 MessageBox.Show("Đánh giá tối thiểu một tiêu chí", "Thông báo", MessageBoxButtons.OK);
             }
+            if (txtDanhgia.Text.Trim().Length > 50 )
+            {
+                kiemtra = false;
+                MessageBox.Show("Đánh giá không quá 50 ký tự", "Thông báo", MessageBoxButtons.OK);
+
+            }
+            if (txtGhichu.Text.Trim().Length > 50)
+            {
+                kiemtra = false;
+                MessageBox.Show("Ghi chú không quá 50 ký tự", "Thông báo", MessageBoxButtons.OK);
+
+            }
             if (kiemtra)
             {
                 DANHGIASP_TRONGDON dgsp = new DANHGIASP_TRONGDON();
@@ -298,12 +309,12 @@ namespace PC_GUI
                 dgsp.MaSP = cbTensp.SelectedValue.ToString();
                 dgsp.MaDMH = cbMaDH.SelectedValue.ToString();
                 dgsp.MoTaDG = txtDanhgia.Text;
-                dgsp.DiemChatLuong = Convert.ToInt32(cbChatluong.SelectedValue);
-                dgsp.DiemHieuQua = Convert.ToInt32(cBHieuqua.SelectedValue);
-                dgsp.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
+                dgsp.DiemChatLuong = cbChatluong.SelectedIndex != -1? Convert.ToInt32(cbChatluong.SelectedValue) : (int?)null;
+                dgsp.DiemHieuQua = cBHieuqua.SelectedIndex != -1 ? Convert.ToInt32(cBHieuqua.SelectedValue) : (int?)null;
+                dgsp.DiemGiaCa = cbGiaca.SelectedIndex != -1 ? Convert.ToInt32(cbGiaca.SelectedValue) : (int?)null;
                 dgsp.GhiChu = txtGhichu.Text;
                 QLMHEntities4 da = new QLMHEntities4();
-                
+
                 try
                 {
                     da.DANHGIASP_TRONGDON.Add(dgsp);
@@ -311,9 +322,11 @@ namespace PC_GUI
                     MessageBox.Show("Đánh giá thành công!");
                 }
                 catch (Exception ex)
-                { MessageBox.Show("Lỗi", ex.Message); }
-                loadlichsudg();
-                btnLuu.Enabled = false;
+                {
+                    MessageBox.Show("Đánh giá thất bại");
+                    loadlichsudg();
+                    btnLuu.Enabled = false;
+                }
             }
         }
 
@@ -338,6 +351,18 @@ namespace PC_GUI
                 cBHieuqua.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemHieuQua"].Value);
                 cbGiaca.SelectedValue = Convert.ToInt32(dataGridViewChitiet.CurrentRow.Cells["DiemGiaCa"].Value);
             }
+            if (txtDanhgia.Text.Trim().Length > 50)
+            {
+                okSua = false;
+                MessageBox.Show("Đánh giá không quá 50 ký tự", "Thông báo", MessageBoxButtons.OK);
+
+            }
+            if (txtGhichu.Text.Trim().Length > 50)
+            {
+                okSua = false;
+                MessageBox.Show("Ghi chú không quá 50 ký tự", "Thông báo", MessageBoxButtons.OK);
+
+            }
             if (okSua)
             {
                 QLMHEntities4 db = new QLMHEntities4();
@@ -345,9 +370,9 @@ namespace PC_GUI
                 if (dg != null)
                 {
                     dg.NgayDG = datetimedanhgia.Value;
-                    dg.DiemChatLuong = Convert.ToInt32(cbChatluong.SelectedValue);
-                    dg.DiemHieuQua= Convert.ToInt32(cBHieuqua.SelectedValue);
-                    dg.DiemGiaCa = Convert.ToInt32(cbGiaca.SelectedValue);
+                    dg.DiemChatLuong = cbChatluong.SelectedIndex != -1 ? Convert.ToInt32(cbChatluong.SelectedValue) : (int?)null;
+                    dg.DiemHieuQua = cBHieuqua.SelectedIndex != -1 ? Convert.ToInt32(cBHieuqua.SelectedValue) : (int?)null;
+                    dg.DiemGiaCa = cbGiaca.SelectedIndex != -1 ? Convert.ToInt32(cbGiaca.SelectedValue) : (int?)null;
                     dg.MoTaDG = txtDanhgia.Text;
                     dg.GhiChu = txtGhichu.Text;
                     try
@@ -373,17 +398,19 @@ namespace PC_GUI
             {
                 QLMHEntities4 db = new QLMHEntities4();
                 DANHGIASP_TRONGDON dg = db.DANHGIASP_TRONGDON.Find(txtMaDGSP.Text);
+                DANHGIA_NCC dgncc = db.DANHGIA_NCC.Find(txtMaDGSP.Text);
                 if (dg != null)
                 {
                     try
-                    {
+                    { 
+                        db.DANHGIA_NCC.Remove(dgncc);
                         db.DANHGIASP_TRONGDON.Remove(dg);
                         db.SaveChanges();
                         MessageBox.Show("Xóa đánh giá thành công");
                         loadlichsudg();
                     }
                     catch (Exception ex)
-                    { MessageBox.Show("Xóa đánh giá thất bại", ex.Message); }
+                    { MessageBox.Show("Xóa đánh giá thất bại. ( Hãy xóa đánh giá nhà cung cấp )", ex.Message); }
                 }
                 else
                 {
@@ -518,13 +545,17 @@ namespace PC_GUI
             if (string.IsNullOrEmpty(txtTim.Text))
             {
                 QLMHEntities4 db = new QLMHEntities4();
+                var startDate = dateTimebatdau.Value.Date;
+                var endDate = dateTimeketthuc.Value.Date.AddDays(1).AddTicks(-1); // Tới cuối ngày
+
                 var listtim = from dg in db.DANHGIASP_TRONGDON
-                              where dg.NgayDG >= dateTimebatdau.Value && dg.NgayDG <= dateTimeketthuc.Value
-                              select new
+                              where dg.NgayDG >= startDate && dg.NgayDG <= endDate
+                              select new 
                               {
                                   dg.MaDGSP,
                                   dg.NgayDG,
                                   dg.MaSP,
+                                  dg.SANPHAM.TenSP,
                                   dg.MaDMH,
                                   dg.MoTaDG,
                                   dg.DiemChatLuong,
@@ -547,15 +578,18 @@ namespace PC_GUI
             else
             {
                 QLMHEntities4 db = new QLMHEntities4();
+                var startDate = dateTimebatdau.Value.Date;
+                var endDate = dateTimeketthuc.Value.Date.AddDays(1).AddTicks(-1); // Tới cuối ngày
                 var listtimp = from dg in db.DANHGIASP_TRONGDON
                                where dg.SANPHAM.TenSP.Contains(txtTim.Text.Trim())
-                               && dg.NgayDG >= dateTimebatdau.Value
-                               && dg.NgayDG <= dateTimeketthuc.Value
+                               && dg.NgayDG >= startDate
+                               && dg.NgayDG <= endDate
                                select new
                                {
                                    dg.MaDGSP,
                                    dg.NgayDG,
                                    dg.MaSP,
+                                   dg.SANPHAM.TenSP,
                                    dg.MaDMH,
                                    dg.MoTaDG,
                                    dg.DiemChatLuong,

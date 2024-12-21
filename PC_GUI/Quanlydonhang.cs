@@ -31,7 +31,6 @@ namespace PC_GUI
                 this.Controls.Remove(btnTao);
                 this.Controls.Remove(btnCapNhat);
                 this.Controls.Remove(btnLuu);
-                this.Controls.Remove(btnXoa);
                 this.Controls.Remove(btnHuy);
             }
         }
@@ -167,15 +166,15 @@ namespace PC_GUI
         
         private void txtMaDMH_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMaDMH.Text))
+            if (string.IsNullOrWhiteSpace(txtMaDMH.Text.Trim()))
             {
                 toolTip1.Show("Mã đơn hàng không được để trống!", txtMaDMH, 0, txtMaDMH.Height); // Hiển thị tooltip trong 3 giây
             }
-            else if (!txtMaDMH.Text.All(char.IsLetterOrDigit) || !txtMaDMH.Text.StartsWith("DMH"))
+            else if (!txtMaDMH.Text.Trim().All(char.IsLetterOrDigit) || !txtMaDMH.Text.Trim().StartsWith("DMH"))
             {
                 toolTip1.Show("Mã đơn hàng chỉ chứa ký tự chữ, số và bắt đầu bằng 'DMH'!", txtMaDMH, 0, txtMaDMH.Height);
             }
-            else if (txtMaDMH.Text.Length < 6 || txtMaDMH.Text.Length > 10)
+            else if (txtMaDMH.Text.Trim().Length < 6 || txtMaDMH.Text.Trim().Length > 10)
             {
                 toolTip1.Show("Mã đơn hàng tối thiểu 6 ký tự và không quá 10 ký tự!", txtMaDMH, 0, txtMaDMH.Height);
             }
@@ -188,10 +187,10 @@ namespace PC_GUI
         //Tắt tooltip khi thỏa mãn điều kiện 
         private void txtMaDMH_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtMaDMH.Text.Length >= 6 &&
-                txtMaDMH.Text.Length <= 10 &&
-                txtMaDMH.Text.All(char.IsLetterOrDigit) &&
-                txtMaDMH.Text.StartsWith("DMH"))
+            if (txtMaDMH.Text.Trim().Length >= 6 &&
+                txtMaDMH.Text.Trim().Length <= 10 &&
+                txtMaDMH.Text.Trim().All(char.IsLetterOrDigit) &&
+                txtMaDMH.Text.Trim().StartsWith("DMH"))
             {
                 toolTip1.Hide(txtMaDMH);
             }
@@ -202,18 +201,18 @@ namespace PC_GUI
         private void txtMaNV_Leave(object sender, EventArgs e)
         {
             //2.1 Mã nhân viên không được trống 
-            if (string.IsNullOrWhiteSpace(txtMaNV.Text))
+            if (string.IsNullOrWhiteSpace(txtMaNV.Text.Trim()))
             {
                 toolTip2.Show("Mã nhân viên không được để trống!", txtMaNV, 0, txtMaNV.Height);
 
             }
             //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
-            else if (!txtMaNV.Text.All(char.IsLetterOrDigit) || !txtMaNV.Text.StartsWith("NV"))
+            else if (!txtMaNV.Text.Trim().All(char.IsLetterOrDigit) || !txtMaNV.Text.Trim().StartsWith("NV"))
             {
                 toolTip2.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", txtMaNV, 0, txtMaNV.Height);
             }
             //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
-            else if ((txtMaNV.Text.Length < 5) || (txtMaNV.Text.Length > 10))
+            else if ((txtMaNV.Text.Trim().Length < 5) || (txtMaNV.Text.Trim().Length > 10))
             {
                 toolTip2.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự!", txtMaNV, 0, txtMaNV.Height);
             }
@@ -224,10 +223,10 @@ namespace PC_GUI
         }
         private void txtMaNV_TextChanged(object sender, EventArgs e)
         {
-            if (txtMaNV.Text.Length >= 5 &&
-               txtMaNV.Text.Length <= 10 &&
-               txtMaNV.Text.All(char.IsLetterOrDigit) &&
-               txtMaNV.Text.StartsWith("NV"))
+            if (txtMaNV.Text.Trim().Length >= 5 &&
+               txtMaNV.Text.Trim().Length <= 10 &&
+               txtMaNV.Text.Trim().All(char.IsLetterOrDigit) &&
+               txtMaNV.Text.Trim().StartsWith("NV"))
             {
                 toolTip2.Hide(txtMaNV);
             }
@@ -266,7 +265,7 @@ namespace PC_GUI
             bool okTao = true;
             //1.Kiểm tra trường mã đơn hàng 
             //1.1 Mã trường không được trống 
-            if (string.IsNullOrWhiteSpace(txtMaDMH.Text))
+            if (string.IsNullOrWhiteSpace(txtMaDMH.Text.Trim()))
             {
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
@@ -274,47 +273,53 @@ namespace PC_GUI
                 return;
             }
             //1.2 Mã trường chỉ được chứa ký tự chữ và số 
-            if (!txtMaDMH.Text.All(char.IsLetterOrDigit) || !txtMaDMH.Text.StartsWith("DMH"))
+            if (!txtMaDMH.Text.Trim().All(char.IsLetterOrDigit) || !txtMaDMH.Text.Trim().StartsWith("DMH"))
             {
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng chỉ chứa ký tự chữ, số và bắt đầu bằng 'DMH' !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaDMH.Focus();
+                return;
             }
             //1.3 Mã trường tối thiểu 6, tối đa 10 
-            if ((txtMaDMH.Text.Length < 6) || (txtMaDMH.Text.Length > 10))
+            if ((txtMaDMH.Text.Trim().Length < 6) || (txtMaDMH.Text.Trim().Length > 10))
             {
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng tối thiểu 6 ký tự và không quá 10 ký tự");
                 txtMaDMH.Focus();
+                return;
             }
             //1.4 Mã trường không được lặp lại 
-            if (bllDonmua.Kiemtramadmh(txtMaDMH.Text))
+            if (bllDonmua.Kiemtramadmh(txtMaDMH.Text.Trim()))
             {
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng đã tồn tại trong hệ thống, hãy nhập mã khác");
                 txtMaDMH.Focus();
+                return;
             }
             //2.Kiêm tra trường mã nhân viên 
             //2.1 Mã nhân viên không được trống 
-            if (string.IsNullOrWhiteSpace(txtMaNV.Text))
+            if (string.IsNullOrWhiteSpace(txtMaNV.Text.Trim()))
             {
                 okTao = false;
                 MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Focus();
+                return;
             }
             //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
-            if (!txtMaNV.Text.All(char.IsLetterOrDigit) || !txtMaNV.Text.StartsWith("NV"))
+            if (!txtMaNV.Text.Trim().All(char.IsLetterOrDigit) || !txtMaNV.Text.Trim().StartsWith("NV"))
             {
                 okTao = false;
                 MessageBox.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Focus();
+                return;
             }
             //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
-            if ((txtMaDMH.Text.Length < 5) || (txtMaDMH.Text.Length > 10))
+            if ((txtMaDMH.Text.Trim().Length < 5) || (txtMaDMH.Text.Trim().Length > 10))
             {
                 okTao = false;
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự","Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Focus();
+                return;
             }
             //3.
             if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
@@ -333,6 +338,7 @@ namespace PC_GUI
                     okTao = false;
                     MessageBox.Show("Không được để trống chiết khấu! Nếu không có, hãy điền '0'", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtChietkhau.Focus();
+                    return;
                 }
             }
             if (okTao)
@@ -340,15 +346,15 @@ namespace PC_GUI
                 try
                 {
                     DONMUAHANG dhmoi = new DONMUAHANG();
-                    dhmoi.MaDMH = txtMaDMH.Text;
+                    dhmoi.MaDMH = txtMaDMH.Text.Trim();
                     dhmoi.NgayLap = dateTime.Value;
                     dhmoi.MaHDMH = cbMaHD.SelectedValue.ToString();
-                    dhmoi.MaNV = txtMaNV.Text;
+                    dhmoi.MaNV = txtMaNV.Text.Trim();
                     dhmoi.MaNCC = cbMaNCC.SelectedValue.ToString();
                     dhmoi.MaYC = cbYcmh.SelectedValue.ToString();
                     dhmoi.Chietkhau = chietkhau;
                     dhmoi.TThai = cbTrangThai.SelectedValue.ToString();
-                    dhmoi.MoTa = txtMoTa.Text;
+                    dhmoi.MoTa = txtMoTa.Text.Trim();
                     
                     QLMHEntities4 db = new QLMHEntities4();
                     db.DONMUAHANGs.Add(dhmoi);
@@ -368,10 +374,6 @@ namespace PC_GUI
                     txtMaDMH.Enabled = false;
                     cbLoc.SelectedIndex = -1;
                 }
-                txtMaDMH.Clear();
-                txtMaNV.Clear();
-                txtMoTa.Clear();
-                txtChietkhau.Clear();
                 txtMaDMH.Focus();
                 btnLuu.Enabled = false;
             }
@@ -385,29 +387,32 @@ namespace PC_GUI
                 bool okTao = true;
                 //2.Kiêm tra trường mã nhân viên 
                 //2.1 Mã nhân viên không được trống 
-                if (string.IsNullOrWhiteSpace(txtMaNV.Text))
+                if (string.IsNullOrWhiteSpace(txtMaNV.Text.Trim()))
                 {
 
                     okTao = false;
                     MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
                     txtMaNV.Focus();
+                    return;
                 }
                 //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
-                if (!txtMaNV.Text.All(char.IsLetterOrDigit) || !txtMaNV.Text.StartsWith("NV"))
+                if (!txtMaNV.Text.Trim().All(char.IsLetterOrDigit) || !txtMaNV.Text.Trim().StartsWith("NV"))
                 {
                     okTao = false;
                     MessageBox.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
                     txtMaNV.Focus();
+                    return;
                 }
                 //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
-                if ((txtMaDMH.Text.Length < 5) || (txtMaDMH.Text.Length > 10))
+                if ((txtMaDMH.Text.Trim().Length < 5) || (txtMaDMH.Text.Trim().Length > 10))
                 {
                     okTao = false;
                     MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                     txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
                     txtMaNV.Focus();
+                    return;
                 }
                 //3 Kiểm tra trường ngày lập
                 //3.2 Ngày lập không được lớn hơn ngày hiện tại 
@@ -417,6 +422,7 @@ namespace PC_GUI
                     MessageBox.Show("Ngày lập không thể lớn hơn ngày hiện tại", "Thông báo", MessageBoxButtons.OK);
                     dateTime.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
                     dateTime.Focus();
+                    return;
                 }
                 //3.3
                 if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
@@ -430,25 +436,26 @@ namespace PC_GUI
                 string input = txtChietkhau.Text.Replace(",", ".");
                 if (!string.IsNullOrEmpty(txtChietkhau.Text))
                 {
-                    if (!decimal.TryParse(input, out chietkhau) || chietkhau <= 0 || chietkhau >= 1000) 
+                    if (!decimal.TryParse(input, out chietkhau) || chietkhau < 0 || chietkhau >= 1000) 
                     {
                         okTao = false;
                         MessageBox.Show("Chiết khấu phải là số thực lớn hơn 0 và nhỏ hơn 1000", "Lỗi dữ liệu", MessageBoxButtons.OK);
                         txtChietkhau.Focus();
+                        return;
                     }
                 }
                 if (okTao)
                 {
                     DTODonhang dhmoi = new DTODonhang();
-                    dhmoi.MaDMH = txtMaDMH.Text;
+                    dhmoi.MaDMH = txtMaDMH.Text.Trim();
                     dhmoi.Ngaylap = dateTime.Value;
                     dhmoi.MaHDMH = cbMaHD.SelectedValue.ToString();
-                    dhmoi.MaNV = txtMaNV.Text;
+                    dhmoi.MaNV = txtMaNV.Text.Trim();
                     dhmoi.MaNCC = cbMaNCC.SelectedValue.ToString();
                     dhmoi.MaYC = cbYcmh.SelectedValue.ToString();
                     dhmoi.Tthai = cbTrangThai.SelectedValue.ToString();
                     dhmoi.Chietkhau = chietkhau;
-                    dhmoi.Mota = txtMoTa.Text;
+                    dhmoi.Mota = txtMoTa.Text.Trim();
                     if (bllDonmua.Suadonhang(dhmoi))
                     {
                         MessageBox.Show("Cập nhật thông tin đơn hàng thành công", "Thông báo", MessageBoxButtons.OK);
@@ -458,11 +465,6 @@ namespace PC_GUI
                         MessageBox.Show("Cập nhật thông tin đơn hàng thất bại", "Thông báo", MessageBoxButtons.OK);
                     }
                     LoadDonmua();
-                    txtMaDMH.Clear();
-                    txtMaNV.Clear();
-                    txtMoTa.Clear();
-                    txtChietkhau.Clear();
-                    txtMaDMH.Focus();
                 }
             }
             else
@@ -522,7 +524,7 @@ namespace PC_GUI
                     }
                     else
                     {
-                        MessageBox.Show("Xóa đơn hàng thất bại, kiểm tra dữ liệu", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Xóa đơn hàng thất bại. (Hãy xóa ", "Thông báo", MessageBoxButtons.OK);
                     }
                     txtMaDMH.Clear();
                     txtMaNV.Clear();
@@ -601,19 +603,26 @@ namespace PC_GUI
             if (rs == DialogResult.Yes)
             {
                 QLMHEntities4 db = new QLMHEntities4();
-                DONMUAHANG donmua = db.DONMUAHANGs.Find(txtMaDMH.Text);
+                DONMUAHANG donmua = db.DONMUAHANGs.Find(txtMaDMH.Text.Trim());
                 if (donmua != null)
                 {
-                    donmua.TThai = "Đã hủy";
-                    try
+                    if (donmua.TThai == "Hoàn tất" || donmua.TThai == "Đã hủy")
                     {
-                        db.SaveChanges();
-                        MessageBox.Show("Hủy đơn mua hàng thành công");
-                        LoadDonmua();
+                        MessageBox.Show("Đơn hàng đã hoàn tất, không thể hủy", "Thông báo", MessageBoxButtons.OK);
                     }
-                    catch
+                    else
                     {
-                        MessageBox.Show("Không thể hủy đơn hàng này!");
+                        donmua.TThai = "Đã hủy";
+                        try
+                        {
+                            db.SaveChanges();
+                            MessageBox.Show("Hủy đơn mua hàng thành công");
+                            LoadDonmua();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Không thể hủy đơn hàng này!");
+                        }
                     }
                 }
                 else
@@ -687,6 +696,11 @@ namespace PC_GUI
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

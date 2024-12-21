@@ -69,8 +69,8 @@ namespace PC_GUI
             txtKLCV.Text = string.Empty;
             btnPhancong.Enabled = true;
             rBchuabd.Enabled = true;
-            rBdaht.Enabled = true;
-            rBdangth.Enabled = true;
+            rBdaht.Enabled = false;
+            rBdangth.Enabled = false;
             dateTimengaygiao.Enabled = true;
             rBchuabd.Checked = true; 
         }
@@ -181,12 +181,14 @@ namespace PC_GUI
                 okPc = false;
                 MessageBox.Show("Ngày hoàn thành phải sau ngày hiện tại");
                 dateTimengayht.Focus();
+                return;
             }
             if (dateTimengayht.Value < dateTimengaygiao.Value)
             {
                 okPc = false;
                 MessageBox.Show("Ngày hoàn thành phải sau ngày giao");
                 dateTimengayht.Focus();
+                return;
             }
             if (okPc)
             {
@@ -284,12 +286,14 @@ namespace PC_GUI
                 {
                     okPc = false;
                     MessageBox.Show("Đã quá hạn, không thể cập nhật");
+                    return;
                 }
                 if (dateTimengayht.Value < dateTimengaygiao.Value)
                 {
                     okPc = false;
                     MessageBox.Show("Ngày hoàn thành phải sau ngày giao");
                     dateTimengayht.Value = Convert.ToDateTime(dataGridViewPhancong.CurrentRow.Cells["NgayHT"].Value);
+                    return;
                 }
                 //3.Kiểm tra trường công việc
                 if (string.IsNullOrWhiteSpace(txtKLCV.Text))
@@ -297,12 +301,14 @@ namespace PC_GUI
                     okPc = false;
                     MessageBox.Show("Công việc không được để trống");
                     txtKLCV.Focus();
+                    return;
                 }
                 else if (txtKLCV.Text.Any(c => char.IsDigit(c) || (!char.IsLetter(c) && c != ' ' && c != '-' && c != ',' && c != '.')))
                 {
                     okPc = false;
                     MessageBox.Show("Thông tin công việc không hợp lệ!", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtKLCV.Focus();
+                    return;
                 }
                 if (okPc)
                 {

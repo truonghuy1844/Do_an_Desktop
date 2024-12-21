@@ -28,7 +28,6 @@ namespace PC_GUI
                 this.Controls.Remove(btnTao);
                 this.Controls.Remove(btnCapNhat);
                 this.Controls.Remove(btnLuu);
-                this.Controls.Remove(btnXoa);
             }
         }
 
@@ -138,7 +137,6 @@ namespace PC_GUI
             cbTrangThai.SelectedIndex = -1;
             cbYcmh.SelectedIndex = -1;
             cbLoc.SelectedIndex = -1;
-            btnXoa.Enabled = false;  //NV không được phép xóa đơn 
 
             //load đơn hoàn tất và chờ xử lý 
             txtDonht.Text = bllDonmua.donhoantat().ToString();
@@ -393,6 +391,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaDMH.Focus();
+                return;
             }
             //1.2 Mã trường chỉ được chứa ký tự chữ và số 
             if (!txtMaDMH.Text.All(char.IsLetterOrDigit) || !txtMaDMH.Text.StartsWith("DMH"))
@@ -400,6 +399,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng chỉ chứa ký tự chữ, số và bắt đầu bằng 'DMH' !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaDMH.Focus();
+                return;
             }
             //1.3 Mã trường tối thiểu 6, tối đa 10 
             if ((txtMaDMH.Text.Length < 6) || (txtMaDMH.Text.Length > 10))
@@ -407,6 +407,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng tối thiểu 6 ký tự và không quá 10 ký tự");
                 txtMaDMH.Focus();
+                return;
             }
             //1.4 Mã trường không được lặp lại 
             if (bllDonmua.Kiemtramadmh(txtMaDMH.Text))
@@ -414,6 +415,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Mã đơn hàng đã tồn tại trong hệ thống, hãy nhập mã khác");
                 txtMaDMH.Focus();
+                return;
             }
             //2.Kiêm tra trường mã nhân viên 
             //2.1 Mã nhân viên không được trống 
@@ -422,6 +424,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Focus();
+                return;
             }
             //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
             if (!txtMaNV.Text.All(char.IsLetterOrDigit) || !txtMaNV.Text.StartsWith("NV"))
@@ -429,6 +432,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Focus();
+                return;
             }
             //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
             if ((txtMaDMH.Text.Length < 5) || (txtMaDMH.Text.Length > 10))
@@ -436,6 +440,7 @@ namespace PC_GUI
                 okTao = false;
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Focus();
+                return;
             }
             //3.
             if (cbMaHD.SelectedIndex == -1 || cbMaNCC.SelectedIndex == -1 || cbYcmh.SelectedIndex == -1 || cbTrangThai.SelectedIndex == -1)
@@ -454,6 +459,7 @@ namespace PC_GUI
                     okTao = false;
                     MessageBox.Show("Chiết khấu là số thực lớn hơn 0 và nhỏ hơn 1000! Nếu không có, hãy điền '0'", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtChietkhau.Focus();
+                    return;
                 }
             }
             if (okTao)
@@ -499,6 +505,7 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên không được để trống !", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Text = dataGridView2.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtMaNV.Focus();
+                return;
             }
             //2.2 Mã nhân viên chỉ được chứa ký tự chữ và số 
             if (!txtMaNV.Text.All(char.IsLetterOrDigit) || !txtMaNV.Text.StartsWith("NV"))
@@ -507,6 +514,7 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên chỉ chứa ký tự chữ, số và bắt đầu bằng 'NV'!", "Lỗi dữ liệu", MessageBoxButtons.OK);
                 txtMaNV.Text = dataGridView2.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtMaNV.Focus();
+                return;
             }
             //2.3 Mã nhân viên tối thiểu 5, tối đa 10 
             if ((txtMaDMH.Text.Length < 5) || (txtMaDMH.Text.Length > 10))
@@ -515,6 +523,7 @@ namespace PC_GUI
                 MessageBox.Show("Mã nhân viên tối thiểu 5 ký tự và không quá 10 ký tự");
                 txtMaNV.Text = dataGridView2.CurrentRow.Cells["MaNV"].Value.ToString();
                 txtMaNV.Focus();
+                return;
             }
             //3.NV không thể cập nhật trạng thái "Chờ xử lý" -> "Đã hủy" 
             if (cbTrangThai.SelectedValue.ToString() == "Đã hủy" && dataGridView2.CurrentRow.Cells["TThai"].Value.ToString() == "Chờ xử lý")
@@ -540,6 +549,7 @@ namespace PC_GUI
                     okSua = false;
                     MessageBox.Show("Chiết khấu là số thực lớn hơn 0 và nhỏ hơn 1000! Nếu không có, hãy điền '0'", "Lỗi dữ liệu", MessageBoxButtons.OK);
                     txtChietkhau.Focus();
+                    return;
                 }
             }
             if (okSua)
@@ -590,6 +600,7 @@ namespace PC_GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Nhân viên không được xóa đơn hàng","Thông báo",MessageBoxButtons.OK);
             //NV không được xóa 
         }
 
