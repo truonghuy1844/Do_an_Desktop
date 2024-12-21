@@ -28,8 +28,8 @@ namespace PC_GUI
             bool KiemTraPhongBan = kt.Kiem_Tra_PhongBan(nv);
             if(!KiemTraChucVu || !KiemTraPhongBan)
             {
-                this.Controls.Remove(btnDuyet);
-                this.Controls.Remove(btnTuChoi);
+                groupBox2.Controls.Remove(btnDuyet);
+                groupBox2.Controls.Remove(btnTuChoi);
             }
             
         }
@@ -358,6 +358,10 @@ namespace PC_GUI
             catch { return; }
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         ///Chuyển trạng thái
         ///
