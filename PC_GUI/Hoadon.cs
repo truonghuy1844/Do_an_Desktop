@@ -23,7 +23,7 @@ namespace PC_GUI
         public BLL_HoaDon bllHoadon = new BLL_HoaDon();
         private void Hoadon_Load(object sender, EventArgs e)
         {
-
+            
             dataGridView1.DataSource = bllHoadon.LoadData();
 
             dataGridView1.Columns["MaSP"].Visible = false;
@@ -389,6 +389,11 @@ namespace PC_GUI
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = bllHoadon.LoadData();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

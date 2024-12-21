@@ -69,6 +69,7 @@ namespace PC_GUI
             btnXoaYC.Enabled = false;
             txtMaNV.Enabled = false;
             txtTinhTrang.Enabled = false;
+            
             //ToolTIP
             toolTipMaYC.InitialDelay = 50; // Tooltip xuất hiện sau 0.5 giây
             toolTipMaYC.AutoPopDelay = 5000; // Tooltip ẩn sau 5 giây
@@ -279,6 +280,7 @@ namespace PC_GUI
                 btnXoaSP.Enabled = true;
                 btnThemSP.Enabled = true;
                 btnSuaSP.Enabled = true;
+                btnXoaYC.Enabled = true;
                 return;
             }
             else
@@ -366,19 +368,24 @@ namespace PC_GUI
             DTO_CT_YeuCauMH dto = new DTO_CT_YeuCauMH();
             dto.MaYC = txtMaYC.Text.Trim();
             dto.MaSP = cbSanPham.SelectedValue.ToString();
-            if (txtSoLuong.Text == "" || txtSoLuong.Text == null)
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa yêu cầu mua hàng này", "Yêu cầu mua hàng sẽ bị xóa vĩnh viễn", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Vui lòng chọn thêm số lượng sản phẩm", "Thêm sản phẩm vào yêu cầu không thành công");
+                if (txtSoLuong.Text == "" || txtSoLuong.Text == null)
+                {
+                    MessageBox.Show("Vui lòng chọn thêm số lượng sản phẩm", "Thêm sản phẩm vào yêu cầu không thành công");
+                    return;
+                }
+                dto.SoLuong = int.Parse(txtSoLuong.Text.Trim());
+                if (bll.Xoa_SP_CT_YCMH(dto))
+                {
+                    Load_DatagridView_CTYC(dto);
+                    return;
+                }
+                MessageBox.Show("Sản phẩm trong báo giá đã được thực hiện đơn mua hàng\nKhông thể xóa do  ràng buộc dữ liệu ", "Xóa sản phẩm chưa thành công");
                 return;
-            }
-            dto.SoLuong = int.Parse(txtSoLuong.Text.Trim());
-            if (bll.Xoa_SP_CT_YCMH(dto))
-            {
-                Load_DatagridView_CTYC(dto);
-                return;
-            }
-            MessageBox.Show("Xảy ra lỗi khi xóa sản phẩm", "Xóa sản phẩm chưa thành công");
-            return;
+            }    
+                
         }
 
         private void btnXoaYC_Click(object sender, EventArgs e)
@@ -408,7 +415,7 @@ namespace PC_GUI
                     }
                     else
                     {
-                        MessageBox.Show("Xảy ra lỗi khi xóa yêu cầu duyệt", "Xóa yêu cầu chưa thành công");
+                        MessageBox.Show("Đã có đơn mua hàng thực hiện yêu cầu\nKhông thể xóa do ràng buộc dữ liệu", "Xóa yêu cầu chưa thành công");
                         return;
                     }
                 }
@@ -417,19 +424,12 @@ namespace PC_GUI
                         
         }
 
-        private void btnSPhamMoi_Click(object sender, EventArgs e)
-        {
-           
-        }
+
 
         private void lb_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

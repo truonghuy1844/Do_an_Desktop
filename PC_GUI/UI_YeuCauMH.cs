@@ -47,7 +47,8 @@ namespace PC_GUI
             datetimepickerStart.Value = datetimeStart;
             
             btnHienThi.Enabled = false;
-
+            btnDuyet.Enabled = false;
+            btnTuChoi.Enabled = false;
             txtBoPhanYC.ReadOnly = true;
             txtSoSP.ReadOnly = true;
             txtTinhTrang.ReadOnly = true;
@@ -223,6 +224,8 @@ namespace PC_GUI
                 {
                     Load_Yeu_Cau_MH();
                     txtTinhTrang.Text = "Đã duyệt";
+                    btnTuChoi.Enabled = false;
+                    btnDuyet.Enabled = false;
                 }
                 else { MessageBox.Show("Xảy ra lỗi khi duyệt", "Duyệt yêu cầu chưa thành công"); }
             }
@@ -248,6 +251,8 @@ namespace PC_GUI
                 {
                     Load_Yeu_Cau_MH();
                     txtTinhTrang.Text = "Hủy yêu cầu";
+                    btnTuChoi.Enabled = false;
+                    btnDuyet.Enabled = false;
                 }
                 else { MessageBox.Show("Xảy ra lỗi khi duyệt", "Duyệt yêu cầu chưa thành công"); }
             }

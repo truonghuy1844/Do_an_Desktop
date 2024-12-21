@@ -164,15 +164,11 @@ namespace PC_GUI
             DTO_BaoGia baoGia = new DTO_BaoGia();
             baoGia.MaBG = txtMaBG.Text.Trim();
             baoGia.MaNCC = cbNCC.SelectedValue.ToString();
-            BLL_BaoGia bLL_BaoGia = new BLL_BaoGia();
+            
             baoGia.NgayBG = DateTime.Now;
             DTO_CT_BaoGia ct = new DTO_CT_BaoGia();
+            BLL_BaoGia bLL_BaoGia = new BLL_BaoGia();
             ct.MaBG = txtMaBG.Text.Trim();
-            if (txtMaBG.Text.Any(a => char.IsLetterOrDigit(a)))
-            {
-                MessageBox.Show("Mã báo giá chỉ chứa kí tự số và chữ");
-                return;
-            }
             if (bLL_BaoGia.Them_BaoGia(baoGia))
             {
                 btnThemBG.Enabled = false;
@@ -291,10 +287,10 @@ namespace PC_GUI
                         dtgCT_BG.DataSource = null;
                         return;
                     }
-                    else { MessageBox.Show("Xảy ra lỗi khi xóa báo giá", "Xóa báo giá không thành công"); }
+                    else { MessageBox.Show("Báo giá đã được thực hiện trong các đơn hàng\n Không thể xóa do ràng buộc", "Xóa báo giá không thành công"); }
 
                 }
-                MessageBox.Show("Lỗi khi xóa chi tiết báo giá", "Xóa báo giá không thành công");
+                MessageBox.Show("Đã có sản phẩm báo giá được thực hiện mua hàng\nKhông thể xóa do ràng buộc", "Xóa báo giá không thành công");
             }
             
 
@@ -346,14 +342,21 @@ namespace PC_GUI
             dto.DonGia = int.Parse(txtDonGia.Text);
             dto.MaSP = cbSanPham.SelectedValue.ToString();
             BLL_CT_BaoGia bll = new BLL_CT_BaoGia();
-            if (bll.Xoa_CT_BG(dto))
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn xóa sản phẩm này khỏ báo giá", "Báo giá sẽ bị xóa vĩnh viễn", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                Load_CT_BG(dto);
-            }
-            else { MessageBox.Show("Xảy ra lỗi khi xóa chi tiết báo giá\nVui lòng kiểm tra lại", "Xóa chi tiết báo giá không thành công"); }
+                if (bll.Xoa_CT_BG(dto))
+                {
+                    Load_CT_BG(dto);
+                }
+                else { MessageBox.Show("Đã có sản phẩm báo giá được thực hiện mua hàng\nKhông thể xóa do ràng buộc", "Xóa chi tiết báo giá không thành công"); }
+            }    
+                
         }
 
-        
+        private void label4_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
