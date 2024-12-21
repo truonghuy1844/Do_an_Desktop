@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -298,7 +299,7 @@ namespace PC_GUI.DAL
     //// Lọc báo giá
     ///
 
-    public class DAL_Loc_BaoGia
+    public class DAL_Loc_BaoGia : ConectDB_Manual
     {
         ///Lọc theo sản phẩm có trong báo giá
         public DataTable Load_Loc_SP(DTO_CT_BaoGia ctiet, DateTime start, DateTime end)
@@ -637,45 +638,28 @@ namespace PC_GUI.DAL
         //Lọc theo ngày tháng
         public DataTable Load_Loc_NT(DateTime start, DateTime end)
         {
-            QLMHEntities4 cnn = new QLMHEntities4();
-
+            
+            conn.Open();
             try
             {
-                var list_BG = (from bg in cnn.BAOGIAs
-                               join ncc in cnn.NHACUNGCAPs
-                               on bg.MaNCC equals ncc.MaNCC
-                               join ct in cnn.CT_BAOGIA
-                               on bg.MaBG equals ct.MaBG
-                               where bg.NgayBG <= end
-                               && bg.NgayBG >= start
-                               select new
-                               {
-                                   MaBG = bg.MaBG,
-                                   MaNCC = bg.MaNCC,
-                                   TenNCC = ncc.TenNCC,
-                                   NgayBG = bg.NgayBG
-                               }).Distinct().ToList();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("MaBG", typeof(string));
-                dt.Columns.Add("MaNCC", typeof(string));
-                dt.Columns.Add("TenNCC", typeof(string));
-                dt.Columns.Add("NgayBG", typeof(DateTime));
-
-
-                //Thêm vào bảng
-                foreach (var bg in list_BG)
+                string query = " Select distinct bg.MaBG, ncc.MaNCC, TenNCC, NgayBG from BAOGIA bg, NHACUNGCAP ncc " +
+                    "WHERE bg.MaNCC = ncc.MaNCC and NgayBG >=  @start and NGAYBG <= @end order by NgayBG desc";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    DataRow dr = dt.NewRow();
-                    dr["MaBG"] = bg.MaBG ?? string.Empty;
-                    dr["MaNCC"] = bg.MaNCC ?? string.Empty;
-                    dr["TenNCC"] = bg.TenNCC ?? string.Empty;
+                    // Gán giá trị cho tham số @timkiem và @loaiSP
+                    cmd.Parameters.AddWithValue("@start", start);
+                    cmd.Parameters.AddWithValue("@end", end);
 
-                    // Handle null values for DateTime column
-                    dr["NgayBG"] = bg.NgayBG ?? DateTime.MinValue;
-                    dt.Rows.Add(dr);
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable ds = new DataTable();
+                        adapter.Fill(ds);
+                        DataTable dt = new DataTable();
+                        return ds;
+
+                    }
                 }
-                dt.DefaultView.Sort = "NgayBG DESC";
-                return dt;
+                
             }
             catch (Exception ex)
             {
@@ -688,6 +672,7 @@ namespace PC_GUI.DAL
                 dt.Rows.Add(dr1);
                 return dt;
             }
+            finally { conn.Close(); }
         }
         public DataTable Load_CTBG_TheoSP(DTO_CT_BaoGia ctietBG)
         {

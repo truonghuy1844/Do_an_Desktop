@@ -142,21 +142,11 @@ namespace PC_GUI
             DTO_CT_BaoGia ct = new DTO_CT_BaoGia();
             bg.MaNCC = maNCC;
             ct.MaSP = maSP;
+            btnHienThi.Text = "Xem chi tiết báo giá";
+            trangthaiHienThi = true;
 
             Loc_Bao_Gia bll = new Loc_Bao_Gia();
             dataGridView1.DataSource = bll.Loc_BG(bg,ct,date_Selected_Start,date_Selected_End); 
-
-
-            
-        }
-
-        private void cbLoc_NCC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbbLocSP_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -172,10 +162,6 @@ namespace PC_GUI
 
         private void btnLocKoTG_Click(object sender, EventArgs e)
         {
-            DateTime date_Selected_Start = new DateTime();
-            DateTime date_Selected_End = new DateTime();
-            date_Selected_Start = datetimepickerStart.Value;
-            date_Selected_End = datetimepickerEnd.Value;
             string maSP, maNCC;
             maSP = cbbLocSP.SelectedValue.ToString();
             maNCC = cbLoc_NCC.SelectedValue.ToString();
@@ -183,6 +169,8 @@ namespace PC_GUI
             DTO_CT_BaoGia ct = new DTO_CT_BaoGia();
             bg.MaNCC = maNCC;
             ct.MaSP = maSP;
+            btnHienThi.Text = "Xem chi tiết báo giá";
+            trangthaiHienThi = true;
 
             Loc_Bao_Gia bll = new Loc_Bao_Gia();
             dataGridView1.DataSource = bll.Loc_BoTG_BG(bg,ct);

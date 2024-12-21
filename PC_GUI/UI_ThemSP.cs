@@ -177,7 +177,7 @@ namespace PC_GUI
             }
             else
             {
-                MessageBox.Show("Vui lòng kiểm tra dữ liệu", "Xóa sản phẩm không thành công");
+                MessageBox.Show("Sản phẩm đã được thực hiện mua hàng\nKhông thể xóa do ràng buộc", "Xóa sản phẩm không thành công");
                 return;
             }
         }
