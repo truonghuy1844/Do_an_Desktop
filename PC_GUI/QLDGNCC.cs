@@ -70,12 +70,12 @@ namespace PC_GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             AddDGNCC addDGNCC = new AddDGNCC();
-            addDGNCC.Show();
+            addDGNCC.ShowDialog();
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
             XoaDGNCC xoaDGNCC = new XoaDGNCC();
-            xoaDGNCC.Show();
+            xoaDGNCC.ShowDialog();
         }
 
         private void btnTim_Click(object sender, EventArgs e)
