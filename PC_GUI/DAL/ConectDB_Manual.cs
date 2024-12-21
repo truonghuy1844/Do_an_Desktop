@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace PC_GUI.DAL
 {
-    public class ConectDB_Manual
+    public class ConnectDB_Manual
     {
-        protected SqlConnection conn = new SqlConnection("Data Source=LAPTOP-H76O771H\\MSSQLSERVER1;Initial Catalog=QLMH;Integrated Security=True;Encrypt=False");
+        protected SqlConnection conn = new SqlConnection("Data Source=HUY-LAPTOP;Initial Catalog=QLMH;Integrated Security=True;Encrypt=False");
     }
 }

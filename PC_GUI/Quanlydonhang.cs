@@ -470,31 +470,39 @@ namespace PC_GUI
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)    //gồm đưa dữ liệu vào ô và chỉnh sửa 
+            try
             {
-                
-                txtMaDMH.Text = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
-                dateTime.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
-                cbMaHD.SelectedValue = dataGridView1.CurrentRow.Cells["MaHDMH"].Value.ToString();
-                txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
-                cbYcmh.SelectedValue = dataGridView1.CurrentRow.Cells["MaYC"].Value.ToString();
-                cbMaNCC.SelectedValue = dataGridView1.CurrentRow.Cells["MaNCC"].Value.ToString();
-                cbTrangThai.SelectedValue = dataGridView1.CurrentRow.Cells["TThai"].Value.ToString();
-                txtMoTa.Text = dataGridView1.CurrentRow.Cells["MoTa"].Value.ToString();
-                txtChietkhau.Text = dataGridView1.CurrentRow.Cells["Chietkhau"].Value.ToString();
-                txtMaDMH.Enabled = false;
-                if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất")
+                if (dataGridView1.CurrentRow != null)    //gồm đưa dữ liệu vào ô và chỉnh sửa 
                 {
-                    cbTrangThai.Enabled = false;
+
+                    txtMaDMH.Text = dataGridView1.CurrentRow.Cells["MaDMH"].Value.ToString();
+                    dateTime.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells["NgayLap"].Value);
+                    cbMaHD.SelectedValue = dataGridView1.CurrentRow.Cells["MaHDMH"].Value.ToString();
+                    txtMaNV.Text = dataGridView1.CurrentRow.Cells["MaNV"].Value.ToString();
+                    cbYcmh.SelectedValue = dataGridView1.CurrentRow.Cells["MaYC"].Value.ToString();
+                    cbMaNCC.SelectedValue = dataGridView1.CurrentRow.Cells["MaNCC"].Value.ToString();
+                    cbTrangThai.SelectedValue = dataGridView1.CurrentRow.Cells["TThai"].Value.ToString();
+                    txtMoTa.Text = dataGridView1.CurrentRow.Cells["MoTa"].Value.ToString();
+                    txtChietkhau.Text = dataGridView1.CurrentRow.Cells["Chietkhau"].Value.ToString();
+                    txtMaDMH.Enabled = false;
+                    if (cbTrangThai.SelectedValue.ToString() == "Hoàn tất")
+                    {
+                        cbTrangThai.Enabled = false;
+                    }
+                    else
+                    {
+                        cbTrangThai.Enabled = true;
+                    }
+                    txtMaDMH.Enabled = false;
+                    cbLoc.SelectedIndex = -1;
+                    HideAllTooltips();
                 }
-                else
-                {
-                    cbTrangThai.Enabled = true;
-                }
-                txtMaDMH.Enabled = false;
-                cbLoc.SelectedIndex = -1;
-                HideAllTooltips();
-             }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
