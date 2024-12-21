@@ -46,7 +46,6 @@
             this.btnLichsu = new System.Windows.Forms.Button();
             this.btnChitietdon = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.txtTim = new System.Windows.Forms.TextBox();
             this.cbGiaca = new System.Windows.Forms.ComboBox();
@@ -101,7 +100,7 @@
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(660, 126);
+            this.btnLuu.Location = new System.Drawing.Point(327, 126);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(93, 30);
             this.btnLuu.TabIndex = 105;
@@ -248,27 +247,14 @@
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapNhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhat.Location = new System.Drawing.Point(238, 126);
+            this.btnCapNhat.Location = new System.Drawing.Point(596, 126);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(112, 30);
             this.btnCapNhat.TabIndex = 116;
             this.btnCapNhat.Text = "Cập nhật";
             this.toolTip1.SetToolTip(this.btnCapNhat, "Nhân viên không được phép cập nhật");
             this.btnCapNhat.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(444, 126);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(112, 30);
-            this.btnXoa.TabIndex = 115;
-            this.btnXoa.Text = "Xóa đánh giá";
-            this.toolTip1.SetToolTip(this.btnXoa, "Nhân viên không được phép xóa");
-            this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // txtTim
             // 
@@ -450,7 +436,6 @@
             this.panel1.Controls.Add(this.cbChatluong);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnCapNhat);
-            this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.txtGhichu);
             this.panel1.Controls.Add(this.datetime1);
             this.panel1.Controls.Add(this.txtDanhgia);
@@ -525,7 +510,6 @@
         private System.Windows.Forms.Button btnLichsu;
         private System.Windows.Forms.Button btnChitietdon;
         private System.Windows.Forms.Button btnCapNhat;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ComboBox cbGiaca;
         private System.Windows.Forms.Label label8;

@@ -500,6 +500,16 @@ namespace PC_GUI
             
         }
 
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void cbMaDH_SelectedIndexChanged(object sender, EventArgs e)
         {
             QLMHEntities4 db = new QLMHEntities4();
