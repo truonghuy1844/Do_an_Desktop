@@ -44,11 +44,13 @@
             // btnHuy
             // 
             this.btnHuy.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(549, 243);
+            this.btnHuy.Location = new System.Drawing.Point(606, 208);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(132, 48);
+            this.btnHuy.Size = new System.Drawing.Size(215, 43);
             this.btnHuy.TabIndex = 66;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
@@ -57,11 +59,13 @@
             // btnLuu
             // 
             this.btnLuu.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(368, 243);
+            this.btnLuu.Location = new System.Drawing.Point(151, 208);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(132, 48);
+            this.btnLuu.Size = new System.Drawing.Size(215, 43);
             this.btnLuu.TabIndex = 65;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = false;
@@ -71,7 +75,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(238, 23);
+            this.label1.Location = new System.Drawing.Point(208, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(560, 40);
             this.label1.TabIndex = 64;
@@ -80,77 +85,85 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(538, 96);
+            this.label8.Location = new System.Drawing.Point(542, 153);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 16);
+            this.label8.Size = new System.Drawing.Size(141, 20);
             this.label8.TabIndex = 62;
             this.label8.Text = "Tiêu chí đánh giá:";
             // 
             // txtMaNCC
             // 
-            this.txtMaNCC.Location = new System.Drawing.Point(235, 183);
+            this.txtMaNCC.Location = new System.Drawing.Point(709, 98);
+            this.txtMaNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaNCC.Name = "txtMaNCC";
-            this.txtMaNCC.Size = new System.Drawing.Size(204, 22);
+            this.txtMaNCC.Size = new System.Drawing.Size(185, 26);
             this.txtMaNCC.TabIndex = 61;
             this.txtMaNCC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaNCC_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 186);
+            this.label4.Location = new System.Drawing.Point(542, 107);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 16);
+            this.label4.Size = new System.Drawing.Size(148, 20);
             this.label4.TabIndex = 60;
             this.label4.Text = "Mã nhà cung cấp*:";
             // 
             // txtMaNV
             // 
-            this.txtMaNV.Location = new System.Drawing.Point(235, 140);
+            this.txtMaNV.Location = new System.Drawing.Point(294, 153);
+            this.txtMaNV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaNV.Name = "txtMaNV";
-            this.txtMaNV.Size = new System.Drawing.Size(204, 22);
+            this.txtMaNV.Size = new System.Drawing.Size(185, 26);
             this.txtMaNV.TabIndex = 59;
             this.txtMaNV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaNV_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 143);
+            this.label3.Location = new System.Drawing.Point(53, 155);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 16);
+            this.label3.Size = new System.Drawing.Size(187, 20);
             this.label3.TabIndex = 58;
             this.label3.Text = "Mã nhân viên đánh giá*:";
             // 
             // txtMaDGNCC
             // 
-            this.txtMaDGNCC.Location = new System.Drawing.Point(235, 99);
+            this.txtMaDGNCC.Location = new System.Drawing.Point(294, 101);
+            this.txtMaDGNCC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaDGNCC.Name = "txtMaDGNCC";
-            this.txtMaDGNCC.Size = new System.Drawing.Size(204, 22);
+            this.txtMaDGNCC.Size = new System.Drawing.Size(185, 26);
             this.txtMaDGNCC.TabIndex = 57;
             this.txtMaDGNCC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaDGNCC_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 102);
+            this.label2.Location = new System.Drawing.Point(53, 104);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 16);
+            this.label2.Size = new System.Drawing.Size(216, 20);
             this.label2.TabIndex = 56;
             this.label2.Text = "Mã đánh giá nhà cung cấp*:";
             // 
             // comboBoxTieuChiDanhGia
             // 
             this.comboBoxTieuChiDanhGia.FormattingEnabled = true;
-            this.comboBoxTieuChiDanhGia.Location = new System.Drawing.Point(686, 94);
+            this.comboBoxTieuChiDanhGia.Location = new System.Drawing.Point(709, 147);
+            this.comboBoxTieuChiDanhGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxTieuChiDanhGia.Name = "comboBoxTieuChiDanhGia";
-            this.comboBoxTieuChiDanhGia.Size = new System.Drawing.Size(313, 24);
+            this.comboBoxTieuChiDanhGia.Size = new System.Drawing.Size(185, 28);
             this.comboBoxTieuChiDanhGia.TabIndex = 70;
             this.comboBoxTieuChiDanhGia.SelectedIndexChanged += new System.EventHandler(this.comboBoxTieuChiDanhGia_SelectedIndexChanged);
             // 
             // AddDGNCC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 356);
+            this.ClientSize = new System.Drawing.Size(951, 295);
             this.Controls.Add(this.comboBoxTieuChiDanhGia);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnLuu);
@@ -162,6 +175,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtMaDGNCC);
             this.Controls.Add(this.label2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddDGNCC";
             this.Text = "AddDGNCC";
             this.Load += new System.EventHandler(this.AddDGNCC_Load);

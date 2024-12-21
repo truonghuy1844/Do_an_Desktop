@@ -52,9 +52,6 @@ namespace PC_GUI
                                 }
                           };
                         dn.ShowDialog();
-                        
-
-
                 }
 
                     else

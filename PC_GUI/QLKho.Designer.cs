@@ -44,11 +44,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnLoad1 = new System.Windows.Forms.Button();
             this.btnXoa1 = new System.Windows.Forms.Button();
             this.btnThem1 = new System.Windows.Forms.Button();
             this.btnSua1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDSKho)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,11 +60,11 @@
             this.dataGridViewDSKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDSKho.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridViewDSKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDSKho.Location = new System.Drawing.Point(29, 83);
+            this.dataGridViewDSKho.Location = new System.Drawing.Point(98, 83);
             this.dataGridViewDSKho.Name = "dataGridViewDSKho";
             this.dataGridViewDSKho.RowHeadersWidth = 51;
             this.dataGridViewDSKho.RowTemplate.Height = 24;
-            this.dataGridViewDSKho.Size = new System.Drawing.Size(1133, 433);
+            this.dataGridViewDSKho.Size = new System.Drawing.Size(997, 433);
             this.dataGridViewDSKho.TabIndex = 0;
             // 
             // btnResetFilter
@@ -266,17 +266,6 @@
             this.panel2.Size = new System.Drawing.Size(997, 106);
             this.panel2.TabIndex = 34;
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(98, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(997, 79);
-            this.panel3.TabIndex = 35;
-            // 
             // btnLoad1
             // 
             this.btnLoad1.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -328,6 +317,17 @@
             this.btnSua1.Text = "Sửa thông tin";
             this.btnSua1.UseVisualStyleBackColor = false;
             this.btnSua1.Click += new System.EventHandler(this.btnSua1_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(98, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(997, 79);
+            this.panel3.TabIndex = 35;
             // 
             // QLKho
             // 

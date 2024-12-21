@@ -53,11 +53,11 @@
             this.groupBox1.Controls.Add(this.txtTim);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(13, 96);
+            this.groupBox1.Location = new System.Drawing.Point(50, 66);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(892, 91);
+            this.groupBox1.Size = new System.Drawing.Size(852, 91);
             this.groupBox1.TabIndex = 82;
             this.groupBox1.TabStop = false;
             // 
@@ -66,7 +66,7 @@
             this.txtTim.Location = new System.Drawing.Point(232, 38);
             this.txtTim.Margin = new System.Windows.Forms.Padding(4);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(389, 26);
+            this.txtTim.Size = new System.Drawing.Size(401, 26);
             this.txtTim.TabIndex = 55;
             this.txtTim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTim_KeyPress);
             // 
@@ -74,11 +74,12 @@
             // 
             this.btnTim.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTim.ForeColor = System.Drawing.Color.White;
-            this.btnTim.Location = new System.Drawing.Point(691, 35);
+            this.btnTim.Location = new System.Drawing.Point(674, 35);
             this.btnTim.Margin = new System.Windows.Forms.Padding(4);
             this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(157, 32);
+            this.btnTim.Size = new System.Drawing.Size(135, 32);
             this.btnTim.TabIndex = 56;
             this.btnTim.Text = "Nhập";
             this.btnTim.UseVisualStyleBackColor = false;
@@ -87,7 +88,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(33, 41);
+            this.label9.Location = new System.Drawing.Point(27, 41);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(175, 20);
@@ -96,22 +97,22 @@
             // 
             // txtSucChua
             // 
-            this.txtSucChua.Location = new System.Drawing.Point(624, 212);
+            this.txtSucChua.Location = new System.Drawing.Point(640, 182);
             this.txtSucChua.Margin = new System.Windows.Forms.Padding(4);
             this.txtSucChua.Name = "txtSucChua";
-            this.txtSucChua.Size = new System.Drawing.Size(237, 26);
+            this.txtSucChua.Size = new System.Drawing.Size(262, 26);
             this.txtSucChua.TabIndex = 81;
             // 
             // btnHuy
             // 
             this.btnHuy.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Location = new System.Drawing.Point(505, 395);
+            this.btnHuy.Location = new System.Drawing.Point(584, 348);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(219, 45);
+            this.btnHuy.Size = new System.Drawing.Size(194, 38);
             this.btnHuy.TabIndex = 80;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = false;
@@ -121,12 +122,12 @@
             // 
             this.btnXoa.BackColor = System.Drawing.SystemColors.HotTrack;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(212, 395);
+            this.btnXoa.Location = new System.Drawing.Point(202, 348);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(219, 45);
+            this.btnXoa.Size = new System.Drawing.Size(194, 38);
             this.btnXoa.TabIndex = 79;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
@@ -136,7 +137,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(370, 42);
+            this.label1.Location = new System.Drawing.Point(391, 22);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(171, 40);
@@ -146,16 +147,16 @@
             // comboBoxLoaiKho
             // 
             this.comboBoxLoaiKho.FormattingEnabled = true;
-            this.comboBoxLoaiKho.Location = new System.Drawing.Point(624, 266);
+            this.comboBoxLoaiKho.Location = new System.Drawing.Point(640, 231);
             this.comboBoxLoaiKho.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxLoaiKho.Name = "comboBoxLoaiKho";
-            this.comboBoxLoaiKho.Size = new System.Drawing.Size(237, 28);
+            this.comboBoxLoaiKho.Size = new System.Drawing.Size(262, 28);
             this.comboBoxLoaiKho.TabIndex = 77;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(501, 266);
+            this.label6.Location = new System.Drawing.Point(518, 239);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
@@ -165,7 +166,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(496, 212);
+            this.label7.Location = new System.Drawing.Point(518, 182);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 20);
@@ -174,7 +175,7 @@
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(146, 316);
+            this.txtDiaChi.Location = new System.Drawing.Point(146, 286);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(285, 26);
@@ -183,7 +184,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 320);
+            this.label4.Location = new System.Drawing.Point(50, 290);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 20);
@@ -192,7 +193,7 @@
             // 
             // txtTenKho
             // 
-            this.txtTenKho.Location = new System.Drawing.Point(146, 266);
+            this.txtTenKho.Location = new System.Drawing.Point(146, 236);
             this.txtTenKho.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenKho.Name = "txtTenKho";
             this.txtTenKho.Size = new System.Drawing.Size(285, 26);
@@ -201,7 +202,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 266);
+            this.label3.Location = new System.Drawing.Point(50, 236);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 20);
@@ -210,7 +211,7 @@
             // 
             // txtMaKho
             // 
-            this.txtMaKho.Location = new System.Drawing.Point(146, 212);
+            this.txtMaKho.Location = new System.Drawing.Point(146, 182);
             this.txtMaKho.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaKho.Name = "txtMaKho";
             this.txtMaKho.Size = new System.Drawing.Size(285, 26);
@@ -219,7 +220,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 212);
+            this.label2.Location = new System.Drawing.Point(50, 182);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
@@ -230,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 476);
+            this.ClientSize = new System.Drawing.Size(958, 425);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtSucChua);
             this.Controls.Add(this.btnHuy);
@@ -247,6 +248,7 @@
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "XoaKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XoaKho";

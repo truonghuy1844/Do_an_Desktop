@@ -350,6 +350,11 @@ namespace PC_GUI
         {
 
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
