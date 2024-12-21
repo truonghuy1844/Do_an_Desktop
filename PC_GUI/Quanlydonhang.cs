@@ -93,9 +93,9 @@ namespace PC_GUI
                 new DTOTrangthai{ Luu = "Đã hủy", Hienthi = "Đã hủy"},
                 new DTOTrangthai{ Luu = "Chờ xử lý", Hienthi = "Chờ xử lý"}
             };
-            cbLoc.DataSource = dstrangthai2;
-            cbLoc.DisplayMember = "Hienthi";
-            cbLoc.ValueMember = "Luu";
+            //cbLoc.DataSource = dstrangthai2;
+            //cbLoc.DisplayMember = "Hienthi";
+            //cbLoc.ValueMember = "Luu";
         }
         //Load combobox yêu cầu mua hàng 
         void loadycmh()
@@ -129,7 +129,7 @@ namespace PC_GUI
             cbMaNCC.SelectedIndex = -1;
             cbYcmh.SelectedIndex = -1;
             cbTrangThai.SelectedIndex = -1;
-            cbLoc.SelectedIndex = -1;
+            //cbLoc.SelectedIndex = -1;
             btnLuu.Enabled = false;
             dataGridView1.ReadOnly = true;
 
@@ -372,7 +372,7 @@ namespace PC_GUI
                 {
                     btnLuu.Enabled = false;
                     txtMaDMH.Enabled = false;
-                    cbLoc.SelectedIndex = -1;
+                    //cbLoc.SelectedIndex = -1;
                 }
                 txtMaDMH.Focus();
                 btnLuu.Enabled = false;
@@ -496,7 +496,7 @@ namespace PC_GUI
                         cbTrangThai.Enabled = true;
                     }
                     txtMaDMH.Enabled = false;
-                    cbLoc.SelectedIndex = -1;
+                    //cbLoc.SelectedIndex = -1;
                     HideAllTooltips();
                 }
             }
@@ -574,26 +574,26 @@ namespace PC_GUI
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            HideAllTooltips(); //ẩn tooltip 
-            try
-            {
-                QLMHEntities4 db = new QLMHEntities4();
-                var ttloc = from dm in db.DONMUAHANGs
-                            where dm.TThai.Contains(cbLoc.SelectedValue.ToString())
-                            select new 
-                            {   dm.MaDMH,
-                                dm.NgayLap,
-                                dm.MaHDMH,
-                                dm.MaYC,
-                                dm.MaNV,
-                                dm.MaNCC,
-                                dm.Chietkhau,
-                                dm.MoTa,
-                                dm.TThai
-                            };
-                dataGridView1.DataSource = ttloc.ToList();  
-            }
-            catch { MessageBox.Show("Không tìm thấy dữ liệu"); };
+            //HideAllTooltips(); //ẩn tooltip 
+            //try
+            //{
+            //    QLMHEntities4 db = new QLMHEntities4();
+            //    var ttloc = from dm in db.DONMUAHANGs
+            //                where dm.TThai.Contains(cbLoc.SelectedValue.ToString())
+            //                select new 
+            //                {   dm.MaDMH,
+            //                    dm.NgayLap,
+            //                    dm.MaHDMH,
+            //                    dm.MaYC,
+            //                    dm.MaNV,
+            //                    dm.MaNCC,
+            //                    dm.Chietkhau,
+            //                    dm.MoTa,
+            //                    dm.TThai
+            //                };
+            //    dataGridView1.DataSource = ttloc.ToList();  
+            //}
+            //catch { MessageBox.Show("Không tìm thấy dữ liệu"); };
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -615,6 +615,7 @@ namespace PC_GUI
                         donmua.TThai = "Đã hủy";
                         try
                         {
+                            
                             db.SaveChanges();
                             MessageBox.Show("Hủy đơn mua hàng thành công");
                             LoadDonmua();
@@ -657,52 +658,47 @@ namespace PC_GUI
         }
 
         //Bỏ qua 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbLoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        
-        private void txtMaDMH_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnXoa_Click_1(object sender, EventArgs e)
+        {
+            HideAllTooltips(); //ẩn tooltip 
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn hủy đơn mua hàng này không", "Thông báo", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.Yes)
+            {
+                QLMHEntities4 db = new QLMHEntities4();
+                DONMUAHANG donmua = db.DONMUAHANGs.Find(txtMaDMH.Text.Trim());
+                if (donmua != null)
+                {
+                    if (donmua.TThai == "Hoàn tất" || donmua.TThai == "Đã hủy")
+                    {
+                        MessageBox.Show("Đơn hàng đã hoàn tất, không thể hủy", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        donmua.TThai = "Đã hủy";
+                        try
+                        {
+                            db.DONMUAHANGs.Remove(donmua);
+                            db.SaveChanges();
+                            MessageBox.Show("Hủy đơn mua hàng thành công");
+                            LoadDonmua();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Không thể hủy đơn hàng này!");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Hãy chọn 1 đơn hàng bạn muốn hủy");
+                }
+            }
         }
     }
 }

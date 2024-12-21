@@ -509,6 +509,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Quanlydonhang.resx">
       <DependentUpon>Quanlydonhang.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Quanlydonhang_NV.resx">
       <DependentUpon>Quanlydonhang_NV.cs</DependentUpon>
