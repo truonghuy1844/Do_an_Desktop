@@ -101,7 +101,7 @@
             this.btnTuyChinhBG.ForeColor = System.Drawing.Color.White;
             this.btnTuyChinhBG.Location = new System.Drawing.Point(1221, 95);
             this.btnTuyChinhBG.Name = "btnTuyChinhBG";
-            this.btnTuyChinhBG.Size = new System.Drawing.Size(238, 45);
+            this.btnTuyChinhBG.Size = new System.Drawing.Size(238, 54);
             this.btnTuyChinhBG.TabIndex = 90;
             this.btnTuyChinhBG.Text = "Tùy chỉnh báo giá";
             this.btnTuyChinhBG.UseVisualStyleBackColor = false;
@@ -134,7 +134,7 @@
             this.btnHienThi.ForeColor = System.Drawing.Color.White;
             this.btnHienThi.Location = new System.Drawing.Point(1221, 23);
             this.btnHienThi.Name = "btnHienThi";
-            this.btnHienThi.Size = new System.Drawing.Size(238, 45);
+            this.btnHienThi.Size = new System.Drawing.Size(238, 52);
             this.btnHienThi.TabIndex = 88;
             this.btnHienThi.Text = "Hiển thị";
             this.btnHienThi.UseVisualStyleBackColor = false;
@@ -205,10 +205,10 @@
             this.btnLocKoTG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLocKoTG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLocKoTG.ForeColor = System.Drawing.Color.White;
-            this.btnLocKoTG.Location = new System.Drawing.Point(924, 119);
-            this.btnLocKoTG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLocKoTG.Location = new System.Drawing.Point(1055, 73);
+            this.btnLocKoTG.Margin = new System.Windows.Forms.Padding(2);
             this.btnLocKoTG.Name = "btnLocKoTG";
-            this.btnLocKoTG.Size = new System.Drawing.Size(316, 64);
+            this.btnLocKoTG.Size = new System.Drawing.Size(259, 54);
             this.btnLocKoTG.TabIndex = 110;
             this.btnLocKoTG.Text = "Lọc bỏ thời gian";
             this.btnLocKoTG.UseVisualStyleBackColor = false;
@@ -224,7 +224,7 @@
             this.cbbLocSP.FormattingEnabled = true;
             this.cbbLocSP.ItemHeight = 29;
             this.cbbLocSP.Location = new System.Drawing.Point(435, 81);
-            this.cbbLocSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbLocSP.Margin = new System.Windows.Forms.Padding(2);
             this.cbbLocSP.MaxDropDownItems = 5;
             this.cbbLocSP.Name = "cbbLocSP";
             this.cbbLocSP.Size = new System.Drawing.Size(361, 37);
@@ -249,10 +249,10 @@
             this.btnLoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoc.ForeColor = System.Drawing.Color.White;
-            this.btnLoc.Location = new System.Drawing.Point(1286, 119);
-            this.btnLoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoc.Location = new System.Drawing.Point(1347, 73);
+            this.btnLoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(238, 64);
+            this.btnLoc.Size = new System.Drawing.Size(238, 54);
             this.btnLoc.TabIndex = 107;
             this.btnLoc.Text = "Lọc";
             this.btnLoc.UseVisualStyleBackColor = false;
@@ -263,7 +263,7 @@
             this.cbLoc_NCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLoc_NCC.FormattingEnabled = true;
             this.cbLoc_NCC.Location = new System.Drawing.Point(438, 28);
-            this.cbLoc_NCC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbLoc_NCC.Margin = new System.Windows.Forms.Padding(2);
             this.cbLoc_NCC.Name = "cbLoc_NCC";
             this.cbLoc_NCC.Size = new System.Drawing.Size(358, 37);
             this.cbLoc_NCC.TabIndex = 106;
@@ -306,7 +306,7 @@
             this.datetimepickerEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datetimepickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datetimepickerEnd.Location = new System.Drawing.Point(1299, 28);
-            this.datetimepickerEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datetimepickerEnd.Margin = new System.Windows.Forms.Padding(2);
             this.datetimepickerEnd.Name = "datetimepickerEnd";
             this.datetimepickerEnd.Size = new System.Drawing.Size(286, 35);
             this.datetimepickerEnd.TabIndex = 102;
@@ -317,7 +317,7 @@
             this.datetimepickerStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datetimepickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datetimepickerStart.Location = new System.Drawing.Point(924, 26);
-            this.datetimepickerStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.datetimepickerStart.Margin = new System.Windows.Forms.Padding(2);
             this.datetimepickerStart.Name = "datetimepickerStart";
             this.datetimepickerStart.Size = new System.Drawing.Size(272, 35);
             this.datetimepickerStart.TabIndex = 101;
